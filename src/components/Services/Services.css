@@ -1,0 +1,188 @@
+/* ============================================
+   SERVICES SECTION (Screenshot 4)
+   ============================================ */
+
+.services-section {
+  padding: 100px 0 120px;
+  background: var(--color-bg-body);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.services-container {
+  max-width: 1264px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.services-header {
+  margin-bottom: 40px;
+}
+
+.services-eyebrow {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  margin-bottom: 8px;
+}
+
+.services-title {
+  font-family: var(--font-heading);
+  font-size: clamp(56px, 10vw, 120px);
+  line-height: 1;
+  color: var(--color-text-primary);
+  letter-spacing: -2px;
+}
+
+/* Subnav Tabs */
+.services-subnav {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+}
+
+.services-nav-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 0;
+  transition: color 0.3s ease;
+}
+
+.services-nav-tab:hover {
+  color: var(--color-text-primary);
+}
+
+.services-nav-tab.active {
+  color: #00b4d8;
+  font-weight: 600;
+}
+
+.services-tab-dot {
+  color: #00b4d8;
+  font-size: 20px;
+  line-height: 0;
+}
+
+/* Showcase Stage */
+.services-stage {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+
+/* Background Giant Marquee */
+.services-bg-marquee {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.services-bg-track {
+  display: flex;
+  gap: 80px;
+  animation: services-bg-scroll 20s linear infinite;
+  width: max-content;
+}
+
+.services-bg-word {
+  font-family: var(--font-heading);
+  font-size: clamp(100px, 18vw, 220px);
+  font-weight: 700;
+  color: #00b4d8;
+  opacity: 0.65;
+  white-space: nowrap;
+  letter-spacing: -4px;
+}
+
+@keyframes services-bg-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Floating Center Card */
+.services-center-card {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 16/11;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+  transition: transform 0.4s ease;
+}
+
+.services-center-card:hover {
+  transform: scale(1.03);
+}
+
+.services-center-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Description Text */
+.services-desc-text {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 28px;
+  color: var(--color-text-primary);
+  max-width: 600px;
+  margin: 0 auto 28px;
+}
+
+/* Dark Pill Tags */
+.services-tags-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.services-dark-tag {
+  padding: 8px 18px;
+  background: #383838;
+  color: #ffffff;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* Responsive */
+@media (max-width: 809px) {
+  .services-subnav {
+    gap: 24px;
+  }
+  .services-stage {
+    height: 280px;
+  }
+  .services-center-card {
+    max-width: 320px;
+  }
+  .services-desc-text {
+    font-size: 15px;
+  }
+}

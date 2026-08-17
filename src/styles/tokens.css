@@ -1,0 +1,112 @@
+/* ============================================
+   CLYDARA DESIGN TOKENS
+   Extracted from https://clydara.framer.website/
+   ============================================ */
+
+:root {
+  /* ---- Colors ---- */
+  --color-bg-primary: #f0f0f0;
+  --color-bg-body: #dcdcdc;
+  --color-bg-dark: #0d0d0d;
+  --color-bg-footer: #111116;
+  --color-bg-card-dark: #1a1a2e;
+  --color-accent: #00aeef;
+  --color-accent-light: #33c4f5;
+  --color-text-primary: rgb(19, 19, 19);
+  --color-text-secondary: rgb(92, 92, 92);
+  --color-text-muted: rgb(130, 130, 130);
+  --color-text-light: #ffffff;
+  --color-text-light-secondary: rgba(255, 255, 255, 0.7);
+  --color-border: #dcdcdc;
+  --color-border-dark: rgba(255, 255, 255, 0.1);
+  --color-overlay: rgba(0, 0, 0, 0.5);
+  --color-btn-border: rgba(255, 255, 255, 0.16);
+
+  /* ---- Typography ---- */
+  --font-heading: "Cal Sans", "Cal Sans Placeholder", sans-serif;
+  --font-body: "Inter", "Inter Placeholder", sans-serif;
+
+  /* H1 - Hero headline */
+  --h1-size: 72px;
+  --h1-line: 80px;
+  --h1-weight: 400;
+
+  /* H2 - Section titles (e.g. "Recent Works") */
+  --h2-size: 204px;
+  --h2-line: 204px;
+  --h2-weight: 400;
+
+  /* H3 */
+  --h3-size: 48px;
+  --h3-line: 56px;
+  --h3-weight: 400;
+
+  /* H4 */
+  --h4-size: 40px;
+  --h4-line: 48px;
+  --h4-weight: 400;
+
+  /* H5 */
+  --h5-size: 32px;
+  --h5-line: 40px;
+  --h5-weight: 400;
+
+  /* Body paragraph */
+  --body-size: 16px;
+  --body-line: 26px;
+  --body-weight: 400;
+
+  /* Body large */
+  --body-lg-size: 28px;
+  --body-lg-line: 42px;
+
+  /* Small / Caption */
+  --caption-size: 12px;
+  --caption-line: 18px;
+
+  /* Button text */
+  --btn-size: 14px;
+  --btn-line: 20px;
+  --btn-weight: 500;
+
+  /* ---- Spacing ---- */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 80px;
+  --space-5xl: 100px;
+  --space-6xl: 120px;
+
+  /* ---- Layout ---- */
+  --container-max: 1264px;
+  --container-padding: 64px;
+  --nav-height: 76px;
+  --spacer-height: 100px;
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 20px;
+  --border-radius-xl: 24px;
+  --border-radius-pill: 999px;
+
+  /* ---- Breakpoints (reference only, used in media queries) ---- */
+  /* Desktop: >= 1440px */
+  /* Laptop:  1024px - 1439px */
+  /* Tablet:  810px - 1023px */
+  /* Mobile:  390px - 809px */
+  /* Small:   < 390px */
+
+  /* ---- Transitions ---- */
+  --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-in-out: cubic-bezier(0.42, 0, 0.58, 1);
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 200ms;
+  --duration-normal: 400ms;
+  --duration-slow: 600ms;
+
+  /* ---- OpenType ---- */
+  --ot-features: "blwf" on, "cv09" on, "cv03" on, "cv04" on, "cv11" on;
+}

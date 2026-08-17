@@ -1,0 +1,233 @@
+/* ============================================
+   TECH LOGOS & ANGLED TAPES
+   ============================================ */
+
+.logo-ticker-wrapper {
+  width: 100%;
+  background: var(--color-bg-body);
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- Upper Tech Logos Card (Rounded bottom matching reference) --- */
+.tech-logos-card {
+  width: 100%;
+  background: #f0f0f0;
+  border-radius: 0 0 32px 32px;
+  padding: 56px 0 64px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  position: relative;
+  z-index: 1;
+}
+
+.tech-logos-marquee-wrapper {
+  width: 100%;
+  max-width: 1264px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+}
+
+.tech-logos-track {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  width: max-content;
+  animation: tech-marquee 60s linear infinite;
+}
+
+.tech-logos-track:hover {
+  animation-play-state: paused;
+}
+
+.tech-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  width: auto;
+  min-width: 48px;
+  opacity: 0.85;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.tech-logo-item:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.tech-logo-img {
+  height: 32px;
+  max-height: 32px;
+  width: auto;
+  max-width: 110px;
+  object-fit: contain;
+  display: block;
+}
+
+@keyframes tech-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* --- Overlapping Angled Tapes Section --- */
+.angled-tapes-section {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--color-bg-body);
+  padding: 50px 0;
+}
+
+.tape {
+  position: absolute;
+  width: 140vw;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
+  user-select: none;
+}
+
+/* Dark Tape: slopes up from bottom-left to top-right (-6deg), placed underneath */
+.tape-dark {
+  background: #000000;
+  color: #ffffff;
+  transform: rotate(-6deg) translateY(-24px);
+  z-index: 1;
+}
+
+/* Blue Tape: slopes down from top-left to bottom-right (6deg), placed on top */
+.tape-blue {
+  background: #00aeef;
+  color: #ffffff;
+  transform: rotate(6deg) translateY(-24px);
+  z-index: 2;
+}
+
+.tape-track {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  white-space: nowrap;
+  width: max-content;
+}
+
+.tape-track-left {
+  animation: tape-scroll-left 50s linear infinite;
+}
+
+.tape-track-right {
+  animation: tape-scroll-right 55s linear infinite;
+}
+
+.tape-item {
+  font-family: 'Cal Sans', sans-serif;
+  font-size: 26px;
+  letter-spacing: -0.5px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  color: #ffffff;
+}
+
+.tape-flower-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  filter: brightness(0) invert(1);
+}
+
+.tape-cross {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  opacity: 0.75;
+  line-height: 1;
+}
+
+@keyframes tape-scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+@keyframes tape-scroll-right {
+  0% {
+    transform: translateX(-33.333%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1023px) {
+  .tape {
+    height: 60px;
+  }
+  .tape-item {
+    font-size: 20px;
+    gap: 12px;
+  }
+  .tape-track {
+    gap: 36px;
+  }
+}
+
+@media (max-width: 809px) {
+  .tech-logos-card {
+    padding: 40px 0 48px;
+  }
+  .tech-logos-track {
+    gap: 48px;
+  }
+  .tech-logo-img {
+    height: 26px;
+  }
+  .angled-tapes-section {
+    height: 180px;
+  }
+  .tape {
+    height: 50px;
+  }
+  .tape-item {
+    font-size: 17px;
+    gap: 10px;
+  }
+  .tape-flower-icon {
+    width: 13px;
+    height: 13px;
+  }
+}

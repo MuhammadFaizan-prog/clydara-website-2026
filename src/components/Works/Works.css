@@ -1,0 +1,224 @@
+/* ============================================
+   WORKS SECTION (Sticky Stacked Showcase)
+   ============================================ */
+
+.works-section {
+  padding: 112px 8px 120px;
+  background: var(--color-bg-body);
+  position: relative;
+  width: 100%;
+}
+
+.works-container {
+  max-width: 1264px;
+  margin: 0 auto;
+}
+
+/* Header */
+.works-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.works-subtitle {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  margin-bottom: 12px;
+}
+
+.works-title {
+  font-family: var(--font-heading);
+  font-size: clamp(60px, 12vw, 180px);
+  line-height: 1;
+  color: var(--color-text-primary);
+  letter-spacing: -2px;
+}
+
+/* Cards Stack */
+.works-cards-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: relative;
+}
+
+.work-sticky-wrapper {
+  position: sticky;
+  width: 100%;
+  border-radius: 32px;
+}
+
+.work-card {
+  width: 100%;
+  min-height: 680px;
+  border-radius: 32px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+  background: #0d0d0d;
+}
+
+/* Background & Overlays */
+.work-card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.85;
+  filter: blur(40px);
+  transform: scale(1.1);
+}
+
+.work-card-noise {
+  position: absolute;
+  inset: 0;
+  background-repeat: repeat;
+  opacity: 0.15;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.work-card-blur-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 12, 12, 0.45);
+  pointer-events: none;
+}
+
+/* Content */
+.work-card-content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 240px 1fr 220px;
+  gap: 40px;
+  align-items: center;
+  width: 100%;
+  max-width: 1128px;
+  padding: 48px 32px;
+}
+
+/* Left info */
+.work-card-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 480px;
+}
+
+.work-card-desc {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.work-card-bottom-left {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.work-card-counter {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  border-bottom: 2px solid #ffffff;
+  width: fit-content;
+  padding-bottom: 2px;
+}
+
+.work-card-project-title {
+  font-family: var(--font-heading);
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 1.1;
+  color: #ffffff;
+  letter-spacing: -1px;
+}
+
+/* Center Mockup */
+.work-card-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.work-cover-wrapper {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: transform var(--duration-normal) var(--ease-smooth);
+}
+
+.work-cover-wrapper:hover {
+  transform: scale(1.02);
+}
+
+.work-cover-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Right Meta */
+.work-card-right {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.work-meta-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.work-meta-label {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+.work-meta-value {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.work-services-tags {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.work-service-item {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Responsive */
+@media (max-width: 1023px) {
+  .work-card-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .work-card-left {
+    min-height: auto;
+  }
+  .work-card {
+    min-height: auto;
+    padding: 32px 16px;
+  }
+}
