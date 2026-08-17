@@ -103,15 +103,15 @@ export default function BlogPage() {
             {blogPosts.map((post) => (
               <Link key={post.id} to={`/blog/${post.id}`} className="blog-post-card">
                 <div className="blog-post-img-wrap">
-                  <img src={post.image} alt={post.title} className="blog-post-img" />
+                  <img src={post.image} alt={post.title} className="blog-post-img" loading="lazy" />
                 </div>
 
                 <div className="blog-post-content">
-                  <div className="blog-post-title-row">
-                    <h3 className="blog-post-title">{post.title}</h3>
+                  <h3 className="blog-post-title">{post.title}</h3>
+                  <p className="blog-post-excerpt">{post.excerpt}</p>
+                  <div className="blog-post-badge-row">
                     <span className="blog-post-read-badge">{post.readTime}</span>
                   </div>
-                  <p className="blog-post-excerpt">{post.excerpt}</p>
                 </div>
               </Link>
             ))}
