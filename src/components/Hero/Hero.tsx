@@ -23,18 +23,123 @@ const heroInlineImages = [
   },
 ]
 
+// Split text into individual characters while keeping words grouped to prevent awkward wrapping
+function RevealChars({ text, className = '' }: { text: string; className?: string }) {
+  const words = text.split(' ')
+  return (
+    <span className={`reveal-text-chunk ${className}`} style={{ display: 'inline' }}>
+      {words.map((word, wIdx) => (
+        <span key={wIdx} className="reveal-word-chunk">
+          {word.split('').map((char, cIdx) => (
+            <span key={cIdx} className="reveal-item reveal-char">
+              {char}
+            </span>
+          ))}
+          {wIdx < words.length - 1 && <span className="reveal-space">&nbsp;</span>}
+        </span>
+      ))}
+    </span>
+  )
+}
+
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
-      tl.from('.hero-trust-badge', { opacity: 0, y: 16, duration: 0.5 })
-        .from('.hero-headline-row', { opacity: 0, y: 40, duration: 0.65, stagger: 0.08 }, '-=0.2')
-        .from('.hero-sub', { opacity: 0, y: 16, duration: 0.45 }, '-=0.2')
-        .from('.hero-cta-wrap', { opacity: 0, y: 16, duration: 0.4 }, '-=0.2')
-        .from('.hero-banner-wrap', { opacity: 0, y: 60, scale: 0.985, duration: 0.8 }, '-=0.25')
+
+      // 1. Trust badge: avatar slide/fade + left-to-right character reveal
+      tl.from('.hero-avatar-img', {
+        opacity: 0,
+        x: -16,
+        stagger: 0.08,
+        duration: 0.45,
+        ease: 'power2.out',
+      })
+      .fromTo(
+        '.hero-trust-text .reveal-item',
+        {
+          opacity: 0,
+          filter: 'blur(6px)',
+          x: -8,
+        },
+        {
+          opacity: 1,
+          filter: 'blur(0px)',
+          x: 0,
+          duration: 0.35,
+          stagger: 0.016,
+          ease: 'power2.out',
+        },
+        '-=0.25'
+      )
+
+      // 2. Main Hero Headlines: Left-to-right character & pill reveal across each row
+      .fromTo(
+        '.hero-headline-row-1 .reveal-item',
+        {
+          opacity: 0,
+          filter: 'blur(8px)',
+          y: 18,
+          scale: 0.95,
+        },
+        {
+          opacity: 1,
+          filter: 'blur(0px)',
+          y: 0,
+          scale: 1,
+          duration: 0.48,
+          stagger: 0.022,
+          ease: 'power3.out',
+        },
+        '-=0.15'
+      )
+      .fromTo(
+        '.hero-headline-row-2 .reveal-item',
+        {
+          opacity: 0,
+          filter: 'blur(8px)',
+          y: 18,
+          scale: 0.95,
+        },
+        {
+          opacity: 1,
+          filter: 'blur(0px)',
+          y: 0,
+          scale: 1,
+          duration: 0.48,
+          stagger: 0.02,
+          ease: 'power3.out',
+        },
+        '-=0.35'
+      )
+      .fromTo(
+        '.hero-headline-row-3 .reveal-item',
+        {
+          opacity: 0,
+          filter: 'blur(8px)',
+          y: 18,
+          scale: 0.95,
+        },
+        {
+          opacity: 1,
+          filter: 'blur(0px)',
+          y: 0,
+          scale: 1,
+          duration: 0.48,
+          stagger: 0.02,
+          ease: 'power3.out',
+        },
+        '-=0.35'
+      )
+
+      // 3. Subtitle description, CTA button, and Banner image
+      .from('.hero-sub', { opacity: 0, y: 16, duration: 0.5 }, '-=0.2')
+      .from('.hero-cta-wrap', { opacity: 0, y: 16, duration: 0.4 }, '-=0.2')
+      .from('.hero-banner-wrap', { opacity: 0, y: 50, scale: 0.985, duration: 0.75 }, '-=0.25')
     }, sectionRef)
+
     return () => ctx.revert()
   }, [])
 
@@ -60,40 +165,68 @@ export default function Hero() {
               ))}
             </div>
             <p className="hero-trust-text">
-              <span className="hero-trust-grey">Trusted by </span>
-              <strong className="hero-trust-black">Businesses Worldwide</strong>
+              <span className="hero-trust-grey">
+                <RevealChars text="Trusted by" />
+              </span>{' '}
+              <strong className="hero-trust-black">
+                <RevealChars text="Businesses Worldwide" />
+              </strong>
             </p>
           </div>
 
           {/* ── Headings ── */}
           {/* Line 1: Build [img] AI-Powered */}
-          <div className="hero-headline-row">
-            <h1 className="hero-h1 hero-dark">Build</h1>
-            <div className="hero-pill-img hero-pill-1">
-              <img src={heroInlineImages[0].src} alt="Hero Image" />
+          <div className="hero-headline-row hero-headline-row-1">
+            <h1 className="hero-h1 hero-dark">
+              <RevealChars text="Build" />
+            </h1>
+            <div className="hero-pill-anim-wrap reveal-item">
+              <div className="hero-pill-img hero-pill-1">
+                <img src={heroInlineImages[0].src} alt="Hero Image" />
+              </div>
             </div>
-            <h1 className="hero-h1 hero-accent">AI-Powered</h1>
+            <h1 className="hero-h1 hero-accent">
+              <RevealChars text="AI-Powered" />
+            </h1>
           </div>
 
           {/* Line 2: Websites & [img] Business Solutions */}
-          <div className="hero-headline-row">
-            <h1 className="hero-h1 hero-accent hero-bold">Websites</h1>
-            <h1 className="hero-h1 hero-grey hero-bold">&amp;</h1>
-            <div className="hero-pill-img hero-pill-2">
-              <img src={heroInlineImages[1].src} alt={heroInlineImages[1].alt} />
+          <div className="hero-headline-row hero-headline-row-2">
+            <h1 className="hero-h1 hero-accent hero-bold">
+              <RevealChars text="Websites" />
+            </h1>
+            <h1 className="hero-h1 hero-grey hero-bold">
+              <RevealChars text="&" />
+            </h1>
+            <div className="hero-pill-anim-wrap reveal-item">
+              <div className="hero-pill-img hero-pill-2">
+                <img src={heroInlineImages[1].src} alt={heroInlineImages[1].alt} />
+              </div>
             </div>
-            <h1 className="hero-h1 hero-dark hero-bold">Business </h1>
-            <h1 className="hero-h1 hero-accent hero-bold">Solutions</h1>
+            <h1 className="hero-h1 hero-dark hero-bold">
+              <RevealChars text="Business" />
+            </h1>
+            <h1 className="hero-h1 hero-accent hero-bold">
+              <RevealChars text="Solutions" />
+            </h1>
           </div>
 
           {/* Line 3: with [img] AI Automation */}
-          <div className="hero-headline-row">
-            <h1 className="hero-h1 hero-grey hero-bold">with</h1>
-            <div className="hero-pill-img hero-pill-3">
-              <img src={heroInlineImages[2].src} alt="hero-image" />
+          <div className="hero-headline-row hero-headline-row-3">
+            <h1 className="hero-h1 hero-grey hero-bold">
+              <RevealChars text="with" />
+            </h1>
+            <div className="hero-pill-anim-wrap reveal-item">
+              <div className="hero-pill-img hero-pill-3">
+                <img src={heroInlineImages[2].src} alt="hero-image" />
+              </div>
             </div>
-            <h1 className="hero-h1 hero-accent">AI</h1>
-            <h1 className="hero-h1 hero-dark">Automation</h1>
+            <h1 className="hero-h1 hero-accent">
+              <RevealChars text="AI" />
+            </h1>
+            <h1 className="hero-h1 hero-dark">
+              <RevealChars text="Automation" />
+            </h1>
           </div>
 
           {/* Description */}

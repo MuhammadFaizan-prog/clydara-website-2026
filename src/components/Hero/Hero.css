@@ -106,6 +106,24 @@
 .hero-grey   { color: rgb(92, 92, 92); }
 .hero-bold   { font-weight: 700; }
 
+/* ── Inline pill animation wrapper & reveal items ── */
+.hero-pill-anim-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform, opacity, filter;
+}
+
+.reveal-char {
+  display: inline-block;
+  will-change: transform, opacity, filter;
+}
+
+.reveal-word-chunk {
+  display: inline-block;
+  white-space: nowrap;
+}
+
 /* ── Inline pill images with Breathing Animation ── */
 .hero-pill-img {
   display: inline-flex;
