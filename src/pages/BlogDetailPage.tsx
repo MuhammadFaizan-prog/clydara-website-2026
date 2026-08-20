@@ -1,5 +1,7 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { useParams, Link } from 'react-router-dom'
+import gsap from 'gsap'
+import { RevealChars } from '../components/common/RevealChars'
 import { blogPosts } from './BlogPage'
 import './BlogDetailPage.css'
 import './BlogPage.css'
@@ -559,12 +561,59 @@ const articlesData: Record<string, ArticleData> = {
 
 export default function BlogDetailPage() {
   const { id } = useParams()
+  const heroRef = useRef<HTMLElement>(null)
   const post = blogPosts.find((p) => p.id === id) || blogPosts[1]
   const article = articlesData[post.id] || articlesData['is-mern-still-worth-it-2026']
 
-  // Scroll to top when post changes
+  // Scroll to top when post changes + trigger animation
   useEffect(() => {
     window.scrollTo(0, 0)
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
+
+      tl.fromTo(
+        '.blog-detail-headline-row-1 .reveal-item',
+        {
+          opacity: 0,
+          filter: 'blur(8px)',
+          y: 18,
+          scale: 0.95,
+        },
+        {
+          opacity: 1,
+          filter: 'blur(0px)',
+          y: 0,
+          scale: 1,
+          duration: 0.48,
+          stagger: 0.022,
+          ease: 'power3.out',
+        }
+      )
+      .fromTo(
+        '.blog-detail-headline-row-2 .reveal-item',
+        {
+          opacity: 0,
+          filter: 'blur(8px)',
+          y: 18,
+          scale: 0.95,
+        },
+        {
+          opacity: 1,
+          filter: 'blur(0px)',
+          y: 0,
+          scale: 1,
+          duration: 0.48,
+          stagger: 0.02,
+          ease: 'power3.out',
+        },
+        '-=0.35'
+      )
+      .from('.blog-detail-sub', { opacity: 0, y: 16, duration: 0.45 }, '-=0.2')
+      .from('.blog-detail-featured-img-wrap', { opacity: 0, y: 40, duration: 0.65 }, '-=0.25')
+    }, heroRef)
+
+    return () => ctx.revert()
   }, [id])
 
   // Related posts (excluding current)
@@ -573,21 +622,31 @@ export default function BlogDetailPage() {
   return (
     <main className="blog-detail-page">
       {/* Blog Detail Hero Card */}
-      <section className="blog-detail-hero-card">
+      <section className="blog-detail-hero-card" ref={heroRef}>
         <div className="blog-detail-hero-container">
           <div className="blog-detail-headline-wrap">
-            <div className="blog-detail-headline-row">
-              <h1 className="blog-detail-h1 blog-dark">{article.heroRow1.prefix}</h1>
-              <div className="hero-pill-img hero-pill-1">
-                <img src={article.heroRow1.pill} alt="Article pill" />
+            <div className="blog-detail-headline-row blog-detail-headline-row-1">
+              <h1 className="blog-detail-h1 blog-dark">
+                <RevealChars text={article.heroRow1.prefix} />
+              </h1>
+              <div className="hero-pill-anim-wrap reveal-item">
+                <div className="hero-pill-img hero-pill-1">
+                  <img src={article.heroRow1.pill} alt="Article pill" />
+                </div>
               </div>
-              <h1 className="blog-detail-h1 blog-accent">{article.heroRow1.accent}</h1>
+              <h1 className="blog-detail-h1 blog-accent">
+                <RevealChars text={article.heroRow1.accent} />
+              </h1>
             </div>
-            <div className="blog-detail-headline-row">
-              <div className="hero-pill-img hero-pill-2">
-                <img src={article.heroRow2.pill} alt="Article pill 2" />
+            <div className="blog-detail-headline-row blog-detail-headline-row-2">
+              <div className="hero-pill-anim-wrap reveal-item">
+                <div className="hero-pill-img hero-pill-2">
+                  <img src={article.heroRow2.pill} alt="Article pill 2" />
+                </div>
               </div>
-              <h1 className="blog-detail-h1 blog-dark">{article.heroRow2.suffix}</h1>
+              <h1 className="blog-detail-h1 blog-dark">
+                <RevealChars text={article.heroRow2.suffix} />
+              </h1>
             </div>
           </div>
 

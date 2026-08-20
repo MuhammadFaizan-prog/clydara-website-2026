@@ -1,3 +1,6 @@
+import { useEffect, useRef } from 'react'
+import gsap from 'gsap'
+import { RevealChars } from '../components/common/RevealChars'
 import Pricing from '../components/Pricing/Pricing'
 import FAQ from '../components/FAQ/FAQ'
 import './ServicesPage.css'
@@ -34,25 +37,87 @@ const servicesData = [
 ]
 
 export default function ServicesPage() {
+  const heroRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
+
+      tl.fromTo(
+        '.services-headline-row-1 .reveal-item',
+        {
+          opacity: 0,
+          filter: 'blur(8px)',
+          y: 18,
+          scale: 0.95,
+        },
+        {
+          opacity: 1,
+          filter: 'blur(0px)',
+          y: 0,
+          scale: 1,
+          duration: 0.48,
+          stagger: 0.022,
+          ease: 'power3.out',
+        }
+      )
+      .fromTo(
+        '.services-headline-row-2 .reveal-item',
+        {
+          opacity: 0,
+          filter: 'blur(8px)',
+          y: 18,
+          scale: 0.95,
+        },
+        {
+          opacity: 1,
+          filter: 'blur(0px)',
+          y: 0,
+          scale: 1,
+          duration: 0.48,
+          stagger: 0.02,
+          ease: 'power3.out',
+        },
+        '-=0.35'
+      )
+      .from('.services-hero-sub', { opacity: 0, y: 16, duration: 0.45 }, '-=0.2')
+      .from('.services-hero-cta', { opacity: 0, y: 16, duration: 0.4 }, '-=0.2')
+    }, heroRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
     <main className="services-page">
       {/* Services Hero Card */}
-      <section className="services-hero-card">
+      <section className="services-hero-card" ref={heroRef}>
         <div className="services-hero-container">
           <div className="services-headline-wrap">
-            <div className="services-headline-row">
-              <h1 className="services-h1 services-dark">Our Creative</h1>
-              <div className="hero-pill-img hero-pill-1">
-                <img src="https://framerusercontent.com/images/gsNRDCdqr35AMePFR63718Ew0.png?width=324&height=256" alt="Creative service" />
+            <div className="services-headline-row services-headline-row-1">
+              <h1 className="services-h1 services-dark">
+                <RevealChars text="Our Creative" />
+              </h1>
+              <div className="hero-pill-anim-wrap reveal-item">
+                <div className="hero-pill-img hero-pill-1">
+                  <img src="https://framerusercontent.com/images/gsNRDCdqr35AMePFR63718Ew0.png?width=324&height=256" alt="Creative service" />
+                </div>
               </div>
-              <h1 className="services-h1 services-accent">Services</h1>
+              <h1 className="services-h1 services-accent">
+                <RevealChars text="Services" />
+              </h1>
             </div>
-            <div className="services-headline-row">
-              <h1 className="services-h1 services-gray">Excellence</h1>
-              <div className="hero-pill-img hero-pill-2">
-                <img src="https://framerusercontent.com/images/UyfhGP2aptx2DrJ0sZOnxNd6bo.png?width=324&height=256" alt="Excellence" />
+            <div className="services-headline-row services-headline-row-2">
+              <h1 className="services-h1 services-gray">
+                <RevealChars text="Excellence" />
+              </h1>
+              <div className="hero-pill-anim-wrap reveal-item">
+                <div className="hero-pill-img hero-pill-2">
+                  <img src="https://framerusercontent.com/images/UyfhGP2aptx2DrJ0sZOnxNd6bo.png?width=324&height=256" alt="Excellence" />
+                </div>
               </div>
-              <h1 className="services-h1 services-dark">Delivered</h1>
+              <h1 className="services-h1 services-dark">
+                <RevealChars text="Delivered" />
+              </h1>
             </div>
           </div>
 

@@ -1,4 +1,7 @@
+import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import gsap from 'gsap'
+import { RevealChars } from '../components/common/RevealChars'
 import Pricing from '../components/Pricing/Pricing'
 import FAQ from '../components/FAQ/FAQ'
 import './WorksPage.css'
@@ -40,25 +43,87 @@ const worksData = [
 ]
 
 export default function WorksPage() {
+  const heroRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
+
+      tl.fromTo(
+        '.works-headline-row-1 .reveal-item',
+        {
+          opacity: 0,
+          filter: 'blur(8px)',
+          y: 18,
+          scale: 0.95,
+        },
+        {
+          opacity: 1,
+          filter: 'blur(0px)',
+          y: 0,
+          scale: 1,
+          duration: 0.48,
+          stagger: 0.022,
+          ease: 'power3.out',
+        }
+      )
+      .fromTo(
+        '.works-headline-row-2 .reveal-item',
+        {
+          opacity: 0,
+          filter: 'blur(8px)',
+          y: 18,
+          scale: 0.95,
+        },
+        {
+          opacity: 1,
+          filter: 'blur(0px)',
+          y: 0,
+          scale: 1,
+          duration: 0.48,
+          stagger: 0.02,
+          ease: 'power3.out',
+        },
+        '-=0.35'
+      )
+      .from('.works-hero-sub', { opacity: 0, y: 16, duration: 0.45 }, '-=0.2')
+      .from('.works-hero-cta', { opacity: 0, y: 16, duration: 0.4 }, '-=0.2')
+    }, heroRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
     <main className="works-page">
       {/* Works Hero Card */}
-      <section className="works-hero-card">
+      <section className="works-hero-card" ref={heroRef}>
         <div className="works-hero-container">
           <div className="works-headline-wrap">
-            <div className="works-headline-row">
-              <h1 className="works-h1 works-dark">Our Work</h1>
-              <div className="hero-pill-img hero-pill-1">
-                <img src="https://framerusercontent.com/images/5gx4SUhPYeLLdKmhfb1EB5xC88.jpg?width=220&height=148" alt="Work highlight" />
+            <div className="works-headline-row works-headline-row-1">
+              <h1 className="works-h1 works-dark">
+                <RevealChars text="Our Work" />
+              </h1>
+              <div className="hero-pill-anim-wrap reveal-item">
+                <div className="hero-pill-img hero-pill-1">
+                  <img src="https://framerusercontent.com/images/5gx4SUhPYeLLdKmhfb1EB5xC88.jpg?width=220&height=148" alt="Work highlight" />
+                </div>
               </div>
-              <h1 className="works-h1 works-accent">That Drives</h1>
+              <h1 className="works-h1 works-accent">
+                <RevealChars text="That Drives" />
+              </h1>
             </div>
-            <div className="works-headline-row">
-              <h1 className="works-h1 works-gray">Business</h1>
-              <div className="hero-pill-img hero-pill-2">
-                <img src="https://framerusercontent.com/images/zSO6VAgT8vhYqZLGuzPnzyi2Gw4.jpg?width=2000&height=1200" alt="Growth highlight" />
+            <div className="works-headline-row works-headline-row-2">
+              <h1 className="works-h1 works-gray">
+                <RevealChars text="Business" />
+              </h1>
+              <div className="hero-pill-anim-wrap reveal-item">
+                <div className="hero-pill-img hero-pill-2">
+                  <img src="https://framerusercontent.com/images/zSO6VAgT8vhYqZLGuzPnzyi2Gw4.jpg?width=2000&height=1200" alt="Growth highlight" />
+                </div>
               </div>
-              <h1 className="works-h1 works-dark">Growth</h1>
+              <h1 className="works-h1 works-dark">
+                <RevealChars text="Growth" />
+              </h1>
             </div>
           </div>
 

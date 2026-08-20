@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { RevealChars } from '../components/common/RevealChars'
 import Founders from '../components/Founders/Founders'
 import Values from '../components/Values/Values'
 import FAQ from '../components/FAQ/FAQ'
@@ -25,10 +26,56 @@ const statementText =
   'We help fast-moving digital startups launch sharper brands and websites with clarity, speed, and no drama. Think bold storytelling, pixel-perfect design, and agile execution all tailored to scale your next big move.'
 
 export default function AboutPage() {
+  const pageRef = useRef<HTMLElement>(null)
   const statementRef = useRef<HTMLParagraphElement>(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // 1. Hero Left-to-Right Reveal Timeline
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
+
+      tl.fromTo(
+        '.about-headline-row-1 .reveal-item',
+        {
+          opacity: 0,
+          filter: 'blur(8px)',
+          y: 18,
+          scale: 0.95,
+        },
+        {
+          opacity: 1,
+          filter: 'blur(0px)',
+          y: 0,
+          scale: 1,
+          duration: 0.48,
+          stagger: 0.022,
+          ease: 'power3.out',
+        }
+      )
+      .fromTo(
+        '.about-headline-row-2 .reveal-item',
+        {
+          opacity: 0,
+          filter: 'blur(8px)',
+          y: 18,
+          scale: 0.95,
+        },
+        {
+          opacity: 1,
+          filter: 'blur(0px)',
+          y: 0,
+          scale: 1,
+          duration: 0.48,
+          stagger: 0.02,
+          ease: 'power3.out',
+        },
+        '-=0.35'
+      )
+      .from('.about-hero-sub', { opacity: 0, y: 16, duration: 0.45 }, '-=0.2')
+      .from('.about-hero-cta', { opacity: 0, y: 16, duration: 0.4 }, '-=0.2')
+      .from('.about-hero-logos', { opacity: 0, y: 20, duration: 0.6 }, '-=0.2')
+
+      // 2. Statement Scroll Scrub
       const words = statementRef.current?.querySelectorAll('.about-stmt-word')
       if (words && words.length > 0) {
         gsap.fromTo(
@@ -47,30 +94,42 @@ export default function AboutPage() {
           }
         )
       }
-    }, statementRef)
+    }, pageRef)
 
     return () => ctx.revert()
   }, [])
 
   return (
-    <main className="about-page">
+    <main className="about-page" ref={pageRef}>
       {/* About Hero Card */}
       <section className="about-hero-card">
         <div className="about-hero-container">
           <div className="about-headline-wrap">
-            <div className="about-headline-row">
-              <h1 className="about-h1 about-dark">Meet Clydara</h1>
-              <div className="hero-pill-img hero-pill-1">
-                <img src="https://framerusercontent.com/images/9nS18NxRNZgZN2Nke02tqLS9eNE.jpg?width=826&height=371" alt="Meet Clydara" />
+            <div className="about-headline-row about-headline-row-1">
+              <h1 className="about-h1 about-dark">
+                <RevealChars text="Meet Clydara" />
+              </h1>
+              <div className="hero-pill-anim-wrap reveal-item">
+                <div className="hero-pill-img hero-pill-1">
+                  <img src="https://framerusercontent.com/images/9nS18NxRNZgZN2Nke02tqLS9eNE.jpg?width=826&height=371" alt="Meet Clydara" />
+                </div>
               </div>
-              <h1 className="about-h1 about-accent">Bold Ideas</h1>
+              <h1 className="about-h1 about-accent">
+                <RevealChars text="Bold Ideas" />
+              </h1>
             </div>
-            <div className="about-headline-row">
-              <h1 className="about-h1 about-gray">Real Impact</h1>
-              <div className="hero-pill-img hero-pill-2">
-                <img src="https://framerusercontent.com/images/WxH5CFA7400s3OucSYNbyQr0.jpg?width=299&height=168" alt="Real Impact" />
+            <div className="about-headline-row about-headline-row-2">
+              <h1 className="about-h1 about-gray">
+                <RevealChars text="Real Impact" />
+              </h1>
+              <div className="hero-pill-anim-wrap reveal-item">
+                <div className="hero-pill-img hero-pill-2">
+                  <img src="https://framerusercontent.com/images/WxH5CFA7400s3OucSYNbyQr0.jpg?width=299&height=168" alt="Real Impact" />
+                </div>
               </div>
-              <h1 className="about-h1 about-dark">Driven by Innovation</h1>
+              <h1 className="about-h1 about-dark">
+                <RevealChars text="Driven by Innovation" />
+              </h1>
             </div>
           </div>
 

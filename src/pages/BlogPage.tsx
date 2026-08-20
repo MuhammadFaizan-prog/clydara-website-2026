@@ -1,4 +1,7 @@
+import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import gsap from 'gsap'
+import { RevealChars } from '../components/common/RevealChars'
 import './BlogPage.css'
 
 export const blogPosts = [
@@ -59,25 +62,94 @@ export const blogPosts = [
 ]
 
 export default function BlogPage() {
+  const heroRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
+
+      tl.fromTo(
+        '.blog-headline-row-1 .reveal-item',
+        {
+          opacity: 0,
+          filter: 'blur(8px)',
+          y: 18,
+          scale: 0.95,
+        },
+        {
+          opacity: 1,
+          filter: 'blur(0px)',
+          y: 0,
+          scale: 1,
+          duration: 0.48,
+          stagger: 0.022,
+          ease: 'power3.out',
+        }
+      )
+      .fromTo(
+        '.blog-headline-row-2 .reveal-item',
+        {
+          opacity: 0,
+          filter: 'blur(8px)',
+          y: 18,
+          scale: 0.95,
+        },
+        {
+          opacity: 1,
+          filter: 'blur(0px)',
+          y: 0,
+          scale: 1,
+          duration: 0.48,
+          stagger: 0.02,
+          ease: 'power3.out',
+        },
+        '-=0.35'
+      )
+      .from('.blog-hero-sub', { opacity: 0, y: 16, duration: 0.45 }, '-=0.2')
+      .from('.blog-hero-cta', { opacity: 0, y: 16, duration: 0.4 }, '-=0.2')
+      .from('.blog-post-card', {
+        opacity: 0,
+        y: 30,
+        duration: 0.55,
+        stagger: 0.08,
+        ease: 'power2.out',
+      }, '-=0.15')
+    }, heroRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
     <main className="blog-page">
       {/* Blog Hero Card */}
-      <section className="blog-hero-card">
+      <section className="blog-hero-card" ref={heroRef}>
         <div className="blog-hero-container">
           <div className="blog-headline-wrap">
-            <div className="blog-headline-row">
-              <h1 className="blog-h1 blog-dark">Ideas that</h1>
-              <div className="hero-pill-img hero-pill-1">
-                <img src="https://framerusercontent.com/images/fXkEtDrUaMJaQ5o6xEuGLn1PBA.jpg?width=1024&height=1024" alt="Ideas highlight" />
+            <div className="blog-headline-row blog-headline-row-1">
+              <h1 className="blog-h1 blog-dark">
+                <RevealChars text="Ideas that" />
+              </h1>
+              <div className="hero-pill-anim-wrap reveal-item">
+                <div className="hero-pill-img hero-pill-1">
+                  <img src="https://framerusercontent.com/images/fXkEtDrUaMJaQ5o6xEuGLn1PBA.jpg?width=1024&height=1024" alt="Ideas highlight" />
+                </div>
               </div>
-              <h1 className="blog-h1 blog-accent">Shape</h1>
+              <h1 className="blog-h1 blog-accent">
+                <RevealChars text="Shape" />
+              </h1>
             </div>
-            <div className="blog-headline-row">
-              <h1 className="blog-h1 blog-dark">the</h1>
-              <div className="hero-pill-img hero-pill-2">
-                <img src="https://framerusercontent.com/images/uKMtELWjwXKRRO31gDwrfD0ULZk.jpg?width=1400&height=933" alt="Future highlight" />
+            <div className="blog-headline-row blog-headline-row-2">
+              <h1 className="blog-h1 blog-dark">
+                <RevealChars text="the" />
+              </h1>
+              <div className="hero-pill-anim-wrap reveal-item">
+                <div className="hero-pill-img hero-pill-2">
+                  <img src="https://framerusercontent.com/images/uKMtELWjwXKRRO31gDwrfD0ULZk.jpg?width=1400&height=933" alt="Future highlight" />
+                </div>
               </div>
-              <h1 className="blog-h1 blog-accent">Digital Future</h1>
+              <h1 className="blog-h1 blog-accent">
+                <RevealChars text="Digital Future" />
+              </h1>
             </div>
           </div>
 

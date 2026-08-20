@@ -1,16 +1,67 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import gsap from 'gsap'
+import { RevealChars } from '../components/common/RevealChars'
 import FAQ from '../components/FAQ/FAQ'
 import './ContactPage.css'
 
 const flowerIcon = 'https://framerusercontent.com/images/bPFUMYGmKDGU6pubiY2MFnjtBAk.svg'
 
 export default function ContactPage() {
+  const heroRef = useRef<HTMLElement>(null)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     description: '',
   })
   const [submitted, setSubmitted] = useState(false)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
+
+      tl.fromTo(
+        '.contact-headline-row-1 .reveal-item',
+        {
+          opacity: 0,
+          filter: 'blur(8px)',
+          y: 18,
+          scale: 0.95,
+        },
+        {
+          opacity: 1,
+          filter: 'blur(0px)',
+          y: 0,
+          scale: 1,
+          duration: 0.48,
+          stagger: 0.022,
+          ease: 'power3.out',
+        }
+      )
+      .fromTo(
+        '.contact-headline-row-2 .reveal-item',
+        {
+          opacity: 0,
+          filter: 'blur(8px)',
+          y: 18,
+          scale: 0.95,
+        },
+        {
+          opacity: 1,
+          filter: 'blur(0px)',
+          y: 0,
+          scale: 1,
+          duration: 0.48,
+          stagger: 0.02,
+          ease: 'power3.out',
+        },
+        '-=0.35'
+      )
+      .from('.contact-hero-sub', { opacity: 0, y: 16, duration: 0.45 }, '-=0.2')
+      .from('.contact-form-card', { opacity: 0, y: 24, duration: 0.6 }, '-=0.2')
+    }, heroRef)
+
+    return () => ctx.revert()
+  }, [])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -20,22 +71,34 @@ export default function ContactPage() {
   return (
     <main className="contact-page">
       {/* Hero Card */}
-      <section className="contact-hero-card">
+      <section className="contact-hero-card" ref={heroRef}>
         <div className="contact-hero-container">
           <div className="contact-headline-wrap">
-            <div className="contact-headline-row">
-              <h1 className="contact-h1 contact-gray">Let's Built</h1>
-              <div className="hero-pill-img hero-pill-1">
-                <img src="https://framerusercontent.com/images/pK45P6DfJldnMsnh4JlPbVNhpwA.png?width=324&height=256" alt="Build together" />
+            <div className="contact-headline-row contact-headline-row-1">
+              <h1 className="contact-h1 contact-gray">
+                <RevealChars text="Let's Built" />
+              </h1>
+              <div className="hero-pill-anim-wrap reveal-item">
+                <div className="hero-pill-img hero-pill-1">
+                  <img src="https://framerusercontent.com/images/pK45P6DfJldnMsnh4JlPbVNhpwA.png?width=324&height=256" alt="Build together" />
+                </div>
               </div>
-              <h1 className="contact-h1 contact-accent">Something</h1>
+              <h1 className="contact-h1 contact-accent">
+                <RevealChars text="Something" />
+              </h1>
             </div>
-            <div className="contact-headline-row">
-              <h1 className="contact-h1 contact-gray">Together</h1>
-              <div className="hero-pill-img hero-pill-2">
-                <img src="https://framerusercontent.com/images/lyJVmEhSRroExh2oHU7e1RKP1bU.png?width=325&height=256" alt="Together" />
+            <div className="contact-headline-row contact-headline-row-2">
+              <h1 className="contact-h1 contact-gray">
+                <RevealChars text="Together" />
+              </h1>
+              <div className="hero-pill-anim-wrap reveal-item">
+                <div className="hero-pill-img hero-pill-2">
+                  <img src="https://framerusercontent.com/images/lyJVmEhSRroExh2oHU7e1RKP1bU.png?width=325&height=256" alt="Together" />
+                </div>
               </div>
-              <h1 className="contact-h1 contact-dark">Contact</h1>
+              <h1 className="contact-h1 contact-dark">
+                <RevealChars text="Contact" />
+              </h1>
             </div>
           </div>
 

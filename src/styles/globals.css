@@ -59,6 +59,28 @@ button {
   font-family: inherit;
 }
 
+/* ── Text & Element Left-to-Right Reveal Utilities ── */
+.reveal-text-chunk {
+  display: inline;
+}
+
+.reveal-word-chunk {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.reveal-char {
+  display: inline-block;
+  will-change: transform, opacity, filter;
+}
+
+.hero-pill-anim-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform, opacity, filter;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: var(--h1-weight);
