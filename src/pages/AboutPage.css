@@ -207,8 +207,9 @@
 }
 
 /* Expertise Section / What We Do Best */
+/* Expertise Section / What We Do Best */
 .about-expertise-section {
-  padding: 80px 0 100px;
+  padding: 100px 0 60px;
 }
 
 .about-expertise-container {
@@ -219,21 +220,21 @@
 
 .about-expertise-header {
   text-align: center;
-  margin-bottom: 56px;
+  margin-bottom: 48px;
 }
 
 .about-eyebrow {
-  font-family: 'Caveat', cursive;
-  font-size: 28px;
-  color: #00aeef;
-  font-weight: 600;
-  margin-bottom: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: rgb(115, 115, 115);
+  font-weight: 500;
+  margin-bottom: 12px;
 }
 
 .about-giant-heading {
   font-family: 'Cal Sans', sans-serif;
-  font-size: clamp(44px, 6vw, 72px);
-  line-height: 1.15;
+  font-size: clamp(48px, 6vw, 72px);
+  line-height: 1.1;
   color: rgb(19, 19, 19);
   letter-spacing: -1px;
   font-weight: 400;
@@ -242,51 +243,51 @@
 
 .about-expertise-sub {
   font-family: 'Inter', sans-serif;
-  font-size: 17px;
-  line-height: 28px;
-  color: rgb(92, 92, 92);
-  max-width: 720px;
+  font-size: 15px;
+  line-height: 26px;
+  color: rgb(115, 115, 115);
+  max-width: 680px;
   margin: 0 auto;
 }
 
 .expertise-stack-container {
-  max-width: 780px;
+  max-width: 680px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
 }
 
 .expertise-stack-card {
   background: #ffffff;
-  border-radius: 28px;
+  border-radius: 24px;
   padding: 36px 40px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.04);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .expertise-stack-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.06);
 }
 
 .expertise-card-top-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .expertise-icon-box {
   width: 48px;
   height: 48px;
-  border-radius: 14px;
+  border-radius: 12px;
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 16px -2px rgba(0, 0, 0, 0.16), 0 2px 4px rgba(0, 0, 0, 0.06);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -296,7 +297,7 @@
 .expertise-core-badge {
   padding: 6px 18px;
   border-radius: 50px;
-  background: rgba(60, 60, 60, 0.85);
+  background: #4a4a4a;
   color: #ffffff;
   font-family: 'Inter', sans-serif;
   font-size: 13px;
@@ -304,99 +305,100 @@
 }
 
 .expertise-card-title {
-  font-family: 'Cal Sans', sans-serif;
-  font-size: 22px;
+  font-family: 'Inter', sans-serif;
+  font-size: 19px;
+  font-weight: 500;
   color: rgb(19, 19, 19);
   margin-bottom: 12px;
-  font-weight: 400;
-  letter-spacing: -0.3px;
+  letter-spacing: -0.2px;
 }
 
 .expertise-card-desc {
   font-family: 'Inter', sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 24px;
-  color: rgb(92, 92, 92);
+  color: rgb(100, 100, 100);
   margin: 0;
 }
 
 /* CTA Banner - Project In Mind */
 .about-cta-banner-section {
-  padding: 60px 0 80px;
+  padding: 20px 0 80px;
 }
 
 .about-cta-banner-container {
-  max-width: 900px;
+  max-width: 680px;
   margin: 0 auto;
   padding: 0 var(--container-padding);
 }
 
 .about-cta-card {
-  background: linear-gradient(135deg, #071326 0%, #0a1f3d 50%, #002d5e 100%);
+  background: radial-gradient(circle at 85% 95%, rgba(0, 180, 216, 0.45) 0%, transparent 65%), #0d0d0d;
   color: #ffffff;
-  border-radius: 32px;
-  padding: 72px 48px;
-  text-align: center;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+  border-radius: 28px;
+  padding: 48px 40px;
+  text-align: left;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
   position: relative;
   overflow: hidden;
 }
 
 .about-cta-content {
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 540px;
   position: relative;
   z-index: 1;
 }
 
 .about-cta-heading {
   font-family: 'Cal Sans', sans-serif;
-  font-size: clamp(36px, 5vw, 56px);
+  font-size: clamp(32px, 4vw, 42px);
   line-height: 1.1;
   color: #ffffff;
-  margin: 0 0 6px;
-  font-weight: 400;
-  letter-spacing: -1px;
+  letter-spacing: -0.5px;
+  margin: 0;
 }
 
 .about-cta-heading-cyan {
   font-family: 'Cal Sans', sans-serif;
-  font-size: clamp(36px, 5vw, 56px);
+  font-size: clamp(32px, 4vw, 42px);
   line-height: 1.1;
-  color: #00aeef;
-  margin: 0 0 20px;
-  font-weight: 400;
-  letter-spacing: -1px;
+  color: #00b4d8;
+  letter-spacing: -0.5px;
+  margin-top: 4px;
+  margin-bottom: 16px;
 }
 
 .about-cta-sub {
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  line-height: 26px;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 36px;
+  font-size: 14px;
+  line-height: 24px;
+  color: rgb(160, 160, 160);
+  margin-bottom: 32px;
 }
 
 .about-cta-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 36px;
+  height: 44px;
+  padding: 0 28px;
   background: rgba(255, 255, 255, 0.12);
   color: #ffffff;
-  border-radius: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
   font-family: 'Inter', sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
   text-decoration: none;
-  transition: transform 0.2s ease, background 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .about-cta-btn:hover {
-  background: rgba(255, 255, 255, 0.22);
-  transform: scale(1.03);
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
 }
+
+
 
 /* Responsive */
 @media (max-width: 1280px) {

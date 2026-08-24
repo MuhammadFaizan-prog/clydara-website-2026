@@ -4,7 +4,7 @@ export function RevealChars({ text, className = "" }: { text: string; className?
     <span className={`reveal-text-chunk ${className}`} style={{ display: "inline" }}>
       {words.map((word, wIdx) => (
         <span key={wIdx} className="reveal-word-chunk">
-          {word.split("").map((char, cIdx) => (
+          {Array.from(word).map((char, cIdx) => (
             <span key={cIdx} className="reveal-item reveal-char">
               {char}
             </span>

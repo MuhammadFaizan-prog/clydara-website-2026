@@ -254,9 +254,9 @@ export default function AboutPage() {
                 <div className="expertise-icon-box">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="3" y="3" width="18" height="18" rx="2" />
-                    <path d="M7 7h10" />
-                    <path d="M7 12h10" />
-                    <path d="M7 17h10" />
+                    <path d="M3 9h18" />
+                    <path d="M8 14l2 2-2 2" />
+                    <path d="M12 18h4" />
                   </svg>
                 </div>
               </div>
@@ -274,6 +274,7 @@ export default function AboutPage() {
                     <path d="M12 19l7-7 3 3-7 7-3-3z" />
                     <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
                     <path d="M2 2l7.586 7.586" />
+                    <circle cx="11" cy="11" r="2" />
                   </svg>
                 </div>
               </div>
