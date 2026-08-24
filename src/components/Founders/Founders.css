@@ -184,16 +184,34 @@
 
 /* Responsive */
 @media (max-width: 809px) {
+  .founders-section {
+    padding: 60px 0 80px;
+  }
+  .founders-container {
+    padding: 0 20px;
+  }
+  .founders-title-header {
+    margin-bottom: 40px;
+  }
+  .founders-giant-title {
+    font-size: clamp(40px, 10vw, 64px);
+  }
+  .founders-list {
+    gap: 60px;
+  }
   .founder-row {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 36px;
   }
   .founder-faizan {
     display: flex;
     flex-direction: column-reverse;
   }
+  .founder-photo-card {
+    border-radius: 24px;
+  }
   .timeline-row {
-    grid-template-columns: 120px 1fr;
+    grid-template-columns: 100px 1fr;
     gap: 12px;
   }
 }

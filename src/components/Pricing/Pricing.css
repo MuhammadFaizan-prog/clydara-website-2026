@@ -323,9 +323,28 @@
 
 /* Responsive */
 @media (max-width: 809px) {
+  .pricing-section {
+    padding: 60px 0 80px;
+  }
+  .pricing-header {
+    margin-bottom: 40px;
+  }
+  .pricing-headline {
+    font-size: clamp(34px, 8vw, 54px);
+  }
+  .pricing-stack-wrapper {
+    min-height: 760px;
+  }
   .pricing-card {
     grid-template-columns: 1fr;
-    gap: 36px;
-    padding: 36px 24px;
+    gap: 32px;
+    padding: 36px 20px;
+    border-radius: 24px;
+  }
+  .pricing-tier-title {
+    font-size: 26px;
+  }
+  .pricing-cost-title {
+    font-size: 32px;
   }
 }

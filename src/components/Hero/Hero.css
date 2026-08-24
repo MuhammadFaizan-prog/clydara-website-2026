@@ -182,10 +182,10 @@
 /* ── Subtitle description ── */
 .hero-sub {
   font-family: 'Inter', sans-serif;
-  font-size: 18px;
-  line-height: 28px;
-  letter-spacing: -0.18px;
-  color: rgb(0, 0, 0);
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.14px;
+  color: rgb(92, 92, 92);
   max-width: 900px;
   margin: 36px 0 0;
 }
@@ -255,68 +255,66 @@
 }
 
 /* ── Responsive ── */
-@media (max-width: 1280px) {
+@media (max-width: 1439px) and (min-width: 1024px) {
   .hero-h1 {
-    font-size: 60px;
-    line-height: 68px;
+    font-size: 64px;
+    line-height: 72px;
   }
   .hero-headline-row {
-    line-height: 68px;
+    line-height: 72px;
+    gap: 12px;
+  }
+  .hero-pill-img {
+    width: 72px;
+    height: 56px;
+  }
+}
+
+@media (max-width: 1023px) and (min-width: 810px) {
+  .hero-text-area {
+    padding: 100px 32px 0;
+  }
+  .hero-h1 {
+    font-size: 54px;
+    line-height: 62px;
+  }
+  .hero-headline-row {
+    line-height: 62px;
     gap: 10px;
   }
   .hero-pill-img {
-    width: 68px;
-    height: 54px;
+    width: 60px;
+    height: 48px;
   }
 }
 
-@media (max-width: 1024px) {
-  .hero-h1 {
-    font-size: 48px;
-    line-height: 56px;
-  }
-  .hero-headline-row {
-    line-height: 56px;
-    gap: 8px;
-  }
-  .hero-pill-img {
-    width: 56px;
-    height: 44px;
-  }
-}
-
-@media (max-width: 768px) {
+@media (max-width: 809px) {
   .hero-text-area {
-    padding: 48px 20px 0;
+    padding: 90px 20px 0;
+  }
+  .hero-trust-badge {
+    margin-bottom: 24px;
   }
   .hero-h1 {
-    font-size: 36px;
-    line-height: 44px;
+    font-size: 34px;
+    line-height: 40px;
+    white-space: normal;
   }
   .hero-headline-row {
-    line-height: 44px;
+    line-height: 40px;
     gap: 6px;
+    flex-wrap: wrap;
   }
-  .hero-pill-img {
-    width: 42px;
-    height: 34px;
+  .hero-pill-anim-wrap {
+    display: none;
   }
   .hero-sub {
-    font-size: 16px;
-    line-height: 26px;
+    font-size: 14px;
+    line-height: 22px;
+    margin-top: 20px;
   }
   .hero-cta-wrap {
+    margin-top: 24px;
     margin-bottom: 40px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-h1 {
-    font-size: 28px;
-    line-height: 36px;
-  }
-  .hero-pill-img {
-    width: 34px;
-    height: 28px;
   }
 }
