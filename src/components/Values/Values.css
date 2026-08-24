@@ -55,10 +55,11 @@
 }
 
 .impact-eyebrow {
-  font-family: var(--font-body);
-  font-size: 15px;
-  color: rgb(130, 130, 130);
-  margin-bottom: 16px;
+  font-family: 'Caveat', cursive;
+  font-size: 28px;
+  color: #00aeef;
+  font-weight: 600;
+  margin-bottom: 8px;
 }
 
 .impact-headline {

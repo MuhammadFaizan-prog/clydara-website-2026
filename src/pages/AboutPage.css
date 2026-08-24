@@ -224,11 +224,11 @@
 }
 
 .about-eyebrow {
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  color: rgb(115, 115, 115);
-  font-weight: 500;
-  margin-bottom: 12px;
+  font-family: 'Caveat', cursive;
+  font-size: 28px;
+  color: #00aeef;
+  font-weight: 600;
+  margin-bottom: 8px;
 }
 
 .about-giant-heading {

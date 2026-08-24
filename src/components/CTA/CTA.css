@@ -27,9 +27,11 @@
 }
 
 .cta-eyebrow {
-  font-family: var(--font-body);
-  font-size: var(--body-size);
-  color: var(--color-text-muted);
+  font-family: 'Caveat', cursive;
+  font-size: 28px;
+  color: #00aeef;
+  font-weight: 600;
+  margin-bottom: 8px;
 }
 
 .cta-headline {
