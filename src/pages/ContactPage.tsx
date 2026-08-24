@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { RevealChars } from '../components/common/RevealChars'
+import { RevealHeading } from '../components/common/RevealHeading'
 import FAQ from '../components/FAQ/FAQ'
 import './ContactPage.css'
 
@@ -121,7 +122,7 @@ export default function ContactPage() {
             <div className="contact-card-arc"></div>
 
             <div className="contact-form-header">
-              <h2 className="contact-form-headline">Got a project in mind?</h2>
+              <RevealHeading as="h2" className="contact-form-headline" text="Got a project in mind?" />
               <p className="contact-form-sub">
                 Let's make something happen together
               </p>

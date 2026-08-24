@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { RevealHeading } from '../common/RevealHeading'
+import { RevealChars } from '../common/RevealChars'
 import './Values.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -35,16 +37,6 @@ export default function Values() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.impact-header', {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 75%',
-        },
-      })
-
       gsap.from('.impact-row', {
         opacity: 0,
         y: 30,
@@ -99,10 +91,10 @@ export default function Values() {
         {/* Header */}
         <div className="impact-header">
           <p className="impact-eyebrow">(Our Impact)</p>
-          <h2 className="impact-headline">
-            Building Digital Success Stories, <br />
-            One Project at a Time.
-          </h2>
+          <RevealHeading as="h2" className="impact-headline">
+            <RevealChars text="Building Digital Success Stories," /> <br />
+            <RevealChars text="One Project at a Time." />
+          </RevealHeading>
         </div>
 
         {/* Rows */}
@@ -110,7 +102,7 @@ export default function Values() {
           {impactList.map((val, idx) => (
             <div key={idx} className="impact-row">
               <div className="impact-left">
-                <span className="impact-title">{val.title}</span>
+                <RevealHeading as="span" className="impact-title" text={val.title} />
               </div>
               <div className="impact-right">
                 <p className="impact-desc">{val.desc}</p>

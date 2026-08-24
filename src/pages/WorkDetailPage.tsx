@@ -1,4 +1,5 @@
 import { useParams, Link } from 'react-router-dom'
+import { RevealHeading } from '../components/common/RevealHeading'
 import Pricing from '../components/Pricing/Pricing'
 
 const worksProjects = [
@@ -60,7 +61,9 @@ export default function WorkDetailPage() {
           <span style={{ fontFamily: 'var(--font-body)', color: 'var(--color-text-secondary)', fontSize: '15px' }}>
             Case Study
           </span>
-          <h1
+          <RevealHeading
+            as="h1"
+            text={project.title}
             style={{
               fontFamily: 'var(--font-heading)',
               fontSize: 'clamp(44px, 8vw, 88px)',
@@ -68,9 +71,7 @@ export default function WorkDetailPage() {
               letterSpacing: '-2px',
               marginTop: '8px',
             }}
-          >
-            {project.title}
-          </h1>
+          />
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '20px', lineHeight: '32px', color: 'var(--color-text-secondary)', maxWidth: '720px', marginTop: '16px' }}>
             {project.desc}
           </p>

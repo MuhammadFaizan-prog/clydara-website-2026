@@ -1,37 +1,20 @@
-import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { RevealHeading } from '../common/RevealHeading'
+import { RevealChars } from '../common/RevealChars'
 import './CTA.css'
 
-gsap.registerPlugin(ScrollTrigger)
-
 export default function CTA() {
-  const sectionRef = useRef<HTMLElement>(null)
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from('.cta-card', {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 75%',
-        },
-      })
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
-
   return (
-    <section className="cta-section" id="contact" ref={sectionRef}>
+    <section className="cta-section" id="contact">
       <div className="cta-container">
         <div className="cta-card">
           <p className="cta-eyebrow">(Work With Us)</p>
-          <h2 className="cta-headline">
-            Ready to build your next <span className="text-accent">digital breakthrough</span>?
-          </h2>
+          <RevealHeading as="h2" className="cta-headline">
+            <RevealChars text="Ready to build your next" />{' '}
+            <span className="text-accent">
+              <RevealChars text="digital breakthrough" />
+            </span>
+            <RevealChars text="?" />
+          </RevealHeading>
           <p className="cta-sub">
             Let's transform your vision into high-impact software, scalable SaaS platforms, and unforgettable brands.
           </p>

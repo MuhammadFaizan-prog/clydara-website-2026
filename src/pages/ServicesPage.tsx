@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { RevealChars } from '../components/common/RevealChars'
+import { RevealHeading } from '../components/common/RevealHeading'
 import Pricing from '../components/Pricing/Pricing'
 import FAQ from '../components/FAQ/FAQ'
 import './ServicesPage.css'
@@ -136,13 +137,13 @@ export default function ServicesPage() {
         <div className="services-detail-container">
           <div className="services-detail-header">
             <p className="services-eyebrow">(Services)</p>
-            <h2 className="services-giant-heading">What we do</h2>
+            <RevealHeading as="h2" className="services-giant-heading" text="What we do" />
           </div>
 
           <div className="services-cards-grid">
             {servicesData.map((srv, idx) => (
               <div key={idx} className="services-row-block">
-                <h3 className="services-row-title">{srv.title}</h3>
+                <RevealHeading as="h3" className="services-row-title" text={srv.title} />
                 
                 <div className="services-row-body">
                   <div className="services-row-left">

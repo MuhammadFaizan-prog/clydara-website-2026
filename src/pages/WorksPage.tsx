@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { RevealChars } from '../components/common/RevealChars'
+import { RevealHeading } from '../components/common/RevealHeading'
 import Pricing from '../components/Pricing/Pricing'
 import FAQ from '../components/FAQ/FAQ'
 import './WorksPage.css'
@@ -142,7 +143,7 @@ export default function WorksPage() {
         <div className="works-portfolio-container">
           <div className="works-section-header">
             <p className="works-eyebrow">(Portfolio)</p>
-            <h2 className="works-giant-heading">Recent Works</h2>
+            <RevealHeading as="h2" className="works-giant-heading" text="Recent Works" />
           </div>
 
           <div className="works-cards-list">
@@ -182,7 +183,7 @@ export default function WorksPage() {
                   <div className="project-col-right">
                     <div className="project-meta-block">
                       <span className="meta-label">Client</span>
-                      <h3 className="project-title">{project.title}</h3>
+                      <RevealHeading as="h3" className="project-title" text={project.title} />
                     </div>
 
                     <div className="project-meta-block">

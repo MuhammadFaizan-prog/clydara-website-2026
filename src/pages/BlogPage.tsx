@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { RevealChars } from '../components/common/RevealChars'
+import { RevealHeading } from '../components/common/RevealHeading'
 import './BlogPage.css'
 
 export const blogPosts = [
@@ -168,7 +169,7 @@ export default function BlogPage() {
         <div className="blog-grid-container">
           <div className="blog-grid-header">
             <p className="blog-eyebrow">(Articles)</p>
-            <h2 className="blog-giant-heading">Blog Insights</h2>
+            <RevealHeading as="h2" className="blog-giant-heading" text="Blog Insights" />
           </div>
 
           <div className="blog-posts-grid">
@@ -179,7 +180,7 @@ export default function BlogPage() {
                 </div>
 
                 <div className="blog-post-content">
-                  <h3 className="blog-post-title">{post.title}</h3>
+                  <RevealHeading as="h3" className="blog-post-title" text={post.title} />
                   <p className="blog-post-excerpt">{post.excerpt}</p>
                   <div className="blog-post-badge-row">
                     <span className="blog-post-read-badge">{post.readTime}</span>

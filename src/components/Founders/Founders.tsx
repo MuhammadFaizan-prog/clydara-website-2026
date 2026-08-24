@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { RevealHeading } from '../common/RevealHeading'
 import './Founders.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -24,16 +25,6 @@ export default function Founders() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.founders-title-header', {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 75%',
-        },
-      })
-
       gsap.from('.founder-row', {
         opacity: 0,
         y: 50,
@@ -54,7 +45,7 @@ export default function Founders() {
       <div className="founders-container">
         {/* Header */}
         <div className="founders-title-header">
-          <h2 className="founders-giant-title">Founders</h2>
+          <RevealHeading as="h2" className="founders-giant-title" text="Founders" />
         </div>
 
         <div className="founders-list">
@@ -62,7 +53,7 @@ export default function Founders() {
           <div className="founder-row founder-rohan">
             {/* Bio & Timeline */}
             <div className="founder-info">
-              <h3 className="founder-name">Mr.Rohan Baig</h3>
+              <RevealHeading as="h3" className="founder-name" text="Mr.Rohan Baig" />
               <p className="founder-bio">
                 <strong>Rohan Baig</strong> is the Founder of <strong>Clydara</strong>, specializing in MERN Stack development, SaaS platforms, CRM systems, UI/UX design, graphic design, branding, SEO, and digital marketing. He creates scalable, user-focused digital solutions that empower businesses to grow through innovation, creativity, and cutting-edge technology.
               </p>

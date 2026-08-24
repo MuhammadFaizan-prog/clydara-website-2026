@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { RevealChars } from '../components/common/RevealChars'
+import { RevealHeading } from '../components/common/RevealHeading'
 import Founders from '../components/Founders/Founders'
 import Values from '../components/Values/Values'
 import FAQ from '../components/FAQ/FAQ'
@@ -222,7 +223,7 @@ export default function AboutPage() {
         <div className="about-expertise-container">
           <div className="about-expertise-header">
             <p className="about-eyebrow">(Our Expertise)</p>
-            <h2 className="about-giant-heading">What We Do Best</h2>
+            <RevealHeading as="h2" className="about-giant-heading" text="What We Do Best" />
             <p className="about-expertise-sub">
               Combining creativity, technology, and strategy to deliver digital solutions that help businesses grow, innovate, and stay ahead.
             </p>
@@ -241,7 +242,7 @@ export default function AboutPage() {
                 </div>
                 <span className="expertise-core-badge">Core Service</span>
               </div>
-              <h3 className="expertise-card-title">💻 Web Development</h3>
+              <RevealHeading as="h3" className="expertise-card-title" text="💻 Web Development" />
               <p className="expertise-card-desc">
                 From custom-coded web applications to Framer, WordPress, and Shopify websites, we build fast, scalable, and visually engaging digital experiences tailored to every business.
               </p>
@@ -259,7 +260,7 @@ export default function AboutPage() {
                   </svg>
                 </div>
               </div>
-              <h3 className="expertise-card-title">🤖 AI & Business Solutions</h3>
+              <RevealHeading as="h3" className="expertise-card-title" text="🤖 AI & Business Solutions" />
               <p className="expertise-card-desc">
                 AI integrations, SaaS platforms, CRM systems, dashboards, and business automation tailored to your workflow.
               </p>
@@ -276,7 +277,7 @@ export default function AboutPage() {
                   </svg>
                 </div>
               </div>
-              <h3 className="expertise-card-title">🎨 Branding & Design</h3>
+              <RevealHeading as="h3" className="expertise-card-title" text="🎨 Branding & Design" />
               <p className="expertise-card-desc">
                 Modern UI/UX, brand identity, graphics, and digital experiences that make your business stand out.
               </p>
@@ -290,8 +291,8 @@ export default function AboutPage() {
         <div className="about-cta-banner-container">
           <div className="about-cta-card">
             <div className="about-cta-content">
-              <h2 className="about-cta-heading">Project In Mind?</h2>
-              <h2 className="about-cta-heading-cyan">Get In Touch</h2>
+              <RevealHeading as="h2" className="about-cta-heading" text="Project In Mind?" />
+              <RevealHeading as="h2" className="about-cta-heading-cyan" text="Get In Touch" />
               <p className="about-cta-sub">
                 Tell us about your project — we’ll bring the tools, vision, and energy to make it real.
               </p>

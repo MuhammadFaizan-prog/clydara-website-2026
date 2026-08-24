@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { RevealHeading } from '../common/RevealHeading'
 import './Services.css'
 
 interface ServiceCategory {
@@ -44,7 +45,7 @@ export default function Services() {
         {/* Header */}
         <div className="services-header">
           <p className="services-eyebrow">(Services)</p>
-          <h2 className="services-title">What we do</h2>
+          <RevealHeading as="h2" className="services-title" text="What we do" />
         </div>
 
         {/* Subnav Tabs */}

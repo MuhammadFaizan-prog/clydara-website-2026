@@ -39,8 +39,8 @@
 
 .services-h1 {
   font-family: 'Cal Sans', sans-serif;
-  font-size: clamp(48px, 7vw, 84px);
-  line-height: 1.1;
+  font-size: 72px;
+  line-height: 80px;
   font-weight: 400;
   margin: 0;
   white-space: nowrap;
@@ -219,6 +219,36 @@
 }
 
 /* Responsive */
+@media (max-width: 1280px) {
+  .services-h1 {
+    font-size: 60px;
+    line-height: 68px;
+  }
+  .services-headline-row {
+    line-height: 68px;
+    gap: 10px;
+  }
+  .hero-pill-img {
+    width: 68px;
+    height: 54px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .services-h1 {
+    font-size: 48px;
+    line-height: 56px;
+  }
+  .services-headline-row {
+    line-height: 56px;
+    gap: 8px;
+  }
+  .hero-pill-img {
+    width: 56px;
+    height: 44px;
+  }
+}
+
 @media (max-width: 809px) {
   .services-row-body {
     flex-direction: column;
@@ -227,5 +257,34 @@
   .services-row-left,
   .services-row-right {
     max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-hero-card {
+    padding: 48px 20px 0;
+  }
+  .services-h1 {
+    font-size: 36px;
+    line-height: 44px;
+  }
+  .services-headline-row {
+    line-height: 44px;
+    gap: 6px;
+  }
+  .hero-pill-img {
+    width: 42px;
+    height: 34px;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  .hero-pill-img {
+    width: 34px;
+    height: 28px;
   }
 }

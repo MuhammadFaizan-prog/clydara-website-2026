@@ -1,9 +1,6 @@
-import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useRef } from 'react'
+import { RevealHeading } from '../common/RevealHeading'
 import './Works.css'
-
-gsap.registerPlugin(ScrollTrigger)
 
 const workCards = [
   {
@@ -44,29 +41,13 @@ const workCards = [
 export default function Works() {
   const sectionRef = useRef<HTMLElement>(null)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from('.works-title', {
-        opacity: 0,
-        y: 60,
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: '.works-header',
-          start: 'top 80%',
-        },
-      })
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
-
   return (
     <section className="works-section" id="works" ref={sectionRef}>
       <div className="works-container">
         {/* Header */}
         <div className="works-header">
           <p className="works-subtitle">(Why clients love Clydara)</p>
-          <h2 className="works-title">Recent Works</h2>
+          <RevealHeading as="h2" className="works-title" text="Recent Works" />
         </div>
 
         {/* Sticky Stacked Cards */}
@@ -98,7 +79,7 @@ export default function Works() {
                     <p className="work-card-desc">{card.desc}</p>
                     <div className="work-card-bottom-left">
                       <span className="work-card-counter">{card.num}</span>
-                      <h3 className="work-card-project-title">{card.title}</h3>
+                      <RevealHeading as="h3" className="work-card-project-title" text={card.title} />
                     </div>
                   </div>
 

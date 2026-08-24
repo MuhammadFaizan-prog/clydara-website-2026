@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { RevealChars } from '../components/common/RevealChars'
+import { RevealHeading } from '../components/common/RevealHeading'
 import { blogPosts } from './BlogPage'
 import './BlogDetailPage.css'
 import './BlogPage.css'
@@ -668,7 +669,7 @@ export default function BlogDetailPage() {
         <article className="blog-article-body">
           {article.sections.map((sec, sIdx) => (
             <div key={sIdx} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-              <h2 className="blog-article-h2">{sec.heading}</h2>
+              <RevealHeading as="h2" className="blog-article-h2" text={sec.heading} />
 
               {sec.paragraphs.map((p, pIdx) => (
                 <p key={pIdx} className="blog-article-p">{p}</p>
@@ -701,7 +702,7 @@ export default function BlogDetailPage() {
           {/* Frequently Asked Questions */}
           {article.faqs && article.faqs.length > 0 && (
             <div style={{ marginTop: '32px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              <h2 className="blog-article-h2">Frequently asked questions</h2>
+              <RevealHeading as="h2" className="blog-article-h2" text="Frequently asked questions" />
               {article.faqs.map((faq, fIdx) => (
                 <div key={fIdx} className="blog-faq-item">
                   <h3 className="blog-faq-question">{faq.q}</h3>
@@ -714,7 +715,7 @@ export default function BlogDetailPage() {
           {/* Conclusion */}
           {article.conclusionHeading && (
             <div style={{ marginTop: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              <h2 className="blog-article-h2">{article.conclusionHeading}</h2>
+              <RevealHeading as="h2" className="blog-article-h2" text={article.conclusionHeading} />
               {article.conclusionParagraphs?.map((p, cIdx) => (
                 <p key={cIdx} className="blog-article-p">{p}</p>
               ))}
@@ -724,7 +725,7 @@ export default function BlogDetailPage() {
           {/* Production Checklist */}
           {article.checklistHeading && (
             <div style={{ marginTop: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              <h2 className="blog-article-h2">{article.checklistHeading}</h2>
+              <RevealHeading as="h2" className="blog-article-h2" text={article.checklistHeading} />
               {article.checklistParagraphs?.map((p, kIdx) => (
                 <p key={kIdx} className="blog-article-p">{p}</p>
               ))}
@@ -737,7 +738,7 @@ export default function BlogDetailPage() {
       <section className="more-articles-section">
         <div className="more-articles-header">
           <p className="more-articles-eyebrow">(Project)</p>
-          <h2 className="more-articles-heading">Next Project</h2>
+          <RevealHeading as="h2" className="more-articles-heading" text="Next Project" />
         </div>
 
         <div className="blog-posts-grid">
@@ -757,7 +758,7 @@ export default function BlogDetailPage() {
               </div>
 
               <div className="blog-post-content">
-                <h3 className="blog-post-title">{rPost.title}</h3>
+                <RevealHeading as="h3" className="blog-post-title" text={rPost.title} />
                 <p className="blog-post-excerpt">{rPost.excerpt}</p>
                 <div className="blog-post-badge-row">
                   <span className="blog-post-read-badge">{rPost.readTime}</span>

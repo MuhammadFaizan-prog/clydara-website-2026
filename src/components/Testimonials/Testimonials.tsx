@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { RevealHeading } from '../common/RevealHeading'
 import './Testimonials.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -37,16 +38,6 @@ export default function Testimonials() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.testimonials-title', {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 75%',
-        },
-      })
-
       gsap.from('.stat-box', {
         opacity: 0,
         scale: 0.9,
@@ -66,7 +57,7 @@ export default function Testimonials() {
     <section className="testimonials-section" id="testimonials" ref={sectionRef}>
       <div className="testimonials-header">
         <p className="testimonials-eyebrow">(Featured Work)</p>
-        <h2 className="testimonials-title">Testimonials</h2>
+        <RevealHeading as="h2" className="testimonials-title" text="Testimonials" />
       </div>
 
       <div className="testimonials-container">
@@ -95,7 +86,7 @@ export default function Testimonials() {
                 <div className="testimonial-card-content">
                   <span className="testimonial-card-num">{card.num}</span>
                   <p className="testimonial-card-desc">{card.desc}</p>
-                  <h4 className="testimonial-card-title">{card.title}</h4>
+                  <RevealHeading as="h4" className="testimonial-card-title" text={card.title} />
                 </div>
               </div>
             ))}

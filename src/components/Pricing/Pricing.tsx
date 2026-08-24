@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { RevealHeading } from '../common/RevealHeading'
 import './Pricing.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -11,16 +12,6 @@ export default function Pricing() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.pricing-header', {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 75%',
-        },
-      })
-
       gsap.from('.pricing-card', {
         opacity: 0,
         y: 50,
@@ -42,7 +33,7 @@ export default function Pricing() {
         {/* Header (Screenshot 1) */}
         <div className="pricing-header">
           <p className="pricing-eyebrow">(Work With Us)</p>
-          <h2 className="pricing-headline">Choose Your Digital Solution</h2>
+          <RevealHeading as="h2" className="pricing-headline" text="Choose Your Digital Solution" />
         </div>
 
         <div className="pricing-cards-container">
@@ -55,7 +46,7 @@ export default function Pricing() {
                 </svg>
               </div>
 
-              <h3 className="pricing-tier-title text-gold">Digital Starter Solution</h3>
+              <RevealHeading as="h3" className="pricing-tier-title text-gold" text="Digital Starter Solution" />
               <h4 className="pricing-tier-sub">Web Design, Development &amp; Creative Solutions</h4>
               
               <p className="pricing-tier-desc">
@@ -132,7 +123,7 @@ export default function Pricing() {
                 </svg>
               </div>
 
-              <h3 className="pricing-tier-title text-gold">Premium Enterprise Package</h3>
+              <RevealHeading as="h3" className="pricing-tier-title text-gold" text="Premium Enterprise Package" />
               <h4 className="pricing-tier-sub text-white">SaaS, AI &amp; Custom Business Solutions</h4>
               
               <p className="pricing-tier-desc text-light-muted">

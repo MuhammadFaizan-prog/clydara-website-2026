@@ -40,8 +40,8 @@
 
 .contact-h1 {
   font-family: 'Cal Sans', sans-serif;
-  font-size: clamp(48px, 7vw, 84px);
-  line-height: 1.1;
+  font-size: 72px;
+  line-height: 80px;
   font-weight: 400;
   margin: 0;
   white-space: nowrap;
@@ -310,7 +310,52 @@
 }
 
 /* Responsive */
+@media (max-width: 1280px) {
+  .contact-h1 {
+    font-size: 60px;
+    line-height: 68px;
+  }
+  .contact-headline-row {
+    line-height: 68px;
+    gap: 10px;
+  }
+  .hero-pill-img {
+    width: 68px;
+    height: 54px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .contact-h1 {
+    font-size: 48px;
+    line-height: 56px;
+  }
+  .contact-headline-row {
+    line-height: 56px;
+    gap: 8px;
+  }
+  .hero-pill-img {
+    width: 56px;
+    height: 44px;
+  }
+}
+
 @media (max-width: 768px) {
+  .contact-hero-card {
+    padding: 48px 20px 40px;
+  }
+  .contact-h1 {
+    font-size: 36px;
+    line-height: 44px;
+  }
+  .contact-headline-row {
+    line-height: 44px;
+    gap: 6px;
+  }
+  .hero-pill-img {
+    width: 42px;
+    height: 34px;
+  }
   .contact-form-card {
     padding: 48px 24px 0;
   }
@@ -323,5 +368,16 @@
   .contact-watermark {
     font-size: 48px;
     margin-bottom: -20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  .hero-pill-img {
+    width: 34px;
+    height: 28px;
   }
 }

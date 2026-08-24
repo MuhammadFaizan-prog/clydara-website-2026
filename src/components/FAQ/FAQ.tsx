@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { RevealHeading } from '../common/RevealHeading'
 import './FAQ.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -43,16 +44,6 @@ export default function FAQ() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.faq-header', {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 75%',
-        },
-      })
-
       gsap.from('.faq-accordion-item', {
         opacity: 0,
         y: 30,
@@ -78,7 +69,7 @@ export default function FAQ() {
         {/* Header */}
         <div className="faq-header">
           <p className="faq-eyebrow">(FAQs)</p>
-          <h2 className="faq-headline">Your Questions, Answered</h2>
+          <RevealHeading as="h2" className="faq-headline" text="Your Questions, Answered" />
           <p className="faq-sub">
             Everything you need to know about our web development, SaaS, AI, branding, and digital solutions.
           </p>
