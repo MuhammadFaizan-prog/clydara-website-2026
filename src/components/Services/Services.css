@@ -100,7 +100,7 @@
 .services-bg-track {
   display: flex;
   gap: 80px;
-  animation: services-bg-scroll 20s linear infinite;
+  animation: services-bg-scroll 45s linear infinite;
   width: max-content;
 }
 

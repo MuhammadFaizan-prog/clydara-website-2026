@@ -128,8 +128,9 @@ export default function Founders() {
 
             {/* Bio & Timeline */}
             <div className="founder-info">
+              <RevealHeading as="h3" className="founder-name" text="Mr. Muhammad Faizan" />
               <p className="founder-bio founder-bio-faizan">
-                Muhammad Faizan is the CEO of Clydara and a Full Stack Engineer who has delivered 50+ production web applications and contributed to Punjab Police's AI-based Automatic Driving Test System, showcased at the Punjab Transport Expo 2025. He specializes in building scalable SaaS platforms, CRM systems, and high-performance web applications.
+                <strong>Muhammad Faizan</strong> is the CEO of <strong>Clydara</strong> and a Full Stack Engineer who has delivered 50+ production web applications and contributed to Punjab Police's AI-based Automatic Driving Test System, showcased at the Punjab Transport Expo 2025. He specializes in building scalable SaaS platforms, CRM systems, and high-performance web applications.
               </p>
 
               <div className="founder-divider" />

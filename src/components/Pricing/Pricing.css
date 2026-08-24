@@ -33,11 +33,10 @@
   letter-spacing: -2px;
 }
 
-/* Cards Stack */
-.pricing-cards-container {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+/* Stack wrapper — positions both cards on top of each other */
+.pricing-stack-wrapper {
+  position: relative;
+  min-height: 530px;
 }
 
 .pricing-card {
@@ -49,6 +48,25 @@
   position: relative;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+/* Both stacked cards fill the wrapper absolutely */
+.pricing-card-stacked {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+/* Card 1 sits at base z-index */
+.pricing-card-stacked:first-child {
+  z-index: 1;
+}
+
+/* Card 2 overlay sits on top, starts translated down via GSAP */
+.pricing-card-overlay {
+  z-index: 2;
+  will-change: transform;
 }
 
 /* Light Card */
