@@ -1,5 +1,9 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
+import Lenis from 'lenis'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import 'lenis/dist/lenis.css'
 import './styles/globals.css'
 import Navigation from './components/Navigation/Navigation'
 import Footer from './components/Footer/Footer'
@@ -14,18 +18,54 @@ import ContactPage from './pages/ContactPage'
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 import TermsPage from './pages/TermsPage'
 
+gsap.registerPlugin(ScrollTrigger)
+
+let globalLenis: Lenis | null = null
+
 // Automatically scrolls to top on route change
 function ScrollToTop() {
   const { pathname } = useLocation()
 
   useEffect(() => {
-    window.scrollTo(0, 0)
+    if (globalLenis) {
+      globalLenis.scrollTo(0, { immediate: true })
+    } else {
+      window.scrollTo(0, 0)
+    }
   }, [pathname])
 
   return null
 }
 
 function AppContent() {
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.4,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 0.8, // slower, weighted smooth scroll matching Framer physics
+      touchMultiplier: 1.5,
+    })
+
+    globalLenis = lenis
+
+    lenis.on('scroll', ScrollTrigger.update)
+
+    const updateTicker = (time: number) => {
+      lenis.raf(time * 1000)
+    }
+
+    gsap.ticker.add(updateTicker)
+    gsap.ticker.lagSmoothing(0)
+
+    return () => {
+      gsap.ticker.remove(updateTicker)
+      lenis.destroy()
+      globalLenis = null
+    }
+  }, [])
   return (
     <div className="page-wrapper">
       <ScrollToTop />
