@@ -35,26 +35,26 @@ export default function Hero() {
       tl.from('.hero-avatar-img', {
         opacity: 0,
         x: -16,
-        stagger: 0.08,
-        duration: 0.45,
+        stagger: 0.1,
+        duration: 0.6,
         ease: 'power2.out',
       })
       .fromTo(
         '.hero-trust-text .reveal-item',
         {
           opacity: 0,
-          filter: 'blur(6px)',
+          filter: 'blur(8px)',
           x: -8,
         },
         {
           opacity: 1,
           filter: 'blur(0px)',
           x: 0,
-          duration: 0.35,
-          stagger: 0.016,
+          duration: 0.5,
+          stagger: 0.024,
           ease: 'power2.out',
         },
-        '-=0.25'
+        '-=0.3'
       )
 
       // 2. Main Hero Headlines: Left-to-right character & pill reveal across each row
@@ -62,64 +62,64 @@ export default function Hero() {
         '.hero-headline-row-1 .reveal-item',
         {
           opacity: 0,
-          filter: 'blur(8px)',
-          y: 18,
-          scale: 0.95,
+          filter: 'blur(10px)',
+          y: 20,
+          scale: 0.96,
         },
         {
           opacity: 1,
           filter: 'blur(0px)',
           y: 0,
           scale: 1,
-          duration: 0.48,
-          stagger: 0.022,
-          ease: 'power3.out',
+          duration: 0.72,
+          stagger: 0.032,
+          ease: 'power2.out',
         },
-        '-=0.15'
+        '-=0.2'
       )
       .fromTo(
         '.hero-headline-row-2 .reveal-item',
         {
           opacity: 0,
-          filter: 'blur(8px)',
-          y: 18,
-          scale: 0.95,
+          filter: 'blur(10px)',
+          y: 20,
+          scale: 0.96,
         },
         {
           opacity: 1,
           filter: 'blur(0px)',
           y: 0,
           scale: 1,
-          duration: 0.48,
-          stagger: 0.02,
-          ease: 'power3.out',
+          duration: 0.72,
+          stagger: 0.032,
+          ease: 'power2.out',
         },
-        '-=0.35'
+        '-=0.45'
       )
       .fromTo(
         '.hero-headline-row-3 .reveal-item',
         {
           opacity: 0,
-          filter: 'blur(8px)',
-          y: 18,
-          scale: 0.95,
+          filter: 'blur(10px)',
+          y: 20,
+          scale: 0.96,
         },
         {
           opacity: 1,
           filter: 'blur(0px)',
           y: 0,
           scale: 1,
-          duration: 0.48,
-          stagger: 0.02,
-          ease: 'power3.out',
+          duration: 0.72,
+          stagger: 0.032,
+          ease: 'power2.out',
         },
-        '-=0.35'
+        '-=0.45'
       )
 
       // 3. Subtitle description, CTA button, and Banner image
-      .from('.hero-sub', { opacity: 0, y: 16, duration: 0.5 }, '-=0.2')
-      .from('.hero-cta-wrap', { opacity: 0, y: 16, duration: 0.4 }, '-=0.2')
-      .from('.hero-banner-wrap', { opacity: 0, y: 50, scale: 0.985, duration: 0.75 }, '-=0.25')
+      .from('.hero-sub', { opacity: 0, y: 16, duration: 0.65 }, '-=0.3')
+      .from('.hero-cta-wrap', { opacity: 0, y: 16, duration: 0.55 }, '-=0.3')
+      .from('.hero-banner-wrap', { opacity: 0, y: 40, scale: 0.985, duration: 0.9, ease: 'power2.out' }, '-=0.35')
     }, sectionRef)
 
     return () => ctx.revert()

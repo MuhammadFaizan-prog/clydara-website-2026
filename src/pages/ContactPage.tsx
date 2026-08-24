@@ -33,32 +33,32 @@ export default function ContactPage() {
           filter: 'blur(0px)',
           y: 0,
           scale: 1,
-          duration: 0.48,
-          stagger: 0.022,
-          ease: 'power3.out',
+          duration: 0.72,
+          stagger: 0.032,
+          ease: 'power2.out',
         }
       )
       .fromTo(
         '.contact-headline-row-2 .reveal-item',
         {
           opacity: 0,
-          filter: 'blur(8px)',
-          y: 18,
-          scale: 0.95,
+          filter: 'blur(10px)',
+          y: 20,
+          scale: 0.96,
         },
         {
           opacity: 1,
           filter: 'blur(0px)',
           y: 0,
           scale: 1,
-          duration: 0.48,
-          stagger: 0.02,
-          ease: 'power3.out',
+          duration: 0.72,
+          stagger: 0.032,
+          ease: 'power2.out',
         },
-        '-=0.35'
+        '-=0.45'
       )
-      .from('.contact-hero-sub', { opacity: 0, y: 16, duration: 0.45 }, '-=0.2')
-      .from('.contact-form-card', { opacity: 0, y: 24, duration: 0.6 }, '-=0.2')
+      .from('.contact-hero-sub', { opacity: 0, y: 16, duration: 0.65 }, '-=0.3')
+      .from('.contact-form-card', { opacity: 0, y: 24, duration: 0.8 }, '-=0.3')
     }, heroRef)
 
     return () => ctx.revert()

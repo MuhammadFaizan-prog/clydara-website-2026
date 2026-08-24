@@ -82,39 +82,39 @@ export default function BlogPage() {
           filter: 'blur(0px)',
           y: 0,
           scale: 1,
-          duration: 0.48,
-          stagger: 0.022,
-          ease: 'power3.out',
+          duration: 0.72,
+          stagger: 0.032,
+          ease: 'power2.out',
         }
       )
       .fromTo(
         '.blog-headline-row-2 .reveal-item',
         {
           opacity: 0,
-          filter: 'blur(8px)',
-          y: 18,
-          scale: 0.95,
+          filter: 'blur(10px)',
+          y: 20,
+          scale: 0.96,
         },
         {
           opacity: 1,
           filter: 'blur(0px)',
           y: 0,
           scale: 1,
-          duration: 0.48,
-          stagger: 0.02,
-          ease: 'power3.out',
+          duration: 0.72,
+          stagger: 0.032,
+          ease: 'power2.out',
         },
-        '-=0.35'
+        '-=0.45'
       )
-      .from('.blog-hero-sub', { opacity: 0, y: 16, duration: 0.45 }, '-=0.2')
-      .from('.blog-hero-cta', { opacity: 0, y: 16, duration: 0.4 }, '-=0.2')
+      .from('.blog-hero-sub', { opacity: 0, y: 16, duration: 0.65 }, '-=0.3')
+      .from('.blog-hero-cta', { opacity: 0, y: 16, duration: 0.55 }, '-=0.3')
       .from('.blog-post-card', {
         opacity: 0,
-        y: 30,
-        duration: 0.55,
-        stagger: 0.08,
+        y: 24,
+        duration: 0.75,
+        stagger: 0.1,
         ease: 'power2.out',
-      }, '-=0.15')
+      }, '-=0.2')
     }, heroRef)
 
     return () => ctx.revert()

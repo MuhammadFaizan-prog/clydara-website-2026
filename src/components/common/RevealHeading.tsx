@@ -23,8 +23,8 @@ export function RevealHeading({
   text,
   children,
   delay = 0,
-  stagger = 0.02,
-  duration = 0.48,
+  stagger = 0.035,
+  duration = 0.72,
   triggerOffset = 'top 85%',
   style,
   ...rest
@@ -44,9 +44,9 @@ export function RevealHeading({
         chars,
         {
           opacity: 0,
-          filter: 'blur(8px)',
-          y: 16,
-          scale: 0.95,
+          filter: 'blur(10px)',
+          y: 18,
+          scale: 0.96,
         },
         {
           opacity: 1,
@@ -56,7 +56,7 @@ export function RevealHeading({
           duration,
           stagger,
           delay,
-          ease: 'power3.out',
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: el,
             start: triggerOffset,

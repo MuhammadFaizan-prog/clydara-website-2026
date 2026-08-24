@@ -40,13 +40,13 @@ function ScrollToTop() {
 function AppContent() {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.4,
+      duration: 1.8,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 0.8, // slower, weighted smooth scroll matching Framer physics
-      touchMultiplier: 1.5,
+      wheelMultiplier: 0.65, // slower, weighted smooth scroll physics matching Framer
+      touchMultiplier: 1.2,
     })
 
     globalLenis = lenis
