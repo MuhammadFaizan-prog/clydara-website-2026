@@ -132,7 +132,7 @@ export default function Works() {
                 <div
                   className="work-card-noise"
                   style={{
-                    backgroundImage: `url('https://framerusercontent.com/images/hiGYz6grmhAHSeZuNKHEuchTGTw.png?width=1280&height=714')`,
+                    backgroundImage: `url('https://framerusercontent.com/images/hiGYz6grmhAHSeZuNKHEuchTGTw.png?width=1280&height=714&scale-down-to=1024')`,
                   }}
                 />
                 <div className="work-card-blur-overlay" />

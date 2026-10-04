@@ -110,7 +110,7 @@ export default function Pricing() {
             />
             <div
               className="pricing-card-noise"
-              style={{ backgroundImage: `url('https://framerusercontent.com/images/qDuGmDXhhbdrJsP16G4zNCDX8.png?width=720&height=920')` }}
+              style={{ backgroundImage: `url('https://framerusercontent.com/images/qDuGmDXhhbdrJsP16G4zNCDX8.png?width=720&height=920&scale-down-to=1024')` }}
             />
             <div className="pricing-card-dark-overlay" />
 

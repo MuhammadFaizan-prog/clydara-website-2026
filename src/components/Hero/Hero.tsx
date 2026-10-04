@@ -11,7 +11,7 @@ const founderImages = [
 
 const heroInlineImages = [
   {
-    src: 'https://framerusercontent.com/images/tmb7lYyr13TSTCIp3zdK13cH8.jpg?width=256&height=384',
+    src: 'https://framerusercontent.com/images/tmb7lYyr13TSTCIp3zdK13cH8.jpg?width=256&height=384&scale-down-to=512',
     alt: 'Hero Image',
   },
   {
@@ -19,7 +19,7 @@ const heroInlineImages = [
     alt: 'Hero Image',
   },
   {
-    src: 'https://framerusercontent.com/images/z5rWUBZI4G5D3Q3v82pHwruV14.jpg?width=384&height=216',
+    src: 'https://framerusercontent.com/images/z5rWUBZI4G5D3Q3v82pHwruV14.jpg?width=384&height=216&scale-down-to=512',
     alt: 'hero-image',
   },
 ]
