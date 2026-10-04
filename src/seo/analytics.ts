@@ -5,6 +5,31 @@ export const CONSENT_KEY = 'clydara-analytics-consent'
 type AnalyticsWindow = Window & { dataLayer?: unknown[]; gtag?: (...args: unknown[]) => void }
 let lastPath = ''
 
+// Preserve useful campaign labels without forwarding arbitrary form/query data.
+export function safePageLocation(path: string, search = window.location.search || '') {
+  const url = new URL(SITE_ORIGIN + path)
+  const params = new URLSearchParams(search)
+  for (const key of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term']) {
+    const value = params.get(key)
+    if (value && value.length <= 100 && /^[a-zA-Z0-9_.~ -]+$/.test(value)) url.searchParams.set(key, value)
+  }
+  return url.href
+}
+
+export function referralPlatform(referrer: string) {
+  let host = ''
+  try { host = new URL(referrer).hostname.toLowerCase() } catch { return 'unknown' }
+  const sources: [string, string[]][] = [
+    ['chatgpt', ['chatgpt.com', 'chat.openai.com']], ['perplexity', ['perplexity.ai']],
+    ['claude', ['claude.ai']], ['bing', ['bing.com']], ['google', ['google.com']],
+    ['duckduckgo', ['duckduckgo.com']], ['brave', ['search.brave.com']],
+    ['yandex', ['yandex.com', 'yandex.ru']], ['qwant', ['qwant.com']], ['ecosia', ['ecosia.org']],
+    ['naver', ['naver.com']], ['seznam', ['seznam.cz']], ['kagi', ['kagi.com']], ['mojeek', ['mojeek.com']],
+    ['yahoo', ['yahoo.com']], ['you', ['you.com']], ['mistral', ['chat.mistral.ai']], ['grok', ['grok.com']],
+  ]
+  return sources.find(([, domains]) => domains.some(domain => host === domain || host.endsWith('.' + domain)))?.[0] || 'other'
+}
+
 export function hasAnalyticsConsent() {
   try { return localStorage.getItem(CONSENT_KEY) === 'granted' } catch { return false }
 }
@@ -13,20 +38,21 @@ export function trackPage(path: string) {
   const page = getPage(path)
   if (!page || window.location.origin !== SITE_ORIGIN || !hasAnalyticsConsent() || lastPath === path) return
   const target = window as AnalyticsWindow
+  const location = safePageLocation(page.path)
   if (!target.gtag) {
     target.dataLayer = target.dataLayer || []
     target.gtag = function (..._args: unknown[]) { target.dataLayer!.push(arguments) }
     target.gtag('consent', 'default', { analytics_storage: 'granted', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' })
     target.gtag('js', new Date())
-    target.gtag('config', MEASUREMENT_ID, { send_page_view: false, allow_google_signals: false, allow_ad_personalization_signals: false, page_location: SITE_ORIGIN + page.path, page_referrer: safeReferrer() })
+    target.gtag('config', MEASUREMENT_ID, { send_page_view: false, allow_google_signals: false, allow_ad_personalization_signals: false, page_location: location, page_referrer: safeReferrer() })
     const script = document.createElement('script')
     script.async = true
     script.src = `https://www.googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}`
     document.head.appendChild(script)
   }
   lastPath = path
-  target.gtag('set', { page_location: SITE_ORIGIN + page.path, page_referrer: safeReferrer() })
-  target.gtag('event', 'page_view', { page_title: page.title, page_location: SITE_ORIGIN + page.path, page_referrer: safeReferrer() })
+  target.gtag('set', { page_location: location, page_referrer: safeReferrer() })
+  target.gtag('event', 'page_view', { page_title: page.title, page_location: location, page_referrer: safeReferrer(), discovery_platform: referralPlatform(document.referrer) })
 }
 
 function safeReferrer() {

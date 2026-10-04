@@ -34,6 +34,7 @@ export default function Seo() {
       ['canonical', SITE_ORIGIN + page.path, ''],
       ['describedby', SITE_ORIGIN + '/llms.txt', 'text/plain'],
       ['alternate', SITE_ORIGIN + (page.path === '/' ? '/index' : page.path) + '.md', 'text/markdown'],
+      ['alternate', SITE_ORIGIN + '/feed.xml', 'application/rss+xml'],
     ]) {
       const link = document.createElement('link')
       link.rel = rel

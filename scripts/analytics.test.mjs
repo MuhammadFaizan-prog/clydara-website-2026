@@ -8,6 +8,12 @@ try {
   globalThis.window = {location:{origin:'https://www.clydralab.com',reload:()=>{window.reloaded=true}}};
   globalThis.document = {referrer:'https://www.google.com/search?q=private-query',createElement:()=>({}),head:{appendChild:e=>scripts.push(e)}};
   const mod = await server.ssrLoadModule('/src/seo/analytics.ts');
+  assert.equal(mod.safePageLocation('/contact', '?utm_source=chatgpt.com&utm_medium=referral&email=private@example.com'), 'https://www.clydralab.com/contact?utm_source=chatgpt.com&utm_medium=referral');
+  assert.equal(mod.safePageLocation('/contact', '?utm_campaign=person%40example.com&token=secret'), 'https://www.clydralab.com/contact');
+  assert.equal(mod.referralPlatform('https://www.perplexity.ai/search/test'), 'perplexity');
+  assert.equal(mod.referralPlatform('https://chatgpt.com.evil.example/'), 'other');
+  assert.equal(mod.referralPlatform(''), 'unknown');
+  window.location.search='?utm_source=chatgpt.com&utm_medium=referral&email=private@example.com';
   mod.trackPage('/contact'); mod.trackEnquiry(); assert.equal(scripts.length,0);
   mod.setAnalyticsConsent(true); mod.trackPage('/contact'); mod.trackPage('/contact'); mod.trackPage('/services'); mod.trackEnquiry();
   assert.equal(scripts.length,1);
@@ -16,6 +22,9 @@ try {
   assert.equal(events.filter(x=>x[1]==='page_view').length,2);
   assert.equal(events.filter(x=>x[1]==='generate_lead').length,1);
   assert(!JSON.stringify(calls).includes('private-query'));
+  assert(!JSON.stringify(calls).includes('private@example.com'));
+  assert(JSON.stringify(calls).includes('utm_source=chatgpt.com'));
+  assert(events.some(x=>x[1]==='page_view' && x[2].discovery_platform==='google'));
   assert(calls.some(x=>x[0]==='config'&&x[2].send_page_view===false));
   mod.setAnalyticsConsent(false); const size=window.dataLayer.length; mod.trackPage('/about'); mod.trackEnquiry(); assert.equal(window.dataLayer.length,size); assert.equal(window.reloaded,true);
   const result={at:new Date().toISOString(),noRequestsBeforeConsent:true,singleTag:true,duplicatePageViewsPrevented:true,routeViews:2,leadEvents:1,noReferrerQuery:true,withdrawalStopsTracking:true,scope:'Isolated module stubs; no real analytics or EmailJS request'};

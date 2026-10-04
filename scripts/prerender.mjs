@@ -61,6 +61,7 @@ try {
       `<link data-seo rel="canonical" href="${url}">`,
       `<link data-seo rel="describedby" href="${SITE_ORIGIN}/llms.txt" type="text/plain">`,
       `<link data-seo rel="alternate" href="${SITE_ORIGIN}${mdPath}" type="text/markdown">`,
+      `<link data-seo rel="alternate" href="${SITE_ORIGIN}/feed.xml" type="application/rss+xml" title="Clydara founder guides">`,
       meta('og:title', page.title, true), meta('og:description', page.description, true),
       meta('og:url', url, true), meta('og:site_name', 'Clydara', true),
       meta('og:type', page.author ? 'article' : 'website', true), meta('og:image', image, true),
@@ -82,6 +83,7 @@ try {
   await save('404.html', notFound)
   await save('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map(page => `  <url><loc>${SITE_ORIGIN}${page.path}</loc></url>`).join('\n')}\n</urlset>\n`)
   await save('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${SITE_ORIGIN}/sitemap.xml\n`)
+  await save('feed.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Clydara founder guides</title><link>${SITE_ORIGIN}/blog</link><description>Practical software, SaaS and AI guides for founders.</description><language>en</language><atom:link href="${SITE_ORIGIN}/feed.xml" rel="self" type="application/rss+xml"/>${pages.filter(page => page.author).map(page => `<item><title>${escape(page.name)}</title><link>${SITE_ORIGIN}${page.path}</link><guid isPermaLink="true">${SITE_ORIGIN}${page.path}</guid><description>${escape(page.description)}</description></item>`).join('')}</channel></rss>\n`)
   const sections = [
     ['Company and services', pages.filter(page => ['/', '/services', '/about', '/contact', '/works'].includes(page.path))],
     ['Founder guides', pages.filter(page => page.author)],

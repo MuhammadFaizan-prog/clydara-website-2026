@@ -7,6 +7,16 @@ const known = new Set(manifest.pages.map(page => page.path))
 const titles = new Set()
 const descriptions = new Set()
 
+test('RSS discovers the six existing guides using canonical permanent identifiers', async () => {
+  const rss = await readFile('dist/feed.xml', 'utf8')
+  assert.equal((rss.match(/<item>/g) || []).length, 6)
+  assert.ok(rss.includes('rel="self" type="application/rss+xml"'))
+  assert.ok(!rss.includes('<pubDate>'), 'Do not invent publication dates')
+  for (const page of manifest.pages.filter(page => page.path.startsWith('/blog/'))) {
+    assert.ok(rss.includes(`<guid isPermaLink="true">${page.canonical}</guid>`))
+  }
+})
+
 for (const page of manifest.pages) {
   test(`${page.path}: initial content, unique metadata, schema, links and Markdown`, async () => {
     const html = await readFile(`dist/${page.path === '/' ? 'index' : page.path.slice(1)}.html`, 'utf8')
