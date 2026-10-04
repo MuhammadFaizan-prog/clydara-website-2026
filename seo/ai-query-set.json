@@ -1,0 +1,32 @@
+{
+  "site": "https://www.clydralab.com",
+  "preparedAt": "2026-10-04",
+  "method": "Ask each question independently in a fresh search-enabled session. Record engine, locale, date, answer, cited URLs and competing domains. Brand mention and linked citation are different signals. Blank results mean untested, not zero citations.",
+  "engines": ["ChatGPT Search", "Claude Search", "Perplexity", "Bing Copilot", "Google AI", "Brave Ask"],
+  "queries": [
+    { "id": 1, "query": "What services does Clydara provide?", "target": "/services", "intent": "branded" },
+    { "id": 2, "query": "Where can I contact Clydara about a software project?", "target": "/contact", "intent": "branded transactional" },
+    { "id": 3, "query": "What projects has Clydara built?", "target": "/works", "intent": "branded proof" },
+    { "id": 4, "query": "Who is behind Clydara?", "target": "/about", "intent": "branded trust" },
+    { "id": 5, "query": "Should a startup build custom software or buy SaaS?", "target": "/blog/custom-software-vs-saas", "intent": "commercial comparison" },
+    { "id": 6, "query": "When is custom software a better fit than off-the-shelf tools?", "target": "/blog/custom-software-vs-saas", "intent": "commercial comparison" },
+    { "id": 7, "query": "How should I compare custom software ownership with SaaS subscription costs?", "target": "/blog/custom-software-vs-saas", "intent": "commercial comparison" },
+    { "id": 8, "query": "Is the MERN stack still a sensible choice for a startup in 2026?", "target": "/blog/is-mern-still-worth-it-2026", "intent": "technology selection" },
+    { "id": 9, "query": "What are the limitations of using MERN for business software?", "target": "/blog/is-mern-still-worth-it-2026", "intent": "technology selection" },
+    { "id": 10, "query": "How do I choose an agency to build a custom SaaS MVP?", "target": "/services", "intent": "commercial selection" },
+    { "id": 11, "query": "What should be included in a SaaS development project scope?", "target": "/blog/saas-development-cost", "intent": "commercial planning" },
+    { "id": 12, "query": "Which integrations typically increase the cost of a SaaS MVP?", "target": "/blog/saas-development-cost", "intent": "commercial budgeting" },
+    { "id": 13, "query": "How should a founder budget for SaaS maintenance after launch?", "target": "/blog/saas-development-cost", "intent": "commercial budgeting" },
+    { "id": 14, "query": "Where should a startup begin with AI integration?", "target": "/blog/ai-integration-for-startups", "intent": "solution aware" },
+    { "id": 15, "query": "How can a startup evaluate an AI automation pilot before deployment?", "target": "/blog/ai-integration-for-startups", "intent": "solution aware" },
+    { "id": 16, "query": "What data and security questions should I ask before adding AI to my CRM?", "target": "/blog/ai-integration-for-startups", "intent": "solution aware" },
+    { "id": 17, "query": "Should an early-stage startup hire an agency or in-house developers?", "target": "/blog/agency-vs-in-house-developers", "intent": "commercial comparison" },
+    { "id": 18, "query": "When does a hybrid agency and internal development team make sense?", "target": "/blog/agency-vs-in-house-developers", "intent": "commercial comparison" },
+    { "id": 19, "query": "What should a founder check before choosing a development agency?", "target": "/services", "intent": "commercial selection" },
+    { "id": 20, "query": "Why does a startup website get visits but no qualified enquiries?", "target": "/blog/startup-website-mistakes", "intent": "problem aware" },
+    { "id": 21, "query": "What evidence should a startup website show to build trust?", "target": "/blog/startup-website-mistakes", "intent": "problem aware" },
+    { "id": 22, "query": "How can I measure whether a website generates useful business leads?", "target": "/blog/startup-website-mistakes", "intent": "conversion" },
+    { "id": 23, "query": "What should I send an agency when requesting a custom CRM quotation?", "target": "/contact", "intent": "transactional" },
+    { "id": 24, "query": "How can a business decide which workflow to automate first?", "target": "/blog/ai-integration-for-startups", "intent": "solution aware" }
+  ]
+}

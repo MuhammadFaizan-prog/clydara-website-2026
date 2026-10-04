@@ -1,0 +1,33 @@
+{
+  "at": "2026-10-04T17:04:41.567Z",
+  "records": [
+    {
+      "url": "https://openai.com/searchbot.json",
+      "status": 200,
+      "json": true,
+      "sha256": "81806b1665e9bbbc5e0f307b847ad34f7027abc19e0d2d5d3eca1864bf361be6",
+      "note": "Published verification data only; no actual crawler-IP access test"
+    },
+    {
+      "url": "https://claude.com/crawling/bots.json",
+      "status": 200,
+      "json": true,
+      "sha256": "a4c3c492f1e0ddecb543d2622034642f529449c6c21b525aa7f34c53d74ad8ab",
+      "note": "Published verification data only; no actual crawler-IP access test"
+    },
+    {
+      "url": "https://www.perplexity.com/perplexitybot.json",
+      "status": 200,
+      "json": true,
+      "sha256": "2688b50802b42611b412f8ac3bc614248d0eab00d74f4ceda41cb78526bde6b2",
+      "note": "Published verification data only; no actual crawler-IP access test"
+    },
+    {
+      "url": "https://duckduckgo.com/duckassistbot.json",
+      "status": 200,
+      "json": true,
+      "sha256": "fd9039362dfaaad236d50c07ddd12bf0cc7f0d530fbff59b8feb1b22e0db2459",
+      "note": "Published verification data only; no actual crawler-IP access test"
+    }
+  ]
+}

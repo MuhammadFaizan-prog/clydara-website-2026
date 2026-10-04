@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-04",
+  "site": "https://www.clydralab.com",
+  "google": { "ownership": "verified previously", "sitemap": "Success", "discoveredPages": 17, "evidence": "google-sitemap-success.png", "newIndexingRequests": false },
+  "yandex": { "ownership": "verified", "method": "public meta tag", "sitemap": "processing queue", "sitemapUrl": "https://www.clydralab.com/sitemap.xml", "indexed": "not yet verified" },
+  "seznam": { "url": "https://www.clydralab.com/", "submission": "accepted in official URL form", "evidence": "seznam-submitted.png", "indexed": "not yet verified" },
+  "naver": { "ownerSignedIn": true, "tagDeployed": true, "ownership": "verified; authenticated site dashboard available", "indexNow": "shared notification already accepted", "sitemap": "accepted; sitemap.xml listed with registration timestamp 26.10.05 02:18:58 Korea time", "sitemapUrl": "https://www.clydralab.com/sitemap.xml", "evidence": "naver-sitemap-submitted.png", "rss": "saved, confirmed by owner in chat; browser disconnected before independent receipt capture", "rssUrl": "https://www.clydralab.com/feed.xml", "indexed": "not yet verified" },
+  "indexNow": { "latestDeployment": "4118cae", "workflow": 37217507690, "result": "No meaningful page changes; no URLs submitted.", "sharedParticipants": ["Amazon", "Bing", "Naver", "Seznam", "Yandex", "Yep"], "source": "https://www.indexnow.org/faq" },
+  "monitor": { "daily": "GitHub Actions discovery-monitor.yml", "weekly": "ACTIVE Codex heartbeat clydara-search-and-ai-discovery-monitoring; Monday 10:00 local time" },
+  "wafEvidence": { "runtimeLogs": "No logs found in available Vercel runtime-log window; static CDN requests are not established by this result", "firewallConfig": "Vercel API returned SeawallConfig not found (404); verified crawler-IP requests remain unproven", "weakeningSecurity": false }
+}

@@ -226,10 +226,10 @@ This is an execution record, not a claim that traffic has already grown. Complet
 |13 Performance |Partial practical fixes |Fonts duplication removed, real HTML, CDN image savings; local mobile perf26 indicates more work; no fieldCWV pass claim |
 |14 AI crawler policy |Audited and preserved |Wildcard access; search/training separated; actual providerIP/CDNlogs not established |
 |15 Agent readiness |Implemented and checked |llms.txt, matching Markdown, alternate links; optional transaction/catalog protocolsN/A |
-|16 Google submission |Verified and submitted; fetch issue open |Canonical URL-prefix verified; homepage indexed/live indexable; homepage/services requests accepted; sitemap couldn’t fetch |
+|16 Google submission |Verified and submitted; sitemap Success |Canonical URL-prefix verified; homepage indexed/live indexable; accepted requests retained; latest sitemap Success with17discovered URLs |
 |17 Bing/IndexNow |Verified, sitemap submitted, indexing request accepted |Bing sitemap Processing; services live indexable; IndexNow initial202; subsequent200 for6image-changed and17GA4-changed URLs |
-|18 Yandex |Shared IndexNow coverage |No separate regional dashboard without actual market need |
-|19 Naver/regional |Shared IndexNow coverage where participating |No fabricated Korean targeting or unnecessary account creation |
+|18 Yandex |Ownership verified; sitemap submitted |Authenticated owner confirmed via public meta tag; sitemap processing queue; shared IndexNow retained |
+|19 Naver/regional |Naver ownership and sitemap verified; Seznam accepted |Naver RSS saved per owner confirmation; Seznam official homepage receipt; no fabricated Korean targeting |
 |20 ChatGPT Search |Discovery eligibility audited |Public HTML/robots accessible via ordinary probes; no fictitious submission endpoint |
 |21 Claude Search |Discovery eligibility audited |Search vs training purposes researched; no guarantee of citations |
 |22 Perplexity/other |Access/authority work; Brave accepted homepage |Primarycrawler guidance, useful content; no paid guaranteedAIindexing |
@@ -241,7 +241,7 @@ This is an execution record, not a claim that traffic has already grown. Complet
 |28 Internal links |Implemented and validated |Knownroute inventory assertions, service/guide/contact relationships |
 |29 Development safety |Executed |Dedicated branch, source review, type/build/lint18tests, desktop/mobileQA, preserved contact behavior |
 |30 Deploy |Connected Git deployment executed |2697fd0 repaired build; 5235b69 images/proofs and 0c641b3 GA4 verified live, all17 routes200 |
-|31 Postdeploy submissions |Executed Google/Bing/IndexNow/Brave |Google fetch status open; Bing processing; shared participants notified, no indexing guarantee |
+|31 Postdeploy submissions |Executed Google/Bing/IndexNow/Brave/Yandex/Naver/Seznam |Google sitemap Success; Bing/Yandex processing; Naver sitemap listed; RSS owner-confirmed; no indexing guarantee |
 |32 Validation |HTTP/Chrome/toolkit executed |Status/canonical/schema/content/navigation/form mocks; platformindex data pending |
 |33 Measurement |Verified properties, GA4 web stream and drift established; growth pending |Consent-based page/accepted enquiry measurement; no historical growth, fieldCWV or AI citations invented |
 |34 Report |Produced and updated with execution evidence |This report plus sanitized machine evidence; unfinished work has priority/impact/verification |
@@ -269,3 +269,9 @@ The authenticated Google Inspection Tool smartphone successfully fetched the exa
 Evidence: google-sitemap-live-fetch.png, google-sitemap-resubmitted.png, google-followup.json. Google recommends its live sitemap test for fetch diagnosis and may retry transient failures: https://support.google.com/webmasters/answer/7451001.
 
 Contact was unknown to Google; its new indexing request was accepted into the priority crawl queue. About was also unknown; Google returned a submission error and then a live-test service error asking to try again in a few hours. About remains200, canonical and indexable in live HTTP checks and is included in the sitemap. Its manual request is not reported as accepted. Page indexing report is still Processing data, check again in a day or so. The already accepted homepage/services requests were not repeated.
+
+## Expanded distribution follow-through (2026-10-04)
+
+The latest Google sitemap report is **Success with17discovered URLs**, superseding the historical fetch failure above. Yandex ownership is verified and its sitemap is queued. Naver ownership and sitemap registration are verified in the authenticated dashboard; RSS was saved according to owner confirmation after browser control disconnected. Seznam accepted the canonical homepage through its official form. These receipts do not establish indexing, ranking or traffic growth.
+
+See [SEARCH-AI-DISTRIBUTION-REPORT.md](SEARCH-AI-DISTRIBUTION-REPORT.md) for the complete platform matrix, current official discovery mechanisms, crawler/search-versus-training policy, monitoring, remaining work and traffic priorities. Live accessibility monitoring passed120synthetic requests across15crawler identities/eight resources. Daily GitHub run37218166282 succeeded; weekly monitoring is active. Production4118cae includes public ownership tags, six-guide RSS and sanitized campaign/referral measurement, with19SEO checks and analytics checks passing. Actual provider-IP access, historical growth, AI citation baseline and GA4 custom-dimension registration remain unverified or pending.

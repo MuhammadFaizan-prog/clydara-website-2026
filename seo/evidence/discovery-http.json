@@ -1,0 +1,1132 @@
+{
+  "at": "2026-10-04T16:42:16.966Z",
+  "origin": "https://www.clydralab.com",
+  "method": "HTTP User-Agent simulation from an ordinary client IP. This does not prove access from verified provider IPs, actual crawler visits, indexing or citations.",
+  "results": [
+    {
+      "agent": "Googlebot",
+      "checks": [
+        {
+          "path": "/",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 98869,
+          "canonical": "https://www.clydralab.com/",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/services",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 39887,
+          "canonical": "https://www.clydralab.com/services",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/contact",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 24839,
+          "canonical": "https://www.clydralab.com/contact",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/robots.txt",
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 71,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/sitemap.xml",
+          "status": 200,
+          "type": "application/xml",
+          "bytes": 1255,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/llms.txt",
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 3462,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/services.md",
+          "status": 200,
+          "type": "text/markdown; charset=utf-8",
+          "bytes": 6295,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/feed.xml",
+          "status": 200,
+          "type": "application/xml",
+          "bytes": 2895,
+          "xRobotsTag": "",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "agent": "bingbot",
+      "checks": [
+        {
+          "path": "/",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 98869,
+          "canonical": "https://www.clydralab.com/",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/services",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 39887,
+          "canonical": "https://www.clydralab.com/services",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/contact",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 24839,
+          "canonical": "https://www.clydralab.com/contact",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/robots.txt",
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 71,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/sitemap.xml",
+          "status": 200,
+          "type": "application/xml",
+          "bytes": 1255,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/llms.txt",
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 3462,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/services.md",
+          "status": 200,
+          "type": "text/markdown; charset=utf-8",
+          "bytes": 6295,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/feed.xml",
+          "status": 200,
+          "type": "application/xml",
+          "bytes": 2895,
+          "xRobotsTag": "",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "agent": "OAI-SearchBot",
+      "checks": [
+        {
+          "path": "/",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 98869,
+          "canonical": "https://www.clydralab.com/",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/services",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 39887,
+          "canonical": "https://www.clydralab.com/services",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/contact",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 24839,
+          "canonical": "https://www.clydralab.com/contact",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/robots.txt",
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 71,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/sitemap.xml",
+          "status": 200,
+          "type": "application/xml",
+          "bytes": 1255,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/llms.txt",
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 3462,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/services.md",
+          "status": 200,
+          "type": "text/markdown; charset=utf-8",
+          "bytes": 6295,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/feed.xml",
+          "status": 200,
+          "type": "application/xml",
+          "bytes": 2895,
+          "xRobotsTag": "",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "agent": "ChatGPT-User",
+      "checks": [
+        {
+          "path": "/",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 98869,
+          "canonical": "https://www.clydralab.com/",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/services",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 39887,
+          "canonical": "https://www.clydralab.com/services",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/contact",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 24839,
+          "canonical": "https://www.clydralab.com/contact",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/robots.txt",
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 71,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/sitemap.xml",
+          "status": 200,
+          "type": "application/xml",
+          "bytes": 1255,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/llms.txt",
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 3462,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/services.md",
+          "status": 200,
+          "type": "text/markdown; charset=utf-8",
+          "bytes": 6295,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/feed.xml",
+          "status": 200,
+          "type": "application/xml",
+          "bytes": 2895,
+          "xRobotsTag": "",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "agent": "Claude-SearchBot",
+      "checks": [
+        {
+          "path": "/",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 98869,
+          "canonical": "https://www.clydralab.com/",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/services",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 39887,
+          "canonical": "https://www.clydralab.com/services",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/contact",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 24839,
+          "canonical": "https://www.clydralab.com/contact",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/robots.txt",
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 71,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/sitemap.xml",
+          "status": 200,
+          "type": "application/xml",
+          "bytes": 1255,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/llms.txt",
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 3462,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/services.md",
+          "status": 200,
+          "type": "text/markdown; charset=utf-8",
+          "bytes": 6295,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/feed.xml",
+          "status": 200,
+          "type": "application/xml",
+          "bytes": 2895,
+          "xRobotsTag": "",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "agent": "Claude-User",
+      "checks": [
+        {
+          "path": "/",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 98869,
+          "canonical": "https://www.clydralab.com/",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/services",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 39887,
+          "canonical": "https://www.clydralab.com/services",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/contact",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 24839,
+          "canonical": "https://www.clydralab.com/contact",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/robots.txt",
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 71,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/sitemap.xml",
+          "status": 200,
+          "type": "application/xml",
+          "bytes": 1255,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/llms.txt",
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 3462,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/services.md",
+          "status": 200,
+          "type": "text/markdown; charset=utf-8",
+          "bytes": 6295,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/feed.xml",
+          "status": 200,
+          "type": "application/xml",
+          "bytes": 2895,
+          "xRobotsTag": "",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "agent": "PerplexityBot",
+      "checks": [
+        {
+          "path": "/",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 98869,
+          "canonical": "https://www.clydralab.com/",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/services",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 39887,
+          "canonical": "https://www.clydralab.com/services",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/contact",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 24839,
+          "canonical": "https://www.clydralab.com/contact",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/robots.txt",
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 71,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/sitemap.xml",
+          "status": 200,
+          "type": "application/xml",
+          "bytes": 1255,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/llms.txt",
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 3462,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/services.md",
+          "status": 200,
+          "type": "text/markdown; charset=utf-8",
+          "bytes": 6295,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/feed.xml",
+          "status": 200,
+          "type": "application/xml",
+          "bytes": 2895,
+          "xRobotsTag": "",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "agent": "Perplexity-User",
+      "checks": [
+        {
+          "path": "/",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 98869,
+          "canonical": "https://www.clydralab.com/",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/services",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 39887,
+          "canonical": "https://www.clydralab.com/services",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/contact",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 24839,
+          "canonical": "https://www.clydralab.com/contact",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/robots.txt",
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 71,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/sitemap.xml",
+          "status": 200,
+          "type": "application/xml",
+          "bytes": 1255,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/llms.txt",
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 3462,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/services.md",
+          "status": 200,
+          "type": "text/markdown; charset=utf-8",
+          "bytes": 6295,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/feed.xml",
+          "status": 200,
+          "type": "application/xml",
+          "bytes": 2895,
+          "xRobotsTag": "",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "agent": "Applebot",
+      "checks": [
+        {
+          "path": "/",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 98869,
+          "canonical": "https://www.clydralab.com/",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/services",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 39887,
+          "canonical": "https://www.clydralab.com/services",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/contact",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 24839,
+          "canonical": "https://www.clydralab.com/contact",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/robots.txt",
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 71,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/sitemap.xml",
+          "status": 200,
+          "type": "application/xml",
+          "bytes": 1255,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/llms.txt",
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 3462,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/services.md",
+          "status": 200,
+          "type": "text/markdown; charset=utf-8",
+          "bytes": 6295,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/feed.xml",
+          "status": 200,
+          "type": "application/xml",
+          "bytes": 2895,
+          "xRobotsTag": "",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "agent": "DuckDuckBot",
+      "checks": [
+        {
+          "path": "/",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 98869,
+          "canonical": "https://www.clydralab.com/",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/services",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 39887,
+          "canonical": "https://www.clydralab.com/services",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/contact",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 24839,
+          "canonical": "https://www.clydralab.com/contact",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/robots.txt",
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 71,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/sitemap.xml",
+          "status": 200,
+          "type": "application/xml",
+          "bytes": 1255,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/llms.txt",
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 3462,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/services.md",
+          "status": 200,
+          "type": "text/markdown; charset=utf-8",
+          "bytes": 6295,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/feed.xml",
+          "status": 200,
+          "type": "application/xml",
+          "bytes": 2895,
+          "xRobotsTag": "",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "agent": "DuckAssistBot",
+      "checks": [
+        {
+          "path": "/",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 98869,
+          "canonical": "https://www.clydralab.com/",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/services",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 39887,
+          "canonical": "https://www.clydralab.com/services",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/contact",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 24839,
+          "canonical": "https://www.clydralab.com/contact",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/robots.txt",
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 71,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/sitemap.xml",
+          "status": 200,
+          "type": "application/xml",
+          "bytes": 1255,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/llms.txt",
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 3462,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/services.md",
+          "status": 200,
+          "type": "text/markdown; charset=utf-8",
+          "bytes": 6295,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/feed.xml",
+          "status": 200,
+          "type": "application/xml",
+          "bytes": 2895,
+          "xRobotsTag": "",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "agent": "Qwantbot",
+      "checks": [
+        {
+          "path": "/",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 98869,
+          "canonical": "https://www.clydralab.com/",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/services",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 39887,
+          "canonical": "https://www.clydralab.com/services",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/contact",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 24839,
+          "canonical": "https://www.clydralab.com/contact",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/robots.txt",
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 71,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/sitemap.xml",
+          "status": 200,
+          "type": "application/xml",
+          "bytes": 1255,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/llms.txt",
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 3462,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/services.md",
+          "status": 200,
+          "type": "text/markdown; charset=utf-8",
+          "bytes": 6295,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/feed.xml",
+          "status": 200,
+          "type": "application/xml",
+          "bytes": 2895,
+          "xRobotsTag": "",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "agent": "MojeekBot",
+      "checks": [
+        {
+          "path": "/",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 98869,
+          "canonical": "https://www.clydralab.com/",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/services",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 39887,
+          "canonical": "https://www.clydralab.com/services",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/contact",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 24839,
+          "canonical": "https://www.clydralab.com/contact",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/robots.txt",
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 71,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/sitemap.xml",
+          "status": 200,
+          "type": "application/xml",
+          "bytes": 1255,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/llms.txt",
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 3462,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/services.md",
+          "status": 200,
+          "type": "text/markdown; charset=utf-8",
+          "bytes": 6295,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/feed.xml",
+          "status": 200,
+          "type": "application/xml",
+          "bytes": 2895,
+          "xRobotsTag": "",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "agent": "SeznamBot",
+      "checks": [
+        {
+          "path": "/",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 98869,
+          "canonical": "https://www.clydralab.com/",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/services",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 39887,
+          "canonical": "https://www.clydralab.com/services",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/contact",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 24839,
+          "canonical": "https://www.clydralab.com/contact",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/robots.txt",
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 71,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/sitemap.xml",
+          "status": 200,
+          "type": "application/xml",
+          "bytes": 1255,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/llms.txt",
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 3462,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/services.md",
+          "status": 200,
+          "type": "text/markdown; charset=utf-8",
+          "bytes": 6295,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/feed.xml",
+          "status": 200,
+          "type": "application/xml",
+          "bytes": 2895,
+          "xRobotsTag": "",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "agent": "Yeti",
+      "checks": [
+        {
+          "path": "/",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 98869,
+          "canonical": "https://www.clydralab.com/",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/services",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 39887,
+          "canonical": "https://www.clydralab.com/services",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/contact",
+          "status": 200,
+          "type": "text/html; charset=utf-8",
+          "bytes": 24839,
+          "canonical": "https://www.clydralab.com/contact",
+          "main": 1,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/robots.txt",
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 71,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/sitemap.xml",
+          "status": 200,
+          "type": "application/xml",
+          "bytes": 1255,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/llms.txt",
+          "status": 200,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 3462,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/services.md",
+          "status": 200,
+          "type": "text/markdown; charset=utf-8",
+          "bytes": 6295,
+          "xRobotsTag": "",
+          "pass": true
+        },
+        {
+          "path": "/feed.xml",
+          "status": 200,
+          "type": "application/xml",
+          "bytes": 2895,
+          "xRobotsTag": "",
+          "pass": true
+        }
+      ]
+    }
+  ]
+}
