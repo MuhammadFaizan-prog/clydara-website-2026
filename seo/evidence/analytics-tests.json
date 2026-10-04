@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-04T15:38:12.660Z",
+  "noRequestsBeforeConsent": true,
+  "singleTag": true,
+  "duplicatePageViewsPrevented": true,
+  "routeViews": 2,
+  "leadEvents": 1,
+  "noReferrerQuery": true,
+  "withdrawalStopsTracking": true,
+  "scope": "Isolated module stubs; no real analytics or EmailJS request"
+}

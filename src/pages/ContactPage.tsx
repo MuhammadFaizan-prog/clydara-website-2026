@@ -4,6 +4,7 @@ import { RevealChars } from '../components/common/RevealChars'
 import { RevealHeading } from '../components/common/RevealHeading'
 import FAQ from '../components/FAQ/FAQ'
 import './ContactPage.css'
+import { trackEnquiry } from '../seo/analytics'
 
 const flowerIcon = 'https://framerusercontent.com/images/bPFUMYGmKDGU6pubiY2MFnjtBAk.svg'
 
@@ -98,6 +99,7 @@ export default function ContactPage() {
 
       if (!response.ok) throw new Error('EmailJS did not accept the message')
       setSubmitted(true)
+      trackEnquiry()
     } catch {
       setError('Unable to send your message. Please try again.')
     } finally {

@@ -19,6 +19,7 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 import TermsPage from './pages/TermsPage'
 import NotFoundPage from './pages/NotFoundPage'
 import Seo from './seo/Seo'
+import Analytics from './seo/ConsentAnalytics'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -88,6 +89,7 @@ export function AppContent() {
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
+      <Analytics />
     </div>
   )
 }
