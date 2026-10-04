@@ -16,7 +16,7 @@ Firecrawl connector tools are exposed in the session; DataForSEO tools are not. 
 
 ## Current source evidence
 
-- App.tsx defines 9 fixed routes, BlogPage.tsx 6 posts and WorkDetailPage.tsx 3 projects: 18 known pages.
+- App.tsx defines 8 fixed routes, BlogPage.tsx 6 posts and WorkDetailPage.tsx 3 projects: 17 known pages.
 - BlogDetailPage.tsx already has substantive sections, direct FAQ answers, implementation checklists, and related posts. It lacks primary-source citation links and visible authorship. Existing date labels include 2025 dates, including a 2026 MERN guide. Preserve publication history; show a real revision date only when content materially changes.
 - Blog bodies mention contacting Clydara in plain text, rather than contextual links to /services and /contact. Related-post selection blindly takes the first three, rather than topic relevance.
 - ServicesPage.tsx contains four short offer descriptions. Existing FAQ covers services, timeline, custom software, redesign, SEO, revisions/support. Keep this design; supplement scope, decision criteria and prerequisites rather than add thin service keyword pages.

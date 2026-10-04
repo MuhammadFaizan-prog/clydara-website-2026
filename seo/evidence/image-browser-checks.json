@@ -1,0 +1,201 @@
+{
+  "capturedAt": "2026-10-04T14:15:25.647Z",
+  "data": [
+    {
+      "target": "before",
+      "viewport": "desktop",
+      "images": [
+        {
+          "src": "https://framerusercontent.com/images/tmb7lYyr13TSTCIp3zdK13cH8.jpg?width=256&height=384",
+          "naturalWidth": 3615,
+          "naturalHeight": 5423,
+          "width": 81,
+          "height": 64,
+          "complete": true
+        },
+        {
+          "src": "https://framerusercontent.com/images/z5rWUBZI4G5D3Q3v82pHwruV14.jpg?width=384&height=216",
+          "naturalWidth": 3840,
+          "naturalHeight": 2160,
+          "width": 81,
+          "height": 64,
+          "complete": true
+        }
+      ],
+      "resources": [
+        {
+          "name": "https://framerusercontent.com/images/tmb7lYyr13TSTCIp3zdK13cH8.jpg?width=256&height=384",
+          "transferSize": 1150275,
+          "decodedBodySize": 1149975
+        },
+        {
+          "name": "https://framerusercontent.com/images/z5rWUBZI4G5D3Q3v82pHwruV14.jpg?width=384&height=216",
+          "transferSize": 208352,
+          "decodedBodySize": 208052
+        },
+        {
+          "name": "https://framerusercontent.com/images/hiGYz6grmhAHSeZuNKHEuchTGTw.png?width=1280&height=714",
+          "transferSize": 2605534,
+          "decodedBodySize": 2605234
+        },
+        {
+          "name": "https://framerusercontent.com/images/qDuGmDXhhbdrJsP16G4zNCDX8.png?width=720&height=920",
+          "transferSize": 1172542,
+          "decodedBodySize": 1172242
+        }
+      ]
+    },
+    {
+      "target": "before",
+      "viewport": "mobile",
+      "images": [
+        {
+          "src": "https://framerusercontent.com/images/tmb7lYyr13TSTCIp3zdK13cH8.jpg?width=256&height=384",
+          "naturalWidth": 3615,
+          "naturalHeight": 5423,
+          "width": 3615,
+          "height": 5423,
+          "complete": true
+        },
+        {
+          "src": "https://framerusercontent.com/images/z5rWUBZI4G5D3Q3v82pHwruV14.jpg?width=384&height=216",
+          "naturalWidth": 3840,
+          "naturalHeight": 2160,
+          "width": 3840,
+          "height": 2160,
+          "complete": true
+        }
+      ],
+      "resources": [
+        {
+          "name": "https://framerusercontent.com/images/tmb7lYyr13TSTCIp3zdK13cH8.jpg?width=256&height=384",
+          "transferSize": 0,
+          "decodedBodySize": 1149975
+        },
+        {
+          "name": "https://framerusercontent.com/images/z5rWUBZI4G5D3Q3v82pHwruV14.jpg?width=384&height=216",
+          "transferSize": 0,
+          "decodedBodySize": 208052
+        },
+        {
+          "name": "https://framerusercontent.com/images/hiGYz6grmhAHSeZuNKHEuchTGTw.png?width=1280&height=714",
+          "transferSize": 0,
+          "decodedBodySize": 2605234
+        },
+        {
+          "name": "https://framerusercontent.com/images/qDuGmDXhhbdrJsP16G4zNCDX8.png?width=720&height=920",
+          "transferSize": 0,
+          "decodedBodySize": 1172242
+        }
+      ]
+    },
+    {
+      "target": "after",
+      "viewport": "desktop",
+      "images": [
+        {
+          "src": "https://framerusercontent.com/images/tmb7lYyr13TSTCIp3zdK13cH8.jpg?width=256&height=384&scale-down-to=512",
+          "naturalWidth": 341,
+          "naturalHeight": 512,
+          "width": 81,
+          "height": 64,
+          "complete": true
+        },
+        {
+          "src": "https://framerusercontent.com/images/z5rWUBZI4G5D3Q3v82pHwruV14.jpg?width=384&height=216&scale-down-to=512",
+          "naturalWidth": 512,
+          "naturalHeight": 288,
+          "width": 81,
+          "height": 64,
+          "complete": true
+        }
+      ],
+      "resources": [
+        {
+          "name": "https://framerusercontent.com/images/tmb7lYyr13TSTCIp3zdK13cH8.jpg?width=256&height=384&scale-down-to=512",
+          "transferSize": 34814,
+          "decodedBodySize": 34514
+        },
+        {
+          "name": "https://framerusercontent.com/images/z5rWUBZI4G5D3Q3v82pHwruV14.jpg?width=384&height=216&scale-down-to=512",
+          "transferSize": 19720,
+          "decodedBodySize": 19420
+        },
+        {
+          "name": "https://framerusercontent.com/images/hiGYz6grmhAHSeZuNKHEuchTGTw.png?width=1280&height=714&scale-down-to=1024",
+          "transferSize": 495794,
+          "decodedBodySize": 495494
+        },
+        {
+          "name": "https://framerusercontent.com/images/qDuGmDXhhbdrJsP16G4zNCDX8.png?width=720&height=920&scale-down-to=1024",
+          "transferSize": 809462,
+          "decodedBodySize": 809162
+        }
+      ]
+    },
+    {
+      "target": "after",
+      "viewport": "mobile",
+      "images": [
+        {
+          "src": "https://framerusercontent.com/images/tmb7lYyr13TSTCIp3zdK13cH8.jpg?width=256&height=384&scale-down-to=512",
+          "naturalWidth": 341,
+          "naturalHeight": 512,
+          "width": 341,
+          "height": 512,
+          "complete": true
+        },
+        {
+          "src": "https://framerusercontent.com/images/z5rWUBZI4G5D3Q3v82pHwruV14.jpg?width=384&height=216&scale-down-to=512",
+          "naturalWidth": 512,
+          "naturalHeight": 288,
+          "width": 512,
+          "height": 288,
+          "complete": true
+        }
+      ],
+      "resources": [
+        {
+          "name": "https://framerusercontent.com/images/tmb7lYyr13TSTCIp3zdK13cH8.jpg?width=256&height=384&scale-down-to=512",
+          "transferSize": 0,
+          "decodedBodySize": 34514
+        },
+        {
+          "name": "https://framerusercontent.com/images/z5rWUBZI4G5D3Q3v82pHwruV14.jpg?width=384&height=216&scale-down-to=512",
+          "transferSize": 0,
+          "decodedBodySize": 19420
+        },
+        {
+          "name": "https://framerusercontent.com/images/tmb7lYyr13TSTCIp3zdK13cH8.jpg?width=256&height=384&scale-down-to=512",
+          "transferSize": 25882,
+          "decodedBodySize": 25582
+        },
+        {
+          "name": "https://framerusercontent.com/images/z5rWUBZI4G5D3Q3v82pHwruV14.jpg?width=384&height=216&scale-down-to=512",
+          "transferSize": 17018,
+          "decodedBodySize": 16718
+        },
+        {
+          "name": "https://framerusercontent.com/images/hiGYz6grmhAHSeZuNKHEuchTGTw.png?width=1280&height=714&scale-down-to=1024",
+          "transferSize": 0,
+          "decodedBodySize": 495494
+        },
+        {
+          "name": "https://framerusercontent.com/images/qDuGmDXhhbdrJsP16G4zNCDX8.png?width=720&height=920&scale-down-to=1024",
+          "transferSize": 0,
+          "decodedBodySize": 809162
+        },
+        {
+          "name": "https://framerusercontent.com/images/hiGYz6grmhAHSeZuNKHEuchTGTw.png?width=1280&height=714&scale-down-to=1024",
+          "transferSize": 280617,
+          "decodedBodySize": 280317
+        },
+        {
+          "name": "https://framerusercontent.com/images/qDuGmDXhhbdrJsP16G4zNCDX8.png?width=720&height=920&scale-down-to=1024",
+          "transferSize": 522335,
+          "decodedBodySize": 522035
+        }
+      ]
+    }
+  ]
+}

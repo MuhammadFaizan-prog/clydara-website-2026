@@ -1,0 +1,42 @@
+{
+  "measuredAt": "2026-10-04T14:08:57.855Z",
+  "method": "Controlled identical Chrome-style headers; experimental scale-down-to parameter only. Not deployed.",
+  "rows": [
+    {
+      "id": "tmb7lYyr13TSTCIp3zdK13cH8",
+      "url": "https://framerusercontent.com/images/tmb7lYyr13TSTCIp3zdK13cH8.jpg?width=256&height=384&scale-down-to=512",
+      "status": 200,
+      "type": "image/webp",
+      "beforeBytes": 1149975,
+      "afterBytes": 34514,
+      "savedPercent": 97
+    },
+    {
+      "id": "z5rWUBZI4G5D3Q3v82pHwruV14",
+      "url": "https://framerusercontent.com/images/z5rWUBZI4G5D3Q3v82pHwruV14.jpg?width=384&height=216&scale-down-to=512",
+      "status": 200,
+      "type": "image/webp",
+      "beforeBytes": 208052,
+      "afterBytes": 19420,
+      "savedPercent": 90.67
+    },
+    {
+      "id": "hiGYz6grmhAHSeZuNKHEuchTGTw",
+      "url": "https://framerusercontent.com/images/hiGYz6grmhAHSeZuNKHEuchTGTw.png?width=1280&height=714&scale-down-to=1024",
+      "status": 200,
+      "type": "image/webp",
+      "beforeBytes": 2605234,
+      "afterBytes": 495494,
+      "savedPercent": 80.98
+    },
+    {
+      "id": "qDuGmDXhhbdrJsP16G4zNCDX8",
+      "url": "https://framerusercontent.com/images/qDuGmDXhhbdrJsP16G4zNCDX8.png?width=720&height=920&scale-down-to=1024",
+      "status": 200,
+      "type": "image/webp",
+      "beforeBytes": 1172242,
+      "afterBytes": 809162,
+      "savedPercent": 30.97
+    }
+  ]
+}

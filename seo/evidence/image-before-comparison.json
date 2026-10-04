@@ -1,0 +1,74 @@
+{
+  "measuredAt": "2026-10-04T14:08:13.826Z",
+  "method": "Controlled direct HTTP both old/new image URLs using identical Chrome-style image Accept and UA headers. Content-type recorded. HTTP body byte length, not decoded raster memory or CWV.",
+  "rows": [
+    {
+      "id": "tmb7lYyr13TSTCIp3zdK13cH8",
+      "before": {
+        "url": "https://framerusercontent.com/images/tmb7lYyr13TSTCIp3zdK13cH8.jpg?width=3615&height=5423",
+        "status": 200,
+        "type": "image/avif",
+        "bytes": 1149975
+      },
+      "after": {
+        "url": "https://framerusercontent.com/images/tmb7lYyr13TSTCIp3zdK13cH8.jpg?width=256&height=384",
+        "status": 200,
+        "type": "image/avif",
+        "bytes": 1149975
+      },
+      "savedBytes": 0,
+      "savedPercent": 0
+    },
+    {
+      "id": "z5rWUBZI4G5D3Q3v82pHwruV14",
+      "before": {
+        "url": "https://framerusercontent.com/images/z5rWUBZI4G5D3Q3v82pHwruV14.jpg?width=3840&height=2160",
+        "status": 200,
+        "type": "image/avif",
+        "bytes": 208052
+      },
+      "after": {
+        "url": "https://framerusercontent.com/images/z5rWUBZI4G5D3Q3v82pHwruV14.jpg?width=384&height=216",
+        "status": 200,
+        "type": "image/avif",
+        "bytes": 208052
+      },
+      "savedBytes": 0,
+      "savedPercent": 0
+    },
+    {
+      "id": "hiGYz6grmhAHSeZuNKHEuchTGTw",
+      "before": {
+        "url": "https://framerusercontent.com/images/hiGYz6grmhAHSeZuNKHEuchTGTw.png?width=2848&height=1588",
+        "status": 200,
+        "type": "image/png",
+        "bytes": 2605234
+      },
+      "after": {
+        "url": "https://framerusercontent.com/images/hiGYz6grmhAHSeZuNKHEuchTGTw.png?width=1280&height=714",
+        "status": 200,
+        "type": "image/png",
+        "bytes": 2605234
+      },
+      "savedBytes": 0,
+      "savedPercent": 0
+    },
+    {
+      "id": "qDuGmDXhhbdrJsP16G4zNCDX8",
+      "before": {
+        "url": "https://framerusercontent.com/images/qDuGmDXhhbdrJsP16G4zNCDX8.png?width=1440&height=1840",
+        "status": 200,
+        "type": "image/png",
+        "bytes": 1172242
+      },
+      "after": {
+        "url": "https://framerusercontent.com/images/qDuGmDXhhbdrJsP16G4zNCDX8.png?width=720&height=920",
+        "status": 200,
+        "type": "image/png",
+        "bytes": 1172242
+      },
+      "savedBytes": 0,
+      "savedPercent": 0
+    }
+  ]
+}

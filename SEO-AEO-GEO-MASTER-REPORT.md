@@ -26,7 +26,7 @@ Machine-readable evidence and Chrome captures are preserved in the execution wor
 
 Inspected the latest supplied public Claude SEO repository at ff87fcee0734845d3f59128c8c905799ee2298da, version 2.4.1: README, CHANGELOG, AGENTS, current installer/plugin manifests, orchestration skills, specialist agents and scripts. Installed and enabled the official Claude Code plugin through its marketplace; the network marketplace clone failed with an EBUSY lock, so the reviewed local checkout was registered through the supported local-marketplace path.
 
-Explicit managed setup and doctor were invoked before relying on the runtime. Final doctor output confirms ready=true for the core runtime, Python 3.13 and plugin 2.4.1; browser_ready=false. The managed Chromium download repeatedly timed out, so browser checks use installed Chrome independently. Some source-script diagnostics were attempted separately by the technical specialist using available Python; these are labelled fallback diagnostics, not successful managed-runtime command runs. Missing lxml affected sitemap/agentic helpers. Full site evidence was independently collected through HTTP, Chrome, build-output assertions and source inspection.
+Explicit managed setup and doctor were invoked before relying on the runtime. Final doctor output confirms ready=true for the core runtime, Python 3.13 and plugin 2.4.1; browser_ready=false. The managed Chromium download repeatedly timed out, so browser checks use installed Chrome independently. After core setup, canonical launcher agentic_check, sitemap_discovery and drift_baseline ran successfully against production. Agent-readiness reports six pass checks, information/N/A for optional proposals; sitemap discovery verifies the declared XML. Drift snapshots record absent metadata before and present metadata after, without CWV data. Some source-script diagnostics were attempted separately by the technical specialist using available Python; these are labelled fallback diagnostics, not successful managed-runtime command runs. Missing lxml affected sitemap/agentic helpers. Full site evidence was independently collected through HTTP, Chrome, build-output assertions and source inspection.
 
 | Current workflow | Applied equivalent / result |
 |---|---|
@@ -50,7 +50,7 @@ Explicit managed setup and doctor were invoked before relying on the runtime. Fi
 
 The existing build now emits a complete HTML document for every canonical route, a real 404 document and matching public Markdown copies. Vite's server module loader renders the actual React components; synchronous rendering emits the actual page content, without loading placeholders or bot-specific duplicates. The same content is used for browser hydration. Client navigation remains supported.
 
-Vercel clean-URL configuration serves generated documents at existing extensionless URLs and normalizes trailing slashes. Unknown article/project slugs display the actual not-found page rather than another real article/project. Live HTTP status verification is still required after deployment; source configuration is not proof of a production fix.
+Vercel clean-URL configuration serves generated documents at existing extensionless URLs and normalizes trailing slashes. Unknown article/project slugs display the actual not-found page rather than another real article/project. Live HTTP validation now confirms17 canonical200 responses, unknown404 responses and308 clean-URL/trailing-slash redirects. The first deployment used Vercel’s default vite build and omitted prerendering; explicit buildCommand npm run build fixed this in2697fd0.
 
 ### Metadata, schema and on-page semantics
 
@@ -72,7 +72,7 @@ llms.txt follows the current proposal's concise site summary and links to author
 
 ### Performance and conversion safety
 
-Removed the duplicate Google Fonts CSS import, added a Framer asset preconnection, reduced oversized hero/thumbnail/background image request dimensions while preserving assets and aspect ratios. The animations and visible design remain. The final bundle is 536.94 KB / 171.83 KB gzip, modestly larger than baseline due to metadata and useful content. An attempted route-splitting approach was removed after static checks detected streamed loading placeholders; smaller images and initial content remain the measured improvements. Initial prerendered content is available before JavaScript. Lab scores and field CWV are reported only when valid measurements exist.
+Removed the duplicate Google Fonts CSS import, added a Framer asset preconnection, used verified Framer scale-down-to CDN variants for two hero photos and two decorative textures, preserving assets and aspect ratios. The animations and visible design remain. The final bundle is 539.23 KB / 172.53 KB gzip, modestly larger than baseline due to metadata and useful content. An attempted route-splitting approach was removed after static checks detected streamed loading placeholders; initial content and effective image variants remain the measured improvements. Width/height query changes alone saved no bytes; controlled browser-header comparisons and real Chrome loads verified scale-down-to variants instead: portrait1,149,975→34,514bytes, landscape208,052→19,420bytes, Works texture2,605,234→495,494bytes, Pricing texture1,172,242→809,162bytes. Total3,776,913bytes saved(73.55% across those four resources), with inspected desktop/mobile composition and usable resolution. Initial prerendered content is available before JavaScript. Lab scores and field CWV are reported only when valid measurements exist.
 
 The EmailJS handler, service/template/public-key values and actual enquiry flow remain in place. Browser QA intercepts sending requests to test pending, accepted and rejected states without sending customer-like mail. A mock accepted response does not establish inbox delivery or EmailJS dashboard variable/recipient configuration.
 
@@ -84,28 +84,30 @@ IndexNow HTTP 200 means receipt; 202 means pending key validation. Neither means
 
 ## Platform status
 
-Final receipt/status evidence will be updated after live deployment and submission. Final local Chrome QA passed: desktop/mobile layouts, hydration, navigation metadata and intercepted EmailJS200/503/network failures. No real email was sent.
+Production5235b69 is verified live, including four effective image variants and published ownership tags. IndexNow workflow37207954091 succeeded and received HTTP202 for17URLs at14:05:50UTC(19:05:50Asia/Karachi). Brave’s official form confirmed homepage submitted. Google and Bing URL-prefix ownership are verified; both sitemaps were submitted. Google shows couldn’t fetch despite valid public HTTP200 XML; Bing shows Processing. Google homepage is indexed and passes its live crawl test; homepage/services indexing requests were accepted. Bing services live test is indexable and its request was accepted. Final local Chrome QA passed: desktop/mobile layouts, hydration, navigation metadata and intercepted EmailJS200/503/network failures. No real email was sent.
 
 | PLATFORM | ACTION | VERIFIED | SUBMITTED | INDEXED/STATUS | NOTES |
 |---|---|---|---|---|---|
-| Google Search Console | Create/verify property; submit sitemap; inspect priority URLs | Not yet established | Pending owner-property access | Unknown | User says not previously submitted; account sign-in/ownership required |
-| Google Search | Crawl eligibility and canonical HTML | Local checks passed; live pending | No Indexing API use | Homepage publicly discoverable; exact index unknown | Ordinary agency pages are not Indexing API eligible |
-| Bing Webmaster Tools | Create/verify property and submit sitemap | Not yet established | Pending owner-property access | Unknown | Import from GSC is possible only after GSC verification |
-| IndexNow participants | Serve verification file; notify changed pages | Implemented; live pending | Pending live verification | No index status claim | One compatible request avoids duplicate per-engine notification |
+| Google Search Console | HTML ownership verified; sitemap submitted; homepage/services inspected | Yes, canonical URL-prefix | Yes, successful receipt | Sitemap couldn’t fetch; homepage indexed, services unknown/requested | Valid live XML17URLs; one justified retry still pending fetch; no false success claim |
+| Google Search | Live homepage crawl and indexing requests | Google live test: can be indexed | Homepage/services requests accepted | Homepage indexed; services not yet indexed | No Google Indexing API use; requests not repeated |
+| Bing Webmaster Tools | Meta ownership verified; sitemap submitted; services inspected | Yes; live services indexable | Sitemap and services request accepted | Sitemap Processing; services not yet indexed | Stored indexing disallowed result contradicted by fresh live pass; two decorative empty-alt notices retained appropriately |
+| IndexNow participants | Verify ownership; automatic changed-page notifications | Live proof and SHA verified | Initial17URLs HTTP202; later6changedURLs HTTP200 | Received/key validated; index unknown | Bing, Yandex, Seznam, Naver, Yep, InternetArchive, Amazonbot participating; shared protocol receipt is not individual index proof |
+| Brave Search | Official submit-url form | Success shown | Homepage accepted | Index status unknown | Screenshot receipt saved; no bulk resubmission |
 | Yandex / Naver | Assess market relevance | Not relevant to evidenced target market | No account created | Not applicable | No Russian/Korean target market established |
 | ChatGPT Search | OAI-SearchBot eligibility | UA-string baseline 200; live/IP checks qualified | No official direct URL ranking submission used | Citations unknown | GPTBot training is separate |
 | Claude search | Claude-SearchBot eligibility | UA-string baseline 200; live/IP checks qualified | No fabricated submission | Citations unknown | ClaudeBot training is separate |
 | Perplexity | PerplexityBot eligibility and useful cited content | UA-string baseline 200; live/IP checks qualified | No fabricated submission | Citations unknown | Actual crawler traffic/logs unverified |
-| GA4 / CrUX / backlink / AI measurement | Access and baseline | Credentials/field data unavailable | Not applicable | Unknown, not zero | No tracker added without an existing measurement ID and privacy context |
+| Google Analytics 4 | Account/property/web stream created; consent-based tracking | Stream and live contact page_view received; Search Console linked | Not a search submission | Realtime test: 1 active user / 1 contact page_view; no organic growth claim | Optional sharing and automatic enhanced measurement disabled; manual canonical page views and accepted enquiry events |
+| CrUX / backlink / AI measurement | Baseline access | Field/vendor data unavailable | N/A | Unknown, not zero | New Bing reports require processing; no invented growth |
 
 ## Page-level implementation and intent map
 
-All paths below are relative to https://www.clydralab.com. Shared changes mean initial HTML, one H1, unique metadata/canonical/schema, sitemap inclusion and Markdown representation. Live/index status will be updated after deployment.
+All paths below are relative to https://www.clydralab.com. Shared changes mean initial HTML, one H1, unique metadata/canonical/schema, sitemap inclusion and Markdown representation. All17HTMLpages are verified live. Account inspection confirms homepage indexed, services not yet indexed; other per-page index statuses remain unknown.
 
 | URL | TARGET INTENT | PRIMARY TOPIC | CHANGES | SCHEMA | INTERNAL LINKS | INDEX STATUS |
 |---|---|---|---|---|---|---|
-| / | Commercial | Development/design agency | Shared; hero image requests and fonts optimized | Organization, WebSite, WebPage | Existing navigation/services/work/contact | Homepage publicly discoverable; exact index unknown |
-| /services | Transactional | Software/service scope | Shared; direct solution-fit and briefing guidance | WebPage, four Services | Portfolio, build/buy, cost, AI, team-model guides, contact | Unknown |
+| / | Commercial | Development/design agency | Shared; hero image requests and fonts optimized | Organization, WebSite, WebPage | Existing navigation/services/work/contact | Homepage indexed in Search Console |
+| /services | Transactional | Software/service scope | Shared; direct solution-fit and briefing guidance | WebPage, four Services | Portfolio, build/buy, cost, AI, team-model guides, contact | Google not indexed/request accepted; Bing live indexable/request accepted |
 | /about | Branded/trust | Team and delivery approach | Shared | AboutPage | Existing founders/portfolio/navigation | Unknown |
 | /contact | Transactional | Project enquiry | Shared; EmailJS preserved | ContactPage | Existing navigation | Unknown |
 | /works | Commercial investigation | Development portfolio | Shared; existing URLs retained | CollectionPage | Three project pages | Unknown |
@@ -128,31 +130,35 @@ Final synchronous build, type checks and all 18 SEO assertions pass. Oxlint repo
 
 | Measure | Before | After / status |
 |---|---|---|
-| Valid deep pages on direct HTTP | 0/16; all 404 | Implementation produces 16 documents; live pending |
-| Canonical pages in sitemap | No sitemap | 17 generated; live pending |
-| Initial main content | Absent | Present in 17 generated documents |
+| Valid deep pages on direct HTTP | 0/16; all 404 | 16/16 deep pages now HTTP200 with actual initial content |
+| Canonical pages in sitemap | No sitemap | 17 generated and live HTTP200 |
+| Initial main content | Absent | Present in17 verified production documents |
 | Unique descriptions / canonicals | Absent | 17/17 local assertions |
 | Homepage H1s | 9 fragmented | 1 local assertion |
 | JSON-LD | Absent | 17 route graphs parse locally |
-| robots / llms / sitemap | HTTP 404 | Generated; live pending |
+| robots / llms / sitemap | HTTP 404 | All three live HTTP200 |
 | Organic clicks, impressions, traffic, rankings | Unavailable | Unavailable until verified measurement access and time accrue |
-| Lab performance | PSI quota error; mobile LH NO_FCP | No valid improvement claim until successful matching test |
+| Lab performance | PSI quota error; mobile LH NO_FCP | One local mobile simulation: performance26, SEO100, accessibility93; FCP4.8s, LCP15.5s, TBT4,820ms, CLS0.002; CPU warning and uncompressed local server; no field/pass claim |
 | Field LCP / INP / CLS | No usable CrUX data | Not measured |
 | AI mentions/citations | No recorded query sample | Not measured |
 
 ## Remaining work, priority and verification
 
+### Closed critical issue
+
+**Production crawl verification and deployment: verified2697fd0.** Evidence: baseline deep-route 404s and generated documents. Expected impact: users/crawlers can request existing content directly. Implementation: deploy through the connected Vercel Git workflow; fetch all 17 routes and unknown paths, inspect canonicals/main content, and render important pages. Failure test: any valid route still404, placeholder HTML, hydration regression or unknown route200. Saved live-http-validation.json closes the route/status issue; desktop/mobile Chrome QA and subsequent changes remain separately recorded.
+
 ### CRITICAL
 
-**Production crawl verification and deployment.** Evidence: baseline deep-route 404s and generated documents. Expected impact: users/crawlers can request existing content directly. Implementation: deploy through the connected Vercel Git workflow; fetch all 17 routes and unknown paths, inspect canonicals/main content, and render important pages. Failure test: any valid route still404, placeholder HTML, hydration regression or unknown route200. This item closes only with saved live evidence.
-
-**Google/Bing account ownership.** Evidence: user says platforms were not submitted; no configured first-party API credentials and browser-owner access not yet established. Expected impact: legitimate sitemap submission, crawl diagnostics and measurable baseline. Implementation: owner signs in to Search Console and Bing, adds the actual domain/URL-prefix property, verifies through authorized DNS/HTML method, then submits /sitemap.xml. Verification: property verified, sitemap success/processing receipt and priority URL inspection. Minimal handoff is an authenticated owner session or the exact supplied verification token; never invent one. Search Console verification may require DNS access. Continue site work independently.
+**No unresolved sitewide crawl blocker found in the current 17-route HTTP validation.** Google sitemap processing still needs follow-through below; verified URL-prefix properties cover all current canonical URLs. Optional domain-wide DNS verification remains unavailable without DNS access.
 
 ### HIGH
 
+**Google sitemap fetch status.** Evidence: successful submission receipt but dashboard says couldn’t fetch; live XML returns200/application/xml with17validURLs using ordinary/Googlebot/Bingbot UA probes. Homepage Google live test succeeds. One justified retry did not clear the dashboard status. Expected impact: complete sitemap discovery. Implementation: allow platform processing, inspect Google crawl/log details when available, verify actual provider requests and resubmit only if a diagnosed issue is corrected; retain sitemap in robots and internal links meanwhile. Verification: Search Console status Success with17discoveredURLs. Vercel active firewall-config read returned config-not-found; this does not prove every platformIP has access.
+
 **Confirm enquiry delivery.** Evidence: integration code exists, but template variables and recipient dashboard settings were not inspected. Expected impact: organic enquiries arrive with name/email/message and reply address. Implementation: inspect actual EmailJS template fields/recipient in its authenticated dashboard; send one clearly identified owner-authorized test. Verification: accepted request plus email history and recipient inbox. Mock tests verify UI logic only.
 
-**Establish first-party measurement.** Evidence: no usable GSC/Bing/GA4 credentials/measurement ID. Expected impact: distinguish crawl recovery from actual search/conversion outcomes. Implementation: verify properties, authorize read-only reporting, identify existing analytics setup and consent requirements, track successful contact submissions without copying message text into analytics. Verification: test event and 28-day branded/nonbranded landing-page reports. Never report missing data as zero.
+**First-party measurement follow-through.** Evidence: Google/Bing properties and GA4 web stream now exist, but search history and postdeployment growth have not accrued. Expected impact: distinguish crawl recovery from actual search/conversion outcomes. Implementation: use the created verified properties and consent-based GA4 integration; track accepted contact requests without form data, distinguish UI tests from real enquiries, and review matched28-day query/landing-page reports. Verification: test event and 28-day branded/nonbranded landing-page reports. Never report missing data as zero.
 
 **Performance follow-through.** Evidence: oversized image bytes, failed PSI/Lighthouse measurements and eagerly animated text. Expected impact: faster loading with stable UI. Implementation: obtain successful comparable mobile/desktop lab captures, tune LCP prioritization and offscreen images where evidence warrants, then measure CrUX/real-user INP when sufficient data exists. Verification: successful matched tests, request sizes, no design regressions, and p75 field measures. Reduced byte requests alone do not prove passed CWV.
 
@@ -192,3 +198,66 @@ Annotate the actual deployment date in owner reporting. Compare 28-day pre/post 
 - [React application guidance](https://react.dev/learn/creating-a-react-app), [Node event-loop guidance](https://nodejs.org/en/learn/asynchronous-work/dont-block-the-event-loop), [Express production security](https://expressjs.com/en/advanced/best-practice-security/), [AI evaluation guidance](https://platform.claude.com/docs/en/test-and-evaluate/develop-tests), [AWS pricing](https://aws.amazon.com/pricing/), [Stripe subscription architecture](https://docs.stripe.com/billing/subscriptions/overview).
 
 Separate research evidence in seo-working/research.md distinguishes direct business competitors from SERP competitors. Competitor pages were evaluated for service scope, case-study proof and founder decision content; they were not copied. Search snippets are a point-in-time discovery sample and no invented search volume/ranking data was assigned.
+
+
+## Changed files and evidence
+
+Implementation changes: index.html; package.json; vercel.json; src/App.tsx; src/main.tsx; src/entry-server.tsx; src/seo/site.ts; src/seo/Seo.tsx; src/pages/NotFoundPage.tsx; AboutPage, BlogPage, BlogDetailPage, ContactPage, ServicesPage, WorkDetailPage, WorksPage and SeoContent.css; Hero, Works, Pricing components; globals.css; scripts/prerender.mjs, scripts/seo.test.mjs, scripts/indexnow.mjs, scripts/live-check.mjs, scripts/analytics.test.mjs; src/seo/analytics.ts, src/seo/ConsentAnalytics.tsx; .github/workflows/indexnow.yml; seo/indexnow.json. Evidence under seo/evidence preserves baseline, research, schema policy, toolkit readiness/live checks, HTTP validation, Chrome assertions, effective-image measurements and submission receipts. Public ownership proof tags are intended to be published; no private authentication credential is committed.
+
+
+## All 34 phases: actual execution status
+
+This is an execution record, not a claim that traffic has already grown. Complete website checks and submissions are distinct from pending platform processing, business evidence and measurement over time.
+
+| Phase | Status | Evidence / limitation |
+|---|---|---|
+|1 Business understanding |Executed |Agency services, existing portfolio, founder guides, enquiry conversion; global English inference |
+|2 Baseline |Technical baseline captured; first-party history pending |Raw/rendered crawl, resources, drift snapshot; new accounts cannot manufacture historical reports |
+|3 Competitors/SERP |Public search research executed; rank/citation coverage incomplete |research.md separates business and SERP competitors; no invented localized top10 or AI mention counts |
+|4 Topic architecture |Implemented for existing pages |Intent/page map and six guide clusters; no keyword-volume invention |
+|5 Technical crawl |Implemented and verified production |17canonical200s; real main content; unknown404;308normalization |
+|6 Sitemap/robots |Implemented and verified production |Canonical inventory17, declared XML, toolkit sitemap validation |
+|7 On-page |Implemented |Unique metadata, oneH1, visible authors, coherent navigation |
+|8 AEO |Existing answers retained and improved |Service decision criteria, guide context and useful sources; no thin FAQ dump |
+|9 GEO |Implemented useful clarity/citations |Primary technical references, passage context, visible attribution; unique client data still requires company evidence |
+|10 Trust |Audited; authors improved |About/contact/legal pages retained; verified official mailbox/socials and client proof remain needed |
+|11 Schema |Implemented and parsed |Stable conservative entity graph matching visible facts; no invented ratings/dates |
+|12 Images/video |Image fixes measured; video N/A |Four effective variants3.777MB saved; visual/resolution checks; no meaningful site video |
+|13 Performance |Partial practical fixes |Fonts duplication removed, real HTML, CDN image savings; local mobile perf26 indicates more work; no fieldCWV pass claim |
+|14 AI crawler policy |Audited and preserved |Wildcard access; search/training separated; actual providerIP/CDNlogs not established |
+|15 Agent readiness |Implemented and checked |llms.txt, matching Markdown, alternate links; optional transaction/catalog protocolsN/A |
+|16 Google submission |Verified and submitted; fetch issue open |Canonical URL-prefix verified; homepage indexed/live indexable; homepage/services requests accepted; sitemap couldn’t fetch |
+|17 Bing/IndexNow |Verified, sitemap submitted, indexing request accepted |Bing sitemap Processing; services live indexable; IndexNow initial202; subsequent200 for6image-changed and17GA4-changed URLs |
+|18 Yandex |Shared IndexNow coverage |No separate regional dashboard without actual market need |
+|19 Naver/regional |Shared IndexNow coverage where participating |No fabricated Korean targeting or unnecessary account creation |
+|20 ChatGPT Search |Discovery eligibility audited |Public HTML/robots accessible via ordinary probes; no fictitious submission endpoint |
+|21 Claude Search |Discovery eligibility audited |Search vs training purposes researched; no guarantee of citations |
+|22 Perplexity/other |Access/authority work; Brave accepted homepage |Primarycrawler guidance, useful content; no paid guaranteedAIindexing |
+|23 Entity footprint |Audited, incomplete owner facts |Brand/source consistency; generic social URLs and mailbox discrepancy require verified replacements |
+|24 LocalSEO |N/A based on current evidence |No verified physical/service-area location; no fake office/maps profile |
+|25 Ecommerce |N/A |Agency model, no product catalog/merchant feed |
+|26 Backlinks |Research and legitimate strategy; quantitative baseline unavailable |No provider credential or genuine customer evidence; no fake links/outreach |
+|27 Content gap implementation |Existing services/guides materially improved |Scope guidance, author/source context, CTA/cluster links; evidence-rich case studies require company/client data |
+|28 Internal links |Implemented and validated |Knownroute inventory assertions, service/guide/contact relationships |
+|29 Development safety |Executed |Dedicated branch, source review, type/build/lint18tests, desktop/mobileQA, preserved contact behavior |
+|30 Deploy |Connected Git deployment executed |2697fd0 repaired build; 5235b69 images/proofs and 0c641b3 GA4 verified live, all17 routes200 |
+|31 Postdeploy submissions |Executed Google/Bing/IndexNow/Brave |Google fetch status open; Bing processing; shared participants notified, no indexing guarantee |
+|32 Validation |HTTP/Chrome/toolkit executed |Status/canonical/schema/content/navigation/form mocks; platformindex data pending |
+|33 Measurement |Verified properties, GA4 web stream and drift established; growth pending |Consent-based page/accepted enquiry measurement; no historical growth, fieldCWV or AI citations invented |
+|34 Report |Produced and updated with execution evidence |This report plus sanitized machine evidence; unfinished work has priority/impact/verification |
+
+## Work toward qualified traffic after indexing
+
+Prioritize qualified project enquiries rather than raw visitor count. Start with the existing build-versus-buy, development budget and team-selection guides linked to services/contact. Once reporting processes, review which nonbranded queries produce impressions, map them to the existing intent architecture, improve passages that genuinely answer those queries, and measure contact conversion. The next substantial content should be a client-approved implementation case study with constraints, actual delivery decisions and verified results, then a transparent scope/budget methodology. Backlinks should come from actual client attribution, founder technical work and relevant industry contributions. These require truthful business evidence; creating false claims or bulk directory listings cannot substitute for it.
+
+## GA4 collection implementation
+
+Created the Clydara Analytics account, Clydara website property and HTTPS web stream after explicit agreement approval. The public measurement identifier belongs in the browser tag; no Measurement Protocol private secret was created. Optional account sharing is disabled. Enhanced measurement is turned off to prevent duplicated React Router views and unintended form/site-search capture. Basic consent blocks tag loading until Allow analytics; Decline leaves the contact form usable. Preferences can reopen/withdraw consent. Only known canonical pages, sanitized referrer paths and accepted EmailJS generate_lead events are sent; form names/emails/messages and URL query strings are excluded. Local/preview origins do not collect. Unit stubs verify consent, single tag, two route views, no duplicate, one accepted lead and withdrawal. Live/browser/report receipt is separate evidence and does not prove organic enquiries or growth.
+
+Sources: [Google SPA measurement](https://developers.google.com/analytics/devguides/collection/ga4/single-page-applications), [manual page-view duplication guidance](https://developers.google.com/analytics/devguides/collection/ga4/views), [basic consent](https://developers.google.com/tag-platform/security/guides/consent?consentmode=basic).
+
+## Final measurement and submission receipt
+
+On 2026-10-04, GA4 Realtime displayed 1 active user, 1 page_view for the live Contact Clydara page, first_visit and session_start. This was the consented validation visit, not acquired organic traffic. The verified canonical Search Console property is linked to the web stream. generate_lead was saved as a key event using the existing code-triggered accepted-contact event, once per event, without an invented default revenue value. No real enquiry was submitted for this validation; actual inbox delivery and real lead receipt remain unverified. ga4-realtime.png preserves the received page view.
+
+The GA4 deployment IndexNow workflow 37214114847 returned200 accepted=true for17 meaningfully changed rendered documents at revision0c641b3. This confirms notification receipt, not indexing. A final documentation-only push does not justify another indexing request for unchanged content. Live HTTP evidence records the application revision before that documentation-only commit. Google sitemap processing remains Couldn’t fetch; Bing remains Processing. These require platform processing and further diagnosis, rather than claims of successful indexing.

@@ -1,0 +1,47 @@
+{
+  "checkedAt": "2026-10-04T15:52:35.845Z",
+  "site": "https://www.clydralab.com/",
+  "google": {
+    "verified": true,
+    "sitemapSubmitted": true,
+    "sitemapStatus": "Could not fetch",
+    "homepageIndexed": true,
+    "requestedIndexing": [
+      "/",
+      "/services"
+    ],
+    "servicesIndexed": false
+  },
+  "bing": {
+    "verified": true,
+    "sitemapSubmitted": true,
+    "sitemapStatus": "Processing",
+    "servicesLiveTest": "Can be indexed",
+    "servicesIndexingRequested": true,
+    "indexedCountUnknown": true
+  },
+  "brave": {
+    "homepageSubmission": "Success"
+  },
+  "indexNow": {
+    "workflow": "37214114847",
+    "applicationRevision": "0c641b3d48c02b0a831cebada12455867d49e4a5",
+    "status": 200,
+    "accepted": true,
+    "urlCount": 17,
+    "indexingProven": false
+  },
+  "analytics": {
+    "propertyCreated": true,
+    "searchConsoleLinked": true,
+    "consentRequired": true,
+    "enhancedMeasurement": false,
+    "generateLeadKeyEvent": true,
+    "defaultRevenueValue": false,
+    "realtimeActiveUsers": 1,
+    "realtimeContactPageViews": 1,
+    "testVisit": true,
+    "realLeadReceiptVerified": false
+  },
+  "trafficGrowth": "Not established; new measurement and processing"
+}

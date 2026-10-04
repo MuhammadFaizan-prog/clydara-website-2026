@@ -1,0 +1,234 @@
+{
+  "at": "2026-10-04T15:50:39.358Z",
+  "revision": "0c641b3d48c02b0a831cebada12455867d49e4a5",
+  "pages": [
+    {
+      "path": "/",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/",
+      "main": 1,
+      "h1": 1,
+      "jsonLd": 1,
+      "loadingPlaceholder": false,
+      "bytes": 98575
+    },
+    {
+      "path": "/services",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/services",
+      "main": 1,
+      "h1": 1,
+      "jsonLd": 1,
+      "loadingPlaceholder": false,
+      "bytes": 39593
+    },
+    {
+      "path": "/about",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/about",
+      "main": 1,
+      "h1": 1,
+      "jsonLd": 1,
+      "loadingPlaceholder": false,
+      "bytes": 57716
+    },
+    {
+      "path": "/contact",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/contact",
+      "main": 1,
+      "h1": 1,
+      "jsonLd": 1,
+      "loadingPlaceholder": false,
+      "bytes": 24545
+    },
+    {
+      "path": "/works",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/works",
+      "main": 1,
+      "h1": 1,
+      "jsonLd": 1,
+      "loadingPlaceholder": false,
+      "bytes": 35144
+    },
+    {
+      "path": "/blog",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/blog",
+      "main": 1,
+      "h1": 1,
+      "jsonLd": 1,
+      "loadingPlaceholder": false,
+      "bytes": 33668
+    },
+    {
+      "path": "/privacy-policy",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/privacy-policy",
+      "main": 1,
+      "h1": 1,
+      "jsonLd": 1,
+      "loadingPlaceholder": false,
+      "bytes": 13822
+    },
+    {
+      "path": "/terms-and-condition",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/terms-and-condition",
+      "main": 1,
+      "h1": 1,
+      "jsonLd": 1,
+      "loadingPlaceholder": false,
+      "bytes": 13711
+    },
+    {
+      "path": "/works/archin",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/works/archin",
+      "main": 1,
+      "h1": 1,
+      "jsonLd": 1,
+      "loadingPlaceholder": false,
+      "bytes": 20906
+    },
+    {
+      "path": "/works/vntnr",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/works/vntnr",
+      "main": 1,
+      "h1": 1,
+      "jsonLd": 1,
+      "loadingPlaceholder": false,
+      "bytes": 20836
+    },
+    {
+      "path": "/works/aeorim",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/works/aeorim",
+      "main": 1,
+      "h1": 1,
+      "jsonLd": 1,
+      "loadingPlaceholder": false,
+      "bytes": 21040
+    },
+    {
+      "path": "/blog/custom-software-vs-saas",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/blog/custom-software-vs-saas",
+      "main": 1,
+      "h1": 1,
+      "jsonLd": 1,
+      "loadingPlaceholder": false,
+      "bytes": 45500
+    },
+    {
+      "path": "/blog/is-mern-still-worth-it-2026",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/blog/is-mern-still-worth-it-2026",
+      "main": 1,
+      "h1": 1,
+      "jsonLd": 1,
+      "loadingPlaceholder": false,
+      "bytes": 49243
+    },
+    {
+      "path": "/blog/ai-integration-for-startups",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/blog/ai-integration-for-startups",
+      "main": 1,
+      "h1": 1,
+      "jsonLd": 1,
+      "loadingPlaceholder": false,
+      "bytes": 48519
+    },
+    {
+      "path": "/blog/agency-vs-in-house-developers",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/blog/agency-vs-in-house-developers",
+      "main": 1,
+      "h1": 1,
+      "jsonLd": 1,
+      "loadingPlaceholder": false,
+      "bytes": 48055
+    },
+    {
+      "path": "/blog/saas-development-cost",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/blog/saas-development-cost",
+      "main": 1,
+      "h1": 1,
+      "jsonLd": 1,
+      "loadingPlaceholder": false,
+      "bytes": 49805
+    },
+    {
+      "path": "/blog/startup-website-mistakes",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/blog/startup-website-mistakes",
+      "main": 1,
+      "h1": 1,
+      "jsonLd": 1,
+      "loadingPlaceholder": false,
+      "bytes": 50139
+    }
+  ],
+  "files": [
+    {
+      "path": "/robots.txt",
+      "status": 200,
+      "location": null,
+      "type": "text/plain; charset=utf-8",
+      "body": "User-agent: *\nAllow: /\n\nSitemap: https://www.clydralab.com/sitemap.xml\n"
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 200,
+      "location": null,
+      "type": "application/xml",
+      "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n  <url><loc>https://www.clydralab.com/</loc></url>\n  <url><loc>https://www.clydralab.com/services</l"
+    },
+    {
+      "path": "/llms.txt",
+      "status": 200,
+      "location": null,
+      "type": "text/plain; charset=utf-8",
+      "body": "# Clydara\n\n> Clydara is a development and design agency providing websites, custom SaaS and business software, AI integration, and branding.\n\nThis file provides navigation to public company informatio"
+    },
+    {
+      "path": "/services.md",
+      "status": 200,
+      "location": null,
+      "type": "text/markdown; charset=utf-8",
+      "body": "# Services\n\n> Explore Clydara web development, custom SaaS and business software, AI integration, and branding services. Compare scope and discuss your requirements.\n\nCanonical: https://www.clydralab."
+    },
+    {
+      "path": "/blog/no-such-article",
+      "status": 404,
+      "location": null,
+      "type": "text/html; charset=utf-8",
+      "body": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"msvalidate.01\" content=\"17F35C27AA2D343E9F573F07DBE00BC9\" />\n    <meta name=\"google-site-verification\" content=\"d"
+    },
+    {
+      "path": "/works/no-such-project",
+      "status": 404,
+      "location": null,
+      "type": "text/html; charset=utf-8",
+      "body": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"msvalidate.01\" content=\"17F35C27AA2D343E9F573F07DBE00BC9\" />\n    <meta name=\"google-site-verification\" content=\"d"
+    },
+    {
+      "path": "/services/",
+      "status": 308,
+      "location": "/services",
+      "type": "text/plain",
+      "body": "Redirecting...\n"
+    },
+    {
+      "path": "/services.html",
+      "status": 308,
+      "location": "/services",
+      "type": "text/plain",
+      "body": "Redirecting...\n"
+    }
+  ]
+}

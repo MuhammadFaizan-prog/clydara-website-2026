@@ -1,0 +1,20 @@
+{
+  "status": "ok",
+  "baseline_id": 2,
+  "url": "https://www.clydralab.com/",
+  "timestamp": "2026-10-04T14:17:40.694287+00:00",
+  "summary": {
+    "title": "Clydara | AI, SaaS & Custom Software Development Agency",
+    "meta_description": "Clydara builds custom websites, SaaS platforms, CRM systems and AI integrations ...",
+    "canonical": "https://www.clydralab.com/",
+    "robots": "index,follow,max-image-preview:large",
+    "h1": "BuildAI-PoweredWebsites&BusinessSolutionswithAIAutomation",
+    "h2_count": 8,
+    "h3_count": 9,
+    "schema_count": 3,
+    "og_tag_count": 7,
+    "cwv_captured": false,
+    "status_code": 200,
+    "html_hash": "31fa03646daa..."
+  }
+}
