@@ -15,6 +15,9 @@ export default function ContactPage() {
     description: '',
   })
   const [submitted, setSubmitted] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [error, setError] = useState('')
+  const sendingRef = useRef(false)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -64,9 +67,43 @@ export default function ContactPage() {
     return () => ctx.revert()
   }, [])
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
+    if (sendingRef.current) return
+
+    sendingRef.current = true
+    setSending(true)
+    setError('')
+
+    try {
+      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          service_id: 'service_6ntqen4',
+          template_id: 'template_cvxf8le',
+          user_id: '6r6N8V6VRCJrRGRex',
+          template_params: {
+            name: formData.name,
+            email: formData.email,
+            message: formData.description,
+            description: formData.description,
+            from_name: formData.name,
+            from_email: formData.email,
+            reply_to: formData.email,
+            time: new Date().toLocaleString(),
+          },
+        }),
+      })
+
+      if (!response.ok) throw new Error('EmailJS did not accept the message')
+      setSubmitted(true)
+    } catch {
+      setError('Unable to send your message. Please try again.')
+    } finally {
+      sendingRef.current = false
+      setSending(false)
+    }
   }
 
   return (
@@ -175,8 +212,10 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <button type="submit" className="contact-submit-btn">
-                  Send Now!
+                {error && <p role="alert" className="form-label">{error}</p>}
+
+                <button type="submit" className="contact-submit-btn" disabled={sending} aria-busy={sending}>
+                  {sending ? 'Sending...' : 'Send Now!'}
                 </button>
               </form>
             )}
