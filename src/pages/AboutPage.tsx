@@ -105,34 +105,34 @@ export default function AboutPage() {
       {/* About Hero Card */}
       <section className="about-hero-card">
         <div className="about-hero-container">
-          <div className="about-headline-wrap">
-            <div className="about-headline-row about-headline-row-1">
-              <h1 className="about-h1 about-dark">
+          <h1 className="about-headline-wrap" aria-label="About Clydara and our development team">
+            <span className="about-headline-row about-headline-row-1">
+              <span className="about-h1 about-dark">
                 <RevealChars text="Meet Clydara" />
-              </h1>
-              <div className="hero-pill-anim-wrap reveal-item">
-                <div className="hero-pill-img hero-pill-1">
+              </span>
+              <span className="hero-pill-anim-wrap reveal-item">
+                <span className="hero-pill-img hero-pill-1">
                   <img src="https://framerusercontent.com/images/9nS18NxRNZgZN2Nke02tqLS9eNE.jpg?width=826&height=371" alt="Meet Clydara" />
-                </div>
-              </div>
-              <h1 className="about-h1 about-accent">
+                </span>
+              </span>
+              <span className="about-h1 about-accent">
                 <RevealChars text="Bold Ideas" />
-              </h1>
-            </div>
-            <div className="about-headline-row about-headline-row-2">
-              <h1 className="about-h1 about-gray">
+              </span>
+            </span>
+            <span className="about-headline-row about-headline-row-2">
+              <span className="about-h1 about-gray">
                 <RevealChars text="Real Impact" />
-              </h1>
-              <div className="hero-pill-anim-wrap reveal-item">
-                <div className="hero-pill-img hero-pill-2">
+              </span>
+              <span className="hero-pill-anim-wrap reveal-item">
+                <span className="hero-pill-img hero-pill-2">
                   <img src="https://framerusercontent.com/images/WxH5CFA7400s3OucSYNbyQr0.jpg?width=299&height=168" alt="Real Impact" />
-                </div>
-              </div>
-              <h1 className="about-h1 about-dark">
+                </span>
+              </span>
+              <span className="about-h1 about-dark">
                 <RevealChars text="Driven by Innovation" />
-              </h1>
-            </div>
-          </div>
+              </span>
+            </span>
+          </h1>
 
           <p className="about-hero-sub">
             At Clydara, we transform ambitious ideas into powerful digital solutions. From modern websites and custom SaaS platforms to AI-powered automation, CRM systems, and creative branding, we help businesses innovate, scale, and thrive through technology-driven experiences.

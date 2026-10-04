@@ -1,10 +1,12 @@
 import { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { RevealChars } from '../components/common/RevealChars'
 import { RevealHeading } from '../components/common/RevealHeading'
 import Pricing from '../components/Pricing/Pricing'
 import FAQ from '../components/FAQ/FAQ'
 import './ServicesPage.css'
+import './SeoContent.css'
 
 const servicesData = [
   {
@@ -93,37 +95,37 @@ export default function ServicesPage() {
       {/* Services Hero Card */}
       <section className="services-hero-card" ref={heroRef}>
         <div className="services-hero-container">
-          <div className="services-headline-wrap">
-            <div className="services-headline-row services-headline-row-1">
-              <h1 className="services-h1 services-dark">
+          <h1 className="services-headline-wrap" aria-label="Clydara web development, SaaS, AI integration and branding services">
+            <span className="services-headline-row services-headline-row-1">
+              <span className="services-h1 services-dark">
                 <RevealChars text="Our Creative" />
-              </h1>
-              <div className="hero-pill-anim-wrap reveal-item">
-                <div className="hero-pill-img hero-pill-1">
-                  <img src="https://framerusercontent.com/images/gsNRDCdqr35AMePFR63718Ew0.png?width=324&height=256" alt="Creative service" />
-                </div>
-              </div>
-              <h1 className="services-h1 services-accent">
+              </span>
+              <span className="hero-pill-anim-wrap reveal-item">
+                <span className="hero-pill-img hero-pill-1">
+                  <img src="https://framerusercontent.com/images/gsNRDCdqr35AMePFR63718Ew0.png?width=324&height=256" alt="" />
+                </span>
+              </span>
+              <span className="services-h1 services-accent">
                 <RevealChars text="Services" />
-              </h1>
-            </div>
-            <div className="services-headline-row services-headline-row-2">
-              <h1 className="services-h1 services-gray">
+              </span>
+            </span>
+            <span className="services-headline-row services-headline-row-2">
+              <span className="services-h1 services-gray">
                 <RevealChars text="Excellence" />
-              </h1>
-              <div className="hero-pill-anim-wrap reveal-item">
-                <div className="hero-pill-img hero-pill-2">
-                  <img src="https://framerusercontent.com/images/UyfhGP2aptx2DrJ0sZOnxNd6bo.png?width=324&height=256" alt="Excellence" />
-                </div>
-              </div>
-              <h1 className="services-h1 services-dark">
+              </span>
+              <span className="hero-pill-anim-wrap reveal-item">
+                <span className="hero-pill-img hero-pill-2">
+                  <img src="https://framerusercontent.com/images/UyfhGP2aptx2DrJ0sZOnxNd6bo.png?width=324&height=256" alt="" />
+                </span>
+              </span>
+              <span className="services-h1 services-dark">
                 <RevealChars text="Delivered" />
-              </h1>
-            </div>
-          </div>
+              </span>
+            </span>
+          </h1>
 
           <p className="services-hero-sub">
-            Ideas, stories, and strategies from the creative edge covering design development, and the tools that bring bold digital work to life.
+            Clydara designs websites, builds custom SaaS and business software, integrates AI workflows, and creates brand identities for startups and growing businesses.
           </p>
 
           <a href="#pricing" className="services-hero-cta">
@@ -172,6 +174,34 @@ export default function ServicesPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="seo-services-guide" aria-labelledby="solution-fit-heading">
+        <div className="services-detail-container">
+          <h2 id="solution-fit-heading">Which solution fits your project?</h2>
+          <p>Choose the service around the problem you need to solve. Project scope, delivery time and ongoing requirements depend on your workflows, integrations and constraints.</p>
+          <div className="seo-service-decisions">
+            <div>
+              <h3>Web development</h3>
+              <p>Choose a website or web application when you need a clear public presence, a better customer journey or interactive product features. Review our <Link to="/blog/startup-website-mistakes">startup website improvement guide</Link> and <Link to="/works">selected development projects</Link>.</p>
+            </div>
+            <div>
+              <h3>SaaS and business solutions</h3>
+              <p>Choose custom software when your workflows, dashboards or integrations need more flexibility than an existing tool provides. Start with the <Link to="/blog/custom-software-vs-saas">custom software versus SaaS decision guide</Link> and <Link to="/blog/saas-development-cost">SaaS budget considerations</Link>.</p>
+            </div>
+            <div>
+              <h3>AI integration and automation</h3>
+              <p>Start with a repeatable task whose output your team can check. Define the current process, permitted data, success criteria and a fallback before introducing automation. Read our <Link to="/blog/ai-integration-for-startups">AI integration guide for startups</Link>.</p>
+            </div>
+            <div>
+              <h3>Branding and creative design</h3>
+              <p>Choose branding or UI/UX design when your visual identity, interface or customer journey needs clarity and consistency. Share your audience, existing brand assets and the channels where the design will be used.</p>
+            </div>
+          </div>
+          <h2>What should you include in a project enquiry?</h2>
+          <p>Tell us who will use the solution, the problem it should solve, your existing systems, essential features and any timeline or budget constraints. For AI workflows, include how a person will review the result. These details help define a realistic scope rather than a generic package.</p>
+          <p>Compare <Link to="/blog/agency-vs-in-house-developers">agency delivery with in-house development</Link>, explore <Link to="/blog/is-mern-still-worth-it-2026">MERN architecture considerations</Link>, or <Link to="/contact">send your project brief to Clydara</Link>.</p>
         </div>
       </section>
 

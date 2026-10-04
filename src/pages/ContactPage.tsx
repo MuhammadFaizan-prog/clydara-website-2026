@@ -111,34 +111,34 @@ export default function ContactPage() {
       {/* Hero Card */}
       <section className="contact-hero-card" ref={heroRef}>
         <div className="contact-hero-container">
-          <div className="contact-headline-wrap">
-            <div className="contact-headline-row contact-headline-row-1">
-              <h1 className="contact-h1 contact-gray">
+          <h1 className="contact-headline-wrap" aria-label="Contact Clydara about your project">
+            <span className="contact-headline-row contact-headline-row-1">
+              <span className="contact-h1 contact-gray">
                 <RevealChars text="Let's Built" />
-              </h1>
-              <div className="hero-pill-anim-wrap reveal-item">
-                <div className="hero-pill-img hero-pill-1">
+              </span>
+              <span className="hero-pill-anim-wrap reveal-item">
+                <span className="hero-pill-img hero-pill-1">
                   <img src="https://framerusercontent.com/images/pK45P6DfJldnMsnh4JlPbVNhpwA.png?width=324&height=256" alt="Build together" />
-                </div>
-              </div>
-              <h1 className="contact-h1 contact-accent">
+                </span>
+              </span>
+              <span className="contact-h1 contact-accent">
                 <RevealChars text="Something" />
-              </h1>
-            </div>
-            <div className="contact-headline-row contact-headline-row-2">
-              <h1 className="contact-h1 contact-gray">
+              </span>
+            </span>
+            <span className="contact-headline-row contact-headline-row-2">
+              <span className="contact-h1 contact-gray">
                 <RevealChars text="Together" />
-              </h1>
-              <div className="hero-pill-anim-wrap reveal-item">
-                <div className="hero-pill-img hero-pill-2">
+              </span>
+              <span className="hero-pill-anim-wrap reveal-item">
+                <span className="hero-pill-img hero-pill-2">
                   <img src="https://framerusercontent.com/images/lyJVmEhSRroExh2oHU7e1RKP1bU.png?width=325&height=256" alt="Together" />
-                </div>
-              </div>
-              <h1 className="contact-h1 contact-dark">
+                </span>
+              </span>
+              <span className="contact-h1 contact-dark">
                 <RevealChars text="Contact" />
-              </h1>
-            </div>
-          </div>
+              </span>
+            </span>
+          </h1>
 
           <p className="contact-hero-sub">
             Have a project, idea, or challenge? We'd love to hear it. Let's collaborate and bring something meaningful to life.

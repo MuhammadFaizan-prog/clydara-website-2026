@@ -4,14 +4,14 @@ import { RevealChars } from '../common/RevealChars'
 import './Hero.css'
 
 const founderImages = [
-  'https://framerusercontent.com/images/LdiJIgo7vhBde0WiWHd48uSzxU.png?width=512&height=512',
-  'https://framerusercontent.com/images/I9yoNS4RgoWEeRpJDtgEIoLAd4Y.png?width=512&height=512',
-  'https://framerusercontent.com/images/G5E86VA7DStEga3pPtCu3nwW1qE.png?width=512&height=512',
+  'https://framerusercontent.com/images/LdiJIgo7vhBde0WiWHd48uSzxU.png?width=64&height=64',
+  'https://framerusercontent.com/images/I9yoNS4RgoWEeRpJDtgEIoLAd4Y.png?width=64&height=64',
+  'https://framerusercontent.com/images/G5E86VA7DStEga3pPtCu3nwW1qE.png?width=64&height=64',
 ]
 
 const heroInlineImages = [
   {
-    src: 'https://framerusercontent.com/images/tmb7lYyr13TSTCIp3zdK13cH8.jpg?width=3615&height=5423',
+    src: 'https://framerusercontent.com/images/tmb7lYyr13TSTCIp3zdK13cH8.jpg?width=256&height=384',
     alt: 'Hero Image',
   },
   {
@@ -19,7 +19,7 @@ const heroInlineImages = [
     alt: 'Hero Image',
   },
   {
-    src: 'https://framerusercontent.com/images/z5rWUBZI4G5D3Q3v82pHwruV14.jpg?width=3840&height=2160',
+    src: 'https://framerusercontent.com/images/z5rWUBZI4G5D3Q3v82pHwruV14.jpg?width=384&height=216',
     alt: 'hero-image',
   },
 ]
@@ -157,59 +157,62 @@ export default function Hero() {
           </div>
 
           {/* ── Headings ── */}
+<h1 aria-label="Build AI-powered websites and business solutions with AI automation">
           {/* Line 1: Build [img] AI-Powered */}
-          <div className="hero-headline-row hero-headline-row-1">
-            <h1 className="hero-h1 hero-dark">
+          <span className="hero-headline-row hero-headline-row-1">
+            <span className="hero-h1 hero-dark">
               <RevealChars text="Build" />
-            </h1>
-            <div className="hero-pill-anim-wrap reveal-item">
-              <div className="hero-pill-img hero-pill-1">
-                <img src={heroInlineImages[0].src} alt="Hero Image" />
-              </div>
-            </div>
-            <h1 className="hero-h1 hero-accent">
+            </span>
+            <span className="hero-pill-anim-wrap reveal-item">
+              <span className="hero-pill-img hero-pill-1">
+                <img src={heroInlineImages[0].src} alt="" />
+              </span>
+            </span>
+            <span className="hero-h1 hero-accent">
               <RevealChars text="AI-Powered" />
-            </h1>
-          </div>
+            </span>
+          </span>
 
           {/* Line 2: Websites & [img] Business Solutions */}
-          <div className="hero-headline-row hero-headline-row-2">
-            <h1 className="hero-h1 hero-accent hero-bold">
+          <span className="hero-headline-row hero-headline-row-2">
+            <span className="hero-h1 hero-accent hero-bold">
               <RevealChars text="Websites" />
-            </h1>
-            <h1 className="hero-h1 hero-grey hero-bold">
+            </span>
+            <span className="hero-h1 hero-grey hero-bold">
               <RevealChars text="&" />
-            </h1>
-            <div className="hero-pill-anim-wrap reveal-item">
-              <div className="hero-pill-img hero-pill-2">
+            </span>
+            <span className="hero-pill-anim-wrap reveal-item">
+              <span className="hero-pill-img hero-pill-2">
                 <img src={heroInlineImages[1].src} alt={heroInlineImages[1].alt} />
-              </div>
-            </div>
-            <h1 className="hero-h1 hero-dark hero-bold">
+              </span>
+            </span>
+            <span className="hero-h1 hero-dark hero-bold">
               <RevealChars text="Business" />
-            </h1>
-            <h1 className="hero-h1 hero-accent hero-bold">
+            </span>
+            <span className="hero-h1 hero-accent hero-bold">
               <RevealChars text="Solutions" />
-            </h1>
-          </div>
+            </span>
+          </span>
 
           {/* Line 3: with [img] AI Automation */}
-          <div className="hero-headline-row hero-headline-row-3">
-            <h1 className="hero-h1 hero-grey hero-bold">
+          <span className="hero-headline-row hero-headline-row-3">
+            <span className="hero-h1 hero-grey hero-bold">
               <RevealChars text="with" />
-            </h1>
-            <div className="hero-pill-anim-wrap reveal-item">
-              <div className="hero-pill-img hero-pill-3">
-                <img src={heroInlineImages[2].src} alt="hero-image" />
-              </div>
-            </div>
-            <h1 className="hero-h1 hero-accent">
+            </span>
+            <span className="hero-pill-anim-wrap reveal-item">
+              <span className="hero-pill-img hero-pill-3">
+                <img src={heroInlineImages[2].src} alt="" />
+              </span>
+            </span>
+            <span className="hero-h1 hero-accent">
               <RevealChars text="AI" />
-            </h1>
-            <h1 className="hero-h1 hero-dark">
+            </span>
+            <span className="hero-h1 hero-dark">
               <RevealChars text="Automation" />
-            </h1>
-          </div>
+            </span>
+          </span>
+
+          </h1>
 
           {/* Description */}
           <p className="hero-sub">

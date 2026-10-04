@@ -125,34 +125,34 @@ export default function BlogPage() {
       {/* Blog Hero Card */}
       <section className="blog-hero-card" ref={heroRef}>
         <div className="blog-hero-container">
-          <div className="blog-headline-wrap">
-            <div className="blog-headline-row blog-headline-row-1">
-              <h1 className="blog-h1 blog-dark">
+          <h1 className="blog-headline-wrap" aria-label="Clydara software, SaaS and AI guides">
+            <span className="blog-headline-row blog-headline-row-1">
+              <span className="blog-h1 blog-dark">
                 <RevealChars text="Ideas that" />
-              </h1>
-              <div className="hero-pill-anim-wrap reveal-item">
-                <div className="hero-pill-img hero-pill-1">
+              </span>
+              <span className="hero-pill-anim-wrap reveal-item">
+                <span className="hero-pill-img hero-pill-1">
                   <img src="https://framerusercontent.com/images/fXkEtDrUaMJaQ5o6xEuGLn1PBA.jpg?width=1024&height=1024" alt="Ideas highlight" />
-                </div>
-              </div>
-              <h1 className="blog-h1 blog-accent">
+                </span>
+              </span>
+              <span className="blog-h1 blog-accent">
                 <RevealChars text="Shape" />
-              </h1>
-            </div>
-            <div className="blog-headline-row blog-headline-row-2">
-              <h1 className="blog-h1 blog-dark">
+              </span>
+            </span>
+            <span className="blog-headline-row blog-headline-row-2">
+              <span className="blog-h1 blog-dark">
                 <RevealChars text="the" />
-              </h1>
-              <div className="hero-pill-anim-wrap reveal-item">
-                <div className="hero-pill-img hero-pill-2">
+              </span>
+              <span className="hero-pill-anim-wrap reveal-item">
+                <span className="hero-pill-img hero-pill-2">
                   <img src="https://framerusercontent.com/images/uKMtELWjwXKRRO31gDwrfD0ULZk.jpg?width=1400&height=933" alt="Future highlight" />
-                </div>
-              </div>
-              <h1 className="blog-h1 blog-accent">
+                </span>
+              </span>
+              <span className="blog-h1 blog-accent">
                 <RevealChars text="Digital Future" />
-              </h1>
-            </div>
-          </div>
+              </span>
+            </span>
+          </h1>
 
           <p className="blog-hero-sub">
             Stay ahead with expert insights on web development, AI, SaaS, branding, SEO, and digital innovation. Explore practical guides, industry trends, and strategies to help your business grow smarter.

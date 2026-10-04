@@ -1,0 +1,12 @@
+{
+  "capturedAt": "2026-10-04T14:00:10.697Z",
+  "allPassed": true,
+  "checks": {
+    "validPageMetadata": true,
+    "unknownPageBehavior": true,
+    "clientNavigationMetadata": true,
+    "noHydrationOrConsoleErrors": true,
+    "noHorizontalOverflow": true,
+    "emailjsMocks": true
+  }
+}

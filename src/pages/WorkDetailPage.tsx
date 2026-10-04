@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import { RevealHeading } from '../components/common/RevealHeading'
 import Pricing from '../components/Pricing/Pricing'
+import NotFoundPage from './NotFoundPage'
 
 const worksProjects = [
   {
@@ -37,7 +38,8 @@ const worksProjects = [
 
 export default function WorkDetailPage() {
   const { id } = useParams()
-  const project = worksProjects.find((p) => p.id === id) || worksProjects[0]
+  const project = worksProjects.find((p) => p.id === id)
+  if (!project) return <NotFoundPage />
 
   return (
     <main className="work-detail-page" style={{ padding: '130px 0 100px' }}>

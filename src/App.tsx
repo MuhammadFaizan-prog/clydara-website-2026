@@ -17,6 +17,8 @@ import BlogDetailPage from './pages/BlogDetailPage'
 import ContactPage from './pages/ContactPage'
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 import TermsPage from './pages/TermsPage'
+import NotFoundPage from './pages/NotFoundPage'
+import Seo from './seo/Seo'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -37,7 +39,7 @@ function ScrollToTop() {
   return null
 }
 
-function AppContent() {
+export function AppContent() {
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.8,
@@ -68,6 +70,7 @@ function AppContent() {
   }, [])
   return (
     <div className="page-wrapper">
+      <Seo />
       <ScrollToTop />
       <Navigation />
 
@@ -82,6 +85,7 @@ function AppContent() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         <Route path="/terms-and-condition" element={<TermsPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
     </div>

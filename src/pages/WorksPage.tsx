@@ -62,34 +62,34 @@ export default function WorksPage() {
       {/* Works Hero Card */}
       <section className="works-hero-card" ref={heroRef}>
         <div className="works-hero-container">
-          <div className="works-headline-wrap">
-            <div className="works-headline-row works-headline-row-1">
-              <h1 className="works-h1 works-dark">
+          <h1 className="works-headline-wrap" aria-label="Clydara website and software development portfolio">
+            <span className="works-headline-row works-headline-row-1">
+              <span className="works-h1 works-dark">
                 <RevealChars text="Our Work" />
-              </h1>
-              <div className="hero-pill-anim-wrap reveal-item">
-                <div className="hero-pill-img hero-pill-1">
+              </span>
+              <span className="hero-pill-anim-wrap reveal-item">
+                <span className="hero-pill-img hero-pill-1">
                   <img src="https://framerusercontent.com/images/5gx4SUhPYeLLdKmhfb1EB5xC88.jpg?width=220&height=148" alt="Work highlight" />
-                </div>
-              </div>
-              <h1 className="works-h1 works-accent">
+                </span>
+              </span>
+              <span className="works-h1 works-accent">
                 <RevealChars text="That Drives" />
-              </h1>
-            </div>
-            <div className="works-headline-row works-headline-row-2">
-              <h1 className="works-h1 works-gray">
+              </span>
+            </span>
+            <span className="works-headline-row works-headline-row-2">
+              <span className="works-h1 works-gray">
                 <RevealChars text="Business" />
-              </h1>
-              <div className="hero-pill-anim-wrap reveal-item">
-                <div className="hero-pill-img hero-pill-2">
+              </span>
+              <span className="hero-pill-anim-wrap reveal-item">
+                <span className="hero-pill-img hero-pill-2">
                   <img src="https://framerusercontent.com/images/zSO6VAgT8vhYqZLGuzPnzyi2Gw4.jpg?width=2000&height=1200" alt="Growth highlight" />
-                </div>
-              </div>
-              <h1 className="works-h1 works-dark">
+                </span>
+              </span>
+              <span className="works-h1 works-dark">
                 <RevealChars text="Growth" />
-              </h1>
-            </div>
-          </div>
+              </span>
+            </span>
+          </h1>
 
           <p className="works-hero-sub">
             Explore our portfolio of custom websites, SaaS platforms, AI-powered solutions, CRM systems, dashboards, and branding projects crafted to help businesses grow, automate operations, and deliver exceptional digital experiences.

@@ -1,0 +1,7 @@
+{
+  "ready": true,
+  "browser_ready": false,
+  "plugin_version": "2.4.1",
+  "python_version": "3.13",
+  "reason": "Chromium download timeout; installed Chrome used independently"
+}

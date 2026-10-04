@@ -1,0 +1,1087 @@
+{
+  "capturedAt": "2026-10-04T10:50:15.223Z",
+  "routes": [
+    {
+      "requested": "https://www.clydralab.com/",
+      "final": "https://www.clydralab.com/",
+      "status": 200,
+      "headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-disposition": "inline",
+        "content-length": "915",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:18 GMT",
+        "etag": "\"780f8835263a71dfbd3b952aff60dd79\"",
+        "last-modified": "Sun, 04 Oct 2026 10:50:18 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-cache": "MISS",
+        "x-vercel-id": "bom1::7qxqc-1791111018131-6e8ae96454bf"
+      },
+      "chain": [
+        {
+          "url": "https://www.clydralab.com/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "elapsedMs": 1976,
+      "bytes": 915,
+      "sha256": "0dc3ab7981c14f64c46971207aa8cdb5ef80c337b2cecf27f23bb6df3f5e90b7",
+      "title": "Clydara | AI, SaaS &amp; Custom Software Development Agency",
+      "metas": [
+        "<meta charset=\"UTF-8\" />",
+        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />"
+      ],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": true
+    },
+    {
+      "requested": "https://www.clydralab.com/works",
+      "final": "https://www.clydralab.com/works",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "79",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:18 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-error": "NOT_FOUND",
+        "x-vercel-id": "bom1::nb2d5-1791111018146-5fcf4e574f0e"
+      },
+      "chain": [
+        {
+          "url": "https://www.clydralab.com/works",
+          "status": 404,
+          "location": null
+        }
+      ],
+      "elapsedMs": 1591,
+      "bytes": 79,
+      "sha256": "5e0bd5ecb987721c3fad584fbb36899fd65ad8b3b25b47f6f8f7a2683be57685",
+      "title": null,
+      "metas": [],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": false
+    },
+    {
+      "requested": "https://www.clydralab.com/services",
+      "final": "https://www.clydralab.com/services",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "79",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:18 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-error": "NOT_FOUND",
+        "x-vercel-id": "bom1::wnpmm-1791111018088-2d91a84b06e0"
+      },
+      "chain": [
+        {
+          "url": "https://www.clydralab.com/services",
+          "status": 404,
+          "location": null
+        }
+      ],
+      "elapsedMs": 1611,
+      "bytes": 79,
+      "sha256": "1ca43f47eb989cc60cc799e336f8b6be76e1f9b62cc6dd627296519e088bc3b3",
+      "title": null,
+      "metas": [],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": false
+    },
+    {
+      "requested": "https://www.clydralab.com/about",
+      "final": "https://www.clydralab.com/about",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "79",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:18 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-error": "NOT_FOUND",
+        "x-vercel-id": "bom1::567vg-1791111018291-b483c1b5c83e"
+      },
+      "chain": [
+        {
+          "url": "https://www.clydralab.com/about",
+          "status": 404,
+          "location": null
+        }
+      ],
+      "elapsedMs": 1604,
+      "bytes": 79,
+      "sha256": "3546e5aa67060b2294173191922cbf36cb4311855bdbf45d4b2bcb09f1a5fdb8",
+      "title": null,
+      "metas": [],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": false
+    },
+    {
+      "requested": "https://www.clydralab.com/blog",
+      "final": "https://www.clydralab.com/blog",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "79",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:19 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-error": "NOT_FOUND",
+        "x-vercel-id": "bom1::qkclm-1791111018972-63afc39d875d"
+      },
+      "chain": [
+        {
+          "url": "https://www.clydralab.com/blog",
+          "status": 404,
+          "location": null
+        }
+      ],
+      "elapsedMs": 314,
+      "bytes": 79,
+      "sha256": "0347ebd122681e22f164181de1702de1a2fed98bf2b32ebd165cc299ad1ea381",
+      "title": null,
+      "metas": [],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": false
+    },
+    {
+      "requested": "https://www.clydralab.com/contact",
+      "final": "https://www.clydralab.com/contact",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "79",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:18 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-error": "NOT_FOUND",
+        "x-vercel-id": "bom1::fsz89-1791111018972-8d0ed34385be"
+      },
+      "chain": [
+        {
+          "url": "https://www.clydralab.com/contact",
+          "status": 404,
+          "location": null
+        }
+      ],
+      "elapsedMs": 87,
+      "bytes": 79,
+      "sha256": "d797d1540fa0360bed689d21ef6c64126a728357dff5fe40facb790131941f7f",
+      "title": null,
+      "metas": [],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": false
+    },
+    {
+      "requested": "https://www.clydralab.com/privacy-policy",
+      "final": "https://www.clydralab.com/privacy-policy",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "79",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:19 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-error": "NOT_FOUND",
+        "x-vercel-id": "bom1::4kvgj-1791111018975-c0f19b4ab7c8"
+      },
+      "chain": [
+        {
+          "url": "https://www.clydralab.com/privacy-policy",
+          "status": 404,
+          "location": null
+        }
+      ],
+      "elapsedMs": 299,
+      "bytes": 79,
+      "sha256": "25463319367d6285b3e587ea66497bcac85e611a87710dc7535b7c7cf0ebd5c4",
+      "title": null,
+      "metas": [],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": false
+    },
+    {
+      "requested": "https://www.clydralab.com/terms-and-condition",
+      "final": "https://www.clydralab.com/terms-and-condition",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "79",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:19 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-error": "NOT_FOUND",
+        "x-vercel-id": "bom1::h7tfs-1791111019125-779f0a31a3e9"
+      },
+      "chain": [
+        {
+          "url": "https://www.clydralab.com/terms-and-condition",
+          "status": 404,
+          "location": null
+        }
+      ],
+      "elapsedMs": 237,
+      "bytes": 79,
+      "sha256": "dddc25f3cd3723669afb58653e5cb4d137b2b72939915e2afa72c767bfd0575e",
+      "title": null,
+      "metas": [],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": false
+    },
+    {
+      "requested": "https://www.clydralab.com/works/archin",
+      "final": "https://www.clydralab.com/works/archin",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "79",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:19 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-error": "NOT_FOUND",
+        "x-vercel-id": "bom1::vtfvh-1791111019284-713edb61b729"
+      },
+      "chain": [
+        {
+          "url": "https://www.clydralab.com/works/archin",
+          "status": 404,
+          "location": null
+        }
+      ],
+      "elapsedMs": 75,
+      "bytes": 79,
+      "sha256": "a6935699a1a484eb4b7fa55e693db51cd3e8e2e608a5e13f12ff4ddf2c917c84",
+      "title": null,
+      "metas": [],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": false
+    },
+    {
+      "requested": "https://www.clydralab.com/works/vntnr",
+      "final": "https://www.clydralab.com/works/vntnr",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "79",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:19 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-error": "NOT_FOUND",
+        "x-vercel-id": "bom1::zkcnl-1791111019284-dd8c2a35dc21"
+      },
+      "chain": [
+        {
+          "url": "https://www.clydralab.com/works/vntnr",
+          "status": 404,
+          "location": null
+        }
+      ],
+      "elapsedMs": 76,
+      "bytes": 79,
+      "sha256": "2ac0fdb13895a8cc290aa7e8e0becae903492873c40f57a17f195576c39b0a1a",
+      "title": null,
+      "metas": [],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": false
+    },
+    {
+      "requested": "https://www.clydralab.com/works/aeorim",
+      "final": "https://www.clydralab.com/works/aeorim",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "79",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:19 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-error": "NOT_FOUND",
+        "x-vercel-id": "bom1::567vg-1791111019286-2a6d7ef38963"
+      },
+      "chain": [
+        {
+          "url": "https://www.clydralab.com/works/aeorim",
+          "status": 404,
+          "location": null
+        }
+      ],
+      "elapsedMs": 76,
+      "bytes": 79,
+      "sha256": "e6b6eeafc596ca57fb197b149ed331a3b94136ec0861986aef73e2816914ffb9",
+      "title": null,
+      "metas": [],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": false
+    },
+    {
+      "requested": "https://www.clydralab.com/blog/custom-software-vs-saas",
+      "final": "https://www.clydralab.com/blog/custom-software-vs-saas",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "79",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:19 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-error": "NOT_FOUND",
+        "x-vercel-id": "bom1::7s9n5-1791111019288-518ae5d7c9b3"
+      },
+      "chain": [
+        {
+          "url": "https://www.clydralab.com/blog/custom-software-vs-saas",
+          "status": 404,
+          "location": null
+        }
+      ],
+      "elapsedMs": 76,
+      "bytes": 79,
+      "sha256": "b2afb4a6598602acb34b52814d0d21009c3b6ddcb28263b573f30c009205674e",
+      "title": null,
+      "metas": [],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": false
+    },
+    {
+      "requested": "https://www.clydralab.com/blog/is-mern-still-worth-it-2026",
+      "final": "https://www.clydralab.com/blog/is-mern-still-worth-it-2026",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "79",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:19 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-error": "NOT_FOUND",
+        "x-vercel-id": "bom1::wn8zr-1791111019362-58883de9270c"
+      },
+      "chain": [
+        {
+          "url": "https://www.clydralab.com/blog/is-mern-still-worth-it-2026",
+          "status": 404,
+          "location": null
+        }
+      ],
+      "elapsedMs": 74,
+      "bytes": 79,
+      "sha256": "acb18d222aeff894960b891de470d2d570006e8a77751385cf6330de203c9a1c",
+      "title": null,
+      "metas": [],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": false
+    },
+    {
+      "requested": "https://www.clydralab.com/blog/ai-integration-for-startups",
+      "final": "https://www.clydralab.com/blog/ai-integration-for-startups",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "79",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:19 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-error": "NOT_FOUND",
+        "x-vercel-id": "bom1::z5hkh-1791111019362-11d29dd371c4"
+      },
+      "chain": [
+        {
+          "url": "https://www.clydralab.com/blog/ai-integration-for-startups",
+          "status": 404,
+          "location": null
+        }
+      ],
+      "elapsedMs": 296,
+      "bytes": 79,
+      "sha256": "045aaea645692c7de8a5ef07bdfd7a6dc831d1def78a58e267cd75c95c54dfad",
+      "title": null,
+      "metas": [],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": false
+    },
+    {
+      "requested": "https://www.clydralab.com/blog/agency-vs-in-house-developers",
+      "final": "https://www.clydralab.com/blog/agency-vs-in-house-developers",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "79",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:19 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-error": "NOT_FOUND",
+        "x-vercel-id": "bom1::6ckmt-1791111019363-f1ab9cc0a491"
+      },
+      "chain": [
+        {
+          "url": "https://www.clydralab.com/blog/agency-vs-in-house-developers",
+          "status": 404,
+          "location": null
+        }
+      ],
+      "elapsedMs": 74,
+      "bytes": 79,
+      "sha256": "5a0e3b8a030c43d118472c2456d051ec2eea5a1461e788235c39fd56e630b22d",
+      "title": null,
+      "metas": [],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": false
+    },
+    {
+      "requested": "https://www.clydralab.com/blog/saas-development-cost",
+      "final": "https://www.clydralab.com/blog/saas-development-cost",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "79",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:19 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-error": "NOT_FOUND",
+        "x-vercel-id": "bom1::qkclm-1791111019365-63bbe8391aa9"
+      },
+      "chain": [
+        {
+          "url": "https://www.clydralab.com/blog/saas-development-cost",
+          "status": 404,
+          "location": null
+        }
+      ],
+      "elapsedMs": 75,
+      "bytes": 79,
+      "sha256": "252626ca9d9e481cc1aaa8002329f6e408a12fd296906435302b0361dfbe7080",
+      "title": null,
+      "metas": [],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": false
+    },
+    {
+      "requested": "https://www.clydralab.com/blog/startup-website-mistakes",
+      "final": "https://www.clydralab.com/blog/startup-website-mistakes",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "79",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:19 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-error": "NOT_FOUND",
+        "x-vercel-id": "bom1::sp2xd-1791111019658-72c5b8bfa0ed"
+      },
+      "chain": [
+        {
+          "url": "https://www.clydralab.com/blog/startup-website-mistakes",
+          "status": 404,
+          "location": null
+        }
+      ],
+      "elapsedMs": 78,
+      "bytes": 79,
+      "sha256": "c428fd3d6c10d74a1ad1ab982e1b398d1c7a9901178fbaf2aeb11a8c641bb500",
+      "title": null,
+      "metas": [],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": false
+    },
+    {
+      "requested": "https://www.clydralab.com/seo-check-not-found",
+      "final": "https://www.clydralab.com/seo-check-not-found",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "79",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:19 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-error": "NOT_FOUND",
+        "x-vercel-id": "bom1::mmntl-1791111019657-40ca1b6f51e3"
+      },
+      "chain": [
+        {
+          "url": "https://www.clydralab.com/seo-check-not-found",
+          "status": 404,
+          "location": null
+        }
+      ],
+      "elapsedMs": 75,
+      "bytes": 79,
+      "sha256": "9d1c9c489e53abbef0b40b3a016a252a2f3942848acc92a4c456e92377f6d4fd",
+      "title": null,
+      "metas": [],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": false
+    }
+  ],
+  "discovery": [
+    {
+      "requested": "https://www.clydralab.com/robots.txt",
+      "final": "https://www.clydralab.com/robots.txt",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "79",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:19 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-error": "NOT_FOUND",
+        "x-vercel-id": "bom1::l5wz6-1791111019763-1f68b5bb2ba2"
+      },
+      "chain": [
+        {
+          "url": "https://www.clydralab.com/robots.txt",
+          "status": 404,
+          "location": null
+        }
+      ],
+      "elapsedMs": 78,
+      "bytes": 79,
+      "sha256": "40895e56fc73e7717efd9760f023cc59135c73de82a44dc5862c9395ac18d869",
+      "title": null,
+      "metas": [],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": false
+    },
+    {
+      "requested": "https://www.clydralab.com/sitemap.xml",
+      "final": "https://www.clydralab.com/sitemap.xml",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "79",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:19 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-error": "NOT_FOUND",
+        "x-vercel-id": "bom1::jthdg-1791111019766-a14277c89669"
+      },
+      "chain": [
+        {
+          "url": "https://www.clydralab.com/sitemap.xml",
+          "status": 404,
+          "location": null
+        }
+      ],
+      "elapsedMs": 70,
+      "bytes": 79,
+      "sha256": "11048d0adafb5f809cb15637bb3597ca7c23e64db4361ec0b10714b4eb78cc11",
+      "title": null,
+      "metas": [],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": false
+    },
+    {
+      "requested": "https://www.clydralab.com/llms.txt",
+      "final": "https://www.clydralab.com/llms.txt",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "79",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:19 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-error": "NOT_FOUND",
+        "x-vercel-id": "bom1::lgh4j-1791111019769-a059a01bb85e"
+      },
+      "chain": [
+        {
+          "url": "https://www.clydralab.com/llms.txt",
+          "status": 404,
+          "location": null
+        }
+      ],
+      "elapsedMs": 74,
+      "bytes": 79,
+      "sha256": "5b4a9de7f182c6dc813206fcc75fda424c87b3c15d545df465d88a47ba858597",
+      "title": null,
+      "metas": [],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": false
+    },
+    {
+      "requested": "https://www.clydralab.com/sitemap_index.xml",
+      "final": "https://www.clydralab.com/sitemap_index.xml",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "79",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:19 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-error": "NOT_FOUND",
+        "x-vercel-id": "bom1::k7srd-1791111019768-2ad12a22461f"
+      },
+      "chain": [
+        {
+          "url": "https://www.clydralab.com/sitemap_index.xml",
+          "status": 404,
+          "location": null
+        }
+      ],
+      "elapsedMs": 73,
+      "bytes": 79,
+      "sha256": "fb1acecff6ae01e288d04d701c5618a8ba7d1b87187d4378050901d001f87b7d",
+      "title": null,
+      "metas": [],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": false
+    }
+  ],
+  "redirects": [
+    {
+      "requested": "https://www.clydralab.com/",
+      "final": "https://www.clydralab.com/",
+      "status": 200,
+      "headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-disposition": "inline",
+        "content-length": "915",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:19 GMT",
+        "etag": "\"780f8835263a71dfbd3b952aff60dd79\"",
+        "last-modified": "Sun, 04 Oct 2026 10:50:18 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "bom1::h7tfs-1791111019847-960079e4df5c"
+      },
+      "chain": [
+        {
+          "url": "https://www.clydralab.com/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "elapsedMs": 76,
+      "bytes": 915,
+      "sha256": "0dc3ab7981c14f64c46971207aa8cdb5ef80c337b2cecf27f23bb6df3f5e90b7",
+      "title": "Clydara | AI, SaaS &amp; Custom Software Development Agency",
+      "metas": [
+        "<meta charset=\"UTF-8\" />",
+        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />"
+      ],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": true
+    },
+    {
+      "requested": "https://clydralab.com/",
+      "final": "https://www.clydralab.com/",
+      "status": 200,
+      "headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "2",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-disposition": "inline",
+        "content-length": "915",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:21 GMT",
+        "etag": "\"780f8835263a71dfbd3b952aff60dd79\"",
+        "last-modified": "Sun, 04 Oct 2026 10:50:18 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "bom1::sp2xd-1791111021031-326c51a007a8"
+      },
+      "chain": [
+        {
+          "url": "https://clydralab.com/",
+          "status": 308,
+          "location": "https://www.clydralab.com/"
+        },
+        {
+          "url": "https://www.clydralab.com/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "elapsedMs": 1408,
+      "bytes": 915,
+      "sha256": "0dc3ab7981c14f64c46971207aa8cdb5ef80c337b2cecf27f23bb6df3f5e90b7",
+      "title": "Clydara | AI, SaaS &amp; Custom Software Development Agency",
+      "metas": [
+        "<meta charset=\"UTF-8\" />",
+        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />"
+      ],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": true
+    },
+    {
+      "requested": "http://www.clydralab.com/",
+      "final": "https://www.clydralab.com/",
+      "status": 200,
+      "headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "1",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-disposition": "inline",
+        "content-length": "915",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:20 GMT",
+        "etag": "\"780f8835263a71dfbd3b952aff60dd79\"",
+        "last-modified": "Sun, 04 Oct 2026 10:50:18 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "bom1::vtfvh-1791111020006-080033c11fef"
+      },
+      "chain": [
+        {
+          "url": "http://www.clydralab.com/",
+          "status": 308,
+          "location": "https://www.clydralab.com/"
+        },
+        {
+          "url": "https://www.clydralab.com/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "elapsedMs": 233,
+      "bytes": 915,
+      "sha256": "0dc3ab7981c14f64c46971207aa8cdb5ef80c337b2cecf27f23bb6df3f5e90b7",
+      "title": "Clydara | AI, SaaS &amp; Custom Software Development Agency",
+      "metas": [
+        "<meta charset=\"UTF-8\" />",
+        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />"
+      ],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": true
+    },
+    {
+      "requested": "http://clydralab.com/",
+      "final": "https://www.clydralab.com/",
+      "status": 200,
+      "headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "3",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-disposition": "inline",
+        "content-length": "915",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:22 GMT",
+        "etag": "\"780f8835263a71dfbd3b952aff60dd79\"",
+        "last-modified": "Sun, 04 Oct 2026 10:50:18 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "bom1::4hl2p-1791111022303-4fbf7bc155f0"
+      },
+      "chain": [
+        {
+          "url": "http://clydralab.com/",
+          "status": 308,
+          "location": "https://clydralab.com/"
+        },
+        {
+          "url": "https://clydralab.com/",
+          "status": 308,
+          "location": "https://www.clydralab.com/"
+        },
+        {
+          "url": "https://www.clydralab.com/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "elapsedMs": 2536,
+      "bytes": 915,
+      "sha256": "0dc3ab7981c14f64c46971207aa8cdb5ef80c337b2cecf27f23bb6df3f5e90b7",
+      "title": "Clydara | AI, SaaS &amp; Custom Software Development Agency",
+      "metas": [
+        "<meta charset=\"UTF-8\" />",
+        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />"
+      ],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": true
+    }
+  ],
+  "agents": [
+    {
+      "ua": "Googlebot",
+      "requested": "https://www.clydralab.com/",
+      "final": "https://www.clydralab.com/",
+      "status": 200,
+      "headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "3",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-disposition": "inline",
+        "content-length": "915",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:22 GMT",
+        "etag": "\"780f8835263a71dfbd3b952aff60dd79\"",
+        "last-modified": "Sun, 04 Oct 2026 10:50:18 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "bom1::dh6pg-1791111022594-8ebbaed79011"
+      },
+      "chain": [
+        {
+          "url": "https://www.clydralab.com/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "elapsedMs": 643,
+      "bytes": 915,
+      "sha256": "0dc3ab7981c14f64c46971207aa8cdb5ef80c337b2cecf27f23bb6df3f5e90b7",
+      "title": "Clydara | AI, SaaS &amp; Custom Software Development Agency",
+      "metas": [
+        "<meta charset=\"UTF-8\" />",
+        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />"
+      ],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": true
+    },
+    {
+      "ua": "bingbot",
+      "requested": "https://www.clydralab.com/",
+      "final": "https://www.clydralab.com/",
+      "status": 200,
+      "headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "3",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-disposition": "inline",
+        "content-length": "915",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:22 GMT",
+        "etag": "\"780f8835263a71dfbd3b952aff60dd79\"",
+        "last-modified": "Sun, 04 Oct 2026 10:50:18 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "bom1::tfjfr-1791111022389-2b3b7eca54db"
+      },
+      "chain": [
+        {
+          "url": "https://www.clydralab.com/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "elapsedMs": 87,
+      "bytes": 915,
+      "sha256": "0dc3ab7981c14f64c46971207aa8cdb5ef80c337b2cecf27f23bb6df3f5e90b7",
+      "title": "Clydara | AI, SaaS &amp; Custom Software Development Agency",
+      "metas": [
+        "<meta charset=\"UTF-8\" />",
+        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />"
+      ],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": true
+    },
+    {
+      "ua": "OAI-SearchBot",
+      "requested": "https://www.clydralab.com/",
+      "final": "https://www.clydralab.com/",
+      "status": 200,
+      "headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "3",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-disposition": "inline",
+        "content-length": "915",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:22 GMT",
+        "etag": "\"780f8835263a71dfbd3b952aff60dd79\"",
+        "last-modified": "Sun, 04 Oct 2026 10:50:18 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "bom1::g5tkk-1791111022392-7acc3745cad5"
+      },
+      "chain": [
+        {
+          "url": "https://www.clydralab.com/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "elapsedMs": 89,
+      "bytes": 915,
+      "sha256": "0dc3ab7981c14f64c46971207aa8cdb5ef80c337b2cecf27f23bb6df3f5e90b7",
+      "title": "Clydara | AI, SaaS &amp; Custom Software Development Agency",
+      "metas": [
+        "<meta charset=\"UTF-8\" />",
+        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />"
+      ],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": true
+    },
+    {
+      "ua": "Claude-SearchBot",
+      "requested": "https://www.clydralab.com/",
+      "final": "https://www.clydralab.com/",
+      "status": 200,
+      "headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "3",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-disposition": "inline",
+        "content-length": "915",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:22 GMT",
+        "etag": "\"780f8835263a71dfbd3b952aff60dd79\"",
+        "last-modified": "Sun, 04 Oct 2026 10:50:18 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "bom1::sqs76-1791111022392-4f2c4c64db3f"
+      },
+      "chain": [
+        {
+          "url": "https://www.clydralab.com/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "elapsedMs": 99,
+      "bytes": 915,
+      "sha256": "0dc3ab7981c14f64c46971207aa8cdb5ef80c337b2cecf27f23bb6df3f5e90b7",
+      "title": "Clydara | AI, SaaS &amp; Custom Software Development Agency",
+      "metas": [
+        "<meta charset=\"UTF-8\" />",
+        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />"
+      ],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": true
+    },
+    {
+      "ua": "PerplexityBot",
+      "requested": "https://www.clydralab.com/",
+      "final": "https://www.clydralab.com/",
+      "status": 200,
+      "headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "3",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-disposition": "inline",
+        "content-length": "915",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Sun, 04 Oct 2026 10:50:22 GMT",
+        "etag": "\"780f8835263a71dfbd3b952aff60dd79\"",
+        "last-modified": "Sun, 04 Oct 2026 10:50:18 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "bom1::wn8zr-1791111022538-e87be703dfd7"
+      },
+      "chain": [
+        {
+          "url": "https://www.clydralab.com/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "elapsedMs": 234,
+      "bytes": 915,
+      "sha256": "0dc3ab7981c14f64c46971207aa8cdb5ef80c337b2cecf27f23bb6df3f5e90b7",
+      "title": "Clydara | AI, SaaS &amp; Custom Software Development Agency",
+      "metas": [
+        "<meta charset=\"UTF-8\" />",
+        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />"
+      ],
+      "canonical": null,
+      "h1": [],
+      "schemaCount": 0,
+      "hasRoot": true
+    }
+  ]
+}

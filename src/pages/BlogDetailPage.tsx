@@ -4,8 +4,10 @@ import gsap from 'gsap'
 import { RevealChars } from '../components/common/RevealChars'
 import { RevealHeading } from '../components/common/RevealHeading'
 import { blogPosts } from './BlogPage'
+import NotFoundPage from './NotFoundPage'
 import './BlogDetailPage.css'
 import './BlogPage.css'
+import './SeoContent.css'
 
 interface ArticleData {
   heroRow1: { prefix: string; pill: string; accent: string }
@@ -560,14 +562,52 @@ const articlesData: Record<string, ArticleData> = {
   },
 }
 
+const articleReferences: Record<string, { title: string; url: string }[]> = {
+  'is-mern-still-worth-it-2026': [
+    { title: 'React: choosing a framework or starting from scratch', url: 'https://react.dev/learn/creating-a-react-app' },
+    { title: 'Node.js: avoiding blocked event-loop workloads', url: 'https://nodejs.org/en/learn/asynchronous-work/dont-block-the-event-loop' },
+    { title: 'Express: production security practices', url: 'https://expressjs.com/en/advanced/best-practice-security/' },
+  ],
+  'custom-software-vs-saas': [
+    { title: 'Thoughtworks: a strategic build-versus-buy framework (2022)', url: 'https://www.thoughtworks.com/content/dam/thoughtworks/documents/e-book/tw_ebook_build_vs_buy_2022.pdf' },
+    { title: 'AWS: infrastructure pricing and estimation', url: 'https://aws.amazon.com/pricing/' },
+  ],
+  'ai-integration-for-startups': [
+    { title: 'Claude: defining success criteria and building evaluations', url: 'https://platform.claude.com/docs/en/test-and-evaluate/develop-tests' },
+    { title: 'Express: production security and input validation', url: 'https://expressjs.com/en/advanced/best-practice-security/' },
+  ],
+  'agency-vs-in-house-developers': [
+    { title: 'Thoughtworks: evaluating the build-versus-buy decision (2022)', url: 'https://www.thoughtworks.com/content/dam/thoughtworks/documents/e-book/tw_ebook_build_vs_buy_2022.pdf' },
+    { title: 'Express: security responsibilities in production', url: 'https://expressjs.com/en/advanced/best-practice-security/' },
+  ],
+  'saas-development-cost': [
+    { title: 'AWS: ongoing infrastructure cost inputs', url: 'https://aws.amazon.com/pricing/' },
+    { title: 'Stripe: subscription lifecycle and billing implementation', url: 'https://docs.stripe.com/billing/subscriptions/overview' },
+  ],
+  'startup-website-mistakes': [
+    { title: 'Google: creating helpful, reliable, people-first content', url: 'https://developers.google.com/search/docs/fundamentals/creating-helpful-content' },
+    { title: 'Google: SEO Starter Guide', url: 'https://developers.google.com/search/docs/fundamentals/seo-starter-guide' },
+  ],
+}
+
+const relatedArticleIds: Record<string, string[]> = {
+  'is-mern-still-worth-it-2026': ['saas-development-cost', 'ai-integration-for-startups', 'custom-software-vs-saas'],
+  'custom-software-vs-saas': ['saas-development-cost', 'agency-vs-in-house-developers', 'ai-integration-for-startups'],
+  'ai-integration-for-startups': ['is-mern-still-worth-it-2026', 'saas-development-cost', 'custom-software-vs-saas'],
+  'agency-vs-in-house-developers': ['custom-software-vs-saas', 'saas-development-cost', 'is-mern-still-worth-it-2026'],
+  'saas-development-cost': ['custom-software-vs-saas', 'agency-vs-in-house-developers', 'ai-integration-for-startups'],
+  'startup-website-mistakes': ['agency-vs-in-house-developers', 'custom-software-vs-saas', 'is-mern-still-worth-it-2026'],
+}
+
 export default function BlogDetailPage() {
   const { id } = useParams()
   const heroRef = useRef<HTMLElement>(null)
-  const post = blogPosts.find((p) => p.id === id) || blogPosts[1]
-  const article = articlesData[post.id] || articlesData['is-mern-still-worth-it-2026']
+  const post = blogPosts.find((p) => p.id === id)
+  const article = post ? articlesData[post.id] : undefined
 
   // Scroll to top when post changes + trigger animation
   useEffect(() => {
+    if (!post || !article) return
     window.scrollTo(0, 0)
 
     const ctx = gsap.context(() => {
@@ -615,43 +655,49 @@ export default function BlogDetailPage() {
     }, heroRef)
 
     return () => ctx.revert()
-  }, [id])
+  }, [id, post, article])
 
-  // Related posts (excluding current)
-  const relatedPosts = blogPosts.filter((p) => p.id !== post.id).slice(0, 3)
+  if (!post || !article) return <NotFoundPage />
+
+  const relatedPosts = (relatedArticleIds[post.id] || [])
+    .map((relatedId) => blogPosts.find((p) => p.id === relatedId))
+    .filter((relatedPost): relatedPost is typeof blogPosts[number] => Boolean(relatedPost))
 
   return (
     <main className="blog-detail-page">
       {/* Blog Detail Hero Card */}
       <section className="blog-detail-hero-card" ref={heroRef}>
         <div className="blog-detail-hero-container">
-          <div className="blog-detail-headline-wrap">
-            <div className="blog-detail-headline-row blog-detail-headline-row-1">
-              <h1 className="blog-detail-h1 blog-dark">
+          <h1 className="blog-detail-headline-wrap" aria-label={post.title}>
+            <span className="blog-detail-headline-row blog-detail-headline-row-1">
+              <span className="blog-detail-h1 blog-dark">
                 <RevealChars text={article.heroRow1.prefix} />
-              </h1>
-              <div className="hero-pill-anim-wrap reveal-item">
-                <div className="hero-pill-img hero-pill-1">
-                  <img src={article.heroRow1.pill} alt="Article pill" />
-                </div>
-              </div>
-              <h1 className="blog-detail-h1 blog-accent">
+              </span>
+              <span className="hero-pill-anim-wrap reveal-item">
+                <span className="hero-pill-img hero-pill-1">
+                  <img src={article.heroRow1.pill} alt="" />
+                </span>
+              </span>
+              <span className="blog-detail-h1 blog-accent">
                 <RevealChars text={article.heroRow1.accent} />
-              </h1>
-            </div>
-            <div className="blog-detail-headline-row blog-detail-headline-row-2">
-              <div className="hero-pill-anim-wrap reveal-item">
-                <div className="hero-pill-img hero-pill-2">
-                  <img src={article.heroRow2.pill} alt="Article pill 2" />
-                </div>
-              </div>
-              <h1 className="blog-detail-h1 blog-dark">
+              </span>
+            </span>
+            <span className="blog-detail-headline-row blog-detail-headline-row-2">
+              <span className="hero-pill-anim-wrap reveal-item">
+                <span className="hero-pill-img hero-pill-2">
+                  <img src={article.heroRow2.pill} alt="" />
+                </span>
+              </span>
+              <span className="blog-detail-h1 blog-dark">
                 <RevealChars text={article.heroRow2.suffix} />
-              </h1>
-            </div>
-          </div>
+              </span>
+            </span>
+          </h1>
 
           <p className="blog-detail-sub">{article.subtitle}</p>
+          <p className="seo-article-byline">
+            By <Link to="/about">{post.author}</Link> · Published {post.date}
+          </p>
         </div>
       </section>
 
@@ -731,14 +777,27 @@ export default function BlogDetailPage() {
               ))}
             </div>
           )}
+          <section className="seo-reading-block" aria-label="Sources and next steps">
+            <h2 className="blog-article-h2">Sources and further reading</h2>
+            <p className="blog-article-p">These references explain the technical practices and decision criteria discussed in this guide. They do not represent a project quote or a guarantee of results.</p>
+            <ul>
+              {(articleReferences[post.id] || []).map((reference) => (
+                <li key={reference.url}><a href={reference.url} target="_blank" rel="noopener noreferrer">{reference.title}</a></li>
+              ))}
+            </ul>
+            <p className="blog-article-p">
+              Explore our <Link to="/services">web development, SaaS and AI integration services</Link>,
+              learn about the <Link to="/about">Clydara team</Link>, or <Link to="/contact">send a project enquiry</Link> with your goals, current systems and constraints.
+            </p>
+          </section>
         </article>
       </div>
 
       {/* Next Project / More Articles Section */}
       <section className="more-articles-section">
         <div className="more-articles-header">
-          <p className="more-articles-eyebrow">(Project)</p>
-          <RevealHeading as="h2" className="more-articles-heading" text="Next Project" />
+          <p className="more-articles-eyebrow">(Further reading)</p>
+          <RevealHeading as="h2" className="more-articles-heading" text="Related guides" />
         </div>
 
         <div className="blog-posts-grid">
