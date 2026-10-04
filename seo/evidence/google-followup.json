@@ -1,0 +1,31 @@
+{
+  "checkedAt": "2026-10-04T16:00:02.052Z",
+  "property": "https://www.clydralab.com/",
+  "sitemap": "https://www.clydralab.com/sitemap.xml",
+  "googleLiveFetch": {
+    "testedLocal": "2026-10-04 20:58:08 Asia/Karachi",
+    "crawlAllowed": true,
+    "pageFetch": "Successful",
+    "agent": "Google Inspection Tool smartphone"
+  },
+  "manualActions": "No issues detected",
+  "securityIssues": "No issues detected",
+  "resubmission": "Sitemap submitted successfully",
+  "processingStatus": "Could not fetch; not yet successful processing",
+  "source": "Authenticated Search Console browser UI",
+  "contact": {
+    "indexBefore": "URL unknown to Google",
+    "indexingRequest": "Accepted; priority crawl queue"
+  },
+  "about": {
+    "indexBefore": "URL unknown to Google",
+    "indexingRequest": "Google service error; try later",
+    "liveTest": "Google service error; try in a few hours",
+    "httpStatus": 200,
+    "canonical": "https://www.clydralab.com/about",
+    "indexableRobots": true,
+    "inSitemap": true
+  },
+  "pageIndexingReport": "Processing data; check again in a day or so",
+  "performanceReport": "Processing data; check again in a day or so; no measured organic baseline"
+}
