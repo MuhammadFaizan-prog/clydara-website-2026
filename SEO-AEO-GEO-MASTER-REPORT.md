@@ -160,7 +160,7 @@ Final synchronous build, type checks and all 18 SEO assertions pass. Oxlint repo
 
 **First-party measurement follow-through.** Evidence: Google/Bing properties and GA4 web stream now exist, but search history and postdeployment growth have not accrued. Expected impact: distinguish crawl recovery from actual search/conversion outcomes. Implementation: use the created verified properties and consent-based GA4 integration; track accepted contact requests without form data, distinguish UI tests from real enquiries, and review matched28-day query/landing-page reports. Verification: test event and 28-day branded/nonbranded landing-page reports. Never report missing data as zero.
 
-**Performance follow-through.** Comparable production PSI before → after responsive images: mobile80 → 79/LCP3.637 → 3.687s/TBT70 → 85ms; desktop86 → 94/LCP0.793 → 0.789s/TBT301 → 180ms. No CrUX data. Image changes are live/browser-checked; mobile did not improve in this run. Original fonts are now self-hosted with preserved weight/Unicode coverage and licenses; verify that release and record its separate after measurement. Field INP/CWV remain unmeasured. Earlier failed/local measurements are historical, not comparable improvement baselines. [Measurement record](seo/evidence/psi-high-priority.json).
+**Performance follow-through.** Comparable production PSI before → after responsive images: mobile80 → 79/LCP3.637 → 3.687s/TBT70 → 85ms; desktop86 → 94/LCP0.793 → 0.789s/TBT301 → 180ms. No CrUX data. Image changes are live/browser-checked; mobile did not improve in this run. The font release is now verified live: latest mobile84/LCP3.492s/TBT63ms; desktop89/LCP0.696s/TBT260ms. All three comparable captures are retained. Original weights/Unicode coverage and licenses are preserved. Field INP/CWV remain unmeasured. Earlier failed/local measurements are historical, not comparable improvement baselines. [Measurement record](seo/evidence/psi-high-priority.json).
 
 ### MEDIUM
 
@@ -302,3 +302,25 @@ Authenticated GA4, for September10–October7, reports6sessions (4Direct,2Organi
 The correct EmailJS account/template was inspected. Recipient is the owner-approved Gmail address; code now supplies the missing subject and submitted_at variables and explicit defaults for optional fields. Actual sending remains blocked by Gmail invalid_grant; the existing service was preserved after its authorization window failed to open. Private keys were not included in website code or Git.
 
 The existing Cal Sans, Inter and Caveat binaries are now served locally without changing typography, weights or Unicode coverage. SIL OFL notices are distributed in public/fonts. Cal Sans is preloaded; the blocking Google stylesheet was removed. Local rendered-font inspection confirms Cal Sans and Inter and a390px layout without overflow. [Asset hashes and license sources](seo/evidence/self-hosted-fonts.json), [browser checks](seo/evidence/fonts-rendered-check.json). Production release and after metrics are recorded separately below when available.
+
+## Verified font and EmailJS mapping release — 8 October, 03:09 PKT
+
+Code commit [54a29a2](https://github.com/MuhammadFaizan-prog/clydara-website-2026/commit/54a29a2499a5156def757a74e2f858b202cae93e) is pushed to main and its Vercel Production deployment6922064422 reports success. Canonical production manifest matches that revision. All17canonical pages,30referenced assets,7discovery resources and404/noindex checks pass;12font binaries match their recorded SHA256 hashes. Deployed contact JavaScript contains the new subject/submitted_at mapping. [Receipt](seo/evidence/font-release-receipt.json), [live validation](seo/evidence/live-high-priority-release.json), [font hashes/mapping](seo/evidence/fonts-live-release.json). No inbox delivery is claimed.
+
+The comparable [latest PageSpeed report](https://pagespeed.web.dev/analysis/https-www-clydralab-com/fko2pu8ucm?form_factor=mobile) completed for this revision. All three production captures remain in the [measurement file](seo/evidence/psi-high-priority.json):
+
+| Metric | Before | After images | After fonts |
+|---|---|---|---|
+| Mobile performance |80|79|84|
+| Mobile FCP / LCP |3.187 /3.637s|3.312 /3.687s|2.429 /3.492s|
+| Mobile TBT / CLS |70ms /0|85ms /0|63ms /0|
+| Desktop performance |86|94|89|
+| Desktop FCP / LCP |0.693 /0.793s|0.689 /0.789s|0.492 /0.696s|
+| Desktop TBT / CLS |301ms /0|180ms /0.01|260ms /0.001|
+| CrUX |No data|No data|No data|
+
+Accessibility remains93mobile/94desktop; best practices and SEO100; agentic3/3applicable. Mobile improved in the latest lab run, while desktop TBT/score worsened versus the image-only run. This is not a controlled causal experiment or real-user CWV result. Remaining mobile LCP3.492s, render-blockingCSS and animation/main-thread work need future measured improvements that preserve the design. Do not report the earlier94desktop score as the latest result.
+
+The [deployment notification workflow](https://github.com/MuhammadFaizan-prog/clydara-website-2026/actions/runs/37694259587) succeeded and correctly reported no meaningful content changes, so it submitted no unchanged URLs. The previous guide/image release's three accepted URLs retain their receipt. Submission is not indexing.
+
+**Outstanding critical handoff:** EmailJS → Email Services → existing Gmail service → reconnect the same clydara1@gmail.com account, update/save the service, then verify one clearly labelled contact test in EmailJS history and the recipient inbox. Dashboard login alone does not restore an expired Gmail grant. The OAuth window did not open on the available controllable surfaces; the original service was preserved. No private key was committed or placed in browser code. Meta AI remains owner-skipped. Authentic traffic, qualified conversions, field CWV and provider-IP crawler access remain unproven and are documented as remaining work.

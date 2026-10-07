@@ -95,3 +95,25 @@ Meta AI remains owner-skipped. Google, Bing, Yandex, Naver, Brave, Seznam and In
 Exact original WOFF2 binaries were downloaded from Google Fonts, with all51 existing Inter/Caveat weight/subset rules preserved plus the existing Cal Sans rule. Twelve local binaries total479,832bytes; this is the entire available subset library, not the bytes every page downloads. The original SIL OFL copyright/licenses are included. External Google stylesheet/preconnects are removed and Cal Sans is preloaded. No font design, layout or animation change was made. [Hashes/sources](evidence/self-hosted-fonts.json), [local rendered check](evidence/fonts-rendered-check.json).
 
 Authenticated acquisition baseline for Sep10–Oct7:6GA4sessions,2attributed to Organic Search,0key events; linked GSC query report0clicks/2impressions/0%CTR/position93. No internal-visit exclusion or causal traffic increase is established. [Exact data and limitations](evidence/first-party-acquisition-baseline.json). Genuine qualified leads, field CWV and restored Gmail delivery remain the success measures.
+
+## Verified font and EmailJS mapping release — 8 October, 03:09 PKT
+
+Code commit [54a29a2](https://github.com/MuhammadFaizan-prog/clydara-website-2026/commit/54a29a2499a5156def757a74e2f858b202cae93e) is pushed to main and its Vercel Production deployment6922064422 reports success. Canonical production manifest matches that revision. All17canonical pages,30referenced assets,7discovery resources and404/noindex checks pass;12font binaries match their recorded SHA256 hashes. Deployed contact JavaScript contains the new subject/submitted_at mapping. [Receipt](evidence/font-release-receipt.json), [live validation](evidence/live-high-priority-release.json), [font hashes/mapping](evidence/fonts-live-release.json). No inbox delivery is claimed.
+
+The comparable [latest PageSpeed report](https://pagespeed.web.dev/analysis/https-www-clydralab-com/fko2pu8ucm?form_factor=mobile) completed for this revision. All three production captures remain in the [measurement file](evidence/psi-high-priority.json):
+
+| Metric | Before | After images | After fonts |
+|---|---|---|---|
+| Mobile performance |80|79|84|
+| Mobile FCP / LCP |3.187 /3.637s|3.312 /3.687s|2.429 /3.492s|
+| Mobile TBT / CLS |70ms /0|85ms /0|63ms /0|
+| Desktop performance |86|94|89|
+| Desktop FCP / LCP |0.693 /0.793s|0.689 /0.789s|0.492 /0.696s|
+| Desktop TBT / CLS |301ms /0|180ms /0.01|260ms /0.001|
+| CrUX |No data|No data|No data|
+
+Accessibility remains93mobile/94desktop; best practices and SEO100; agentic3/3applicable. Mobile improved in the latest lab run, while desktop TBT/score worsened versus the image-only run. This is not a controlled causal experiment or real-user CWV result. Remaining mobile LCP3.492s, render-blockingCSS and animation/main-thread work need future measured improvements that preserve the design. Do not report the earlier94desktop score as the latest result.
+
+The [deployment notification workflow](https://github.com/MuhammadFaizan-prog/clydara-website-2026/actions/runs/37694259587) succeeded and correctly reported no meaningful content changes, so it submitted no unchanged URLs. The previous guide/image release's three accepted URLs retain their receipt. Submission is not indexing.
+
+**Outstanding critical handoff:** EmailJS → Email Services → existing Gmail service → reconnect the same clydara1@gmail.com account, update/save the service, then verify one clearly labelled contact test in EmailJS history and the recipient inbox. Dashboard login alone does not restore an expired Gmail grant. The OAuth window did not open on the available controllable surfaces; the original service was preserved. No private key was committed or placed in browser code. Meta AI remains owner-skipped. Authentic traffic, qualified conversions, field CWV and provider-IP crawler access remain unproven and are documented as remaining work.

@@ -80,6 +80,47 @@
     "Older Lighthouse 12.8.2 localhost score 26 is not a comparable before measurement.",
     "After-deployment measurement must be recorded separately, with lab variability acknowledged.",
     "Single comparable PSI runs show higher desktop score but no mobile LCP improvement; lab variability remains. No field CWV pass or causal attribution claimed.",
-    "An unauthenticated after-test API request returned quota HTTP 429; browser UI measurement subsequently completed."
-  ]
+    "An unauthenticated after-test API request returned quota HTTP 429; browser UI measurement subsequently completed.",
+    "After fonts: mobile score improved versus the image-only capture; desktop TBT/score varied adversely versus that capture. All runs retained; no permanent score, traffic increase or field CWV pass is claimed. Exact durations come from the visible score-calculator link; desktop CLS comes from the metric display."
+  ],
+  "afterFonts": {
+    "revision": "54a29a2499a5156def757a74e2f858b202cae93e",
+    "captured": "2026-10-08T03:09:25+05:00",
+    "report": "https://pagespeed.web.dev/analysis/https-www-clydralab-com/fko2pu8ucm",
+    "lighthouseVersion": "13.5.0",
+    "chromium": "153.0.8010.36",
+    "mobile": {
+      "performance": 84,
+      "accessibility": 93,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcpMs": 2429,
+      "lcpMs": 3492,
+      "tbtMs": 63,
+      "cls": 0,
+      "speedIndexMs": 4997,
+      "device": "Moto G Power",
+      "throttling": "Slow 4G",
+      "estimatedImageSavingsKiB": 688,
+      "estimatedRenderBlockingMs": 940,
+      "screenshot": "psi-mobile-fonts-after.png"
+    },
+    "desktop": {
+      "performance": 89,
+      "accessibility": 94,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcpMs": 492,
+      "lcpMs": 696,
+      "tbtMs": 260,
+      "cls": 0.001,
+      "speedIndexMs": 1224,
+      "throttling": "Custom desktop",
+      "estimatedImageSavingsKiB": 284,
+      "estimatedRenderBlockingMs": 160,
+      "screenshot": "psi-desktop-fonts-after.png"
+    },
+    "crux": "No Data",
+    "agenticBrowsing": "3/3 applicable checks passed; 4 not applicable"
+  }
 }

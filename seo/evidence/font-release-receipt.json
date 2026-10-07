@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-07T22:11:15.081Z",
+  "revision": "54a29a2499a5156def757a74e2f858b202cae93e",
+  "github": "https://github.com/MuhammadFaizan-prog/clydara-website-2026/commit/54a29a2499a5156def757a74e2f858b202cae93e",
+  "deploymentId": 6922064422,
+  "deploymentStatus": "success",
+  "canonical": "https://www.clydralab.com/",
+  "validation": {
+    "pages": 17,
+    "referencedAssets": 30,
+    "discoveryResources": 7,
+    "fontAssets": 12,
+    "failures": 0,
+    "contactTemplateMapping": true
+  },
+  "workflow": {
+    "id": 37694259587,
+    "url": "https://github.com/MuhammadFaizan-prog/clydara-website-2026/actions/runs/37694259587",
+    "status": "success",
+    "message": "No meaningful page changes; no URLs submitted."
+  },
+  "indexNow": "Font delivery and template-field changes did not alter the content change set; no redundant submission. Previous image/guide release accepted three changed URLs.",
+  "delivery": "Still failed until Gmail authorization is refreshed; no further test sends attempted."
+}

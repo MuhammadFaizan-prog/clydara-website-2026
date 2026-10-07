@@ -1,6 +1,6 @@
 {
-  "at": "2026-10-07T22:09:51.515Z",
-  "revision": "54a29a2499a5156def757a74e2f858b202cae93e",
+  "at": "2026-10-07T21:50:26.541Z",
+  "revision": "37faa20d125464d9e169eebb4bba8324a6f1e693",
   "method": "Public live HTTP validation; not a provider-IP or authenticated rendered-browser claim",
   "pages": [
     {
@@ -14,17 +14,17 @@
       "loadingFallback": false,
       "assets": [
         {
-          "path": "/assets/index-B_e7lxST.js",
+          "path": "/assets/index-CFqiL7No.js",
           "status": 200,
           "bytes": 384448
         },
         {
-          "path": "/assets/index-D9CRoPq-.css",
+          "path": "/assets/index-DdsOnpO8.css",
           "status": 200,
-          "bytes": 24031
+          "bytes": 10626
         },
         {
-          "path": "/assets/HomePage-B2-iv4TE.js",
+          "path": "/assets/HomePage-U6bDP0pf.js",
           "status": 200,
           "bytes": 15557
         },
@@ -34,12 +34,12 @@
           "bytes": 13120
         },
         {
-          "path": "/assets/RevealHeading-DTXjg1R3.js",
+          "path": "/assets/RevealHeading-DtYokPDZ.js",
           "status": 200,
           "bytes": 1183
         },
         {
-          "path": "/assets/Values-BQBfbvd5.js",
+          "path": "/assets/Values-BItAQ9yr.js",
           "status": 200,
           "bytes": 11008
         },
@@ -49,7 +49,7 @@
           "bytes": 4502
         },
         {
-          "path": "/assets/FAQ-DQ59egss.js",
+          "path": "/assets/FAQ-CuoXewM9.js",
           "status": 200,
           "bytes": 3111
         },
@@ -59,7 +59,7 @@
           "bytes": 1982
         },
         {
-          "path": "/assets/Works-8NzfydoG.js",
+          "path": "/assets/Works-D58RbuAU.js",
           "status": 200,
           "bytes": 5058
         },
@@ -69,7 +69,7 @@
           "bytes": 3383
         },
         {
-          "path": "/assets/Pricing-UJ4QH_2B.js",
+          "path": "/assets/Pricing-Do-sc6x3.js",
           "status": 200,
           "bytes": 6474
         },
@@ -93,17 +93,17 @@
       "loadingFallback": false,
       "assets": [
         {
-          "path": "/assets/index-B_e7lxST.js",
+          "path": "/assets/index-CFqiL7No.js",
           "status": 200,
           "bytes": 384448
         },
         {
-          "path": "/assets/index-D9CRoPq-.css",
+          "path": "/assets/index-DdsOnpO8.css",
           "status": 200,
-          "bytes": 24031
+          "bytes": 10626
         },
         {
-          "path": "/assets/ServicesPage-dBODY13k.js",
+          "path": "/assets/ServicesPage-CMlG4VBC.js",
           "status": 200,
           "bytes": 8197
         },
@@ -118,12 +118,12 @@
           "bytes": 1052
         },
         {
-          "path": "/assets/RevealHeading-DTXjg1R3.js",
+          "path": "/assets/RevealHeading-DtYokPDZ.js",
           "status": 200,
           "bytes": 1183
         },
         {
-          "path": "/assets/FAQ-DQ59egss.js",
+          "path": "/assets/FAQ-CuoXewM9.js",
           "status": 200,
           "bytes": 3111
         },
@@ -133,7 +133,7 @@
           "bytes": 1982
         },
         {
-          "path": "/assets/Pricing-UJ4QH_2B.js",
+          "path": "/assets/Pricing-Do-sc6x3.js",
           "status": 200,
           "bytes": 6474
         },
@@ -156,17 +156,17 @@
       "loadingFallback": false,
       "assets": [
         {
-          "path": "/assets/index-B_e7lxST.js",
+          "path": "/assets/index-CFqiL7No.js",
           "status": 200,
           "bytes": 384448
         },
         {
-          "path": "/assets/index-D9CRoPq-.css",
+          "path": "/assets/index-DdsOnpO8.css",
           "status": 200,
-          "bytes": 24031
+          "bytes": 10626
         },
         {
-          "path": "/assets/AboutPage-BdH49_-5.js",
+          "path": "/assets/AboutPage-jAFti1M1.js",
           "status": 200,
           "bytes": 10895
         },
@@ -176,12 +176,12 @@
           "bytes": 6484
         },
         {
-          "path": "/assets/RevealHeading-DTXjg1R3.js",
+          "path": "/assets/RevealHeading-DtYokPDZ.js",
           "status": 200,
           "bytes": 1183
         },
         {
-          "path": "/assets/Values-BQBfbvd5.js",
+          "path": "/assets/Values-BItAQ9yr.js",
           "status": 200,
           "bytes": 11008
         },
@@ -191,7 +191,7 @@
           "bytes": 4502
         },
         {
-          "path": "/assets/FAQ-DQ59egss.js",
+          "path": "/assets/FAQ-CuoXewM9.js",
           "status": 200,
           "bytes": 3111
         },
@@ -214,19 +214,19 @@
       "loadingFallback": false,
       "assets": [
         {
-          "path": "/assets/index-B_e7lxST.js",
+          "path": "/assets/index-CFqiL7No.js",
           "status": 200,
           "bytes": 384448
         },
         {
-          "path": "/assets/index-D9CRoPq-.css",
+          "path": "/assets/index-DdsOnpO8.css",
           "status": 200,
-          "bytes": 24031
+          "bytes": 10626
         },
         {
-          "path": "/assets/ContactPage-B65O3a89.js",
+          "path": "/assets/ContactPage-DUGjjwE8.js",
           "status": 200,
-          "bytes": 5938
+          "bytes": 5813
         },
         {
           "path": "/assets/ContactPage-Dg3qvsEm.css",
@@ -234,12 +234,12 @@
           "bytes": 4907
         },
         {
-          "path": "/assets/RevealHeading-DTXjg1R3.js",
+          "path": "/assets/RevealHeading-DtYokPDZ.js",
           "status": 200,
           "bytes": 1183
         },
         {
-          "path": "/assets/FAQ-DQ59egss.js",
+          "path": "/assets/FAQ-CuoXewM9.js",
           "status": 200,
           "bytes": 3111
         },
@@ -262,17 +262,17 @@
       "loadingFallback": false,
       "assets": [
         {
-          "path": "/assets/index-B_e7lxST.js",
+          "path": "/assets/index-CFqiL7No.js",
           "status": 200,
           "bytes": 384448
         },
         {
-          "path": "/assets/index-D9CRoPq-.css",
+          "path": "/assets/index-DdsOnpO8.css",
           "status": 200,
-          "bytes": 24031
+          "bytes": 10626
         },
         {
-          "path": "/assets/WorksPage-DSLoMTvc.js",
+          "path": "/assets/WorksPage-CystnOTW.js",
           "status": 200,
           "bytes": 2745
         },
@@ -282,12 +282,12 @@
           "bytes": 4022
         },
         {
-          "path": "/assets/RevealHeading-DTXjg1R3.js",
+          "path": "/assets/RevealHeading-DtYokPDZ.js",
           "status": 200,
           "bytes": 1183
         },
         {
-          "path": "/assets/FAQ-DQ59egss.js",
+          "path": "/assets/FAQ-CuoXewM9.js",
           "status": 200,
           "bytes": 3111
         },
@@ -297,7 +297,7 @@
           "bytes": 1982
         },
         {
-          "path": "/assets/Works-8NzfydoG.js",
+          "path": "/assets/Works-D58RbuAU.js",
           "status": 200,
           "bytes": 5058
         },
@@ -307,7 +307,7 @@
           "bytes": 3383
         },
         {
-          "path": "/assets/Pricing-UJ4QH_2B.js",
+          "path": "/assets/Pricing-Do-sc6x3.js",
           "status": 200,
           "bytes": 6474
         },
@@ -330,17 +330,17 @@
       "loadingFallback": false,
       "assets": [
         {
-          "path": "/assets/index-B_e7lxST.js",
+          "path": "/assets/index-CFqiL7No.js",
           "status": 200,
           "bytes": 384448
         },
         {
-          "path": "/assets/index-D9CRoPq-.css",
+          "path": "/assets/index-DdsOnpO8.css",
           "status": 200,
-          "bytes": 24031
+          "bytes": 10626
         },
         {
-          "path": "/assets/BlogPage-DmvHeeKB.js",
+          "path": "/assets/BlogPage-BtRkmnEc.js",
           "status": 200,
           "bytes": 5583
         },
@@ -350,7 +350,7 @@
           "bytes": 3503
         },
         {
-          "path": "/assets/RevealHeading-DTXjg1R3.js",
+          "path": "/assets/RevealHeading-DtYokPDZ.js",
           "status": 200,
           "bytes": 1183
         }
@@ -368,17 +368,17 @@
       "loadingFallback": false,
       "assets": [
         {
-          "path": "/assets/index-B_e7lxST.js",
+          "path": "/assets/index-CFqiL7No.js",
           "status": 200,
           "bytes": 384448
         },
         {
-          "path": "/assets/index-D9CRoPq-.css",
+          "path": "/assets/index-DdsOnpO8.css",
           "status": 200,
-          "bytes": 24031
+          "bytes": 10626
         },
         {
-          "path": "/assets/PrivacyPolicyPage-rja7puxz.js",
+          "path": "/assets/PrivacyPolicyPage-n0RPom-E.js",
           "status": 200,
           "bytes": 5104
         }
@@ -396,17 +396,17 @@
       "loadingFallback": false,
       "assets": [
         {
-          "path": "/assets/index-B_e7lxST.js",
+          "path": "/assets/index-CFqiL7No.js",
           "status": 200,
           "bytes": 384448
         },
         {
-          "path": "/assets/index-D9CRoPq-.css",
+          "path": "/assets/index-DdsOnpO8.css",
           "status": 200,
-          "bytes": 24031
+          "bytes": 10626
         },
         {
-          "path": "/assets/TermsPage-D3hUfLPu.js",
+          "path": "/assets/TermsPage-BuaF-VVl.js",
           "status": 200,
           "bytes": 4969
         }
@@ -424,32 +424,32 @@
       "loadingFallback": false,
       "assets": [
         {
-          "path": "/assets/index-B_e7lxST.js",
+          "path": "/assets/index-CFqiL7No.js",
           "status": 200,
           "bytes": 384448
         },
         {
-          "path": "/assets/index-D9CRoPq-.css",
+          "path": "/assets/index-DdsOnpO8.css",
           "status": 200,
-          "bytes": 24031
+          "bytes": 10626
         },
         {
-          "path": "/assets/WorkDetailPage-3qi165-K.js",
+          "path": "/assets/WorkDetailPage-0T1tgmB8.js",
           "status": 200,
           "bytes": 4036
         },
         {
-          "path": "/assets/RevealHeading-DTXjg1R3.js",
+          "path": "/assets/RevealHeading-DtYokPDZ.js",
           "status": 200,
           "bytes": 1183
         },
         {
-          "path": "/assets/NotFoundPage-CpDBV--7.js",
+          "path": "/assets/NotFoundPage-D3GqvrQs.js",
           "status": 200,
           "bytes": 559
         },
         {
-          "path": "/assets/Pricing-UJ4QH_2B.js",
+          "path": "/assets/Pricing-Do-sc6x3.js",
           "status": 200,
           "bytes": 6474
         },
@@ -472,32 +472,32 @@
       "loadingFallback": false,
       "assets": [
         {
-          "path": "/assets/index-B_e7lxST.js",
+          "path": "/assets/index-CFqiL7No.js",
           "status": 200,
           "bytes": 384448
         },
         {
-          "path": "/assets/index-D9CRoPq-.css",
+          "path": "/assets/index-DdsOnpO8.css",
           "status": 200,
-          "bytes": 24031
+          "bytes": 10626
         },
         {
-          "path": "/assets/WorkDetailPage-3qi165-K.js",
+          "path": "/assets/WorkDetailPage-0T1tgmB8.js",
           "status": 200,
           "bytes": 4036
         },
         {
-          "path": "/assets/RevealHeading-DTXjg1R3.js",
+          "path": "/assets/RevealHeading-DtYokPDZ.js",
           "status": 200,
           "bytes": 1183
         },
         {
-          "path": "/assets/NotFoundPage-CpDBV--7.js",
+          "path": "/assets/NotFoundPage-D3GqvrQs.js",
           "status": 200,
           "bytes": 559
         },
         {
-          "path": "/assets/Pricing-UJ4QH_2B.js",
+          "path": "/assets/Pricing-Do-sc6x3.js",
           "status": 200,
           "bytes": 6474
         },
@@ -520,32 +520,32 @@
       "loadingFallback": false,
       "assets": [
         {
-          "path": "/assets/index-B_e7lxST.js",
+          "path": "/assets/index-CFqiL7No.js",
           "status": 200,
           "bytes": 384448
         },
         {
-          "path": "/assets/index-D9CRoPq-.css",
+          "path": "/assets/index-DdsOnpO8.css",
           "status": 200,
-          "bytes": 24031
+          "bytes": 10626
         },
         {
-          "path": "/assets/WorkDetailPage-3qi165-K.js",
+          "path": "/assets/WorkDetailPage-0T1tgmB8.js",
           "status": 200,
           "bytes": 4036
         },
         {
-          "path": "/assets/RevealHeading-DTXjg1R3.js",
+          "path": "/assets/RevealHeading-DtYokPDZ.js",
           "status": 200,
           "bytes": 1183
         },
         {
-          "path": "/assets/NotFoundPage-CpDBV--7.js",
+          "path": "/assets/NotFoundPage-D3GqvrQs.js",
           "status": 200,
           "bytes": 559
         },
         {
-          "path": "/assets/Pricing-UJ4QH_2B.js",
+          "path": "/assets/Pricing-Do-sc6x3.js",
           "status": 200,
           "bytes": 6474
         },
@@ -568,17 +568,17 @@
       "loadingFallback": false,
       "assets": [
         {
-          "path": "/assets/index-B_e7lxST.js",
+          "path": "/assets/index-CFqiL7No.js",
           "status": 200,
           "bytes": 384448
         },
         {
-          "path": "/assets/index-D9CRoPq-.css",
+          "path": "/assets/index-DdsOnpO8.css",
           "status": 200,
-          "bytes": 24031
+          "bytes": 10626
         },
         {
-          "path": "/assets/BlogDetailPage-UFwAeSU1.js",
+          "path": "/assets/BlogDetailPage-pECECfUE.js",
           "status": 200,
           "bytes": 73222
         },
@@ -593,12 +593,12 @@
           "bytes": 1052
         },
         {
-          "path": "/assets/RevealHeading-DTXjg1R3.js",
+          "path": "/assets/RevealHeading-DtYokPDZ.js",
           "status": 200,
           "bytes": 1183
         },
         {
-          "path": "/assets/BlogPage-DmvHeeKB.js",
+          "path": "/assets/BlogPage-BtRkmnEc.js",
           "status": 200,
           "bytes": 5583
         },
@@ -608,7 +608,7 @@
           "bytes": 3503
         },
         {
-          "path": "/assets/NotFoundPage-CpDBV--7.js",
+          "path": "/assets/NotFoundPage-D3GqvrQs.js",
           "status": 200,
           "bytes": 559
         }
@@ -627,17 +627,17 @@
       "loadingFallback": false,
       "assets": [
         {
-          "path": "/assets/index-B_e7lxST.js",
+          "path": "/assets/index-CFqiL7No.js",
           "status": 200,
           "bytes": 384448
         },
         {
-          "path": "/assets/index-D9CRoPq-.css",
+          "path": "/assets/index-DdsOnpO8.css",
           "status": 200,
-          "bytes": 24031
+          "bytes": 10626
         },
         {
-          "path": "/assets/BlogDetailPage-UFwAeSU1.js",
+          "path": "/assets/BlogDetailPage-pECECfUE.js",
           "status": 200,
           "bytes": 73222
         },
@@ -652,12 +652,12 @@
           "bytes": 1052
         },
         {
-          "path": "/assets/RevealHeading-DTXjg1R3.js",
+          "path": "/assets/RevealHeading-DtYokPDZ.js",
           "status": 200,
           "bytes": 1183
         },
         {
-          "path": "/assets/BlogPage-DmvHeeKB.js",
+          "path": "/assets/BlogPage-BtRkmnEc.js",
           "status": 200,
           "bytes": 5583
         },
@@ -667,7 +667,7 @@
           "bytes": 3503
         },
         {
-          "path": "/assets/NotFoundPage-CpDBV--7.js",
+          "path": "/assets/NotFoundPage-D3GqvrQs.js",
           "status": 200,
           "bytes": 559
         }
@@ -685,17 +685,17 @@
       "loadingFallback": false,
       "assets": [
         {
-          "path": "/assets/index-B_e7lxST.js",
+          "path": "/assets/index-CFqiL7No.js",
           "status": 200,
           "bytes": 384448
         },
         {
-          "path": "/assets/index-D9CRoPq-.css",
+          "path": "/assets/index-DdsOnpO8.css",
           "status": 200,
-          "bytes": 24031
+          "bytes": 10626
         },
         {
-          "path": "/assets/BlogDetailPage-UFwAeSU1.js",
+          "path": "/assets/BlogDetailPage-pECECfUE.js",
           "status": 200,
           "bytes": 73222
         },
@@ -710,12 +710,12 @@
           "bytes": 1052
         },
         {
-          "path": "/assets/RevealHeading-DTXjg1R3.js",
+          "path": "/assets/RevealHeading-DtYokPDZ.js",
           "status": 200,
           "bytes": 1183
         },
         {
-          "path": "/assets/BlogPage-DmvHeeKB.js",
+          "path": "/assets/BlogPage-BtRkmnEc.js",
           "status": 200,
           "bytes": 5583
         },
@@ -725,7 +725,7 @@
           "bytes": 3503
         },
         {
-          "path": "/assets/NotFoundPage-CpDBV--7.js",
+          "path": "/assets/NotFoundPage-D3GqvrQs.js",
           "status": 200,
           "bytes": 559
         }
@@ -743,17 +743,17 @@
       "loadingFallback": false,
       "assets": [
         {
-          "path": "/assets/index-B_e7lxST.js",
+          "path": "/assets/index-CFqiL7No.js",
           "status": 200,
           "bytes": 384448
         },
         {
-          "path": "/assets/index-D9CRoPq-.css",
+          "path": "/assets/index-DdsOnpO8.css",
           "status": 200,
-          "bytes": 24031
+          "bytes": 10626
         },
         {
-          "path": "/assets/BlogDetailPage-UFwAeSU1.js",
+          "path": "/assets/BlogDetailPage-pECECfUE.js",
           "status": 200,
           "bytes": 73222
         },
@@ -768,12 +768,12 @@
           "bytes": 1052
         },
         {
-          "path": "/assets/RevealHeading-DTXjg1R3.js",
+          "path": "/assets/RevealHeading-DtYokPDZ.js",
           "status": 200,
           "bytes": 1183
         },
         {
-          "path": "/assets/BlogPage-DmvHeeKB.js",
+          "path": "/assets/BlogPage-BtRkmnEc.js",
           "status": 200,
           "bytes": 5583
         },
@@ -783,7 +783,7 @@
           "bytes": 3503
         },
         {
-          "path": "/assets/NotFoundPage-CpDBV--7.js",
+          "path": "/assets/NotFoundPage-D3GqvrQs.js",
           "status": 200,
           "bytes": 559
         }
@@ -801,17 +801,17 @@
       "loadingFallback": false,
       "assets": [
         {
-          "path": "/assets/index-B_e7lxST.js",
+          "path": "/assets/index-CFqiL7No.js",
           "status": 200,
           "bytes": 384448
         },
         {
-          "path": "/assets/index-D9CRoPq-.css",
+          "path": "/assets/index-DdsOnpO8.css",
           "status": 200,
-          "bytes": 24031
+          "bytes": 10626
         },
         {
-          "path": "/assets/BlogDetailPage-UFwAeSU1.js",
+          "path": "/assets/BlogDetailPage-pECECfUE.js",
           "status": 200,
           "bytes": 73222
         },
@@ -826,12 +826,12 @@
           "bytes": 1052
         },
         {
-          "path": "/assets/RevealHeading-DTXjg1R3.js",
+          "path": "/assets/RevealHeading-DtYokPDZ.js",
           "status": 200,
           "bytes": 1183
         },
         {
-          "path": "/assets/BlogPage-DmvHeeKB.js",
+          "path": "/assets/BlogPage-BtRkmnEc.js",
           "status": 200,
           "bytes": 5583
         },
@@ -841,7 +841,7 @@
           "bytes": 3503
         },
         {
-          "path": "/assets/NotFoundPage-CpDBV--7.js",
+          "path": "/assets/NotFoundPage-D3GqvrQs.js",
           "status": 200,
           "bytes": 559
         }
@@ -859,17 +859,17 @@
       "loadingFallback": false,
       "assets": [
         {
-          "path": "/assets/index-B_e7lxST.js",
+          "path": "/assets/index-CFqiL7No.js",
           "status": 200,
           "bytes": 384448
         },
         {
-          "path": "/assets/index-D9CRoPq-.css",
+          "path": "/assets/index-DdsOnpO8.css",
           "status": 200,
-          "bytes": 24031
+          "bytes": 10626
         },
         {
-          "path": "/assets/BlogDetailPage-UFwAeSU1.js",
+          "path": "/assets/BlogDetailPage-pECECfUE.js",
           "status": 200,
           "bytes": 73222
         },
@@ -884,12 +884,12 @@
           "bytes": 1052
         },
         {
-          "path": "/assets/RevealHeading-DTXjg1R3.js",
+          "path": "/assets/RevealHeading-DtYokPDZ.js",
           "status": 200,
           "bytes": 1183
         },
         {
-          "path": "/assets/BlogPage-DmvHeeKB.js",
+          "path": "/assets/BlogPage-BtRkmnEc.js",
           "status": 200,
           "bytes": 5583
         },
@@ -899,7 +899,7 @@
           "bytes": 3503
         },
         {
-          "path": "/assets/NotFoundPage-CpDBV--7.js",
+          "path": "/assets/NotFoundPage-D3GqvrQs.js",
           "status": 200,
           "bytes": 559
         }
@@ -957,7 +957,11 @@
     "noindex": true
   },
   "manifest": {
-    "changedUrls": [],
+    "changedUrls": [
+      "https://www.clydralab.com/",
+      "https://www.clydralab.com/works",
+      "https://www.clydralab.com/blog/custom-software-vs-saas"
+    ],
     "deletedUrls": [],
     "baselineStatus": "available"
   },
