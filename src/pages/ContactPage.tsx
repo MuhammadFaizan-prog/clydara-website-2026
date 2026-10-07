@@ -77,6 +77,7 @@ export default function ContactPage() {
     setError('')
 
     try {
+      const submittedAt = new Date().toLocaleString()
       const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -92,7 +93,12 @@ export default function ContactPage() {
             from_name: formData.name,
             from_email: formData.email,
             reply_to: formData.email,
-            time: new Date().toLocaleString(),
+            subject: 'Website project enquiry',
+            phone: 'Not provided',
+            company: 'Not provided',
+            service: 'Not specified',
+            submitted_at: submittedAt,
+            time: submittedAt,
           },
         }),
       })

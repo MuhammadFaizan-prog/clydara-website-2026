@@ -1,0 +1,45 @@
+{
+  "at": "2026-10-07T22:07:31.311Z",
+  "method": "Local preview; DOM/rendered-font inspection using supported browser developer capability",
+  "desktop": {
+    "bodyFont": "Inter, \"Inter Placeholder\", sans-serif",
+    "googleStylesheet": false,
+    "h1Font": "\"Cal Sans\", \"Cal Sans Placeholder\", sans-serif",
+    "preloads": [
+      "/fonts/cal-sans-fdN99sWUv3gWqXxqqSBevloE4LZx.woff2"
+    ],
+    "scrollWidth": 1265,
+    "title": "Clydara | AI, SaaS & Custom Software Development Agency",
+    "width": 1265
+  },
+  "actualFonts": {
+    "heading": {
+      "fonts": [
+        {
+          "familyName": "Cal Sans",
+          "glyphCount": 1,
+          "isCustomFont": true,
+          "postScriptName": "CalSans-Regular"
+        }
+      ]
+    },
+    "body": {
+      "fonts": [
+        {
+          "familyName": "Inter",
+          "glyphCount": 198,
+          "isCustomFont": true,
+          "postScriptName": "Inter"
+        }
+      ]
+    }
+  },
+  "mobile": {
+    "bodyFont": "Inter, \"Inter Placeholder\", sans-serif",
+    "googleStylesheet": false,
+    "h1Font": "\"Cal Sans\", \"Cal Sans Placeholder\", sans-serif",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  "temporaryEmulation": "390x844; cleared after test"
+}

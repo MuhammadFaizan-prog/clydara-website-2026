@@ -36,11 +36,50 @@
     "crux": "No Data",
     "agenticBrowsing": "3/3 applicable checks passed; 4 not applicable"
   },
-  "after": null,
+  "after": {
+    "revision": "37faa20d125464d9e169eebb4bba8324a6f1e693",
+    "captured": "2026-10-08T02:51:14+05:00",
+    "report": "https://pagespeed.web.dev/analysis/https-www-clydralab-com/02emg8kwkx",
+    "lighthouseVersion": "13.5.0",
+    "chromium": "153.0.8010.36",
+    "mobile": {
+      "performance": 79,
+      "accessibility": 93,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcpMs": 3312,
+      "lcpMs": 3687,
+      "tbtMs": 85,
+      "cls": 0,
+      "speedIndexMs": 5109,
+      "device": "Moto G Power",
+      "throttling": "Slow 4G",
+      "estimatedImageSavingsKiB": 688,
+      "screenshot": "psi-mobile-after.png"
+    },
+    "desktop": {
+      "performance": 94,
+      "accessibility": 94,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcpMs": 689,
+      "lcpMs": 789,
+      "tbtMs": 180,
+      "cls": 0.01,
+      "speedIndexMs": 1017,
+      "throttling": "Custom desktop",
+      "estimatedImageSavingsKiB": 284,
+      "screenshot": "psi-desktop-after.png"
+    },
+    "crux": "No Data",
+    "agenticBrowsing": "3/3 applicable checks passed; 4 not applicable"
+  },
   "notes": [
     "Production UI observations, not localhost estimates.",
     "CrUX field Core Web Vitals remain unmeasured.",
     "Older Lighthouse 12.8.2 localhost score 26 is not a comparable before measurement.",
-    "After-deployment measurement must be recorded separately, with lab variability acknowledged."
+    "After-deployment measurement must be recorded separately, with lab variability acknowledged.",
+    "Single comparable PSI runs show higher desktop score but no mobile LCP improvement; lab variability remains. No field CWV pass or causal attribution claimed.",
+    "An unauthenticated after-test API request returned quota HTTP 429; browser UI measurement subsequently completed."
   ]
 }

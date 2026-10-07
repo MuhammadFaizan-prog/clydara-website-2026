@@ -108,7 +108,7 @@ The actual ChatGPT, Gemini, DuckAssist, Ask Brave, Claude, Perplexity and Grok p
 
 - Existing GA4 property and lead conversion remain intact. The new page-view parameter `discovery_platform` recognizes ChatGPT, Perplexity, Claude, Bing, Google, DuckDuckGo, Brave, Yandex, Qwant, Ecosia, Naver, Seznam, Kagi, Mojeek, Yahoo, You, Mistral and Grok domain boundaries. Missing referrer = `unknown`; unrecognized valid domain = `other`. It does not pretend to identify the browser or distinguish Copilot from ordinary Bing based only on bing.com.
 - Preserve safe `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term` values; limit length and accepted label characters. Referrer query strings and arbitrary URL query parameters are not sent. Do not place personal data in campaign labels. GA4 collection still begins only after consent; no enhanced-measurement form data is enabled.
-- Native GA4 source/medium reporting can use preserved campaign attribution. To report the custom parameter in standard explorations, register **event-scoped** custom dimension `Discovery platform` → `discovery_platform` in the existing property; dashboard registration is pending. No historical backfill is claimed.
+- Native GA4 source/medium reporting can use preserved campaign attribution. To report the custom parameter in standard explorations, register **event-scoped** custom dimension `Discovery platform` → `discovery_platform` in the existing property; dashboard registration was verified on 8 October; see the saved custom-dimension row in the current execution record. No historical backfill is claimed.
 - Daily GitHub workflow `discovery-monitor.yml`: 05:20 UTC / 10:20 Pakistan time; 120 resource/identity checks, failure exit code, 30-day dated artifacts, manual dispatch. It tests accessibility, not actual indexing or citation.
 - Weekly Codex heartbeat `clydara-search-and-ai-discovery-monitoring`: Monday 10:00 local time; checks authenticated webmaster/analytics reports where accessible, saved query set, competitor citations, pipeline receipts and official crawler changes. Notifications only for meaningful changes or owner action. No automatic ranking-driven code changes.
 - Compare 7-, 28- and 90-day intervals after adequate collection: indexed URLs, organic and AI referrals, queries, clicks, impressions, CTR, leads, page performance, citations and referring domains. Baseline historic traffic/citation data are unavailable; test visits are excluded from claims of commercial growth.
@@ -122,7 +122,7 @@ The actual ChatGPT, Gemini, DuckAssist, Ask Brave, Claude, Perplexity and Grok p
 | HIGH | Branded product baseline now exists; nonbranded citation coverage and historical metrics remain limited | Measure qualified discovery | Repeat the saved exact questions after processing; export authorized aggregate reports | Compare dated citations, referrals and enquiries; keep untested pairs distinct |
 | HIGH | Initial route JavaScript reduced21–27%; old mobile lab26 remains the only score | Improve user experience and conversion | Profile remaining shared animation/runtime and genuine LCP resources; rerun the equivalent lab setup | Comparable lab metrics and later CrUX field data; byte savings alone do not prove CWV |
 | HIGH | Site evidence lacks original client outcomes | Improve commercial trust and citation worthiness | Obtain approved measurable project outcomes and methodologies; enrich current portfolio/guide pages | Visible sourced facts, qualified leads, actual cited passages |
-| MEDIUM | Event parameter exists; custom dimension not registered | Easier AI/referral reporting | Register event-scoped GA4 dimension in existing property | New consented page views populate exploration after processing |
+| MONITORING | Event-scoped Discovery platform dimension saved on 8 October | AI/referral reporting capability | Allow processing and inspect genuine consented acquisition | Compare matched reporting periods; no backfill or traffic-growth claim |
 | MEDIUM | Guide OG images use916px variants | Better Discover preview suitability | Use genuine representative1200px+ editorial images, avoid blind vertical crops | Live OG/schema image, actual size/content, Discover reports |
 | MEDIUM | Yandex sitemap queued; new properties need processing | Establish actual index inclusion | Monitor; inspect meaningful pages when processing completes | Portal indexed/processed result, not just submitted state |
 | MEDIUM | Meta/Phind primary mechanisms incompletely verified | Avoid obsolete platform assumptions | Revisit current official documentation and product UI when available | Published official mechanism with dated source |
@@ -154,7 +154,7 @@ This is a qualitative prioritization, not a forecast or invented keyword-volume 
 5. Live HTML/Markdown/robots tests across15crawler identities passed.
 6. Preserve platform-supplied standard campaign labels while discarding arbitrary queries.
 7. Keep RSS alternate discovery after client hydration as well as in initial HTML.
-8. Register the prepared GA4 discovery-platform dimension.
+8. Discovery-platform dimension is registered; inspect genuine acquisition after processing.
 9. Daily failure-detecting checks and weekly report/citation monitoring are configured.
 10. Use existing commercial/guide pages as the24question map; obtain original client evidence before expanding content.
 
@@ -193,3 +193,7 @@ Meta AI is **owner-skipped and untested** after its login reached a recovery/sec
 # Current high-priority update: 8 October 2026
 
 [High-priority execution record](seo/HIGH-PRIORITY-EXECUTION-2026-10-08.md) supersedes older pending notes for GA4 dimension registration, the Google sitemap fetch error and failed performance measurement. The Discovery platform dimension is saved; production PSI baseline is mobile80/desktop86, with no CrUX data. Responsive images and a practical build/buy worksheet are implemented. The real contact test failed with a provider-confirmed invalid Gmail grant; reconnection is critical. Four additional commercial query observations found no first-party Clydara result/citation in the inspected Google/Brave sessions. Historical traffic growth remains unmeasured; no duplicate platform submissions are claimed.
+
+## First-party acquisition baseline — 8 October
+
+Authenticated GA4 acquisition and its linked GSC Queries report were read for September10–October7. GA4:6sessions (4Direct,2Organic Search),0key events. GSC query report:0clicks,2impressions,0%CTR,position93. These small, delayed and differently defined measurements do not establish external prospect growth. [Data, screenshots and limitations](seo/evidence/first-party-acquisition-baseline.json).

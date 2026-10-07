@@ -1,8 +1,9 @@
 @import './tokens.css';
+@import './fonts.css';
 
 @font-face {
   font-family: 'Cal Sans';
-  src: url('https://fonts.gstatic.com/s/calsans/v2/fdN99sWUv3gWqXxqqSBevloE4LZx.woff2') format('woff2');
+  src: url('/fonts/cal-sans-fdN99sWUv3gWqXxqqSBevloE4LZx.woff2') format('woff2');
   font-display: swap;
   font-style: normal;
   font-weight: 400 700;

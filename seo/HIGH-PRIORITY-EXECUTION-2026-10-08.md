@@ -55,6 +55,27 @@ The official [EmailJS history API](https://www.emailjs.com/docs/rest-api/history
 
 **Exact remaining action:** in the existing EmailJS Gmail service, reconnect the existing `clydara1@gmail.com` connection. This is an expired/revoked provider authorization, not a service-ID or template-ID code fix. Once reconnection succeeds, run one labelled test and verify both provider history and the intended mailbox, including name, email, message and reply address. Never put the private EmailJS key in the browser bundle. Browser control currently times out when reading the authenticated dashboard; opening it in this chat returned queued. Existing signed-in Gmail does not itself repair EmailJS's saved OAuth grant.
 
+### Subsequent authenticated inspection and production verification
+
+Browser control recovered. The existing service ID and connected Gmail address were independently verified. Reconnection was attempted through the native and semantic **Connect Account** button, but no observable Google authorization window opened in the available browser surfaces. The unsaved edit was cancelled, then the service was reopened to verify the original connection state remained. [Preserved service screenshot](evidence/emailjs-service-preserved.png). No service deletion, password change, replacement mailbox or broad permission grant occurred.
+
+The template editor independently confirmed recipient `clydara1@gmail.com`, `from_name`, `from_email`, `message`, subject `Contact Us: {{subject}}`, and timestamp `{{submitted_at}}`. The form lacked the last two variables. Code now supplies those aliases and explicit not-provided defaults for the template's optional phone/company/service fields; no new user input fields were added. [Template screenshot](evidence/emailjs-template-mapping.png). Gmail reconnection and actual inbox delivery remain incomplete.
+
+Code release `37faa20d125464d9e169eebb4bba8324a6f1e693` deployed successfully. All 17 pages, 30 referenced assets, seven discovery resources and the 404/noindex check passed [live HTTP validation](evidence/live-high-priority-release.json). Actual browser checks decoded all three 64-pixel avatars, selected the 1024 service image, and rendered the direct answer and worksheet on the canonical guide. [Browser record](evidence/high-live-browser-check.json). IndexNow [workflow 37691501824](https://github.com/MuhammadFaizan-prog/clydara-website-2026/actions/runs/37691501824) accepted HTTP200 for homepage, works and the updated guide. Accepted submission is not verified indexing.
+
+A matched production [after PageSpeed report](https://pagespeed.web.dev/analysis/https-www-clydralab-com/02emg8kwkx?form_factor=mobile), captured at 02:51:14 PKT, completed through the browser after the public API returned quota HTTP429. Same Lighthouse/Chromium versions and mobile/desktop test settings as the before capture:
+
+| Metric | Mobile before → after | Desktop before → after |
+|---|---|---|
+| Performance | 80 → 79 | 86 → 94 |
+| LCP | 3.637 → 3.687 s | 0.793 → 0.789 s |
+| TBT | 70 → 85 ms | 301 → 180 ms |
+| CLS | 0 → 0 | 0 → 0.01 |
+| Accessibility / Best practices / SEO | 93 / 100 / 100 unchanged | 94 / 100 / 100 unchanged |
+| CrUX | No data | No data |
+
+The desktop run improved, but the mobile run did not establish an LCP improvement. Image-delivery estimated savings fell to 688KiB mobile and 284KiB desktop; these estimates are not actual transfer-byte savings. Single-run lab variability prevents claiming causality or passed field CWV. [Mobile after](evidence/psi-mobile-after.png), [desktop after](evidence/psi-desktop-after.png), and [measurements](evidence/psi-high-priority.json) preserve both results. Mobile render blocking and field measurement remain high priorities.
+
 ## Current priorities
 
 **CRITICAL — Restore Gmail authorization and verify delivery.** Evidence: real failed UI test and provider error above. Impact: prevent lost enquiries. Implementation/verification: reconnect the existing service, then confirm one accepted request and matching recipient message. Do not modify credentials or claim success from mocks.
@@ -63,8 +84,14 @@ The official [EmailJS history API](https://www.emailjs.com/docs/rest-api/history
 
 **HIGH — Publish verified project evidence.** Evidence: existing project descriptions lack independently measured outcomes in this run. Impact: provide useful information competitors and AI answers cannot reproduce from generic guides. Add only client-approved scope, public URLs, constraints, methodology and documented outcomes to existing portfolio pages. Verify evidence and permissions before publishing; no invented metrics or reviews.
 
-**HIGH — Complete comparable performance/field verification.** Evidence: current mobile LCP 3.637 s and desktop TBT 301 ms in lab; CrUX has no data. Impact: loading and responsiveness. Retest the deployed image change in the same PSI environment; investigate remaining render blocking and long tasks only where regressions can be avoided. Verify visual behavior and p75 field metrics when available. Do not compare scores from different environments as causal improvement.
+**HIGH — Complete comparable performance/field verification.** Evidence: after images, mobile LCP3.687s/TBT85ms and desktop LCP0.789s/TBT180ms; CrUX has no data. Impact: loading and responsiveness. Self-hosted original fonts remove the remaining external font stylesheet; verify the release in the same PSI environment and investigate long tasks only where regressions can be avoided. Verify visual behavior and p75 field metrics when available. Do not compare scores from different environments as causal improvement.
 
 **MEDIUM — Verify actual crawler requests and broader query coverage.** Evidence: successful synthetic user-agent probes cannot prove provider-IP access; other commercial queries remain unmeasured. Inspect verified crawler logs or authenticated platform live tests and extend the fixed query set without confusing product failures with result absence. No blanket bot firewall exemption or paid API purchase is needed to close this documentation gap.
 
 Meta AI remains owner-skipped. Google, Bing, Yandex, Naver, Brave, Seznam and IndexNow submissions retain their existing recorded statuses; unchanged URLs should not be resubmitted merely because report files changed.
+
+## Font delivery and first-party acquisition baseline
+
+Exact original WOFF2 binaries were downloaded from Google Fonts, with all51 existing Inter/Caveat weight/subset rules preserved plus the existing Cal Sans rule. Twelve local binaries total479,832bytes; this is the entire available subset library, not the bytes every page downloads. The original SIL OFL copyright/licenses are included. External Google stylesheet/preconnects are removed and Cal Sans is preloaded. No font design, layout or animation change was made. [Hashes/sources](evidence/self-hosted-fonts.json), [local rendered check](evidence/fonts-rendered-check.json).
+
+Authenticated acquisition baseline for Sep10–Oct7:6GA4sessions,2attributed to Organic Search,0key events; linked GSC query report0clicks/2impressions/0%CTR/position93. No internal-visit exclusion or causal traffic increase is established. [Exact data and limitations](evidence/first-party-acquisition-baseline.json). Genuine qualified leads, field CWV and restored Gmail delivery remain the success measures.

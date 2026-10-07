@@ -1,0 +1,969 @@
+{
+  "at": "2026-10-07T21:50:26.541Z",
+  "revision": "37faa20d125464d9e169eebb4bba8324a6f1e693",
+  "method": "Public live HTTP validation; not a provider-IP or authenticated rendered-browser claim",
+  "pages": [
+    {
+      "path": "/",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/",
+      "mainCount": 1,
+      "h1Count": 1,
+      "schemaCount": 1,
+      "indexable": true,
+      "loadingFallback": false,
+      "assets": [
+        {
+          "path": "/assets/index-CFqiL7No.js",
+          "status": 200,
+          "bytes": 384448
+        },
+        {
+          "path": "/assets/index-DdsOnpO8.css",
+          "status": 200,
+          "bytes": 10626
+        },
+        {
+          "path": "/assets/HomePage-U6bDP0pf.js",
+          "status": 200,
+          "bytes": 15557
+        },
+        {
+          "path": "/assets/HomePage-DZbEWymO.css",
+          "status": 200,
+          "bytes": 13120
+        },
+        {
+          "path": "/assets/RevealHeading-DtYokPDZ.js",
+          "status": 200,
+          "bytes": 1183
+        },
+        {
+          "path": "/assets/Values-BItAQ9yr.js",
+          "status": 200,
+          "bytes": 11008
+        },
+        {
+          "path": "/assets/Values-DvD0rcTt.css",
+          "status": 200,
+          "bytes": 4502
+        },
+        {
+          "path": "/assets/FAQ-CuoXewM9.js",
+          "status": 200,
+          "bytes": 3111
+        },
+        {
+          "path": "/assets/FAQ-D9Iowv1c.css",
+          "status": 200,
+          "bytes": 1982
+        },
+        {
+          "path": "/assets/Works-D58RbuAU.js",
+          "status": 200,
+          "bytes": 5058
+        },
+        {
+          "path": "/assets/Works-DrHz5-zg.css",
+          "status": 200,
+          "bytes": 3383
+        },
+        {
+          "path": "/assets/Pricing-Do-sc6x3.js",
+          "status": 200,
+          "bytes": 6474
+        },
+        {
+          "path": "/assets/Pricing-Ccagw_xt.css",
+          "status": 200,
+          "bytes": 4438
+        }
+      ],
+      "responsiveImages": true,
+      "pass": true
+    },
+    {
+      "path": "/services",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/services",
+      "mainCount": 1,
+      "h1Count": 1,
+      "schemaCount": 1,
+      "indexable": true,
+      "loadingFallback": false,
+      "assets": [
+        {
+          "path": "/assets/index-CFqiL7No.js",
+          "status": 200,
+          "bytes": 384448
+        },
+        {
+          "path": "/assets/index-DdsOnpO8.css",
+          "status": 200,
+          "bytes": 10626
+        },
+        {
+          "path": "/assets/ServicesPage-CMlG4VBC.js",
+          "status": 200,
+          "bytes": 8197
+        },
+        {
+          "path": "/assets/ServicesPage-DeCtrExu.css",
+          "status": 200,
+          "bytes": 3602
+        },
+        {
+          "path": "/assets/SeoContent-BkVYLsY_.css",
+          "status": 200,
+          "bytes": 1052
+        },
+        {
+          "path": "/assets/RevealHeading-DtYokPDZ.js",
+          "status": 200,
+          "bytes": 1183
+        },
+        {
+          "path": "/assets/FAQ-CuoXewM9.js",
+          "status": 200,
+          "bytes": 3111
+        },
+        {
+          "path": "/assets/FAQ-D9Iowv1c.css",
+          "status": 200,
+          "bytes": 1982
+        },
+        {
+          "path": "/assets/Pricing-Do-sc6x3.js",
+          "status": 200,
+          "bytes": 6474
+        },
+        {
+          "path": "/assets/Pricing-Ccagw_xt.css",
+          "status": 200,
+          "bytes": 4438
+        }
+      ],
+      "pass": true
+    },
+    {
+      "path": "/about",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/about",
+      "mainCount": 1,
+      "h1Count": 1,
+      "schemaCount": 1,
+      "indexable": true,
+      "loadingFallback": false,
+      "assets": [
+        {
+          "path": "/assets/index-CFqiL7No.js",
+          "status": 200,
+          "bytes": 384448
+        },
+        {
+          "path": "/assets/index-DdsOnpO8.css",
+          "status": 200,
+          "bytes": 10626
+        },
+        {
+          "path": "/assets/AboutPage-jAFti1M1.js",
+          "status": 200,
+          "bytes": 10895
+        },
+        {
+          "path": "/assets/AboutPage-DLe5mko8.css",
+          "status": 200,
+          "bytes": 6484
+        },
+        {
+          "path": "/assets/RevealHeading-DtYokPDZ.js",
+          "status": 200,
+          "bytes": 1183
+        },
+        {
+          "path": "/assets/Values-BItAQ9yr.js",
+          "status": 200,
+          "bytes": 11008
+        },
+        {
+          "path": "/assets/Values-DvD0rcTt.css",
+          "status": 200,
+          "bytes": 4502
+        },
+        {
+          "path": "/assets/FAQ-CuoXewM9.js",
+          "status": 200,
+          "bytes": 3111
+        },
+        {
+          "path": "/assets/FAQ-D9Iowv1c.css",
+          "status": 200,
+          "bytes": 1982
+        }
+      ],
+      "pass": true
+    },
+    {
+      "path": "/contact",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/contact",
+      "mainCount": 1,
+      "h1Count": 1,
+      "schemaCount": 1,
+      "indexable": true,
+      "loadingFallback": false,
+      "assets": [
+        {
+          "path": "/assets/index-CFqiL7No.js",
+          "status": 200,
+          "bytes": 384448
+        },
+        {
+          "path": "/assets/index-DdsOnpO8.css",
+          "status": 200,
+          "bytes": 10626
+        },
+        {
+          "path": "/assets/ContactPage-DUGjjwE8.js",
+          "status": 200,
+          "bytes": 5813
+        },
+        {
+          "path": "/assets/ContactPage-Dg3qvsEm.css",
+          "status": 200,
+          "bytes": 4907
+        },
+        {
+          "path": "/assets/RevealHeading-DtYokPDZ.js",
+          "status": 200,
+          "bytes": 1183
+        },
+        {
+          "path": "/assets/FAQ-CuoXewM9.js",
+          "status": 200,
+          "bytes": 3111
+        },
+        {
+          "path": "/assets/FAQ-D9Iowv1c.css",
+          "status": 200,
+          "bytes": 1982
+        }
+      ],
+      "pass": true
+    },
+    {
+      "path": "/works",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/works",
+      "mainCount": 1,
+      "h1Count": 1,
+      "schemaCount": 1,
+      "indexable": true,
+      "loadingFallback": false,
+      "assets": [
+        {
+          "path": "/assets/index-CFqiL7No.js",
+          "status": 200,
+          "bytes": 384448
+        },
+        {
+          "path": "/assets/index-DdsOnpO8.css",
+          "status": 200,
+          "bytes": 10626
+        },
+        {
+          "path": "/assets/WorksPage-CystnOTW.js",
+          "status": 200,
+          "bytes": 2745
+        },
+        {
+          "path": "/assets/WorksPage-BR8KbD3s.css",
+          "status": 200,
+          "bytes": 4022
+        },
+        {
+          "path": "/assets/RevealHeading-DtYokPDZ.js",
+          "status": 200,
+          "bytes": 1183
+        },
+        {
+          "path": "/assets/FAQ-CuoXewM9.js",
+          "status": 200,
+          "bytes": 3111
+        },
+        {
+          "path": "/assets/FAQ-D9Iowv1c.css",
+          "status": 200,
+          "bytes": 1982
+        },
+        {
+          "path": "/assets/Works-D58RbuAU.js",
+          "status": 200,
+          "bytes": 5058
+        },
+        {
+          "path": "/assets/Works-DrHz5-zg.css",
+          "status": 200,
+          "bytes": 3383
+        },
+        {
+          "path": "/assets/Pricing-Do-sc6x3.js",
+          "status": 200,
+          "bytes": 6474
+        },
+        {
+          "path": "/assets/Pricing-Ccagw_xt.css",
+          "status": 200,
+          "bytes": 4438
+        }
+      ],
+      "pass": true
+    },
+    {
+      "path": "/blog",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/blog",
+      "mainCount": 1,
+      "h1Count": 1,
+      "schemaCount": 1,
+      "indexable": true,
+      "loadingFallback": false,
+      "assets": [
+        {
+          "path": "/assets/index-CFqiL7No.js",
+          "status": 200,
+          "bytes": 384448
+        },
+        {
+          "path": "/assets/index-DdsOnpO8.css",
+          "status": 200,
+          "bytes": 10626
+        },
+        {
+          "path": "/assets/BlogPage-BtRkmnEc.js",
+          "status": 200,
+          "bytes": 5583
+        },
+        {
+          "path": "/assets/BlogPage-zAp_IPFQ.css",
+          "status": 200,
+          "bytes": 3503
+        },
+        {
+          "path": "/assets/RevealHeading-DtYokPDZ.js",
+          "status": 200,
+          "bytes": 1183
+        }
+      ],
+      "pass": true
+    },
+    {
+      "path": "/privacy-policy",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/privacy-policy",
+      "mainCount": 1,
+      "h1Count": 1,
+      "schemaCount": 1,
+      "indexable": true,
+      "loadingFallback": false,
+      "assets": [
+        {
+          "path": "/assets/index-CFqiL7No.js",
+          "status": 200,
+          "bytes": 384448
+        },
+        {
+          "path": "/assets/index-DdsOnpO8.css",
+          "status": 200,
+          "bytes": 10626
+        },
+        {
+          "path": "/assets/PrivacyPolicyPage-n0RPom-E.js",
+          "status": 200,
+          "bytes": 5104
+        }
+      ],
+      "pass": true
+    },
+    {
+      "path": "/terms-and-condition",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/terms-and-condition",
+      "mainCount": 1,
+      "h1Count": 1,
+      "schemaCount": 1,
+      "indexable": true,
+      "loadingFallback": false,
+      "assets": [
+        {
+          "path": "/assets/index-CFqiL7No.js",
+          "status": 200,
+          "bytes": 384448
+        },
+        {
+          "path": "/assets/index-DdsOnpO8.css",
+          "status": 200,
+          "bytes": 10626
+        },
+        {
+          "path": "/assets/TermsPage-BuaF-VVl.js",
+          "status": 200,
+          "bytes": 4969
+        }
+      ],
+      "pass": true
+    },
+    {
+      "path": "/works/archin",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/works/archin",
+      "mainCount": 1,
+      "h1Count": 1,
+      "schemaCount": 1,
+      "indexable": true,
+      "loadingFallback": false,
+      "assets": [
+        {
+          "path": "/assets/index-CFqiL7No.js",
+          "status": 200,
+          "bytes": 384448
+        },
+        {
+          "path": "/assets/index-DdsOnpO8.css",
+          "status": 200,
+          "bytes": 10626
+        },
+        {
+          "path": "/assets/WorkDetailPage-0T1tgmB8.js",
+          "status": 200,
+          "bytes": 4036
+        },
+        {
+          "path": "/assets/RevealHeading-DtYokPDZ.js",
+          "status": 200,
+          "bytes": 1183
+        },
+        {
+          "path": "/assets/NotFoundPage-D3GqvrQs.js",
+          "status": 200,
+          "bytes": 559
+        },
+        {
+          "path": "/assets/Pricing-Do-sc6x3.js",
+          "status": 200,
+          "bytes": 6474
+        },
+        {
+          "path": "/assets/Pricing-Ccagw_xt.css",
+          "status": 200,
+          "bytes": 4438
+        }
+      ],
+      "pass": true
+    },
+    {
+      "path": "/works/vntnr",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/works/vntnr",
+      "mainCount": 1,
+      "h1Count": 1,
+      "schemaCount": 1,
+      "indexable": true,
+      "loadingFallback": false,
+      "assets": [
+        {
+          "path": "/assets/index-CFqiL7No.js",
+          "status": 200,
+          "bytes": 384448
+        },
+        {
+          "path": "/assets/index-DdsOnpO8.css",
+          "status": 200,
+          "bytes": 10626
+        },
+        {
+          "path": "/assets/WorkDetailPage-0T1tgmB8.js",
+          "status": 200,
+          "bytes": 4036
+        },
+        {
+          "path": "/assets/RevealHeading-DtYokPDZ.js",
+          "status": 200,
+          "bytes": 1183
+        },
+        {
+          "path": "/assets/NotFoundPage-D3GqvrQs.js",
+          "status": 200,
+          "bytes": 559
+        },
+        {
+          "path": "/assets/Pricing-Do-sc6x3.js",
+          "status": 200,
+          "bytes": 6474
+        },
+        {
+          "path": "/assets/Pricing-Ccagw_xt.css",
+          "status": 200,
+          "bytes": 4438
+        }
+      ],
+      "pass": true
+    },
+    {
+      "path": "/works/aeorim",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/works/aeorim",
+      "mainCount": 1,
+      "h1Count": 1,
+      "schemaCount": 1,
+      "indexable": true,
+      "loadingFallback": false,
+      "assets": [
+        {
+          "path": "/assets/index-CFqiL7No.js",
+          "status": 200,
+          "bytes": 384448
+        },
+        {
+          "path": "/assets/index-DdsOnpO8.css",
+          "status": 200,
+          "bytes": 10626
+        },
+        {
+          "path": "/assets/WorkDetailPage-0T1tgmB8.js",
+          "status": 200,
+          "bytes": 4036
+        },
+        {
+          "path": "/assets/RevealHeading-DtYokPDZ.js",
+          "status": 200,
+          "bytes": 1183
+        },
+        {
+          "path": "/assets/NotFoundPage-D3GqvrQs.js",
+          "status": 200,
+          "bytes": 559
+        },
+        {
+          "path": "/assets/Pricing-Do-sc6x3.js",
+          "status": 200,
+          "bytes": 6474
+        },
+        {
+          "path": "/assets/Pricing-Ccagw_xt.css",
+          "status": 200,
+          "bytes": 4438
+        }
+      ],
+      "pass": true
+    },
+    {
+      "path": "/blog/custom-software-vs-saas",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/blog/custom-software-vs-saas",
+      "mainCount": 1,
+      "h1Count": 1,
+      "schemaCount": 1,
+      "indexable": true,
+      "loadingFallback": false,
+      "assets": [
+        {
+          "path": "/assets/index-CFqiL7No.js",
+          "status": 200,
+          "bytes": 384448
+        },
+        {
+          "path": "/assets/index-DdsOnpO8.css",
+          "status": 200,
+          "bytes": 10626
+        },
+        {
+          "path": "/assets/BlogDetailPage-pECECfUE.js",
+          "status": 200,
+          "bytes": 73222
+        },
+        {
+          "path": "/assets/BlogDetailPage-CU87xiRN.css",
+          "status": 200,
+          "bytes": 3469
+        },
+        {
+          "path": "/assets/SeoContent-BkVYLsY_.css",
+          "status": 200,
+          "bytes": 1052
+        },
+        {
+          "path": "/assets/RevealHeading-DtYokPDZ.js",
+          "status": 200,
+          "bytes": 1183
+        },
+        {
+          "path": "/assets/BlogPage-BtRkmnEc.js",
+          "status": 200,
+          "bytes": 5583
+        },
+        {
+          "path": "/assets/BlogPage-zAp_IPFQ.css",
+          "status": 200,
+          "bytes": 3503
+        },
+        {
+          "path": "/assets/NotFoundPage-D3GqvrQs.js",
+          "status": 200,
+          "bytes": 559
+        }
+      ],
+      "worksheet": true,
+      "pass": true
+    },
+    {
+      "path": "/blog/is-mern-still-worth-it-2026",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/blog/is-mern-still-worth-it-2026",
+      "mainCount": 1,
+      "h1Count": 1,
+      "schemaCount": 1,
+      "indexable": true,
+      "loadingFallback": false,
+      "assets": [
+        {
+          "path": "/assets/index-CFqiL7No.js",
+          "status": 200,
+          "bytes": 384448
+        },
+        {
+          "path": "/assets/index-DdsOnpO8.css",
+          "status": 200,
+          "bytes": 10626
+        },
+        {
+          "path": "/assets/BlogDetailPage-pECECfUE.js",
+          "status": 200,
+          "bytes": 73222
+        },
+        {
+          "path": "/assets/BlogDetailPage-CU87xiRN.css",
+          "status": 200,
+          "bytes": 3469
+        },
+        {
+          "path": "/assets/SeoContent-BkVYLsY_.css",
+          "status": 200,
+          "bytes": 1052
+        },
+        {
+          "path": "/assets/RevealHeading-DtYokPDZ.js",
+          "status": 200,
+          "bytes": 1183
+        },
+        {
+          "path": "/assets/BlogPage-BtRkmnEc.js",
+          "status": 200,
+          "bytes": 5583
+        },
+        {
+          "path": "/assets/BlogPage-zAp_IPFQ.css",
+          "status": 200,
+          "bytes": 3503
+        },
+        {
+          "path": "/assets/NotFoundPage-D3GqvrQs.js",
+          "status": 200,
+          "bytes": 559
+        }
+      ],
+      "pass": true
+    },
+    {
+      "path": "/blog/ai-integration-for-startups",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/blog/ai-integration-for-startups",
+      "mainCount": 1,
+      "h1Count": 1,
+      "schemaCount": 1,
+      "indexable": true,
+      "loadingFallback": false,
+      "assets": [
+        {
+          "path": "/assets/index-CFqiL7No.js",
+          "status": 200,
+          "bytes": 384448
+        },
+        {
+          "path": "/assets/index-DdsOnpO8.css",
+          "status": 200,
+          "bytes": 10626
+        },
+        {
+          "path": "/assets/BlogDetailPage-pECECfUE.js",
+          "status": 200,
+          "bytes": 73222
+        },
+        {
+          "path": "/assets/BlogDetailPage-CU87xiRN.css",
+          "status": 200,
+          "bytes": 3469
+        },
+        {
+          "path": "/assets/SeoContent-BkVYLsY_.css",
+          "status": 200,
+          "bytes": 1052
+        },
+        {
+          "path": "/assets/RevealHeading-DtYokPDZ.js",
+          "status": 200,
+          "bytes": 1183
+        },
+        {
+          "path": "/assets/BlogPage-BtRkmnEc.js",
+          "status": 200,
+          "bytes": 5583
+        },
+        {
+          "path": "/assets/BlogPage-zAp_IPFQ.css",
+          "status": 200,
+          "bytes": 3503
+        },
+        {
+          "path": "/assets/NotFoundPage-D3GqvrQs.js",
+          "status": 200,
+          "bytes": 559
+        }
+      ],
+      "pass": true
+    },
+    {
+      "path": "/blog/agency-vs-in-house-developers",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/blog/agency-vs-in-house-developers",
+      "mainCount": 1,
+      "h1Count": 1,
+      "schemaCount": 1,
+      "indexable": true,
+      "loadingFallback": false,
+      "assets": [
+        {
+          "path": "/assets/index-CFqiL7No.js",
+          "status": 200,
+          "bytes": 384448
+        },
+        {
+          "path": "/assets/index-DdsOnpO8.css",
+          "status": 200,
+          "bytes": 10626
+        },
+        {
+          "path": "/assets/BlogDetailPage-pECECfUE.js",
+          "status": 200,
+          "bytes": 73222
+        },
+        {
+          "path": "/assets/BlogDetailPage-CU87xiRN.css",
+          "status": 200,
+          "bytes": 3469
+        },
+        {
+          "path": "/assets/SeoContent-BkVYLsY_.css",
+          "status": 200,
+          "bytes": 1052
+        },
+        {
+          "path": "/assets/RevealHeading-DtYokPDZ.js",
+          "status": 200,
+          "bytes": 1183
+        },
+        {
+          "path": "/assets/BlogPage-BtRkmnEc.js",
+          "status": 200,
+          "bytes": 5583
+        },
+        {
+          "path": "/assets/BlogPage-zAp_IPFQ.css",
+          "status": 200,
+          "bytes": 3503
+        },
+        {
+          "path": "/assets/NotFoundPage-D3GqvrQs.js",
+          "status": 200,
+          "bytes": 559
+        }
+      ],
+      "pass": true
+    },
+    {
+      "path": "/blog/saas-development-cost",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/blog/saas-development-cost",
+      "mainCount": 1,
+      "h1Count": 1,
+      "schemaCount": 1,
+      "indexable": true,
+      "loadingFallback": false,
+      "assets": [
+        {
+          "path": "/assets/index-CFqiL7No.js",
+          "status": 200,
+          "bytes": 384448
+        },
+        {
+          "path": "/assets/index-DdsOnpO8.css",
+          "status": 200,
+          "bytes": 10626
+        },
+        {
+          "path": "/assets/BlogDetailPage-pECECfUE.js",
+          "status": 200,
+          "bytes": 73222
+        },
+        {
+          "path": "/assets/BlogDetailPage-CU87xiRN.css",
+          "status": 200,
+          "bytes": 3469
+        },
+        {
+          "path": "/assets/SeoContent-BkVYLsY_.css",
+          "status": 200,
+          "bytes": 1052
+        },
+        {
+          "path": "/assets/RevealHeading-DtYokPDZ.js",
+          "status": 200,
+          "bytes": 1183
+        },
+        {
+          "path": "/assets/BlogPage-BtRkmnEc.js",
+          "status": 200,
+          "bytes": 5583
+        },
+        {
+          "path": "/assets/BlogPage-zAp_IPFQ.css",
+          "status": 200,
+          "bytes": 3503
+        },
+        {
+          "path": "/assets/NotFoundPage-D3GqvrQs.js",
+          "status": 200,
+          "bytes": 559
+        }
+      ],
+      "pass": true
+    },
+    {
+      "path": "/blog/startup-website-mistakes",
+      "status": 200,
+      "canonical": "https://www.clydralab.com/blog/startup-website-mistakes",
+      "mainCount": 1,
+      "h1Count": 1,
+      "schemaCount": 1,
+      "indexable": true,
+      "loadingFallback": false,
+      "assets": [
+        {
+          "path": "/assets/index-CFqiL7No.js",
+          "status": 200,
+          "bytes": 384448
+        },
+        {
+          "path": "/assets/index-DdsOnpO8.css",
+          "status": 200,
+          "bytes": 10626
+        },
+        {
+          "path": "/assets/BlogDetailPage-pECECfUE.js",
+          "status": 200,
+          "bytes": 73222
+        },
+        {
+          "path": "/assets/BlogDetailPage-CU87xiRN.css",
+          "status": 200,
+          "bytes": 3469
+        },
+        {
+          "path": "/assets/SeoContent-BkVYLsY_.css",
+          "status": 200,
+          "bytes": 1052
+        },
+        {
+          "path": "/assets/RevealHeading-DtYokPDZ.js",
+          "status": 200,
+          "bytes": 1183
+        },
+        {
+          "path": "/assets/BlogPage-BtRkmnEc.js",
+          "status": 200,
+          "bytes": 5583
+        },
+        {
+          "path": "/assets/BlogPage-zAp_IPFQ.css",
+          "status": 200,
+          "bytes": 3503
+        },
+        {
+          "path": "/assets/NotFoundPage-D3GqvrQs.js",
+          "status": 200,
+          "bytes": 559
+        }
+      ],
+      "pass": true
+    }
+  ],
+  "resources": [
+    {
+      "path": "/robots.txt",
+      "status": 200,
+      "type": "text/plain; charset=utf-8",
+      "bytes": 71
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 200,
+      "type": "application/xml",
+      "bytes": 1255
+    },
+    {
+      "path": "/llms.txt",
+      "status": 200,
+      "type": "text/plain; charset=utf-8",
+      "bytes": 3462
+    },
+    {
+      "path": "/feed.xml",
+      "status": 200,
+      "type": "application/xml",
+      "bytes": 2895
+    },
+    {
+      "path": "/services.md",
+      "status": 200,
+      "type": "text/markdown; charset=utf-8",
+      "bytes": 6295
+    },
+    {
+      "path": "/contact.md",
+      "status": 200,
+      "type": "text/markdown; charset=utf-8",
+      "bytes": 2332
+    },
+    {
+      "path": "/blog/custom-software-vs-saas.md",
+      "status": 200,
+      "type": "text/markdown; charset=utf-8",
+      "bytes": 9284,
+      "worksheet": true
+    }
+  ],
+  "notFound": {
+    "status": 404,
+    "noindex": true
+  },
+  "manifest": {
+    "changedUrls": [
+      "https://www.clydralab.com/",
+      "https://www.clydralab.com/works",
+      "https://www.clydralab.com/blog/custom-software-vs-saas"
+    ],
+    "deletedUrls": [],
+    "baselineStatus": "available"
+  },
+  "failures": []
+}

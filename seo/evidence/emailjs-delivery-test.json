@@ -10,7 +10,7 @@
   "screenshot": "emailjs-live-test-failed.png",
   "recipientInboxVerified": false,
   "status": "FAILED: expired/revoked Gmail authorization; dashboard reconnection required",
-  "browserBlocker": "Dashboard signed in by owner, but browser control times out; open-in-Codex returned queued for this chat.",
+  "browserBlocker": "General browser control recovered; Gmail OAuth authorization window remains unavailable in controllable browser surfaces.",
   "noMoreSends": "Further tests paused until Gmail service is reconnected",
   "source": "https://www.emailjs.com/docs/rest-api/history/",
   "matchingFailedHistoryRecords": 5,
@@ -20,5 +20,22 @@
     "2026-10-07T21:20:28.000Z",
     "2026-10-07T21:20:27.000Z",
     "2026-10-07T21:20:25.000Z"
-  ]
+  ],
+  "templateMappingVerified": {
+    "recipient": "clydara1@gmail.com",
+    "fromName": "{{from_name}}",
+    "replyTo": "{{from_email}}",
+    "message": "{{message}}",
+    "subject": "Contact Us: {{subject}}",
+    "timestamp": "{{submitted_at}}",
+    "optionalFields": [
+      "phone",
+      "company",
+      "service"
+    ],
+    "screenshot": "emailjs-template-mapping.png"
+  },
+  "codeMappingChange": "Added subject/submitted_at aliases and explicit not-provided defaults for optional fields; existing name/email/message/reply aliases retained.",
+  "reconnectionAttempt": "Opened existing service; Connect Account did not open an observable authorization window through native or semantic click. Cancelled unsaved edit and re-opened service to verify original Connected as clydara1@gmail.com state preserved.",
+  "originalServicePreserved": true
 }

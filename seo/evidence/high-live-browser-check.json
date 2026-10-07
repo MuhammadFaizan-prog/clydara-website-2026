@@ -1,0 +1,28 @@
+{
+  "at": "2026-10-07T21:57:34.547Z",
+  "revision": "37faa20d125464d9e169eebb4bba8324a6f1e693",
+  "homepage": {
+    "title": "Clydara | AI, SaaS & Custom Software Development Agency",
+    "canonical": "https://www.clydralab.com/",
+    "mainCount": 1,
+    "avatars": "All three decoded at naturalWidth 64 from scale-down-to=64 URLs"
+  },
+  "serviceImage": {
+    "alt": "Brand Design",
+    "complete": true,
+    "width": 480,
+    "height": 330,
+    "candidate": 1024,
+    "screenshot": "images-production-services.png"
+  },
+  "guide": {
+    "canonical": "https://www.clydralab.com/blog/custom-software-vs-saas",
+    "directAnswerObserved": true,
+    "illustrativeWorksheetObserved": true,
+    "saasExampleTotal": 62000,
+    "customExampleTotal": 71000,
+    "monthlyDifference": 250,
+    "screenshot": "build-buy-production-worksheet.png"
+  },
+  "scope": "Actual browser-rendered observation of changed homepage and guide, not a complete 17-page visual sweep"
+}

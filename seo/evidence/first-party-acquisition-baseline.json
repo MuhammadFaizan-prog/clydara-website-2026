@@ -1,0 +1,56 @@
+{
+  "at": "2026-10-07T22:08:07.357Z",
+  "period": {
+    "start": "2026-09-10",
+    "end": "2026-10-07",
+    "label": "Last 28 days"
+  },
+  "source": "Authenticated GA4 Traffic acquisition and linked Search Console Queries reports; 100% of available data",
+  "ga4": {
+    "sessions": 6,
+    "engagedSessions": 4,
+    "engagementRatePercent": 66.67,
+    "averageEngagementSeconds": 14,
+    "events": 23,
+    "keyEvents": 0,
+    "channels": [
+      {
+        "channel": "Direct",
+        "sessions": 4,
+        "engagedSessions": 2,
+        "events": 14,
+        "keyEvents": 0
+      },
+      {
+        "channel": "Organic Search",
+        "sessions": 2,
+        "engagedSessions": 2,
+        "events": 9,
+        "keyEvents": 0
+      }
+    ],
+    "screenshot": "ga4-acquisition-baseline-table.png"
+  },
+  "searchConsoleQueries": {
+    "clicks": 0,
+    "impressions": 2,
+    "ctrPercent": 0,
+    "averagePosition": 93,
+    "rows": [
+      {
+        "query": "\"info * com\" -news \"contact\"",
+        "clicks": 0,
+        "impressions": 2,
+        "ctrPercent": 0,
+        "averagePosition": 93
+      }
+    ],
+    "screenshot": "gsc-query-baseline-table.png"
+  },
+  "limitations": [
+    "New and very small data sample; owner/agent activity not independently excluded.",
+    "GA4 sessions and GSC clicks use different definitions and collection; these counts do not prove two independent prospects.",
+    "No matched pre-implementation period or qualified conversion growth established.",
+    "Query data can be delayed/anonymized; not a complete claim about every search or current rank."
+  ]
+}
