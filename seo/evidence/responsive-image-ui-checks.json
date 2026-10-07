@@ -1,0 +1,98 @@
+{
+  "at": "2026-10-07T21:18:00.245Z",
+  "site": "local build",
+  "checks": [
+    {
+      "mode": "desktop",
+      "tab": "Dashboards",
+      "data": {
+        "alt": "Dashboards",
+        "complete": true,
+        "currentSrc": "https://framerusercontent.com/images/Di4h2RBxlE4WrxjE8XpjuNgDh4.png?width=1586&height=992",
+        "naturalHeight": 300,
+        "naturalWidth": 480,
+        "rect": {
+          "h": 330,
+          "w": 480
+        }
+      }
+    },
+    {
+      "mode": "desktop",
+      "tab": "Web Design",
+      "data": {
+        "alt": "Web Design",
+        "complete": true,
+        "currentSrc": "https://framerusercontent.com/images/0BZyfYvRgMhWFP4m7BdLwu8.png?width=1536&height=1024",
+        "naturalHeight": 320,
+        "naturalWidth": 480,
+        "rect": {
+          "h": 330,
+          "w": 480
+        }
+      }
+    },
+    {
+      "mode": "desktop",
+      "tab": "Brand Design",
+      "data": {
+        "alt": "Brand Design",
+        "complete": true,
+        "currentSrc": "https://framerusercontent.com/images/YO1ynxMlSvZbk2M4dR35UL4k1Q.png?width=1536&height=1024&scale-down-to=1024",
+        "naturalHeight": 320,
+        "naturalWidth": 479,
+        "rect": {
+          "h": 330,
+          "w": 480
+        }
+      }
+    },
+    {
+      "mode": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "tab": "Brand Design",
+      "data": {
+        "alt": "Brand Design",
+        "complete": true,
+        "currentSrc": "https://framerusercontent.com/images/YO1ynxMlSvZbk2M4dR35UL4k1Q.png?width=1536&height=1024&scale-down-to=512",
+        "naturalWidth": 320,
+        "rect": {
+          "h": 220,
+          "w": 320
+        }
+      }
+    },
+    {
+      "mode": "mobile",
+      "portfolio": [
+        {
+          "alt": "Lehar Resorts",
+          "complete": true,
+          "currentSrc": "https://framerusercontent.com/images/NKjQpIy0A8AL3f3nojbPFF8DRW8.png?width=1536&height=1024&scale-down-to=512",
+          "height": 216.67709350585935,
+          "naturalWidth": 326,
+          "width": 325.3333435058594
+        },
+        {
+          "alt": "JKM GLOBALS",
+          "complete": true,
+          "currentSrc": "https://framerusercontent.com/images/mea2IrOxhEXzllso3Pjfx51rCb8.png?width=1536&height=1024&scale-down-to=512",
+          "height": 202.181640625,
+          "naturalWidth": 326,
+          "width": 303.56854248046875
+        },
+        {
+          "alt": "JKM Solutions",
+          "complete": true,
+          "currentSrc": "https://framerusercontent.com/images/tPmf3Oa94gxsPCkGJGjL9vHW54c.png?width=1536&height=1024&scale-down-to=512",
+          "height": 216.67709350585935,
+          "naturalWidth": 326,
+          "width": 325.3333435058594
+        }
+      ]
+    }
+  ]
+}

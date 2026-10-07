@@ -139,6 +139,13 @@ const articlesData: Record<string, ArticleData> = {
     tags: ['Custom Software, SaaS, Business Strategy', '30th May 2025'],
     sections: [
       {
+        heading: 'Should a startup build custom software or buy SaaS?',
+        paragraphs: [
+          'Buy SaaS for standard workflows when speed and limited operating capacity matter most. Build custom software when the workflow creates a competitive advantage, existing products fail a realistic trial, and you can fund ongoing maintenance. A hybrid approach often fits: buy commodity tools such as email or accounting, and build the specific workflow that makes your product different.',
+          'Before choosing, test the same end-to-end scenario in each option. Include the exception that happens most often, a permission boundary, an integration failure, and a complete data export. Record what works, what needs manual intervention, who owns support, and what it costs to leave. A feature checklist alone will miss these operating constraints.',
+        ],
+      },
+      {
         heading: 'Custom Software vs SaaS: The Strategic Trade-Off',
         paragraphs: [
           'Most companies begin with SaaS for good reasons. A SaaS platform is available immediately, spreads development costs across many customers, and usually includes hosting, updates, support, and basic security. For a startup validating demand, buying software can preserve capital and keep the team focused on customers. The problem appears when a tool designed for an average workflow becomes the operating system for a business that is no longer average.',
@@ -152,6 +159,14 @@ const articlesData: Record<string, ArticleData> = {
         paragraphs: [
           'A build vs buy software comparison should include total cost of ownership. SaaS costs include licenses, usage tiers, premium support, implementation partners, add-ons, integration platforms, data storage, migration fees, and the labor required to work around limitations. Pricing often rises with headcount, contacts, transactions, or API volume. A tool that looks inexpensive at 10 employees can become a significant operating expense at 200.',
           'Custom software has higher upfront costs. Discovery, UX design, architecture, engineering, quality assurance, deployment, and security must be funded before the system produces a return. Ongoing costs include cloud infrastructure, monitoring, maintenance, dependency upgrades, and feature development. However, the marginal cost per additional user or transaction can be lower, and the business owns the resulting intellectual property.',
+        ],
+      },
+      {
+        heading: 'A 36-month build-versus-buy cost worksheet',
+        paragraphs: [
+          'Use the same period, user count, workflow and service level for both options. SaaS total = implementation and migration + monthly licences and usage over 36 months + integration, support and workaround labour + exit costs. Custom total = discovery, build and migration + hosting, maintenance and support over 36 months + planned changes + exit costs. Include staff time in both columns; compare cash cost separately from time you might save.',
+          'Illustrative arithmetic only, not market pricing or a Clydara quote: 40 SaaS users at $30 per month for 36 months cost $43,200. Add $8,000 implementation and $300 per month for integrations and support ($10,800), giving $62,000. A hypothetical custom option with a $45,000 build, $8,000 migration and $500 per month for hosting and maintenance ($18,000) totals $71,000. Under these assumptions, custom costs $9,000 more before additional change requests or exit costs.',
+          'That $9,000 difference is equivalent to $250 per month over 36 months. Custom needs at least that much additional realised value to offset the difference under this simplified example. Measure saved hours, errors or revenue with a pilot rather than assuming every saved hour becomes a cash saving. Recalculate using actual proposals, expected user growth, integration limits and a maintenance owner; choose SaaS if the custom business case still does not hold.',
         ],
       },
       {

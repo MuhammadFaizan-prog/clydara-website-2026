@@ -7,6 +7,7 @@ interface ServiceCategory {
   label: string
   headline: string
   image: string
+  imageWidth: number
   tags: string[]
 }
 
@@ -16,6 +17,7 @@ const serviceCategories: ServiceCategory[] = [
     label: 'Web Design',
     headline: 'High-converting, responsive websites built with modern frameworks and smooth motion.',
     image: 'https://framerusercontent.com/images/0BZyfYvRgMhWFP4m7BdLwu8.png?width=1536&height=1024',
+    imageWidth: 1536,
     tags: ['Custom UI/UX Design', 'React & Framer Development', 'SEO Optimization'],
   },
   {
@@ -23,6 +25,7 @@ const serviceCategories: ServiceCategory[] = [
     label: 'Brand Design',
     headline: 'We build bold, cohesive brand identities that leave a lasting impression.',
     image: 'https://framerusercontent.com/images/YO1ynxMlSvZbk2M4dR35UL4k1Q.png?width=1536&height=1024',
+    imageWidth: 1489,
     tags: ['Visual Identity', 'Style Guides', 'Brand Strategy'],
   },
   {
@@ -30,6 +33,7 @@ const serviceCategories: ServiceCategory[] = [
     label: 'Dashboards',
     headline: 'Scalable SaaS dashboards, CRM systems, and bespoke enterprise business applications.',
     image: 'https://framerusercontent.com/images/Di4h2RBxlE4WrxjE8XpjuNgDh4.png?width=1586&height=992',
+    imageWidth: 1586,
     tags: ['SaaS Analytics', 'CRM Systems', 'Real-Time Data'],
   },
 ]
@@ -78,7 +82,11 @@ export default function Services() {
           {/* Floating 3D Center Card */}
           <div className="services-center-card">
             <img
-              src={active.image}
+              src={`${active.image}&scale-down-to=512`}
+              srcSet={`${active.image}&scale-down-to=512 512w, ${active.image}&scale-down-to=1024 1024w, ${active.image} ${active.imageWidth}w`}
+              sizes="(max-width: 809px) 320px, 480px"
+              loading="lazy"
+              decoding="async"
               alt={active.label}
               className="services-center-img"
             />

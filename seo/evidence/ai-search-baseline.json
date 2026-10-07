@@ -392,6 +392,88 @@
       "observation": "Login reached a recovery/security check. The owner explicitly chose to skip Meta for now. No benchmark question was executed; no credentials were changed and no CAPTCHA was completed. Revisit only when the owner chooses to resume.",
       "evidence": "Owner instruction and actual product access observation; no authentication screenshot published.",
       "resultUrl": "https://www.meta.ai/"
+    },
+    {
+      "date": "2026-10-08",
+      "query": "Should a startup build custom software or buy SaaS?",
+      "queryType": "nonbranded-commercial-build-vs-buy",
+      "brandMention": false,
+      "firstPartyDomainInInspectedResults": false,
+      "engine": "Google classic search",
+      "inspectedResultCount": 8,
+      "evidence": "seo/evidence/google-build-buy-baseline.png",
+      "resultUrl": "https://www.google.com/search?q=Should+a+startup+build+custom+software+or+buy+SaaS%3F",
+      "observation": "Eight organic guide results inspected; no clydralab.com. Google Try without personalisation selected and nonpersonalised badge observed. Not a sitewide indexing conclusion.",
+      "observedResults": [
+        {
+          "title": "Custom Software vs SaaS: Which Should Your Business ...",
+          "url": "https://www.linkedin.com/pulse/custom-software-vs-saas-which-should-your-business-choose-cdcnf"
+        },
+        {
+          "title": "SaaS vs. Custom Software: How to Make the Right Build ...",
+          "url": "https://medium.com/eleks-labs/saas-vs-custom-software-how-to-make-the-right-build-vs-buy-decision-for-business-growth-c82217d94517"
+        },
+        {
+          "title": "Should small businesses build custom software or continue ...",
+          "url": "https://www.quora.com/Should-small-businesses-build-custom-software-or-continue-using-multiple-ready-made-SaaS-tools"
+        },
+        {
+          "title": "SaaS vs Custom Software Development: What's the Best ...",
+          "url": "https://nanobytetechnologies.com/Blog/SaaS-vs-Custom-Software-Development-Whats-the-Best-Choice-for-Your-Business"
+        },
+        {
+          "title": "Build vs Buy Software: When Custom Development Beats ...",
+          "url": "https://macromodule.com/build-vs-buy-software-when-custom-development-beats-saas/"
+        },
+        {
+          "title": "Custom Software vs SaaS for Startups",
+          "url": "https://thecodegenesis.com/custom-software-vs-saas-for-startups/"
+        },
+        {
+          "title": "SaaS vs. Custom Software: How to Make the Right Build ...",
+          "url": "https://eleks.com/blog/saas-vs-custom-software/"
+        },
+        {
+          "title": "SaaS vs Custom Software: What Startups Should Build or Buy",
+          "url": "https://capiller.com/blog/saas-vs-custom-software"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-08",
+      "query": "Should a startup build custom software or buy SaaS?",
+      "queryType": "nonbranded-commercial-build-vs-buy",
+      "brandMention": false,
+      "firstPartyDomainInInspectedResults": false,
+      "engine": "Google AI Overviews",
+      "firstPartyLinkedCitation": false,
+      "evidence": "seo/evidence/google-build-buy-baseline.png",
+      "resultUrl": "https://www.google.com/search?q=Should+a+startup+build+custom+software+or+buy+SaaS%3F",
+      "observation": "Completed nonpersonalised overview described build/buy criteria and cited competing guides; no first-party Clydara citation observed. Only this question/session measured."
+    },
+    {
+      "date": "2026-10-08",
+      "query": "Should a startup build custom software or buy SaaS?",
+      "queryType": "nonbranded-commercial-build-vs-buy",
+      "brandMention": false,
+      "firstPartyDomainInInspectedResults": false,
+      "engine": "Brave classic search",
+      "inspectedResultCountApproximate": 20,
+      "evidence": "seo/evidence/brave-build-buy-classic.png",
+      "resultUrl": "https://search.brave.com/search?q=Should+a+startup+build+custom+software+or+buy+SaaS%3F",
+      "observation": "First-page guide results inspected; no Clydara canonical domain observed. Approximate count; not a global ranking conclusion."
+    },
+    {
+      "date": "2026-10-08",
+      "query": "Should a startup build custom software or buy SaaS?",
+      "queryType": "nonbranded-commercial-build-vs-buy",
+      "brandMention": false,
+      "firstPartyDomainInInspectedResults": false,
+      "engine": "Ask Brave",
+      "firstPartyLinkedCitation": false,
+      "evidence": "seo/evidence/brave-build-buy-answer.png",
+      "resultUrl": "https://search.brave.com/ask?q=Should+a+startup+build+custom+software+or+buy+SaaS%3F&source=llmSuggest&conversation=09a718edea962ae479fc2f3ce5e666a15d18",
+      "observation": "Completed answer recommended SaaS for standard operations, custom software for differentiating workflows, and a hybrid option. No Clydara mention/citation. UI showed 10 research source names; not all source URLs independently inspected."
     }
   ],
   "unexecutedPairs": "Other questions/products in seo/ai-query-set.json remain unmeasured. Browser control intermittently timed out and was reattached to the owner's open tabs. Public result absence, a product-access blocker and an unexecuted query remain different statuses.",

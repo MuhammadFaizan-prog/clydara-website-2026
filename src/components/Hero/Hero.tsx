@@ -4,9 +4,9 @@ import { RevealChars } from '../common/RevealChars'
 import './Hero.css'
 
 const founderImages = [
-  'https://framerusercontent.com/images/LdiJIgo7vhBde0WiWHd48uSzxU.png?width=64&height=64',
-  'https://framerusercontent.com/images/I9yoNS4RgoWEeRpJDtgEIoLAd4Y.png?width=64&height=64',
-  'https://framerusercontent.com/images/G5E86VA7DStEga3pPtCu3nwW1qE.png?width=64&height=64',
+  'https://framerusercontent.com/images/LdiJIgo7vhBde0WiWHd48uSzxU.png?width=64&height=64&scale-down-to=64',
+  'https://framerusercontent.com/images/I9yoNS4RgoWEeRpJDtgEIoLAd4Y.png?width=64&height=64&scale-down-to=64',
+  'https://framerusercontent.com/images/G5E86VA7DStEga3pPtCu3nwW1qE.png?width=64&height=64&scale-down-to=64',
 ]
 
 const heroInlineImages = [

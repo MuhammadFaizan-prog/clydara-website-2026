@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-07T21:37:56.125Z",
+  "property": "557297474",
+  "name": "Discovery platform",
+  "scope": "Event",
+  "parameter": "discovery_platform",
+  "status": "Saved row independently observed in authenticated GA4 UI",
+  "screenshot": "ga4-discovery-dimension.png",
+  "reportingStatus": "New dimension; historical acquisition and real lead growth not established",
+  "source": "https://support.google.com/analytics/answer/14239696"
+}

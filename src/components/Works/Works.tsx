@@ -152,7 +152,13 @@ export default function Works() {
                   <div className="work-card-center">
                     <Link to={`/works/${card.id}`} className="work-cover-wrapper">
                       <img
-                        src={card.coverImg}
+                        src={`${card.coverImg}&scale-down-to=512`}
+                        srcSet={`${card.coverImg}&scale-down-to=512 512w, ${card.coverImg}&scale-down-to=1024 1024w, ${card.coverImg} 1536w`}
+                        sizes="(max-width: 564px) calc(100vw - 64px), 500px"
+                        width={1536}
+                        height={1024}
+                        loading="lazy"
+                        decoding="async"
                         alt={card.title}
                         className="work-cover-img"
                       />

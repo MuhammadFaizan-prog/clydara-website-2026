@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-07T21:37:56.125Z",
+  "testId": "CLY-20261008-01",
+  "canonical": "https://www.clydralab.com/contact",
+  "consent": "Analytics declined before test",
+  "liveUi": "Unable to send your message. Please try again.",
+  "historyApi": "Official GET /api/v1.1/history; HTTP 200; only matching test records extracted",
+  "result": 2,
+  "error": "Gmail_API: Invalid grant. Please reconnect your Gmail account",
+  "screenshot": "emailjs-live-test-failed.png",
+  "recipientInboxVerified": false,
+  "status": "FAILED: expired/revoked Gmail authorization; dashboard reconnection required",
+  "browserBlocker": "Dashboard signed in by owner, but browser control times out; open-in-Codex returned queued for this chat.",
+  "noMoreSends": "Further tests paused until Gmail service is reconnected",
+  "source": "https://www.emailjs.com/docs/rest-api/history/",
+  "matchingFailedHistoryRecords": 5,
+  "observedCreatedAt": [
+    "2026-10-07T21:20:59.000Z",
+    "2026-10-07T21:20:30.000Z",
+    "2026-10-07T21:20:28.000Z",
+    "2026-10-07T21:20:27.000Z",
+    "2026-10-07T21:20:25.000Z"
+  ]
+}

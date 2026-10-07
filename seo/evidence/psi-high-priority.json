@@ -1,0 +1,46 @@
+{
+  "site": "https://www.clydralab.com/",
+  "baselineRevision": "942953d45d7a7bc9697f4542dcf9ea0306446723",
+  "before": {
+    "captured": "2026-10-08T02:02:06+05:00",
+    "lighthouseVersion": "13.5.0",
+    "chromium": "153.0.8010.36",
+    "report": "https://pagespeed.web.dev/analysis/https-www-clydralab-com/sfm7qhddi0",
+    "mobile": {
+      "performance": 80,
+      "accessibility": 93,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcpMs": 3187,
+      "lcpMs": 3637,
+      "tbtMs": 70,
+      "cls": 0,
+      "speedIndexMs": 4942,
+      "device": "Moto G Power",
+      "throttling": "Slow 4G",
+      "screenshot": "psi-mobile-before.png"
+    },
+    "desktop": {
+      "performance": 86,
+      "accessibility": 94,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcpMs": 693,
+      "lcpMs": 793,
+      "tbtMs": 301,
+      "cls": 0,
+      "speedIndexMs": 1398,
+      "throttling": "Custom desktop",
+      "screenshot": "psi-desktop-before.png"
+    },
+    "crux": "No Data",
+    "agenticBrowsing": "3/3 applicable checks passed; 4 not applicable"
+  },
+  "after": null,
+  "notes": [
+    "Production UI observations, not localhost estimates.",
+    "CrUX field Core Web Vitals remain unmeasured.",
+    "Older Lighthouse 12.8.2 localhost score 26 is not a comparable before measurement.",
+    "After-deployment measurement must be recorded separately, with lab variability acknowledged."
+  ]
+}

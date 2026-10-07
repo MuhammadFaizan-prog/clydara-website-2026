@@ -53,3 +53,6 @@ Canonical site: https://www.clydralab.com/. Updated 8 October 2026 (Asia/Karachi
 ## Future updates
 
 Append new dated observations to `seo/evidence/ai-search-baseline.json`; retain the previous observations and screenshots. Update the latest status in `seo/platform-matrix.json` and this readable register together. A later success supersedes the latest status but does not erase earlier failures. Record engine, exact question, date, locale/model/session where observed, linked first-party URL, third-party source domains and evidence method. The existing weekly monitoring workflow can compare these records; it does not guarantee every authenticated product query can run without owner interaction.
+# 8 October commercial follow-through
+
+Four non-branded observations are now added to `seo/evidence/ai-search-baseline.json` (29 total): Google classic, Google AI Overviews, Brave classic and Ask Brave for **Should a startup build custom software or buy SaaS?** No Clydara first-party result/citation was observed within those inspected results. This does not negate the prior branded citations or prove global absence. See [execution and evidence](seo/HIGH-PRIORITY-EXECUTION-2026-10-08.md).
