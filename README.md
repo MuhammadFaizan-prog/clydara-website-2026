@@ -1,32 +1,38 @@
-# React + TypeScript + Vite
+# Clydara website
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+This repository contains the Clydara development and design agency website at **[www.clydralab.com](https://www.clydralab.com/)**. Clydara provides website development, custom SaaS and business software, AI integration, and branding/design services.
 
-Currently, two official plugins are available:
+The canonical website domain is **clydralab.com**. Public project enquiries use the contact form or **clydara1@gmail.com**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Public website
 
-## React Compiler
+- [Services and project scope](https://www.clydralab.com/services)
+- [Team and development approach](https://www.clydralab.com/about)
+- [Portfolio](https://www.clydralab.com/works)
+- [Software, SaaS and AI guides](https://www.clydralab.com/blog)
+- [Project enquiries](https://www.clydralab.com/contact)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Project scope and pricing are agreed through the website's contact process.
 
-## Expanding the Oxlint configuration
+## Development and deployment
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+The application uses React, TypeScript and Vite. Install the lockfile dependencies with `npm ci`, then use:
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```sh
+npm run dev
+npm run build
+npm run test:seo
+npm run lint
+npm run preview
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+The build generates complete HTML for the canonical routes, Markdown page copies, XML sitemap, RSS feed, robots.txt, llms.txt and a noindex 404 page. Pushes to `main` use the existing automatic deployment. Meaningfully changed canonical URLs are submitted through the shared IndexNow workflow after production verification.
+
+## Execution records
+
+- [SEO, AEO and GEO master report](SEO-AEO-GEO-MASTER-REPORT.md)
+- [Search and AI distribution report](SEARCH-AI-DISTRIBUTION-REPORT.md)
+- [Machine-readable platform matrix](seo/platform-matrix.json)
+- [Observed AI/search baseline](seo/evidence/ai-search-baseline.json)
+
+These records distinguish submission receipts, indexing observations, synthetic crawler tests, actual answer citations and unmeasured traffic. API secrets and private account information must remain outside the repository.

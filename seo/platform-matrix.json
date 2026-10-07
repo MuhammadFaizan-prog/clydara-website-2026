@@ -1,5 +1,5 @@
 {
-  "at": "2026-10-04T17:29:43.175Z",
+  "at": "2026-10-07T20:55:00.112Z",
   "site": "https://www.clydralab.com",
   "definitions": {
     "A": "Direct official webmaster/submission",
@@ -57,16 +57,18 @@
       "Platform": "Gemini",
       "Priority": "1",
       "Type": "C",
-      "Account": "No publishing account needed",
+      "Account": "Existing Google account; Temporary Chat, Flash",
       "Ownership Verified": "NOT APPLICABLE",
       "Sitemap Submitted": "No independent sitemap endpoint documented",
       "URL/API Submission": "NO DIRECT SUBMISSION",
       "Bot Allowed": "Google discovery accessible; training policy preserved",
       "WAF Allowed": "PARTIAL",
       "Indexed": "Product-specific retrieval U",
-      "AI Citation": "NEEDS MONITORING",
+      "AI Citation": "OBSERVED: contact-page citation in branded answer",
       "Traffic Detected": "U",
-      "Action Needed": "Test actual search-enabled answers"
+      "Action Needed": "Measure later answers and referrals; old email was corrected on the website",
+      "Last checked": "2026-10-07",
+      "Evidence": "seo/evidence/ai-search-baseline.json"
     },
     {
       "Platform": "Bing / Copilot / Edge",
@@ -79,9 +81,11 @@
       "Bot Allowed": "bingbot UA pass",
       "WAF Allowed": "PARTIAL",
       "Indexed": "NEEDS MONITORING",
-      "AI Citation": "AI Performance U",
+      "AI Citation": "Copilot: wrong contact entity and no canonical citation in branded answer; prompted retrieval failed",
       "Traffic Detected": "U",
-      "Action Needed": "Existing property monitoring only"
+      "Action Needed": "Retain existing Bing submissions; investigate product-specific retrieval and compare a fresh dated query",
+      "Last checked": "2026-10-08",
+      "Evidence": "seo/evidence/ai-search-baseline.json"
     },
     {
       "Platform": "Yahoo",
@@ -93,10 +97,12 @@
       "URL/API Submission": "NO DIRECT SUBMISSION: official route is Bing",
       "Bot Allowed": "Upstream bingbot pass",
       "WAF Allowed": "PARTIAL",
-      "Indexed": "U",
+      "Indexed": "No results for domain query on 2026-10-07; index inventory unverified",
       "AI Citation": "U",
       "Traffic Detected": "U",
-      "Action Needed": "Observe actual Yahoo results"
+      "Action Needed": "Monitor the tested query; existing Bing submission is the official route",
+      "Last checked": "2026-10-07",
+      "Evidence": "seo/evidence/ai-search-baseline.json"
     },
     {
       "Platform": "DuckDuckGo",
@@ -108,10 +114,12 @@
       "URL/API Submission": "NO DIRECT SUBMISSION",
       "Bot Allowed": "DuckDuckBot UA pass",
       "WAF Allowed": "PARTIAL",
-      "Indexed": "U",
-      "AI Citation": "U",
+      "Indexed": "Canonical domain absent from six inspected branded classic results",
+      "AI Citation": "Search Assist result tracked separately",
       "Traffic Detected": "U",
-      "Action Needed": "Check real result surfaces"
+      "Action Needed": "Compare the same exact-brand classic query later",
+      "Last checked": "2026-10-07",
+      "Evidence": "seo/evidence/ai-search-baseline.json"
     },
     {
       "Platform": "DuckAssist",
@@ -124,9 +132,11 @@
       "Bot Allowed": "DuckAssistBot UA pass",
       "WAF Allowed": "PARTIAL",
       "Indexed": "U",
-      "AI Citation": "NEEDS MONITORING",
+      "AI Citation": "OBSERVED: linked homepage in branded Search Assist answer",
       "Traffic Detected": "U",
-      "Action Needed": "Separate answer citations from classic results"
+      "Action Needed": "Repeat dated benchmark; do not infer citation share",
+      "Last checked": "2026-10-07",
+      "Evidence": "seo/evidence/ai-search-baseline.json"
     },
     {
       "Platform": "Brave Search / Ask Brave / Leo",
@@ -138,10 +148,12 @@
       "URL/API Submission": "Homepage accepted previously",
       "Bot Allowed": "Googlebot rules accessible; no invented Brave UA",
       "WAF Allowed": "PARTIAL",
-      "Indexed": "U",
-      "AI Citation": "NEEDS MONITORING",
+      "Indexed": "OBSERVED: homepage in domain search",
+      "AI Citation": "OBSERVED: Ask Brave linked homepage in branded answer",
       "Traffic Detected": "U",
-      "Action Needed": "Keep prior accepted receipt; no repeated submission"
+      "Action Needed": "Retain accepted receipt and current screenshots; observe nonbranded questions",
+      "Last checked": "2026-10-07",
+      "Evidence": "seo/evidence/ai-search-baseline.json"
     },
     {
       "Platform": "Yandex",
@@ -198,10 +210,12 @@
       "URL/API Submission": "NO DIRECT SUBMISSION documented",
       "Bot Allowed": "Qwantbot UA pass",
       "WAF Allowed": "PARTIAL",
-      "Indexed": "U",
+      "Indexed": "No results for domain query on 2026-10-07; index inventory unverified",
       "AI Citation": "U",
       "Traffic Detected": "U",
-      "Action Needed": "Diagnose real results; support only if issue persists"
+      "Action Needed": "Monitor discovery and legitimate first-party references; no repeated fake submission",
+      "Last checked": "2026-10-07",
+      "Evidence": "seo/evidence/ai-search-baseline.json"
     },
     {
       "Platform": "EUSP",
@@ -228,10 +242,12 @@
       "URL/API Submission": "NO DIRECT SUBMISSION documented",
       "Bot Allowed": "Google/Bing/Qwant routes pass",
       "WAF Allowed": "PARTIAL",
-      "Indexed": "U",
+      "Indexed": "OBSERVED: homepage and contact in first result page",
       "AI Citation": "U",
       "Traffic Detected": "U",
-      "Action Needed": "Identify results provider per session"
+      "Action Needed": "Monitor the same query; serving provider not independently identified",
+      "Last checked": "2026-10-07",
+      "Evidence": "seo/evidence/ai-search-baseline.json"
     },
     {
       "Platform": "Mojeek",
@@ -243,25 +259,29 @@
       "URL/API Submission": "NO DIRECT SUBMISSION",
       "Bot Allowed": "MojeekBot UA pass",
       "WAF Allowed": "PARTIAL",
-      "Indexed": "U",
+      "Indexed": "No results for supported site query with search term on 2026-10-07",
       "AI Citation": "NOT APPLICABLE",
       "Traffic Detected": "U",
-      "Action Needed": "Build useful crawlable references; no spam add form"
+      "Action Needed": "Monitor link discovery; bare site: syntax failure is excluded",
+      "Last checked": "2026-10-07",
+      "Evidence": "seo/evidence/ai-search-baseline.json"
     },
     {
       "Platform": "Kagi",
       "Priority": "2",
       "Type": "B/C",
-      "Account": "Search account required for query tests",
+      "Account": "Public search preview; no account or subscription created",
       "Ownership Verified": "NOT APPLICABLE",
       "Sitemap Submitted": "Multiple search sources",
       "URL/API Submission": "NO DIRECT SUBMISSION documented",
       "Bot Allowed": "Existing public HTML accessible",
       "WAF Allowed": "PARTIAL",
-      "Indexed": "U",
-      "AI Citation": "U",
+      "Indexed": "OBSERVED: homepage, contact and three guides",
+      "AI Citation": "OBSERVED: Quick Answer cited homepage in branded question",
       "Traffic Detected": "U",
-      "Action Needed": "Do not place commercial agency in noncommercial Small Web"
+      "Action Needed": "Compare dated results; UI identified external indexes",
+      "Last checked": "2026-10-08",
+      "Evidence": "seo/evidence/ai-search-baseline.json"
     },
     {
       "Platform": "Applebot / Safari / Siri / Spotlight",
@@ -297,46 +317,52 @@
       "Platform": "ChatGPT Search / OpenAI browser surfaces",
       "Priority": "1",
       "Type": "B/C",
-      "Account": "Query session needed",
+      "Account": "Existing Free account; Unpersonalized temporary chat",
       "Ownership Verified": "NOT APPLICABLE",
       "Sitemap Submitted": "Crawl discovery",
       "URL/API Submission": "NO DIRECT SUBMISSION for rankings",
       "Bot Allowed": "OAI-SearchBot / ChatGPT-User UA pass",
       "WAF Allowed": "PARTIAL",
       "Indexed": "U",
-      "AI Citation": "NEEDS MONITORING",
+      "AI Citation": "OBSERVED: linked website in branded web answer",
       "Traffic Detected": "U",
-      "Action Needed": "Real citation baseline and verified IP logs"
+      "Action Needed": "Measure nonbranded answers and referrals; actual crawler-IP access remains unmeasured",
+      "Last checked": "2026-10-07",
+      "Evidence": "seo/evidence/ai-search-baseline.json"
     },
     {
       "Platform": "Claude Search",
       "Priority": "1",
       "Type": "B",
-      "Account": "Query session needed",
+      "Account": "Existing Free account",
       "Ownership Verified": "NOT APPLICABLE",
       "Sitemap Submitted": "Crawl discovery",
       "URL/API Submission": "NO DIRECT SUBMISSION documented",
       "Bot Allowed": "Claude-SearchBot / Claude-User UA pass",
       "WAF Allowed": "PARTIAL",
       "Indexed": "U",
-      "AI Citation": "NEEDS MONITORING",
+      "AI Citation": "No first-party citation in branded answer; wrong entity. Prompted URL retrieval succeeded",
       "Traffic Detected": "U",
-      "Action Needed": "Search policy separate from ClaudeBot"
+      "Action Needed": "Improve verified identity references; compare a fresh branded query later",
+      "Last checked": "2026-10-07",
+      "Evidence": "seo/evidence/ai-search-baseline.json"
     },
     {
       "Platform": "Perplexity / Comet",
       "Priority": "1",
       "Type": "B/C",
-      "Account": "Query session may require sign-in",
+      "Account": "Existing Free Search account",
       "Ownership Verified": "NOT APPLICABLE",
       "Sitemap Submitted": "Crawl discovery",
       "URL/API Submission": "NO DIRECT SUBMISSION documented",
       "Bot Allowed": "PerplexityBot / Perplexity-User UA pass",
       "WAF Allowed": "PARTIAL",
       "Indexed": "U",
-      "AI Citation": "NEEDS MONITORING",
+      "AI Citation": "Brand mentioned through directories; canonical absent from branded answer and ten sources. No nonbrand citation",
       "Traffic Detected": "U",
-      "Action Needed": "Test actual sourced answers"
+      "Action Needed": "Strengthen first-party evidence and compare dated questions",
+      "Last checked": "2026-10-05",
+      "Evidence": "seo/evidence/ai-search-baseline.json"
     },
     {
       "Platform": "You.com",
@@ -357,76 +383,86 @@
       "Platform": "Grok",
       "Priority": "2",
       "Type": "C",
-      "Account": "Query session unavailable",
+      "Account": "Existing Google-linked account; Fast",
       "Ownership Verified": "NOT APPLICABLE",
       "Sitemap Submitted": "No publisher endpoint established",
       "URL/API Submission": "NO DIRECT SUBMISSION documented",
       "Bot Allowed": "Public content accessible; no invented Grok crawler",
       "WAF Allowed": "PARTIAL",
       "Indexed": "U",
-      "AI Citation": "U",
+      "AI Citation": "Brand mentioned through directories; canonical not linked in completed branded answer",
       "Traffic Detected": "U",
-      "Action Needed": "Current docs establish web search, not a publisher console"
+      "Action Needed": "Correct first-party identity references; third-party business claims remain unverified",
+      "Last checked": "2026-10-07",
+      "Evidence": "seo/evidence/ai-search-baseline.json"
     },
     {
       "Platform": "Mistral Le Chat",
       "Priority": "2",
       "Type": "C",
-      "Account": "Query session unavailable",
+      "Account": "Existing signed-in account; current Vibe Work UI, Fast, temporary chat",
       "Ownership Verified": "NOT APPLICABLE",
       "Sitemap Submitted": "Provider-dependent",
       "URL/API Submission": "NO DIRECT SUBMISSION documented",
       "Bot Allowed": "Public content accessible",
       "WAF Allowed": "PARTIAL",
       "Indexed": "U",
-      "AI Citation": "U",
+      "AI Citation": "OBSERVED: homepage citation and corrected public email in branded answer",
       "Traffic Detected": "U",
-      "Action Needed": "Verify product's actual cited sources"
+      "Action Needed": "Record actual UI label and response-quality limits; compare future citations",
+      "Last checked": "2026-10-07",
+      "Evidence": "seo/evidence/ai-search-baseline.json"
     },
     {
       "Platform": "Meta AI",
       "Priority": "2",
       "Type": "C",
-      "Account": "Query session unavailable",
+      "Account": "Owner skipped after recovery/security check",
       "Ownership Verified": "NOT APPLICABLE",
       "Sitemap Submitted": "Mechanism not verified",
       "URL/API Submission": "No official publisher endpoint established",
       "Bot Allowed": "Official crawler documentation inaccessible in research tool",
       "WAF Allowed": "PARTIAL",
       "Indexed": "U",
-      "AI Citation": "U",
+      "AI Citation": "UNTESTED: owner requested skip",
       "Traffic Detected": "U",
-      "Action Needed": "Do not guess crawler policy or enable training"
+      "Action Needed": "Resume only when owner requests; no password/security changes",
+      "Last checked": "2026-10-08",
+      "Evidence": "seo/evidence/ai-search-baseline.json"
     },
     {
       "Platform": "Phind",
       "Priority": "2",
       "Type": "C",
-      "Account": "Query session unavailable",
+      "Account": "Tested public entrypoint returned404 deployment error",
       "Ownership Verified": "NOT APPLICABLE",
       "Sitemap Submitted": "Provider not established by current primary docs",
       "URL/API Submission": "No official publisher endpoint found",
       "Bot Allowed": "Unverified dedicated bot",
       "WAF Allowed": "PARTIAL",
-      "Indexed": "U",
-      "AI Citation": "U",
+      "Indexed": "UNMEASURED: entrypoint access failed",
+      "AI Citation": "UNMEASURED",
       "Traffic Detected": "U",
-      "Action Needed": "Research coverage remains PARTIAL"
+      "Action Needed": "Revisit product availability; do not infer Clydara index absence",
+      "Last checked": "2026-10-07",
+      "Evidence": "seo/evidence/ai-search-baseline.json"
     },
     {
       "Platform": "Poe",
       "Priority": "2",
       "Type": "C",
-      "Account": "Bot/model session-dependent",
+      "Account": "Existing signed-in account",
       "Ownership Verified": "NOT APPLICABLE",
       "Sitemap Submitted": "Third-party bot-dependent",
       "URL/API Submission": "NO DIRECT SUBMISSION documented",
       "Bot Allowed": "Varies by selected bot/provider",
       "WAF Allowed": "PARTIAL",
-      "Indexed": "U",
-      "AI Citation": "U",
+      "Indexed": "No independent Poe index inferred",
+      "AI Citation": "OBSERVED: Assistant cited homepage/contact; Sonar attempt needed more points",
       "Traffic Detected": "U",
-      "Action Needed": "Do not treat Poe as one independent search index"
+      "Action Needed": "Preserve bot-specific outcomes; do not purchase points automatically",
+      "Last checked": "2026-10-08",
+      "Evidence": "seo/evidence/ai-search-baseline.json"
     },
     {
       "Platform": "Chrome / Firefox",
@@ -483,10 +519,12 @@
       "URL/API Submission": "Existing IndexNow coverage",
       "Bot Allowed": "Wildcard retained; dedicated IP test U",
       "WAF Allowed": "PARTIAL",
-      "Indexed": "U",
+      "Indexed": "UNMEASURED: Yep search displayed loading error",
       "AI Citation": "U",
       "Traffic Detected": "U",
-      "Action Needed": "Shared acceptance does not establish product citations"
+      "Action Needed": "Retry when provider is healthy; shared IndexNow receipt remains separate",
+      "Last checked": "2026-10-07",
+      "Evidence": "seo/evidence/ai-search-baseline.json"
     },
     {
       "Platform": "Maps / merchants / news / jobs",
@@ -503,5 +541,7 @@
       "Traffic Detected": "U",
       "Action Needed": "No fake offices, feeds, reviews or job content"
     }
-  ]
+  ],
+  "createdAt": "2026-10-04T17:29:43.175Z",
+  "dateMeaning": "Registry update time. Individual checked dates are separate; unchanged webmaster receipts retain their original evidence dates."
 }

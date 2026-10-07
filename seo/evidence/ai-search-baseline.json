@@ -1,0 +1,411 @@
+{
+  "site": "https://www.clydralab.com/",
+  "updated": "2026-10-08",
+  "timezone": "Asia/Karachi",
+  "method": "Questions and searches in the actual product browser UI. Results apply only to the recorded sessions; they do not measure rankings, traffic growth or stable citation share.",
+  "results": [
+    {
+      "engine": "ChatGPT Search",
+      "date": "2026-10-07",
+      "query": "Search the web: What services does Clydara provide, and how can a business contact them?",
+      "queryType": "branded-natural-question",
+      "session": "Signed-in Free account; temporary chat; Unpersonalized selected to ignore memory, plugins and custom instructions. Model version not independently recorded.",
+      "brandMention": true,
+      "firstPartyLinkedCitation": true,
+      "citedFirstPartyUrls": [
+        "https://clydralab.com/?utm_source=chatgpt.com"
+      ],
+      "otherCitedDomains": [
+        "clutch.co"
+      ],
+      "observation": "Identified Clydara and cited its website for services and contact options. Noted inconsistent third-party founding-date/address information; those statements were not copied into site facts.",
+      "evidence": "seo/evidence/chatgpt-brand-citation.png",
+      "resultUrl": null,
+      "resultUrlNote": "Temporary session has no retained conversation permalink. Screenshot was saved before browser disconnection."
+    },
+    {
+      "engine": "DuckDuckGo Search Assist",
+      "date": "2026-10-07",
+      "query": "\"Clydara\" software development",
+      "queryType": "branded-search-assist",
+      "session": "Pakistan English region shown; region restriction off. Exact-brand search selected to disable spelling correction.",
+      "brandMention": true,
+      "firstPartyLinkedCitation": true,
+      "citedFirstPartyUrls": [
+        "https://www.clydralab.com/"
+      ],
+      "observation": "Search Assist described the software agency and linked clydralab.com. This AI answer is separate from the classic result list.",
+      "evidence": "seo/evidence/duckassist-clydara-citation.png",
+      "resultUrl": "https://duckduckgo.com/?q=%22Clydara%22+software+development&norw=1&ia=web&assist=true"
+    },
+    {
+      "engine": "DuckDuckGo classic search",
+      "date": "2026-10-07",
+      "query": "\"Clydara\" software development",
+      "queryType": "branded-classic-search",
+      "firstPartyDomainInInspectedResults": false,
+      "inspectedResultCount": 6,
+      "observedDomains": [
+        "clutch.co",
+        "themanifest.com",
+        "github.com",
+        "clydara.com"
+      ],
+      "observation": "The six visible results included directory profiles and this repository's implementation/specification documents, but not clydralab.com. The similarly named clydara.com retail site is another entity. One query does not prove deindexing.",
+      "evidence": "seo/evidence/duckduckgo-brand-baseline.png",
+      "resultUrl": "https://duckduckgo.com/?q=%22Clydara%22+software+development&norw=1&ia=web"
+    },
+    {
+      "engine": "Claude Search",
+      "date": "2026-10-07",
+      "query": "Search the web: What services does Clydara provide, and how can a business contact them?",
+      "queryType": "branded-natural-question",
+      "session": "Signed-in Free account; Sonnet 5.5 Low displayed at capture.",
+      "brandMention": false,
+      "firstPartyLinkedCitation": false,
+      "citedFirstPartyUrls": [],
+      "otherCitedDomains": [
+        "craft.co",
+        "apply.workable.com",
+        "sp-edge.com",
+        "startuphub.ai",
+        "getlatka.com"
+      ],
+      "observation": "Could not identify Clydara and substituted Cledara, a different SaaS-spend business, directing users to cledara.com. This is a failed entity-identification result for this question.",
+      "evidence": "seo/evidence/claude-brand-baseline.png",
+      "resultUrl": "https://claude.ai/chat/e07e1454-6cf5-45eb-b681-afafaebec27a"
+    },
+    {
+      "engine": "Claude direct retrieval",
+      "date": "2026-10-07",
+      "query": "The website I mean is https://www.clydralab.com/. Please open that site and report its services and contact options using only information you can actually retrieve there.",
+      "queryType": "prompted-url-retrieval-diagnostic",
+      "retrievalSucceeded": true,
+      "retrievedUrls": [
+        "https://www.clydralab.com/",
+        "https://www.clydralab.com/contact"
+      ],
+      "observation": "The UI showed Read 2 pages and a completed answer correcting the company confusion. It described services, the contact form and WhatsApp links. Prompted retrieval is not an unprompted citation win. The answer also flagged the differing public email domain and generic footer social links; ownership of those destinations is unconfirmed.",
+      "evidence": "Completed product accessibility-tree observation; follow-up screenshot was not saved before disconnection.",
+      "resultUrl": "https://claude.ai/chat/e07e1454-6cf5-45eb-b681-afafaebec27a"
+    },
+    {
+      "engine": "Perplexity",
+      "date": "2026-10-05",
+      "query": "What services does Clydara provide, and how can a business contact them?",
+      "queryType": "branded-natural-question",
+      "session": "Signed-in Free Search mode.",
+      "brandMention": true,
+      "firstPartyLinkedCitation": false,
+      "citedFirstPartyUrls": [],
+      "otherCitedDomains": [
+        "clutch.co",
+        "themanifest.com"
+      ],
+      "inspectedSourceCount": 10,
+      "observation": "Identified the agency from Clutch and The Manifest. The canonical domain was absent from the answer and ten inspected sources. Sources also included unrelated clydara.com and cledara.com entities.",
+      "evidence": "seo/evidence/perplexity-brand-baseline.png",
+      "resultUrl": "https://www.perplexity.ai/search/e8cd2b13-e676-48f4-aac6-1520b0e76b3b"
+    },
+    {
+      "engine": "Perplexity",
+      "date": "2026-10-05",
+      "query": "How should a startup decide between custom software and an off-the-shelf SaaS product?",
+      "queryType": "nonbranded-commercial-investigation",
+      "session": "Signed-in Free Search mode.",
+      "brandMention": false,
+      "firstPartyLinkedCitation": false,
+      "citedFirstPartyUrls": [],
+      "observedSourceLabels": [
+        "boltout",
+        "netguru",
+        "xcapit",
+        "digitalheroesco"
+      ],
+      "observation": "The completed answer did not cite or mention Clydara. It used workflow fit, integrations, ownership and multi-year cost tradeoffs. Exact source URLs were not exported. No stable competitive-ranking claim is made.",
+      "evidence": "Completed product accessibility-tree observation; screenshot not saved.",
+      "resultUrl": "https://www.perplexity.ai/search/3b3ccf5f-bf07-4d6a-9598-cb96a79818bd"
+    },
+    {
+      "engine": "Ecosia",
+      "date": "2026-10-07",
+      "query": "site:clydralab.com",
+      "queryType": "domain-discovery-diagnostic",
+      "status": "OBSERVED: homepage and contact in first-page search results",
+      "firstPartyDomainInInspectedResults": true,
+      "observedFirstPartyUrls": [
+        "https://www.clydralab.com/",
+        "https://www.clydralab.com/contact"
+      ],
+      "session": "United States English region displayed. The provider serving this session was not independently identified.",
+      "observation": "An initial CAPTCHA was followed by a results page after the owner continued in the browser. The owner screenshot showed page p=1 with no additional results. The agent then followed the visible Back link to p=0 and independently observed homepage and contact results. A second empty result page does not mean the domain has no results.",
+      "evidence": "seo/evidence/ecosia-indexed-results.png",
+      "resultUrl": "https://www.ecosia.org/search?q=site%3Aclydralab.com&p=0"
+    },
+    {
+      "engine": "Qwant",
+      "date": "2026-10-07",
+      "query": "site:clydralab.com",
+      "queryType": "domain-discovery-diagnostic",
+      "session": "Default English product UI; no explicit locale restriction was set.",
+      "status": "NO RESULTS FOR TESTED QUERY",
+      "firstPartyDomainInInspectedResults": false,
+      "observation": "The loaded product explicitly reported zero results and No results found. This query observation does not establish a complete index inventory or global deindexing.",
+      "evidence": "seo/evidence/qwant-domain-baseline.png",
+      "resultUrl": "https://www.qwant.com/?q=site%3Aclydralab.com&t=web"
+    },
+    {
+      "engine": "Yahoo Search",
+      "date": "2026-10-07",
+      "query": "site:clydralab.com",
+      "queryType": "domain-discovery-diagnostic",
+      "session": "Default English product UI; Powered by Bing shown in footer.",
+      "status": "NO RESULTS FOR TESTED QUERY",
+      "firstPartyDomainInInspectedResults": false,
+      "observation": "The loaded product reported no results for the domain query. Bing is the visible provider. The official Yahoo submission route remains the existing Bing property; no duplicate submission was made.",
+      "evidence": "seo/evidence/yahoo-domain-baseline.png",
+      "resultUrl": "https://search.yahoo.com/search?p=site%3Aclydralab.com"
+    },
+    {
+      "engine": "Mojeek",
+      "date": "2026-10-07",
+      "query": "site:clydralab.com clydralab",
+      "queryType": "domain-discovery-diagnostic",
+      "session": "Lahore, Pakistan detected automatically by the product.",
+      "status": "NO RESULTS FOR TESTED QUERY",
+      "firstPartyDomainInInspectedResults": false,
+      "observation": "The initial bare site: query was rejected because Mojeek requires a search term. The agent followed the product's suggested site:clydralab.com clydralab link. That supported query returned zero matching pages. The initial syntax error is not counted as an indexing result.",
+      "evidence": "seo/evidence/mojeek-domain-baseline.png",
+      "resultUrl": "https://www.mojeek.com/search?q=site%3Aclydralab.com+clydralab"
+    },
+    {
+      "engine": "Gemini",
+      "date": "2026-10-07",
+      "query": "Search the web: What services does Clydara provide, and how can a business contact them?",
+      "queryType": "branded-natural-question",
+      "session": "Existing signed-in Google account, Temporary Chat, Flash displayed. No new account was created.",
+      "brandMention": true,
+      "firstPartyLinkedCitation": true,
+      "citedFirstPartyUrls": [
+        "https://www.clydralab.com/contact"
+      ],
+      "observation": "Correctly identified the development agency. The agent opened a source-details control and verified its contact-page citation. The answer also mentioned Cledara separately and repeated the old public email and generic social links; that is recorded as response quality, not adopted as business evidence.",
+      "evidence": "seo/evidence/gemini-brand-citation.png",
+      "resultUrl": null,
+      "resultUrlNote": "Temporary chat; screenshot retained instead of a conversation permalink."
+    },
+    {
+      "engine": "Brave Search",
+      "date": "2026-10-07",
+      "query": "site:clydralab.com",
+      "queryType": "domain-discovery-diagnostic",
+      "status": "OBSERVED: homepage in search results",
+      "firstPartyDomainInInspectedResults": true,
+      "observedFirstPartyUrls": [
+        "https://www.clydralab.com/"
+      ],
+      "observation": "The canonical homepage appeared in the actual Brave product. Its previously accepted homepage submission was not repeated.",
+      "evidence": "seo/evidence/brave-indexed-homepage.png",
+      "resultUrl": "https://search.brave.com/search?q=site%3Aclydralab.com"
+    },
+    {
+      "engine": "Ask Brave",
+      "date": "2026-10-07",
+      "query": "What services does Clydara provide, and how can a business contact them?",
+      "queryType": "branded-natural-question",
+      "session": "Public Ask Brave product; no paid subscription or browser installation.",
+      "brandMention": true,
+      "firstPartyLinkedCitation": true,
+      "citedFirstPartyUrls": [
+        "https://clydralab.com/"
+      ],
+      "otherObservedSourceDomains": [
+        "clydora.com",
+        "cledara.com",
+        "clyra.co.in",
+        "nautacapital.com"
+      ],
+      "observation": "Identified Clydara, linked its actual website in the answer, and used the homepage as a source. It distinguished Cledara but said no email was surfaced. Other source domains were not adopted as direct competitors or verified business facts.",
+      "evidence": "seo/evidence/brave-ai-citation.png",
+      "resultUrl": "https://search.brave.com/ask?q=What+services+does+Clydara+provide%2C+and+how+can+a+business+contact+them%3F&source=llmSuggest&conversation=09a7616b769d0358e8200c57e840f4137fc3"
+    },
+    {
+      "engine": "Grok",
+      "date": "2026-10-07",
+      "query": "Search the web: What services does Clydara provide, and how can a business contact them?",
+      "queryType": "branded-natural-question",
+      "session": "Existing Google-linked account; Fast displayed; final completed test used a default chat. An earlier private-chat attempt was interrupted by browser-session reset. Account personalization was not independently disabled in the final test.",
+      "brandMention": true,
+      "firstPartyLinkedCitation": false,
+      "citedFirstPartyUrls": [],
+      "otherCitedDomains": [
+        "clutch.co",
+        "appdevelopmentcompanies.co",
+        "instagram.com"
+      ],
+      "observation": "Identified the agency from third-party listings but did not link clydralab.com in its completed answer. It incorrectly said no official website was found. Business-size, founding-date, pricing and outcome statements were not independently verified and were not copied into website facts. The UI displayed 105 sources; the entire source inventory was not inspected, so absence applies to linked answer citations only.",
+      "evidence": "Completed actual-product DOM and rendered-text observation. Screenshot capture produced an empty conversation view during browser lag and is excluded from the published evidence.",
+      "resultUrl": "https://grok.com/c/33d81769-3cf5-4dea-b299-e83b9955d6e4"
+    },
+    {
+      "engine": "Mistral chat.mistral.ai / Vibe Work",
+      "date": "2026-10-07",
+      "query": "Search only the public web: What services does Clydara provide, and how can a business contact them? Do not use connected apps or account files.",
+      "queryType": "branded-natural-question",
+      "session": "Existing signed-in account; actual current UI titled Vibe, Work mode, Fast, Temporary Chat. No connected apps or account files were requested. This label records the observed interface, not an unverified universal rebranding claim.",
+      "brandMention": true,
+      "firstPartyLinkedCitation": true,
+      "citedFirstPartyUrls": [
+        "https://www.clydralab.com/"
+      ],
+      "observation": "The UI showed Ran a web search / Used a tool, identified the agency, linked the homepage and included the newly confirmed clydara1@gmail.com address. The agent opened Sources and verified the first-party homepage link. The answer inferred a founding year and omitted the visible WhatsApp contact option; those response-quality limits were not adopted as website facts.",
+      "evidence": "seo/evidence/mistral-brand-citation.png",
+      "resultUrl": null,
+      "resultUrlNote": "Temporary chat; screenshot retained instead of a conversation permalink."
+    },
+    {
+      "engine": "Yep",
+      "date": "2026-10-07",
+      "query": "site:clydralab.com",
+      "queryType": "domain-discovery-diagnostic",
+      "session": "English, All countries shown; default filters were preserved.",
+      "status": "UNMEASURED: provider could not load results",
+      "observation": "The actual product displayed Error / Couldn't load search results. This is not recorded as zero indexed pages or failure to recognize the company. Existing shared IndexNow acceptance is separate from this query error.",
+      "evidence": "seo/evidence/yep-provider-error.png",
+      "resultUrl": "https://yep.com/web?q=site%3Aclydralab.com"
+    },
+    {
+      "engine": "Phind",
+      "date": "2026-10-07",
+      "query": null,
+      "queryType": "product-entrypoint-check",
+      "status": "UNMEASURED: tested entrypoint returned deployment 404",
+      "observation": "The tested https://www.phind.com/ entrypoint displayed 404 DEPLOYMENT_NOT_FOUND. No question was executed. This observation does not prove permanent service closure or anything about Clydara's index status.",
+      "evidence": "seo/evidence/phind-entrypoint-error.png",
+      "resultUrl": "https://www.phind.com/"
+    },
+    {
+      "engine": "Kagi classic search",
+      "date": "2026-10-08",
+      "query": "site:clydralab.com",
+      "queryType": "domain-discovery-diagnostic",
+      "session": "Public preview; Pakistan (PK) shown. The UI stated all results were from external indexes. No account or subscription was created.",
+      "status": "OBSERVED: five first-party pages in results",
+      "firstPartyDomainInInspectedResults": true,
+      "observedFirstPartyUrls": [
+        "https://www.clydralab.com/",
+        "https://www.clydralab.com/contact",
+        "https://www.clydralab.com/blog/saas-development-cost",
+        "https://www.clydralab.com/blog/ai-integration-for-startups",
+        "https://www.clydralab.com/blog/custom-software-vs-saas"
+      ],
+      "observation": "Five relevant results were visible. The initial check was followed by a repeat to recover screenshot evidence after the tab closed. This is observed query inclusion, not proof of a separate Kagi-owned index or a global ranking position.",
+      "evidence": "seo/evidence/kagi-indexed-results.png",
+      "resultUrl": "https://kagi.com/search?q=site%3Aclydralab.com"
+    },
+    {
+      "engine": "Kagi Quick Answer",
+      "date": "2026-10-08",
+      "query": "What services does Clydara provide, and how can a business contact them?",
+      "queryType": "branded-natural-question",
+      "session": "Public preview; Pakistan (PK) shown; Quick Answer appeared after the question query. Underlying model was not independently identified.",
+      "brandMention": true,
+      "firstPartyLinkedCitation": true,
+      "citedFirstPartyUrls": [
+        "https://www.clydralab.com/"
+      ],
+      "otherCitedDomains": [
+        "clutch.co",
+        "themanifest.com"
+      ],
+      "observation": "Quick Answer cited the homepage for services and contact. The classic list also included the homepage. Its founding-date/location statements came from directories and were not adopted as verified website facts.",
+      "evidence": "seo/evidence/kagi-ai-citation.png",
+      "resultUrl": "https://kagi.com/search?q=What+services+does+Clydara+provide%2C+and+how+can+a+business+contact+them%3F"
+    },
+    {
+      "engine": "Poe / Perplexity-Sonar",
+      "date": "2026-10-08",
+      "query": "Search the public web: What services does Clydara provide, and how can a business contact them?",
+      "queryType": "branded-natural-question",
+      "session": "Signed-in Poe account. The bot page identified Perplexity-Sonar and disclosed a server managed by @empiriolabsai. Temporary Chat was selected before the request.",
+      "status": "UNANSWERED: bot requested more points",
+      "brandMention": null,
+      "firstPartyLinkedCitation": null,
+      "observation": "The product explicitly said the bot needed more points. No answer citation was measured in this attempt, and no points/subscription were purchased. This does not establish whether Poe or Perplexity can find the site.",
+      "evidence": "Actual product accessibility-tree observation; a screenshot containing unrelated account history was excluded.",
+      "resultUrl": "https://poe.com/chat/aqyu6jkciugyb2vazt"
+    },
+    {
+      "engine": "Poe / Assistant",
+      "date": "2026-10-08",
+      "query": "Search the public web: What services does Clydara provide, and how can a business contact them?",
+      "queryType": "branded-natural-question",
+      "session": "Signed-in account; Poe's @poe Assistant was displayed. Its description says it automatically routes providers; the actual underlying model was not independently verified. This conversation appeared during the owner's browser interaction.",
+      "status": "OBSERVED: first-party answer citations; further use restricted by points",
+      "brandMention": true,
+      "firstPartyLinkedCitation": true,
+      "citedFirstPartyUrls": [
+        "https://www.clydralab.com/",
+        "https://www.clydralab.com/contact"
+      ],
+      "observation": "The displayed answer identified Clydara's services, linked homepage/contact, and supplied the corrected clydara1@gmail.com address. The agent independently read the actual product DOM; the owner also confirmed the result and supplied cropped screenshots. A points warning remained in the UI, so unrestricted future access is not claimed.",
+      "evidence": "seo/evidence/poe-assistant-citation-services.png",
+      "additionalEvidence": "seo/evidence/poe-assistant-citation-contact.png",
+      "resultUrl": "https://poe.com/chat/aqzfs8xu8bfaa4rzny"
+    },
+    {
+      "engine": "Microsoft Copilot",
+      "date": "2026-10-08",
+      "query": "Search only the public web: What services does Clydara provide, and how can a business contact them? Do not use connected apps or account files.",
+      "queryType": "branded-natural-question",
+      "session": "Existing signed-in personal account; Auto mode; Temporary Chat selected. No account files or connected sources were requested.",
+      "brandMention": true,
+      "firstPartyLinkedCitation": false,
+      "citedFirstPartyUrls": [],
+      "otherCitedDomains": [
+        "clutch.co",
+        "clydara.com"
+      ],
+      "status": "BRAND MENTION; WRONG CONTACT ENTITY; NO FIRST-PARTY ANSWER CITATION",
+      "observation": "The completed answer described the agency from Clutch but supplied the unrelated clydara.com domain and contact@clydara.com email. No clydralab.com citation appeared in the displayed answer. The wrong contact information is recorded as an answer-quality failure, not adopted as website facts.",
+      "evidence": "seo/evidence/copilot-brand-baseline.png",
+      "resultUrl": null,
+      "resultUrlNote": "Temporary Chat; no retained conversation permalink."
+    },
+    {
+      "engine": "Microsoft Copilot direct retrieval",
+      "date": "2026-10-08",
+      "query": "The website I mean is https://www.clydralab.com/. Please open that site and report its services and contact options using only information you can actually retrieve there. Use only the public web, not account files.",
+      "queryType": "prompted-url-retrieval-diagnostic",
+      "retrievalSucceeded": false,
+      "status": "PROMPTED RETRIEVAL FAILED IN THIS PRODUCT SESSION",
+      "observation": "The completed Copilot answer stated that its retrieval tools could not retrieve the canonical site and declined to report services. This is a product-reported retrieval failure, not independently verified evidence of robots blocking, WAF blocking, or global deindexing. Other recorded products retrieved/cited the site and public live HTTP checks passed.",
+      "evidence": "seo/evidence/copilot-retrieval-diagnostic.png",
+      "resultUrl": null
+    },
+    {
+      "engine": "Meta AI",
+      "date": "2026-10-08",
+      "query": null,
+      "queryType": "product-access-check",
+      "status": "UNTESTED: OWNER REQUESTED SKIP",
+      "observation": "Login reached a recovery/security check. The owner explicitly chose to skip Meta for now. No benchmark question was executed; no credentials were changed and no CAPTCHA was completed. Revisit only when the owner chooses to resume.",
+      "evidence": "Owner instruction and actual product access observation; no authentication screenshot published.",
+      "resultUrl": "https://www.meta.ai/"
+    }
+  ],
+  "unexecutedPairs": "Other questions/products in seo/ai-query-set.json remain unmeasured. Browser control intermittently timed out and was reattached to the owner's open tabs. Public result absence, a product-access blocker and an unexecuted query remain different statuses.",
+  "summary": {
+    "observedNaturalBrandFirstPartyCitationProducts": [
+      "ChatGPT Search",
+      "DuckDuckGo Search Assist",
+      "Gemini",
+      "Ask Brave",
+      "Mistral chat.mistral.ai / Vibe Work",
+      "Kagi Quick Answer",
+      "Poe / Assistant"
+    ],
+    "commercialTrafficGrowth": "Not measured",
+    "causality": "No attribution of these answers to a particular deployment is established."
+  }
+}
