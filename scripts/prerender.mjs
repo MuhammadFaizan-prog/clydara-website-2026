@@ -33,8 +33,27 @@ function markdown(html, page, origin) {
 
 try {
   const { render } = await server.ssrLoadModule('/src/entry-server.tsx')
+  const { routeEntry } = await server.ssrLoadModule('/src/routes.ts')
   const { pages, SITE_ORIGIN, getSchema, serializeSchema } = await server.ssrLoadModule('/src/seo/site.ts')
   const template = (await readFile('dist/index.html', 'utf8')).replace(/<title>[\s\S]*?<\/title>/, '')
+  const bundles = JSON.parse(await readFile('dist/.vite/manifest.json', 'utf8'))
+  function routeAssets(path) {
+    const tags = new Set()
+    const visited = new Set()
+    function collect(key) {
+      if (visited.has(key)) return
+      visited.add(key)
+      const bundle = bundles[key]
+      if (!bundle) throw new Error(`Missing built route asset: ${key}`)
+      tags.add(`<link rel="modulepreload" crossorigin href="/${bundle.file}">`)
+      for (const css of bundle.css || []) {
+        if (!template.includes(`href="/${css}"`)) tags.add(`<link rel="stylesheet" crossorigin href="/${css}">`)
+      }
+      for (const dependency of bundle.imports || []) collect(dependency)
+    }
+    collect(routeEntry(path))
+    return [...tags].join('\n')
+  }
   const manifest = []
   let previous = []
   let baselineStatus = 'unavailable'
@@ -71,14 +90,16 @@ try {
       `<script data-seo type="application/ld+json">${serializeSchema(getSchema(page))}</script>`,
     ].join('\n')
     const content = await render(page.path)
-    const html = template.replace('</head>', head + '\n</head>').replace('<div id="root"></div>', `<div id="root">${content}</div>`)
+    const html = template.replace('</head>', routeAssets(page.path) + '\n' + head + '\n</head>').replace('<div id="root"></div>', `<div id="root">${content}</div>`)
     const file = page.path === '/' ? 'index.html' : page.path.slice(1) + '.html'
     await save(file, html)
     await save(mdPath.slice(1), markdown(content, page, SITE_ORIGIN))
-    const contentHash = createHash('sha256').update(content + JSON.stringify(page) + serializeSchema(getSchema(page))).digest('hex')
+    // Hydration boundary markers are not a meaningful content update for IndexNow.
+    const meaningfulContent = content.replace(/<!--\/?\$-->/g, '')
+    const contentHash = createHash('sha256').update(meaningfulContent + JSON.stringify(page) + serializeSchema(getSchema(page))).digest('hex')
     manifest.push({ path: page.path, title: page.title, canonical: url, intent: page.intent, htmlBytes: Buffer.byteLength(html), markdown: mdPath, contentHash })
   }
-  const notFound = template.replace('</head>', '<title>Page Not Found | Clydara</title><meta data-seo name="robots" content="noindex,follow"></head>')
+  const notFound = template.replace('</head>', routeAssets('/__not-found__') + '<title>Page Not Found | Clydara</title><meta data-seo name="robots" content="noindex,follow"></head>')
     .replace('<div id="root"></div>', `<div id="root">${await render('/__not-found__')}</div>`)
   await save('404.html', notFound)
   await save('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map(page => `  <url><loc>${SITE_ORIGIN}${page.path}</loc></url>`).join('\n')}\n</urlset>\n`)

@@ -103,7 +103,7 @@ export default function TermsPage() {
               Let’s Stay Connected
             </h2>
             <p>
-              We believe in open communication and mutual respect. If you have any questions, concerns or need further clarification about these terms don’t hesitate to reach out to us at <strong style={{ color: 'var(--color-accent)' }}>info@clydara.com</strong>.
+              We believe in open communication and mutual respect. If you have any questions, concerns or need further clarification about these terms don’t hesitate to reach out to us at <strong style={{ color: 'var(--color-accent)' }}>clydara1@gmail.com</strong>.
             </p>
           </section>
         </div>

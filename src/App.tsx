@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
-import { useEffect } from 'react'
+import { Suspense, useEffect, type ComponentType } from 'react'
 import Lenis from 'lenis'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -7,17 +7,7 @@ import 'lenis/dist/lenis.css'
 import './styles/globals.css'
 import Navigation from './components/Navigation/Navigation'
 import Footer from './components/Footer/Footer'
-import HomePage from './pages/HomePage'
-import WorksPage from './pages/WorksPage'
-import WorkDetailPage from './pages/WorkDetailPage'
-import ServicesPage from './pages/ServicesPage'
-import AboutPage from './pages/AboutPage'
-import BlogPage from './pages/BlogPage'
-import BlogDetailPage from './pages/BlogDetailPage'
-import ContactPage from './pages/ContactPage'
-import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
-import TermsPage from './pages/TermsPage'
-import NotFoundPage from './pages/NotFoundPage'
+import { appRoutes } from './routes'
 import Seo from './seo/Seo'
 import Analytics from './seo/ConsentAnalytics'
 
@@ -40,7 +30,7 @@ function ScrollToTop() {
   return null
 }
 
-export function AppContent() {
+export function AppContent({ resolvedRoute }: { resolvedRoute?: { path: string, Component: ComponentType } } = {}) {
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.8,
@@ -75,19 +65,14 @@ export function AppContent() {
       <ScrollToTop />
       <Navigation />
 
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/works" element={<WorksPage />} />
-        <Route path="/works/:id" element={<WorkDetailPage />} />
-        <Route path="/services" element={<ServicesPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/blog" element={<BlogPage />} />
-        <Route path="/blog/:id" element={<BlogDetailPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-        <Route path="/terms-and-condition" element={<TermsPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <Suspense fallback={<div role="status" style={{ minHeight: '60vh', padding: '120px 24px' }}>Loading page…</div>}>
+        <Routes>
+          {appRoutes.map(({ path, Component }) => {
+            const Page = resolvedRoute?.path === path ? resolvedRoute.Component : Component
+            return <Route key={path} path={path} element={<Page />} />
+          })}
+        </Routes>
+      </Suspense>
       <Footer />
       <Analytics />
     </div>

@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-07",
+  "site": "https://www.clydralab.com/",
+  "environment": "Local production build served by Vite preview at 127.0.0.1:4173",
+  "build": "PASS: TypeScript and Vite production build, 17 prerendered canonical pages",
+  "seoTests": {"passed": 20, "failed": 0},
+  "lint": "PASS with two existing component-export warnings in Works.tsx and BlogPage.tsx",
+  "browserChecks": [
+    "Homepage loaded with real content and working navigation",
+    "Client navigation from homepage to services and then contact completed",
+    "Direct contact reload retained its title, canonical, one main element and required form fields",
+    "Updated public email clydara1@gmail.com was visible after rebuilding and reloading"
+  ],
+  "contactDesktop": {
+    "canonical": "https://www.clydralab.com/contact",
+    "title": "Contact Clydara | Discuss Your Software or Website Project",
+    "mainCount": 1,
+    "loadingFallback": false,
+    "inputs": ["required text name", "required email", "required project description"],
+    "evidence": "seo/evidence/local-contact-route.png"
+  },
+  "contactMobile": {
+    "method": "Supported tab CDP device-metrics override; cleared after the check",
+    "viewportWidth": 390,
+    "viewportHeight": 844,
+    "documentScrollWidth": 375,
+    "formFieldWidth": 294.6667,
+    "horizontalOverflow": false,
+    "publicEmailVisibleInDocument": true,
+    "mainCount": 1
+  },
+  "console": {
+    "reactHydrationOrChunkErrorsObserved": false,
+    "notes": "Existing scoped GSAP target warnings and browser-extension asynchronous-message errors were observed. The unchanged ContactPage animation selector is scoped to heroRef, while the form is outside that scope. These are retained as limitations rather than a claim of a silent console."
+  },
+  "emailChange": {
+    "authorization": "Owner explicitly selected clydara1@gmail.com as the public contact email on 2026-10-07",
+    "updatedPages": ["/contact", "/privacy-policy", "/terms-and-condition"],
+    "oldAddressAbsentFromThoseBuiltPages": true
+  },
+  "meaningfulChangedUrls": [
+    "https://www.clydralab.com/contact",
+    "https://www.clydralab.com/privacy-policy",
+    "https://www.clydralab.com/terms-and-condition"
+  ],
+  "limits": "No actual enquiry email was sent. Bundle byte savings are not a new Core Web Vitals or Lighthouse score. Production deployment verification is recorded separately."
+}

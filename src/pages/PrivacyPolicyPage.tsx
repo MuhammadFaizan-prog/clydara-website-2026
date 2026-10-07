@@ -102,7 +102,7 @@ export default function PrivacyPolicyPage() {
               Your Rights
             </h2>
             <p>
-              Your data belongs to you, and you have full control over it. If you’d like to review the personal information we have on file, correct outdated or inaccurate details, or request deletions of your data, just reach out to us at <strong style={{ color: 'var(--color-accent)' }}>info@clydara.com</strong>.
+              Your data belongs to you, and you have full control over it. If you’d like to review the personal information we have on file, correct outdated or inaccurate details, or request deletions of your data, just reach out to us at <strong style={{ color: 'var(--color-accent)' }}>clydara1@gmail.com</strong>.
             </p>
           </section>
         </div>

@@ -1,6 +1,6 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { readFile } from 'node:fs/promises'
+import { readFile, stat } from 'node:fs/promises'
 
 const manifest = JSON.parse(await readFile('dist/seo-manifest.json', 'utf8'))
 const known = new Set(manifest.pages.map(page => page.path))
@@ -68,4 +68,20 @@ test('sitemap exactly matches canonical pages and crawler policy preserves wildc
   const html404 = await readFile('dist/404.html', 'utf8')
   assert.ok(html404.includes('noindex,follow'))
   assert.ok(html404.includes('Page not found'))
+})
+
+test('direct page loads include built route assets without every page bundle', async () => {
+  const bundles = JSON.parse(await readFile('dist/.vite/manifest.json', 'utf8'))
+  const pageFiles = new Set(Object.values(bundles).filter(bundle => bundle.src?.startsWith('src/pages/')).map(bundle => '/' + bundle.file))
+  for (const page of [...manifest.pages, { path: '/404' }]) {
+    const html = await readFile(`dist/${page.path === '/' ? 'index' : page.path.slice(1)}.html`, 'utf8')
+    const refs = new Set([...html.matchAll(/<(?:script|link)\b[^>]*(?:src|href)="(\/assets\/[^"?]+\.(?:js|css))"/g)].map(match => match[1]))
+    assert.ok([...refs].some(ref => ref.endsWith('.css')), 'Direct HTML must load styles before hydration')
+    const referencedPages = [...refs].filter(ref => pageFiles.has(ref))
+    assert.ok(referencedPages.length >= 1 && referencedPages.length < pageFiles.size, `${page.path} must exclude inactive page bundles while allowing shared dependencies`)
+    for (const ref of refs) assert.ok((await stat('dist' + ref)).size > 0, `Missing direct-load asset: ${ref}`)
+    assert.ok(!html.includes('<!--$?-->'), 'Static pages cannot require a streaming script to reveal their content')
+  }
+  const contactHtml = await readFile('dist/contact.html', 'utf8')
+  assert.ok(!contactHtml.includes(bundles['src/pages/BlogDetailPage.tsx'].file), 'Enquiries must not load the large guide-detail bundle')
 })

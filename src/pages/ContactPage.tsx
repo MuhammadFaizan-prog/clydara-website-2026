@@ -228,7 +228,7 @@ export default function ContactPage() {
                 {[...Array(16)].map((_, i) => (
                   <span key={i} className="contact-email-item">
                     <img src={flowerIcon} alt="✦" className="contact-ticker-flower" width={16} height={16} />
-                    <span className="contact-email-text">info@clydara.com</span>
+                    <span className="contact-email-text">clydara1@gmail.com</span>
                   </span>
                 ))}
               </div>

@@ -1,0 +1,244 @@
+{
+  "measuredAt": "2026-10-07T17:38:02.145Z",
+  "baselineRevision": "b62cfc088e273b1b9caf5e5d48f418a32ede2b54",
+  "afterBuildBaseRevision": "b62cfc088e273b1b9caf5e5d48f418a32ede2b54",
+  "method": "Uncompressed bytes of unique initial script, modulepreload and stylesheet assets referenced by page HTML. Gzip is an estimate, not observed wire size or Core Web Vitals. Baseline is live production; after is local built output.",
+  "changedCanonicalUrls": [
+    "https://www.clydralab.com/contact",
+    "https://www.clydralab.com/privacy-policy",
+    "https://www.clydralab.com/terms-and-condition"
+  ],
+  "measurements": [
+    {
+      "path": "/",
+      "before": {
+        "jsBytes": 540244,
+        "cssBytes": 64569,
+        "assets": [
+          {
+            "path": "/assets/index-CUi4YgGi.js",
+            "bytes": 540244,
+            "gzipBytesEstimate": 171579
+          },
+          {
+            "path": "/assets/index-I22FjVBi.css",
+            "bytes": 64569,
+            "gzipBytesEstimate": 11168
+          }
+        ]
+      },
+      "after": {
+        "jsBytes": 426298,
+        "cssBytes": 38051,
+        "assets": [
+          {
+            "path": "/assets/index-BGzz0DcC.js",
+            "bytes": 384448,
+            "gzipBytesEstimate": 129182
+          },
+          {
+            "path": "/assets/index-DdsOnpO8.css",
+            "bytes": 10626,
+            "gzipBytesEstimate": 3101
+          },
+          {
+            "path": "/assets/HomePage-BjHx14NE.js",
+            "bytes": 15254,
+            "gzipBytesEstimate": 4149
+          },
+          {
+            "path": "/assets/HomePage-DZbEWymO.css",
+            "bytes": 13120,
+            "gzipBytesEstimate": 3091
+          },
+          {
+            "path": "/assets/RevealHeading-CCMNDM9j.js",
+            "bytes": 1183,
+            "gzipBytesEstimate": 632
+          },
+          {
+            "path": "/assets/Values-B9Lhaxla.js",
+            "bytes": 11008,
+            "gzipBytesEstimate": 3086
+          },
+          {
+            "path": "/assets/Values-DvD0rcTt.css",
+            "bytes": 4502,
+            "gzipBytesEstimate": 1376
+          },
+          {
+            "path": "/assets/FAQ-BxFviD8L.js",
+            "bytes": 3111,
+            "gzipBytesEstimate": 1453
+          },
+          {
+            "path": "/assets/FAQ-D9Iowv1c.css",
+            "bytes": 1982,
+            "gzipBytesEstimate": 786
+          },
+          {
+            "path": "/assets/Works-Gqilu4h0.js",
+            "bytes": 4820,
+            "gzipBytesEstimate": 1699
+          },
+          {
+            "path": "/assets/Works-DrHz5-zg.css",
+            "bytes": 3383,
+            "gzipBytesEstimate": 1120
+          },
+          {
+            "path": "/assets/Pricing-BVBXsXlt.js",
+            "bytes": 6474,
+            "gzipBytesEstimate": 1954
+          },
+          {
+            "path": "/assets/Pricing-Ccagw_xt.css",
+            "bytes": 4438,
+            "gzipBytesEstimate": 1360
+          }
+        ]
+      },
+      "jsReductionPercent": 21.1,
+      "cssReductionPercent": 41.1
+    },
+    {
+      "path": "/services",
+      "before": {
+        "jsBytes": 540244,
+        "cssBytes": 64569,
+        "assets": [
+          {
+            "path": "/assets/index-CUi4YgGi.js",
+            "bytes": 540244,
+            "gzipBytesEstimate": 171579
+          },
+          {
+            "path": "/assets/index-I22FjVBi.css",
+            "bytes": 64569,
+            "gzipBytesEstimate": 11168
+          }
+        ]
+      },
+      "after": {
+        "jsBytes": 403413,
+        "cssBytes": 21700,
+        "assets": [
+          {
+            "path": "/assets/index-BGzz0DcC.js",
+            "bytes": 384448,
+            "gzipBytesEstimate": 129182
+          },
+          {
+            "path": "/assets/index-DdsOnpO8.css",
+            "bytes": 10626,
+            "gzipBytesEstimate": 3101
+          },
+          {
+            "path": "/assets/ServicesPage-BTp4ThD5.js",
+            "bytes": 8197,
+            "gzipBytesEstimate": 2843
+          },
+          {
+            "path": "/assets/ServicesPage-DeCtrExu.css",
+            "bytes": 3602,
+            "gzipBytesEstimate": 1118
+          },
+          {
+            "path": "/assets/SeoContent-BkVYLsY_.css",
+            "bytes": 1052,
+            "gzipBytesEstimate": 428
+          },
+          {
+            "path": "/assets/RevealHeading-CCMNDM9j.js",
+            "bytes": 1183,
+            "gzipBytesEstimate": 632
+          },
+          {
+            "path": "/assets/FAQ-BxFviD8L.js",
+            "bytes": 3111,
+            "gzipBytesEstimate": 1453
+          },
+          {
+            "path": "/assets/FAQ-D9Iowv1c.css",
+            "bytes": 1982,
+            "gzipBytesEstimate": 786
+          },
+          {
+            "path": "/assets/Pricing-BVBXsXlt.js",
+            "bytes": 6474,
+            "gzipBytesEstimate": 1954
+          },
+          {
+            "path": "/assets/Pricing-Ccagw_xt.css",
+            "bytes": 4438,
+            "gzipBytesEstimate": 1360
+          }
+        ]
+      },
+      "jsReductionPercent": 25.3,
+      "cssReductionPercent": 66.4
+    },
+    {
+      "path": "/contact",
+      "before": {
+        "jsBytes": 540244,
+        "cssBytes": 64569,
+        "assets": [
+          {
+            "path": "/assets/index-CUi4YgGi.js",
+            "bytes": 540244,
+            "gzipBytesEstimate": 171579
+          },
+          {
+            "path": "/assets/index-I22FjVBi.css",
+            "bytes": 64569,
+            "gzipBytesEstimate": 11168
+          }
+        ]
+      },
+      "after": {
+        "jsBytes": 394555,
+        "cssBytes": 17515,
+        "assets": [
+          {
+            "path": "/assets/index-BGzz0DcC.js",
+            "bytes": 384448,
+            "gzipBytesEstimate": 129182
+          },
+          {
+            "path": "/assets/index-DdsOnpO8.css",
+            "bytes": 10626,
+            "gzipBytesEstimate": 3101
+          },
+          {
+            "path": "/assets/ContactPage-BurjMqmu.js",
+            "bytes": 5813,
+            "gzipBytesEstimate": 1986
+          },
+          {
+            "path": "/assets/ContactPage-Dg3qvsEm.css",
+            "bytes": 4907,
+            "gzipBytesEstimate": 1504
+          },
+          {
+            "path": "/assets/RevealHeading-CCMNDM9j.js",
+            "bytes": 1183,
+            "gzipBytesEstimate": 632
+          },
+          {
+            "path": "/assets/FAQ-BxFviD8L.js",
+            "bytes": 3111,
+            "gzipBytesEstimate": 1453
+          },
+          {
+            "path": "/assets/FAQ-D9Iowv1c.css",
+            "bytes": 1982,
+            "gzipBytesEstimate": 786
+          }
+        ]
+      },
+      "jsReductionPercent": 27,
+      "cssReductionPercent": 72.9
+    }
+  ]
+}
