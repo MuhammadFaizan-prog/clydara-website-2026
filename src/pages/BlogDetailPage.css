@@ -263,3 +263,9 @@
     line-height: 22px;
   }
 }
+.seo-measurement-table-wrap { width: 100%; min-width: 0; max-width: 100%; overflow-x: auto; }
+.seo-measurement-table { width: 100%; min-width: 600px; border-collapse: collapse; font-family: var(--font-body); line-height: 1.5; }
+.seo-measurement-table caption { text-align: left; margin-bottom: 16px; font-weight: 600; }
+.seo-measurement-table th, .seo-measurement-table td { padding: 14px; text-align: left; border-bottom: 1px solid rgba(128, 128, 128, 0.35); vertical-align: top; }
+.seo-measurement-table thead th { font-weight: 600; }
+.seo-measurement-table-wrap:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }

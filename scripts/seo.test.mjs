@@ -17,6 +17,29 @@ test('RSS discovers the six existing guides using canonical permanent identifier
   }
 })
 
+test('the performance example preserves all three measured runs and supported update dates', async () => {
+  const data = JSON.parse(await readFile('seo/evidence/psi-high-priority.json', 'utf8'))
+  const html = await readFile('dist/blog/startup-website-mistakes.html', 'utf8')
+  const markdown = await readFile('dist/blog/startup-website-mistakes.md', 'utf8')
+  assert.ok(html.includes('<table'), 'Comparable measurements should be published as a readable table')
+  for (const capture of [data.before, data.after, data.afterFonts]) {
+    assert.ok(html.includes(capture.report), 'Readers must be able to inspect every capture, including mixed results')
+    for (const value of [capture.mobile.performance, capture.mobile.lcpMs / 1000, capture.desktop.performance, capture.desktop.tbtMs]) {
+      assert.ok(html.includes(String(value)), `Published example must preserve the recorded measurement ${value}`)
+    }
+  }
+  for (const page of manifest.pages.filter(page => page.path.startsWith('/blog/'))) {
+    const articleHtml = await readFile(`dist/${page.path.slice(1)}.html`, 'utf8')
+    assert.ok(!articleHtml.includes('18th March 2025'), 'Unverified template publication-date labels must not be presented as facts')
+  }
+  const schema = JSON.parse(html.match(/<script[^>]*type="application\/ld\+json"[^>]*>(.*?)<\/script>/s)[1])
+  const article = schema['@graph'].find(node => node['@type'] === 'BlogPosting')
+  assert.equal(article.dateModified, '2026-10-08')
+  assert.ok(/datetime="2026-10-08"/i.test(html), 'Visible update date must agree with the graph')
+  assert.ok(markdown.includes('| Mobile LCP | 3.637 s | 3.687 s | 3.492 s |'), 'The agent-readable version must retain metric-to-column relationships')
+  assert.ok((await readFile('dist/sitemap.xml', 'utf8')).includes('<loc>https://www.clydralab.com/blog/startup-website-mistakes</loc><lastmod>2026-10-08</lastmod>'))
+})
+
 test('link-following crawlers can discover every canonical page from a public site map', async () => {
   assert.ok(known.has('/sitemap'), 'A public navigation page must exist')
   const html = await readFile('dist/sitemap.html', 'utf8')

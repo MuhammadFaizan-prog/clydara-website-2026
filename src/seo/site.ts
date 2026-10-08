@@ -8,6 +8,7 @@ export interface SeoPage {
   type?: string
   image?: string
   author?: string
+  dateModified?: string
   intent: string
 }
 
@@ -29,7 +30,7 @@ export const pages: SeoPage[] = [
   { path: '/blog/ai-integration-for-startups', title: 'AI Integration for Startups: Where to Begin | Clydara', name: 'AI Integration for Startups: Where Should You Actually Begin?', description: 'Plan startup AI integration around a useful workflow, reliable data, evaluation, security and measurable outcomes. Learn how to scope a practical pilot.', author: 'Muhammad Faizan', image: 'https://framerusercontent.com/images/2g1ervfFGOFw7M9o9qPv7ognLs.png?width=916&height=1140', intent: 'Solution-aware: AI implementation' },
   { path: '/blog/agency-vs-in-house-developers', title: 'Agency vs In-House Developers: How to Decide | Clydara', name: 'Agency vs In-House Developers: Which One Makes More Sense?', description: 'Compare an agency, an in-house development team and hybrid delivery by product stage, budget, ownership, hiring capacity and long-term maintenance.', author: 'Rohan Baig', image: 'https://framerusercontent.com/images/agh1fOKB68bmz5i7jTuchksYqs.png?width=916&height=1140', intent: 'Commercial investigation: delivery model' },
   { path: '/blog/saas-development-cost', title: 'SaaS Development Cost: Scope & Budget Guide | Clydara', name: 'How Much Does It Cost to Build a SaaS Platform?', description: 'Understand SaaS development costs across discovery, MVP scope, integrations, billing, infrastructure and maintenance. Build a budget from your requirements.', author: 'Muhammad Faizan', image: 'https://framerusercontent.com/images/xaT5BrnsTobFUhkTLPEae7z2gc4.png?width=916&height=1140', intent: 'Commercial investigation: SaaS project budget' },
-  { path: '/blog/startup-website-mistakes', title: 'Why Startup Websites Fail to Generate Leads | Clydara', name: 'Why Most Startup Websites Never Generate Leads', description: 'Identify startup website mistakes in positioning, proof, performance, calls to action and measurement. Use a practical plan to improve qualified enquiries.', author: 'Rohan Baig', image: 'https://framerusercontent.com/images/6q3AkgZ10FtoWjmSoY6KZKf8tn0.png?width=916&height=1140', intent: 'Problem-aware: website conversion' },
+  { path: '/blog/startup-website-mistakes', title: 'Why Startup Websites Fail to Generate Leads | Clydara', name: 'Why Most Startup Websites Never Generate Leads', description: 'Improve positioning, proof, performance and lead measurement on startup websites. Includes a sourced performance measurement example from Clydara’s own site.', author: 'Rohan Baig', dateModified: '2026-10-08', image: 'https://framerusercontent.com/images/6q3AkgZ10FtoWjmSoY6KZKf8tn0.png?width=916&height=1140', intent: 'Problem-aware: website conversion' },
 ]
 
 export function getPage(pathname: string): SeoPage | undefined {
@@ -48,7 +49,7 @@ export function getSchema(page: SeoPage) {
     { '@type': 'WebSite', '@id': SITE_ORIGIN + '/#website', url: SITE_ORIGIN + '/', name: 'Clydara', inLanguage: 'en', publisher: { '@id': organization['@id'] } },
     { '@type': page.type || 'WebPage', '@id': url + '#webpage', url, name: page.name, description: page.description, inLanguage: 'en', isPartOf: { '@id': SITE_ORIGIN + '/#website' }, about: { '@id': organization['@id'] } },
   ]
-  if (page.author) graph.push({ '@type': 'BlogPosting', '@id': url + '#article', headline: page.name, description: page.description, image: page.image, author: { '@type': 'Person', name: page.author, url: SITE_ORIGIN + '/about' }, publisher: { '@id': organization['@id'] }, mainEntityOfPage: { '@id': url + '#webpage' }, inLanguage: 'en' })
+  if (page.author) graph.push({ '@type': 'BlogPosting', '@id': url + '#article', headline: page.name, description: page.description, image: page.image, dateModified: page.dateModified, author: { '@type': 'Person', name: page.author, url: SITE_ORIGIN + '/about' }, publisher: { '@id': organization['@id'] }, mainEntityOfPage: { '@id': url + '#webpage' }, inLanguage: 'en' })
   if (page.path === '/services') {
     for (const name of ['Web Development', 'SaaS & Business Solutions', 'AI Integration & Automation', 'Branding & Creative Design']) {
       graph.push({ '@type': 'Service', name, provider: { '@id': organization['@id'] }, url })

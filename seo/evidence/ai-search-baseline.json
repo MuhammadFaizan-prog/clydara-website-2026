@@ -602,6 +602,39 @@
       "evidenceNote": "Current interaction failure; previous completed answer is retained separately",
       "date": "2026-10-08",
       "checkedAt": "2026-10-08T04:09:13.734Z"
+    },
+    {
+      "engine": "Grok",
+      "date": "2026-10-08",
+      "checkedAt": "2026-10-08T06:35:59.623Z",
+      "query": "Search only the public web: What services does Clydara provide, and how can a business contact them? Do not use connected apps or account files.",
+      "queryType": "branded-natural-question",
+      "queryCompleted": true,
+      "session": "New Private Chat; Fast displayed; public-web-only instruction",
+      "brandMention": true,
+      "firstPartyLinkedCitation": false,
+      "citedFirstPartyUrls": [],
+      "otherCitedDomains": [
+        "clutch.co",
+        "appdevelopmentcompanies.co"
+      ],
+      "observation": "Completed answer (Worked for 23s) again used directories and said no official website/contact appeared in public results. Its answer links were inspected; all 85 source-panel URLs were not inspected. Unsupported directory client, price and date claims were not adopted as company facts.",
+      "evidence": "seo/evidence/grok-brand-retry-2026-10-08.png"
+    },
+    {
+      "engine": "Grok direct retrieval",
+      "date": "2026-10-08",
+      "checkedAt": "2026-10-08T06:35:59.623Z",
+      "query": "The website I mean is https://www.clydralab.com/. Please open that site and report its services and contact options using only information you can actually retrieve there. Use only the public web, not account files.",
+      "queryType": "prompted-url-retrieval-diagnostic",
+      "queryCompleted": true,
+      "retrievalSucceeded": true,
+      "retrievedUrls": [
+        "https://www.clydralab.com/",
+        "https://www.clydralab.com/contact"
+      ],
+      "observation": "Completed follow-up (Worked for 14s) identified the agency services, canonical homepage/contact link, contact form and correct clydara1@gmail.com email. It stated no phone/address appeared on the retrieved pages. This URL-seeded diagnostic is not counted as natural search discovery or a new branded citation product.",
+      "evidence": "seo/evidence/grok-direct-retrieval-2026-10-08.png"
     }
   ],
   "unexecutedPairs": "Other questions/products in seo/ai-query-set.json remain unmeasured. Browser control intermittently timed out and was reattached to the owner's open tabs. Public result absence, a product-access blocker and an unexecuted query remain different statuses.",

@@ -1,5 +1,5 @@
 {
-  "at": "2026-10-08T04:09:13.842Z",
+  "at": "2026-10-08T06:35:59.623Z",
   "site": "https://www.clydralab.com",
   "definitions": {
     "A": "Direct official webmaster/submission",
@@ -358,10 +358,10 @@
       "Bot Allowed": "PerplexityBot / Perplexity-User UA pass",
       "WAF Allowed": "PARTIAL",
       "Indexed": "U",
-      "AI Citation": "Brand mentioned through directories; canonical absent from branded answer and ten sources. No nonbrand citation",
+      "AI Citation": "Fresh incognito answer uses Clutch; no canonical linked answer citation. All 18 source-panel URLs not inspected.",
       "Traffic Detected": "U",
-      "Action Needed": "Strengthen first-party evidence and compare dated questions",
-      "Last checked": "2026-10-05",
+      "Action Needed": "Correct outdated directory references and compare dated natural queries; do not copy the misattributed footer address",
+      "Last checked": "2026-10-08",
       "Evidence": "seo/evidence/ai-search-baseline.json"
     },
     {
@@ -390,10 +390,10 @@
       "Bot Allowed": "Public content accessible; no invented Grok crawler",
       "WAF Allowed": "PARTIAL",
       "Indexed": "U",
-      "AI Citation": "Brand mentioned through directories; canonical not linked in completed branded answer",
+      "AI Citation": "Natural branded answer again directory-only; separate explicit-URL retrieval succeeded with correct services/email",
       "Traffic Detected": "U",
-      "Action Needed": "Correct first-party identity references; third-party business claims remain unverified",
-      "Last checked": "2026-10-07",
+      "Action Needed": "Correct old directory website links; prompted retrieval is not organic discovery",
+      "Last checked": "2026-10-08",
       "Evidence": "seo/evidence/ai-search-baseline.json"
     },
     {

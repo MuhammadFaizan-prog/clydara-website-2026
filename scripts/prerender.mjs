@@ -22,6 +22,15 @@ function markdown(html, page, origin) {
       const label = decode(text.replace(/<[^>]*>/g, '')).trim()
       return label ? `[${label}](${new URL(decode(href), origin).href})` : ''
     })
+    .replace(/<table\b[^>]*>([\s\S]*?)<\/table>/g, (_, table) => {
+      const clean = text => decode(text.replace(/<[^>]*>/g, '')).replace(/\s+/g, ' ').trim().replace(/\|/g, '\\|')
+      const caption = clean(table.match(/<caption\b[^>]*>([\s\S]*?)<\/caption>/)?.[1] || '')
+      const rows = [...table.matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/g)]
+        .map(row => [...row[1].matchAll(/<(?:th|td)\b[^>]*>([\s\S]*?)<\/(?:th|td)>/g)].map(cell => clean(cell[1])))
+      if (!rows.length) return caption
+      const line = row => '| ' + row.join(' | ') + ' |'
+      return '\n\n' + caption + '\n\n' + [line(rows[0]), line(rows[0].map(() => '---')), ...rows.slice(1).map(line)].join('\n') + '\n\n'
+    })
     .replace(/<h([1-6])\b[^>]*>/g, (_, level) => '\n\n' + '#'.repeat(Number(level)) + ' ')
     .replace(/<\/h[1-6]>/g, '\n\n')
     .replace(/<li\b[^>]*>/g, '\n- ')
@@ -102,7 +111,7 @@ try {
   const notFound = template.replace('</head>', routeAssets('/__not-found__') + '<title>Page Not Found | Clydara</title><meta data-seo name="robots" content="noindex,follow"></head>')
     .replace('<div id="root"></div>', `<div id="root">${await render('/__not-found__')}</div>`)
   await save('404.html', notFound)
-  await save('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map(page => `  <url><loc>${SITE_ORIGIN}${page.path}</loc></url>`).join('\n')}\n</urlset>\n`)
+  await save('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map(page => `  <url><loc>${SITE_ORIGIN}${page.path}</loc>${page.dateModified ? `<lastmod>${page.dateModified}</lastmod>` : ''}</url>`).join('\n')}\n</urlset>\n`)
   await save('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${SITE_ORIGIN}/sitemap.xml\n`)
   await save('feed.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Clydara founder guides</title><link>${SITE_ORIGIN}/blog</link><description>Practical software, SaaS and AI guides for founders.</description><language>en</language><atom:link href="${SITE_ORIGIN}/feed.xml" rel="self" type="application/rss+xml"/>${pages.filter(page => page.author).map(page => `<item><title>${escape(page.name)}</title><link>${SITE_ORIGIN}${page.path}</link><guid isPermaLink="true">${SITE_ORIGIN}${page.path}</guid><description>${escape(page.description)}</description></item>`).join('')}</channel></rss>\n`)
   const sections = [

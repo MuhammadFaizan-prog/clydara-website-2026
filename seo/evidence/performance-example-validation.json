@@ -1,0 +1,32 @@
+{
+  "at": "2026-10-08T06:35:59.623Z",
+  "target": "https://www.clydralab.com/blog/startup-website-mistakes",
+  "state": "Local implementation validated; production verification follows push",
+  "source": "seo/evidence/psi-high-priority.json",
+  "changes": [
+    "Measured comparison and methodology added to existing guide",
+    "All three captures retained, including regressions and no CrUX data",
+    "Six conflicting 2025 date pills removed; original month-only company publication labels retained",
+    "One supported meaningful update date displayed and matched in BlogPosting and XML lastmod",
+    "HTML tables converted to usable Markdown columns"
+  ],
+  "validation": {
+    "build": "passed",
+    "seoTests": 24,
+    "lint": "passed with two existing component-export warnings",
+    "desktop": {
+      "layoutWidth": 1280,
+      "documentWidth": 1265,
+      "screenshot": "performance-example-local-desktop.png"
+    },
+    "mobile": {
+      "viewport": 390,
+      "documentWidth": 390,
+      "comparisonRegionWidth": 350,
+      "tableWidth": 600,
+      "keyboardArrowRightScrollLeft": 40,
+      "screenshot": "performance-example-local-mobile.png"
+    }
+  },
+  "limits": "Lab snapshots are observational; no controlled attribution, field-CWV pass, real-user INP, traffic, ranking or conversion improvement is claimed."
+}

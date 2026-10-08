@@ -4,6 +4,7 @@ import gsap from 'gsap'
 import { RevealChars } from '../components/common/RevealChars'
 import { RevealHeading } from '../components/common/RevealHeading'
 import { blogPosts } from './BlogPage'
+import { getPage } from '../seo/site'
 import NotFoundPage from './NotFoundPage'
 import './BlogDetailPage.css'
 import './BlogPage.css'
@@ -19,6 +20,7 @@ interface ArticleData {
   sections: {
     heading: string
     paragraphs: string[]
+    comparison?: { caption: string; columns: string[]; rows: string[][] }
     showInlineMetaAndImg?: boolean
   }[]
   faqs: { q: string; a: string }[]
@@ -45,7 +47,7 @@ const articlesData: Record<string, ArticleData> = {
       'https://framerusercontent.com/images/GRXZ2w13Gx0WdTwKKd5DA6nYedo.png?width=2000&height=1333',
     inlineImg:
       'https://framerusercontent.com/images/chp7C8iulZpS7COcG0vizKTBw1k.png?width=916&height=1140',
-    tags: ['MERN, React, Web Development', '30th June 2025'],
+    tags: ['MERN, React, Web Development'],
     sections: [
       {
         heading: 'Why the MERN Stack Remains Relevant',
@@ -136,7 +138,7 @@ const articlesData: Record<string, ArticleData> = {
       'https://framerusercontent.com/images/tonaJUlOftK1OdSSpIwLkRiWT4.png?width=2288&height=974',
     inlineImg:
       'https://framerusercontent.com/images/AWhJGkoO1R4OjT86q2SUa6hQtyg.png?width=916&height=1140',
-    tags: ['Custom Software, SaaS, Business Strategy', '30th May 2025'],
+    tags: ['Custom Software, SaaS, Business Strategy'],
     sections: [
       {
         heading: 'Should a startup build custom software or buy SaaS?',
@@ -219,7 +221,7 @@ const articlesData: Record<string, ArticleData> = {
       'https://framerusercontent.com/images/0rV439NXlQ1IOSi0VkvDsmerR3Q.png?width=3840&height=2562',
     inlineImg:
       'https://framerusercontent.com/images/2g1ervfFGOFw7M9o9qPv7ognLs.png?width=916&height=1140',
-    tags: ['Artificial Intelligence, Automation, Startups', '12th April 2025'],
+    tags: ['Artificial Intelligence, Automation, Startups'],
     sections: [
       {
         heading: 'Start With the Workflow, Not the Model',
@@ -311,7 +313,7 @@ const articlesData: Record<string, ArticleData> = {
       'https://framerusercontent.com/images/ANlLFOiR8BN3esWQJemb6UwQ.png?width=1920&height=2939',
     inlineImg:
       'https://framerusercontent.com/images/agh1fOKB68bmz5i7jTuchksYqs.png?width=916&height=1140',
-    tags: ['Agency, Hiring, Software Development', '23rd May 2025'],
+    tags: ['Agency, Hiring, Software Development'],
     sections: [
       {
         heading: 'The Real Cost of Building a Development Team',
@@ -404,7 +406,7 @@ const articlesData: Record<string, ArticleData> = {
       'https://framerusercontent.com/images/FkxBKrKQZeHThLueSHrj4jwds.png?width=2400&height=1600',
     inlineImg:
       'https://framerusercontent.com/images/xaT5BrnsTobFUhkTLPEae7z2gc4.png?width=916&height=1140',
-    tags: ['SaaS, Pricing, Startup', '15th July 2025'],
+    tags: ['SaaS, Pricing, Startup'],
     sections: [
       {
         heading: 'What Actually Drives SaaS Development Cost',
@@ -498,7 +500,7 @@ const articlesData: Record<string, ArticleData> = {
       'https://framerusercontent.com/images/gyymVjWtj6P1viNzEiNOb5NFoc.png?width=849&height=1200',
     inlineImg:
       'https://framerusercontent.com/images/6q3AkgZ10FtoWjmSoY6KZKf8tn0.png?width=916&height=1140',
-    tags: ['SEO, Web Design, Conversion Optimization', '18th March 2025'],
+    tags: ['SEO, Web Design, Conversion Optimization'],
     sections: [
       {
         heading: 'The Conversion Problem Usually Starts With Positioning',
@@ -526,6 +528,25 @@ const articlesData: Record<string, ArticleData> = {
           'Conversion optimization requires a hypothesis. For example: \u201cQualified visitors do not request a demo because enterprise security is unclear.\u201d The change might add security proof near the CTA, not randomly change its color. Prioritize tests by potential impact, confidence, and effort. Ensure enough traffic and duration before declaring a winner.',
           'A/B testing is useful when traffic supports statistical learning and the variation represents a meaningful decision. Low-traffic startups should use customer interviews, session recordings, usability tests, and funnel analysis first. Testing tiny cosmetic differences on a fundamentally unclear page creates false precision.',
         ],
+      },
+      {
+        heading: 'What does a measured website performance change look like?',
+        paragraphs: [
+          'A useful performance record keeps the test settings, code changes and every comparable capture together. It shows both the improvements and the work that remains, rather than selecting the highest score.',
+          'Clydara’s public homepage provides a dated example. Three PageSpeed Insights captures on 8 October 2026 recorded Lighthouse 13.5.0 and Chromium 153.0.8010.36. The mobile tests used an emulated Moto G Power with Slow 4G throttling; the desktop tests used the same custom desktop settings. The implemented changes were responsive image delivery and deferred offscreen images, followed by serving the original fonts locally.',
+          'The mobile LCP improved in the final capture, while desktop TBT worsened compared with the image-only capture. These observations are not a controlled causal experiment: a single lab result can vary with the test conditions. All three linked reports remain available for inspection.',
+          'CrUX field data was unavailable in these captures. Real-user INP, ranking changes and conversion improvements were not established by this example. Compare field experience and genuine enquiries separately when enough data exists.',
+        ],
+        comparison: {
+          caption: 'Clydara homepage: archived PageSpeed lab captures on 8 October 2026',
+          columns: ['Measurement', 'Before', 'After responsive images', 'After local fonts'],
+          rows: [
+            ['Mobile performance score', '80', '79', '84'],
+            ['Mobile LCP', '3.637 s', '3.687 s', '3.492 s'],
+            ['Desktop performance score', '86', '94', '89'],
+            ['Desktop TBT', '301 ms', '180 ms', '260 ms'],
+          ],
+        },
       },
       {
         heading: 'Analytics, Audit Checklist, FAQs, and CTA',
@@ -602,6 +623,11 @@ const articleReferences: Record<string, { title: string; url: string }[]> = {
   'startup-website-mistakes': [
     { title: 'Google: creating helpful, reliable, people-first content', url: 'https://developers.google.com/search/docs/fundamentals/creating-helpful-content' },
     { title: 'Google: SEO Starter Guide', url: 'https://developers.google.com/search/docs/fundamentals/seo-starter-guide' },
+    { title: 'Clydara PageSpeed capture: before image and font changes', url: 'https://pagespeed.web.dev/analysis/https-www-clydralab-com/sfm7qhddi0' },
+    { title: 'Clydara PageSpeed capture: after responsive images', url: 'https://pagespeed.web.dev/analysis/https-www-clydralab-com/02emg8kwkx' },
+    { title: 'Clydara PageSpeed capture: after local font delivery', url: 'https://pagespeed.web.dev/analysis/https-www-clydralab-com/fko2pu8ucm' },
+    { title: 'Recorded revisions, exact measurements and limitations', url: 'https://github.com/MuhammadFaizan-prog/clydara-website-2026/blob/main/seo/evidence/psi-high-priority.json' },
+    { title: 'Google: Lighthouse performance scoring and variability', url: 'https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/' },
   ],
 }
 
@@ -674,6 +700,11 @@ export default function BlogDetailPage() {
 
   if (!post || !article) return <NotFoundPage />
 
+  const modifiedDate = getPage(`/blog/${post.id}`)?.dateModified
+  const modifiedLabel = modifiedDate
+    ? new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${modifiedDate}T12:00:00Z`))
+    : ''
+
   const relatedPosts = (relatedArticleIds[post.id] || [])
     .map((relatedId) => blogPosts.find((p) => p.id === relatedId))
     .filter((relatedPost): relatedPost is typeof blogPosts[number] => Boolean(relatedPost))
@@ -712,6 +743,9 @@ export default function BlogDetailPage() {
           <p className="blog-detail-sub">{article.subtitle}</p>
           <p className="seo-article-byline">
             By <Link to="/about">{post.author}</Link> · Published {post.date}
+            {modifiedDate && (
+              <> · Updated <time dateTime={modifiedDate}>{modifiedLabel}</time></>
+            )}
           </p>
         </div>
       </section>
@@ -735,6 +769,16 @@ export default function BlogDetailPage() {
               {sec.paragraphs.map((p, pIdx) => (
                 <p key={pIdx} className="blog-article-p">{p}</p>
               ))}
+
+              {sec.comparison && (
+                <div className="seo-measurement-table-wrap" role="region" aria-label="Homepage performance comparison" tabIndex={0}>
+                  <table className="seo-measurement-table">
+                    <caption>{sec.comparison.caption}</caption>
+                    <thead><tr>{sec.comparison.columns.map(column => <th scope="col" key={column}>{column}</th>)}</tr></thead>
+                    <tbody>{sec.comparison.rows.map(row => <tr key={row[0]}><th scope="row">{row[0]}</th>{row.slice(1).map((cell, index) => <td key={index}>{cell}</td>)}</tr>)}</tbody>
+                  </table>
+                </div>
+              )}
 
               {sec.showInlineMetaAndImg && (
                 <>

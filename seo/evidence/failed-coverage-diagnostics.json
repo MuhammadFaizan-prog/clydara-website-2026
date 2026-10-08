@@ -1,5 +1,5 @@
 {
-  "at": "2026-10-08T04:09:13.778Z",
+  "at": "2026-10-08T06:35:59.623Z",
   "qwant": {
     "form": "https://help.qwant.com/hc/en-us/requests/new?ticket_form_id=48315491012113",
     "subject": "Website missing from Qwant results: www.clydralab.com",
@@ -34,14 +34,58 @@
     "expectedWebsite": "https://www.clydralab.com/",
     "legacyPublicBrand": "Clydara; matching public clydara1@gmail.com contact",
     "oldDomainOwnedProjectVerified": true,
-    "profileEdit": "PENDING: sign-in accepts Terms/Privacy; action-time confirmation requested",
-    "profileFacts": "Founding-date conflict, prices and client metrics not copied; Washington address is Clutch footer, not established agency office"
+    "profileEdit": "Signed-in account exposed buyer navigation and new-provider onboarding, not the existing company editor. No duplicate profile was submitted.",
+    "profileFacts": "Founding-date conflict, prices and client metrics not copied; Washington address is Clutch footer, not established agency office",
+    "correctionRequest": "Submitted website-only correction through official existing-provider support form. No ownership, billing, rates, reviews or company-date changes requested.",
+    "supportForm": "https://help.clutch.co/contact-us",
+    "receiptVerified": true,
+    "confirmation": "Form submitted. Thank you, we will be in touch soon.",
+    "screenshot": "clutch-url-correction-receipt-2026-10-08.png",
+    "publicLinkCorrected": false,
+    "remaining": "Clutch staff or the existing profile administrator must apply the website-field correction; public change not yet verified.",
+    "guidance": "https://help.clutch.co/en/knowledge/claim-clutch-profile"
   },
   "toolkit": {
     "version": "2.4.2",
     "reviewedCommit": "4b99de2f7de7e7d5247042e5fb5b4ea9368ef734",
     "pluginUpdate": "CLI confirmed 2.4.1 → 2.4.2",
-    "setup": "Managed setup running; readiness not yet claimed",
-    "notes": "Current GEO/agentic workflow reviewed; speculative correlation/guarantee claims not adopted."
+    "setup": "Core ready; managed Chromium download timed out",
+    "notes": "Current GEO/agentic workflow reviewed; speculative correlation/guarantee claims not adopted.",
+    "doctor": {
+      "ready": true,
+      "browser_ready": false,
+      "plugin_version": "2.4.2",
+      "python_version": "3.11",
+      "mode": "manual"
+    },
+    "doctorEvidence": "toolkit-doctor-2.4.2.json",
+    "agenticEvidence": "agentic-failed-coverage-after.json",
+    "limitation": "HTTP agentic checks passed applicable foundational checks; simulated user agents are not verified provider IP traffic. Independent browser QA remains separate."
+  },
+  "github": {
+    "changes": [
+      {
+        "repository": "https://github.com/MuhammadFaizan-prog/clydara-website-2026",
+        "oldHomepage": "https://clydara-website-2026.vercel.app",
+        "homepage": "https://www.clydralab.com/",
+        "verified": true
+      },
+      {
+        "repository": "https://github.com/MuhammadFaizan-prog/Clydara-web",
+        "oldHomepage": "https://clydara-web.vercel.app",
+        "homepage": "https://www.clydralab.com/",
+        "verified": true
+      }
+    ],
+    "method": "GitHub CLI edit followed by repository metadata read; homepage reference correction, not an SEO traffic result"
+  },
+  "appDevelopmentDirectory": {
+    "profile": "https://appdevelopmentcompanies.co/firms/clydara",
+    "outboundWebsite": "https://clydara-web.vercel.app/",
+    "expectedWebsite": "https://www.clydralab.com/",
+    "publicEmail": "clydara1@gmail.com",
+    "observed": "Actual browser profile inspected; old link remains. Authorized basic Google sign-in succeeded; no company-management dashboard was present in the account menu.",
+    "correction": "Not submitted through sales form because it requires a project budget/service and phone; no fictitious sales enquiry, unverified phone, review or paid purchase was created.",
+    "remaining": "Existing company access or factual listing-correction support needed. Third-party reviews/rates/client statements remain unverified and were not copied."
   }
 }
