@@ -474,6 +474,134 @@
       "evidence": "seo/evidence/brave-build-buy-answer.png",
       "resultUrl": "https://search.brave.com/ask?q=Should+a+startup+build+custom+software+or+buy+SaaS%3F&source=llmSuggest&conversation=09a718edea962ae479fc2f3ce5e666a15d18",
       "observation": "Completed answer recommended SaaS for standard operations, custom software for differentiating workflows, and a hybrid option. No Clydara mention/citation. UI showed 10 research source names; not all source URLs independently inspected."
+    },
+    {
+      "engine": "Qwant",
+      "query": "site:clydralab.com",
+      "queryType": "domain-search",
+      "firstPartyDomainInInspectedResults": false,
+      "observation": "Refreshed supported search returned zero results.",
+      "evidence": "seo/evidence/qwant-domain-retry-2026-10-08.png",
+      "date": "2026-10-08",
+      "checkedAt": "2026-10-08T04:09:13.732Z"
+    },
+    {
+      "engine": "Yahoo Search",
+      "query": "site:clydralab.com",
+      "queryType": "domain-search",
+      "firstPartyDomainInInspectedResults": false,
+      "observation": "Refreshed supported search returned no results. Page explicitly says Powered by Bing.",
+      "evidence": "seo/evidence/yahoo-domain-retry-2026-10-08.png",
+      "date": "2026-10-08",
+      "checkedAt": "2026-10-08T04:09:13.734Z"
+    },
+    {
+      "engine": "Mojeek",
+      "query": "site:clydralab.com clydralab",
+      "queryType": "supported-domain-search",
+      "firstPartyDomainInInspectedResults": false,
+      "observation": "Refreshed supported site query returned zero results.",
+      "evidence": "seo/evidence/mojeek-domain-retry-2026-10-08.png",
+      "date": "2026-10-08",
+      "checkedAt": "2026-10-08T04:09:13.734Z"
+    },
+    {
+      "engine": "Microsoft Copilot",
+      "query": "Search only the public web: What services does Clydara provide, and how can a business contact them? Do not use connected apps or account files.",
+      "queryType": "branded-natural-question",
+      "session": "Temporary chat; Auto displayed; public-web-only instruction",
+      "brandMention": true,
+      "firstPartyLinkedCitation": false,
+      "citedFirstPartyUrls": [],
+      "otherCitedDomains": [
+        "clutch.co",
+        "clydara.com"
+      ],
+      "observation": "Completed answer again cites the directory and uses the unrelated retail domain contact email. Source panel inspected; its three cited links are Clutch, retail FAQ and retail Privacy.",
+      "evidence": null,
+      "evidenceNote": "Actual completed AX/source-panel observation. Later screenshot showed an empty home view and is excluded.",
+      "date": "2026-10-08",
+      "checkedAt": "2026-10-08T04:09:13.734Z"
+    },
+    {
+      "engine": "Microsoft Copilot direct retrieval",
+      "query": "The website I mean is https://www.clydralab.com/. Please open that site and report its services and contact options using only information you can actually retrieve there. Use only the public web, not account files.",
+      "queryType": "prompted-url-retrieval-diagnostic",
+      "retrievalSucceeded": false,
+      "observation": "Completed product response says it could not retrieve content or accessible search results. This does not prove a WAF block.",
+      "evidence": null,
+      "evidenceNote": "Actual completed accessibility-tree observation; later empty home screenshot excluded.",
+      "date": "2026-10-08",
+      "checkedAt": "2026-10-08T04:09:13.734Z"
+    },
+    {
+      "engine": "Claude Search",
+      "query": "Search only the public web: What services does Clydara provide, and how can a business contact them? Do not use connected apps or account files.",
+      "queryType": "branded-natural-question",
+      "session": "Fresh incognito chat; Sonnet 5.5 Low displayed",
+      "brandMention": false,
+      "firstPartyLinkedCitation": false,
+      "citedFirstPartyUrls": [],
+      "otherCitedDomains": [
+        "cledara.com",
+        "toolradar.com",
+        "startuphub.ai",
+        "craft.co"
+      ],
+      "observation": "Completed fresh answer substituted Cledara again, a different SaaS-management company.",
+      "evidence": "seo/evidence/claude-brand-retry-2026-10-08.png",
+      "date": "2026-10-08",
+      "checkedAt": "2026-10-08T04:09:13.734Z"
+    },
+    {
+      "engine": "Perplexity",
+      "query": "Search only the public web: What services does Clydara provide, and how can a business contact them? Do not use connected apps or account files.",
+      "queryType": "branded-natural-question",
+      "session": "Fresh incognito session; Search on, Computer off; free plan",
+      "brandMention": true,
+      "firstPartyLinkedCitation": false,
+      "citedFirstPartyUrls": [],
+      "otherCitedDomains": [
+        "clutch.co"
+      ],
+      "observation": "Completed answer relies on the Clutch profile. No canonical first-party linked citation in the inspected answer. It recognizes the retail domain as different, but misattributes Clutch footer address to the provider; that address was not adopted as company information. All 18 source-panel URLs were not inspected.",
+      "evidence": "seo/evidence/perplexity-brand-retry-2026-10-08.png",
+      "resultUrl": "https://www.perplexity.ai/search/d06e7bef-80d5-4521-8277-1059c50f59f2",
+      "date": "2026-10-08",
+      "checkedAt": "2026-10-08T04:09:13.734Z"
+    },
+    {
+      "engine": "Yep",
+      "query": "site:clydralab.com",
+      "queryType": "domain-search",
+      "queryCompleted": false,
+      "observation": "Fresh product page again displayed Error. Couldn’t load search results; index inventory remains unmeasured.",
+      "evidence": null,
+      "evidenceNote": "Actual accessibility-tree observation",
+      "date": "2026-10-08",
+      "checkedAt": "2026-10-08T04:09:13.734Z"
+    },
+    {
+      "engine": "Phind",
+      "query": "(Product access only; no question executed)",
+      "queryType": "product-access",
+      "queryCompleted": false,
+      "observation": "Fresh www.phind.com entrypoint returned 404 DEPLOYMENT_NOT_FOUND. This is a provider access failure, not absence of Clydara from an index.",
+      "evidence": null,
+      "evidenceNote": "Actual accessibility-tree observation",
+      "date": "2026-10-08",
+      "checkedAt": "2026-10-08T04:09:13.734Z"
+    },
+    {
+      "engine": "Grok",
+      "query": "(New-query interaction attempt; not completed)",
+      "queryType": "product-access",
+      "queryCompleted": false,
+      "observation": "Previous response loaded, but fresh-chat navigation timed out/stale page state. No new answer or citation result is claimed.",
+      "evidence": null,
+      "evidenceNote": "Current interaction failure; previous completed answer is retained separately",
+      "date": "2026-10-08",
+      "checkedAt": "2026-10-08T04:09:13.734Z"
     }
   ],
   "unexecutedPairs": "Other questions/products in seo/ai-query-set.json remain unmeasured. Browser control intermittently timed out and was reattached to the owner's open tabs. Public result absence, a product-access blocker and an unexecuted query remain different statuses.",

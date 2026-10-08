@@ -13,6 +13,7 @@ export const appRoutes = [
   { path: '/services', entry: 'src/pages/ServicesPage.tsx', ...page(() => import('./pages/ServicesPage')) },
   { path: '/about', entry: 'src/pages/AboutPage.tsx', ...page(() => import('./pages/AboutPage')) },
   { path: '/blog', entry: 'src/pages/BlogPage.tsx', ...page(() => import('./pages/BlogPage')) },
+  { path: '/sitemap', entry: 'src/pages/SiteMapPage.tsx', ...page(() => import('./pages/SiteMapPage')) },
   { path: '/blog/:id', entry: 'src/pages/BlogDetailPage.tsx', ...page(() => import('./pages/BlogDetailPage')) },
   { path: '/contact', entry: 'src/pages/ContactPage.tsx', ...page(() => import('./pages/ContactPage')) },
   { path: '/privacy-policy', entry: 'src/pages/PrivacyPolicyPage.tsx', ...page(() => import('./pages/PrivacyPolicyPage')) },

@@ -1,5 +1,5 @@
 {
-  "at": "2026-10-07T20:55:00.112Z",
+  "at": "2026-10-08T04:09:13.842Z",
   "site": "https://www.clydralab.com",
   "definitions": {
     "A": "Direct official webmaster/submission",
@@ -81,9 +81,9 @@
       "Bot Allowed": "bingbot UA pass",
       "WAF Allowed": "PARTIAL",
       "Indexed": "NEEDS MONITORING",
-      "AI Citation": "Copilot: wrong contact entity and no canonical citation in branded answer; prompted retrieval failed",
+      "AI Citation": "Fresh Copilot branded answer still uses unrelated retail contact; explicit-URL retrieval again failed",
       "Traffic Detected": "U",
-      "Action Needed": "Retain existing Bing submissions; investigate product-specific retrieval and compare a fresh dated query",
+      "Action Needed": "Correct stale first-party/directory identity links; product failure is not proven WAF blocking",
       "Last checked": "2026-10-08",
       "Evidence": "seo/evidence/ai-search-baseline.json"
     },
@@ -97,11 +97,11 @@
       "URL/API Submission": "NO DIRECT SUBMISSION: official route is Bing",
       "Bot Allowed": "Upstream bingbot pass",
       "WAF Allowed": "PARTIAL",
-      "Indexed": "No results for domain query on 2026-10-07; index inventory unverified",
+      "Indexed": "No results for refreshed domain query on 2026-10-08; Powered by Bing shown",
       "AI Citation": "U",
       "Traffic Detected": "U",
-      "Action Needed": "Monitor the tested query; existing Bing submission is the official route",
-      "Last checked": "2026-10-07",
+      "Action Needed": "Retain existing Bing/IndexNow submissions; Yahoo has no separate add-URL route",
+      "Last checked": "2026-10-08",
       "Evidence": "seo/evidence/ai-search-baseline.json"
     },
     {
@@ -207,14 +207,14 @@
       "Account": "NOT APPLICABLE",
       "Ownership Verified": "NOT APPLICABLE",
       "Sitemap Submitted": "robots sitemap discovery",
-      "URL/API Submission": "NO DIRECT SUBMISSION documented",
+      "URL/API Submission": "No add-URL endpoint; official diagnostic form submitted, receipt unconfirmed",
       "Bot Allowed": "Qwantbot UA pass",
       "WAF Allowed": "PARTIAL",
-      "Indexed": "No results for domain query on 2026-10-07; index inventory unverified",
+      "Indexed": "No results for refreshed domain query on 2026-10-08; inventory unverified",
       "AI Citation": "U",
       "Traffic Detected": "U",
-      "Action Needed": "Monitor discovery and legitimate first-party references; no repeated fake submission",
-      "Last checked": "2026-10-07",
+      "Action Needed": "Await business-mailbox confirmation and support diagnosis; no duplicate request",
+      "Last checked": "2026-10-08",
       "Evidence": "seo/evidence/ai-search-baseline.json"
     },
     {
@@ -256,14 +256,14 @@
       "Account": "NOT APPLICABLE",
       "Ownership Verified": "NOT APPLICABLE",
       "Sitemap Submitted": "Linked web discovery",
-      "URL/API Submission": "NO DIRECT SUBMISSION",
+      "URL/API Submission": "No manual add-URL service; official diagnostic contact accepted",
       "Bot Allowed": "MojeekBot UA pass",
       "WAF Allowed": "PARTIAL",
-      "Indexed": "No results for supported site query with search term on 2026-10-07",
+      "Indexed": "No results for refreshed supported site query on 2026-10-08",
       "AI Citation": "NOT APPLICABLE",
       "Traffic Detected": "U",
-      "Action Needed": "Monitor link discovery; bare site: syntax failure is excluded",
-      "Last checked": "2026-10-07",
+      "Action Needed": "Await support reply; new HTML navigation improves linked discovery but does not guarantee indexing",
+      "Last checked": "2026-10-08",
       "Evidence": "seo/evidence/ai-search-baseline.json"
     },
     {
@@ -341,10 +341,10 @@
       "Bot Allowed": "Claude-SearchBot / Claude-User UA pass",
       "WAF Allowed": "PARTIAL",
       "Indexed": "U",
-      "AI Citation": "No first-party citation in branded answer; wrong entity. Prompted URL retrieval succeeded",
+      "AI Citation": "Fresh incognito answer still substitutes Cledara",
       "Traffic Detected": "U",
       "Action Needed": "Improve verified identity references; compare a fresh branded query later",
-      "Last checked": "2026-10-07",
+      "Last checked": "2026-10-08",
       "Evidence": "seo/evidence/ai-search-baseline.json"
     },
     {
@@ -519,11 +519,11 @@
       "URL/API Submission": "Existing IndexNow coverage",
       "Bot Allowed": "Wildcard retained; dedicated IP test U",
       "WAF Allowed": "PARTIAL",
-      "Indexed": "UNMEASURED: Yep search displayed loading error",
+      "Indexed": "UNMEASURED: fresh Yep page still fails to load results",
       "AI Citation": "U",
       "Traffic Detected": "U",
-      "Action Needed": "Retry when provider is healthy; shared IndexNow receipt remains separate",
-      "Last checked": "2026-10-07",
+      "Action Needed": "Provider recovery required for a valid result observation; existing IndexNow receipt remains separate",
+      "Last checked": "2026-10-08",
       "Evidence": "seo/evidence/ai-search-baseline.json"
     },
     {

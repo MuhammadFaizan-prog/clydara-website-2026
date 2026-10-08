@@ -17,6 +17,33 @@ test('RSS discovers the six existing guides using canonical permanent identifier
   }
 })
 
+test('link-following crawlers can discover every canonical page from a public site map', async () => {
+  assert.ok(known.has('/sitemap'), 'A public navigation page must exist')
+  const html = await readFile('dist/sitemap.html', 'utf8')
+  const links = new Set([...html.matchAll(/<a[^>]*href="([^"#?]+)"/g)].map(match => match[1]))
+  for (const page of manifest.pages.filter(page => page.path !== '/sitemap')) {
+    assert.ok(links.has(page.path), `Missing public navigation link: ${page.path}`)
+  }
+  const home = await readFile('dist/index.html', 'utf8')
+  assert.ok(/<footer[\s\S]*href="\/sitemap"/.test(home), 'Site map must be reachable through ordinary HTML navigation')
+})
+
+test('agency contact identity is coherent in visible content and structured data', async () => {
+  const about = await readFile('dist/about.html', 'utf8')
+  const contact = await readFile('dist/contact.html', 'utf8')
+  for (const html of [about, contact]) assert.ok(html.includes('clydara1@gmail.com'))
+  assert.ok(about.includes('www.clydralab.com'), 'About must identify the official agency domain')
+  for (const page of manifest.pages) {
+    const html = await readFile(`dist/${page.path === '/' ? 'index' : page.path.slice(1)}.html`, 'utf8')
+    const graph = JSON.parse(html.match(/<script[^>]*type="application\/ld\+json"[^>]*>(.*?)<\/script>/s)[1])['@graph']
+    const organization = graph.find(node => node['@type'] === 'Organization')
+    assert.equal(organization.url, manifest.origin + '/')
+    assert.equal(organization.email, 'clydara1@gmail.com')
+    assert.equal(organization.contactPoint.email, organization.email)
+    assert.equal(organization.contactPoint.url, manifest.origin + '/contact')
+  }
+})
+
 for (const page of manifest.pages) {
   test(`${page.path}: initial content, unique metadata, schema, links and Markdown`, async () => {
     const html = await readFile(`dist/${page.path === '/' ? 'index' : page.path.slice(1)}.html`, 'utf8')

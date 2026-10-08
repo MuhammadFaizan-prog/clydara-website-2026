@@ -106,7 +106,7 @@ try {
   await save('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${SITE_ORIGIN}/sitemap.xml\n`)
   await save('feed.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Clydara founder guides</title><link>${SITE_ORIGIN}/blog</link><description>Practical software, SaaS and AI guides for founders.</description><language>en</language><atom:link href="${SITE_ORIGIN}/feed.xml" rel="self" type="application/rss+xml"/>${pages.filter(page => page.author).map(page => `<item><title>${escape(page.name)}</title><link>${SITE_ORIGIN}${page.path}</link><guid isPermaLink="true">${SITE_ORIGIN}${page.path}</guid><description>${escape(page.description)}</description></item>`).join('')}</channel></rss>\n`)
   const sections = [
-    ['Company and services', pages.filter(page => ['/', '/services', '/about', '/contact', '/works'].includes(page.path))],
+    ['Company and services', pages.filter(page => ['/', '/services', '/about', '/contact', '/works', '/sitemap'].includes(page.path))],
     ['Founder guides', pages.filter(page => page.author)],
     ['Policies', pages.filter(page => ['/privacy-policy', '/terms-and-condition'].includes(page.path))],
   ]

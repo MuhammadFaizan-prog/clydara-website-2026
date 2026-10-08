@@ -1,0 +1,47 @@
+{
+  "at": "2026-10-08T04:09:13.778Z",
+  "qwant": {
+    "form": "https://help.qwant.com/hc/en-us/requests/new?ticket_form_id=48315491012113",
+    "subject": "Website missing from Qwant results: www.clydralab.com",
+    "publicEmail": "clydara1@gmail.com",
+    "status": "FORM SUBMITTED; redirected to help center; no confirmation ticket/email independently verified",
+    "receiptVerified": false,
+    "screenshot": "qwant-request-redirect-2026-10-08.png",
+    "note": "No duplicate resubmission. Correct recipient mailbox not available in current Gmail session."
+  },
+  "mojeek": {
+    "form": "https://www.mojeek.com/about/contact",
+    "subject": "Clydara website discovery diagnostic: www.clydralab.com",
+    "publicEmail": "clydara1@gmail.com",
+    "status": "DIAGNOSTIC ACCEPTED",
+    "confirmation": "Thank you for contacting us, we will reply as soon as possible.",
+    "receiptVerified": true,
+    "screenshot": "mojeek-diagnostic-confirmed-2026-10-08.png",
+    "earlierAttempt": "Search-feedback form first required a face rating, then returned incorrect token sent. Fresh general-contact form succeeded.",
+    "indexing": "Still unverified; support receipt is not indexing"
+  },
+  "vercel": {
+    "projectScopeVerified": true,
+    "legacyAndCurrentProjectSameAccount": true,
+    "activeFirewallConfig": "HTTP404 Seawall Config not found",
+    "runtimeLogs": "No records in returned 50-minute window",
+    "actualCrawlerIpAccess": "UNVERIFIED; neither result proves an open WAF",
+    "changes": "No protection, training policy or firewall setting changed"
+  },
+  "clutch": {
+    "profile": "https://clutch.co/profile/clydara",
+    "outboundWebsite": "https://clydara-web.vercel.app/",
+    "expectedWebsite": "https://www.clydralab.com/",
+    "legacyPublicBrand": "Clydara; matching public clydara1@gmail.com contact",
+    "oldDomainOwnedProjectVerified": true,
+    "profileEdit": "PENDING: sign-in accepts Terms/Privacy; action-time confirmation requested",
+    "profileFacts": "Founding-date conflict, prices and client metrics not copied; Washington address is Clutch footer, not established agency office"
+  },
+  "toolkit": {
+    "version": "2.4.2",
+    "reviewedCommit": "4b99de2f7de7e7d5247042e5fb5b4ea9368ef734",
+    "pluginUpdate": "CLI confirmed 2.4.1 → 2.4.2",
+    "setup": "Managed setup running; readiness not yet claimed",
+    "notes": "Current GEO/agentic workflow reviewed; speculative correlation/guarantee claims not adopted."
+  }
+}

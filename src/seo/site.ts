@@ -18,6 +18,7 @@ export const pages: SeoPage[] = [
   { path: '/contact', title: 'Contact Clydara | Discuss Your Software or Website Project', name: 'Contact Clydara', type: 'ContactPage', description: 'Tell Clydara about your website, SaaS, CRM or AI integration project. Share your requirements through our contact form to start a project discussion.', intent: 'Transactional: project enquiry' },
   { path: '/works', title: 'Website & Software Development Portfolio | Clydara', name: 'Our work', type: 'CollectionPage', description: 'Explore Clydara website development and design projects, including Lehar Resorts, JKM Globals and JKM Solutions. View project scope and services.', intent: 'Commercial investigation: portfolio evidence' },
   { path: '/blog', title: 'Software, SaaS & AI Guides for Founders | Clydara', name: 'Founder guides', type: 'CollectionPage', description: 'Practical guides to custom software versus SaaS, MERN, AI integration, development teams, SaaS costs and website lead generation from Clydara.', intent: 'Informational: software decision guides' },
+  { path: '/sitemap', title: 'Site Map | Clydara Services, Projects & Guides', name: 'Site map', type: 'CollectionPage', description: 'Find Clydara company information, development services, portfolio projects, software decision guides and policies in one public navigation page.', intent: 'Navigational: discover public pages' },
   { path: '/privacy-policy', title: 'Privacy Policy | Clydara', name: 'Privacy policy', description: 'Read the Clydara privacy policy covering information collection, how information is used, third-party services and your data rights.', intent: 'Branded: privacy and trust' },
   { path: '/terms-and-condition', title: 'Terms and Conditions | Clydara', name: 'Terms and conditions', description: 'Read the Clydara terms and conditions covering project work, responsibilities, payments, intellectual property and confidentiality.', intent: 'Branded: terms and trust' },
   { path: '/works/archin', title: 'Lehar Resorts Website Development | Clydara Portfolio', name: 'Lehar Resorts', description: 'View the Lehar Resorts website project by Clydara, covering full stack development, UI/UX, product design and branding.', intent: 'Commercial investigation: resort website project' },
@@ -37,7 +38,12 @@ export function getPage(pathname: string): SeoPage | undefined {
 
 export function getSchema(page: SeoPage) {
   const url = SITE_ORIGIN + page.path
-  const organization = { '@type': 'Organization', '@id': SITE_ORIGIN + '/#organization', name: 'Clydara', url: SITE_ORIGIN + '/', description: pages[0].description }
+  const organization = {
+    '@type': 'Organization', '@id': SITE_ORIGIN + '/#organization',
+    name: 'Clydara', url: SITE_ORIGIN + '/', description: pages[0].description,
+    logo: SITE_ORIGIN + '/clydara-seal.png', email: 'clydara1@gmail.com',
+    contactPoint: { '@type': 'ContactPoint', contactType: 'project enquiries', email: 'clydara1@gmail.com', url: SITE_ORIGIN + '/contact' },
+  }
   const graph: Record<string, unknown>[] = [organization,
     { '@type': 'WebSite', '@id': SITE_ORIGIN + '/#website', url: SITE_ORIGIN + '/', name: 'Clydara', inLanguage: 'en', publisher: { '@id': organization['@id'] } },
     { '@type': page.type || 'WebPage', '@id': url + '#webpage', url, name: page.name, description: page.description, inLanguage: 'en', isPartOf: { '@id': SITE_ORIGIN + '/#website' }, about: { '@id': organization['@id'] } },

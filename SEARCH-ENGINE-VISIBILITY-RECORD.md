@@ -56,3 +56,19 @@ Append new dated observations to `seo/evidence/ai-search-baseline.json`; retain 
 # 8 October commercial follow-through
 
 Four non-branded observations are now added to `seo/evidence/ai-search-baseline.json` (29 total): Google classic, Google AI Overviews, Brave classic and Ask Brave for **Should a startup build custom software or buy SaaS?** No Clydara first-party result/citation was observed within those inspected results. This does not negate the prior branded citations or prove global absence. See [execution and evidence](seo/HIGH-PRIORITY-EXECUTION-2026-10-08.md).
+
+## Failed checks revisited — 8 October
+
+| Platform | Fresh result / action | Verification limit |
+|---|---|---|
+| Qwant | Domain search still empty; official missing-site form submitted | Redirect captured; ticket/email receipt not confirmed |
+| Mojeek | Supported domain query still empty; diagnostic request accepted | Confirmation is support intake, not indexing |
+| Yahoo | Domain query still empty; page says Powered by Bing | Existing upstream submissions retained; no invented Yahoo endpoint |
+| Copilot | Wrong retail email persists; explicit-URL retrieval still fails | Completed product responses; empty later screenshot excluded |
+| Claude | Fresh incognito answer still substitutes Cledara | Completed answer and screenshot; no first-party citation |
+| Perplexity | Fresh incognito answer still relies on directory | Answer inspected; all 18 source-panel URLs not inspected |
+| Yep | Provider loading error persists | Result inventory unmeasured |
+| Phind | Provider deployment404 persists | No question executed |
+| Grok | New-chat navigation timed out | No new answer claimed; prior result retained |
+
+[Diagnostic receipts and limitations](seo/evidence/failed-coverage-diagnostics.json). The visibility baseline now preserves 39 observations; earlier failures are retained. The Clutch profile cited by failed answers links to the controlled legacy project clydara-web.vercel.app. Its website field should point to the owner-confirmed canonical domain; sign-in terms confirmation is pending. Do not adopt unsupported directory dates, rates, client claims or a footer address.

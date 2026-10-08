@@ -135,7 +135,7 @@ export default function AboutPage() {
           </h1>
 
           <p className="about-hero-sub">
-            At Clydara, we transform ambitious ideas into powerful digital solutions. From modern websites and custom SaaS platforms to AI-powered automation, CRM systems, and creative branding, we help businesses innovate, scale, and thrive through technology-driven experiences.
+            Clydara is a software development and design agency for startups and growing businesses. Our official website is <a href="https://www.clydralab.com/">www.clydralab.com</a>. We build websites, custom SaaS platforms, CRM systems, AI integrations and brand identities. For project enquiries, email <a href="mailto:clydara1@gmail.com">clydara1@gmail.com</a> or use our <Link to="/contact">contact page</Link>.
           </p>
 
           <Link to="/works" className="about-hero-cta">

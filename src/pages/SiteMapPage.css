@@ -1,0 +1,33 @@
+.site-map-page {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 64px 32px 80px;
+}
+.site-map-page h1 {
+  font-size: clamp(36px, 6vw, 64px);
+  line-height: 1.15;
+  margin-bottom: 24px;
+}
+.site-map-page > p {
+  max-width: 760px;
+  line-height: 1.75;
+  color: var(--color-text-secondary);
+}
+.site-map-page a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.site-map-groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+}
+.site-map-groups h2 { font-size: 26px; line-height: 1.3; margin-bottom: 16px; }
+.site-map-groups ul { padding-left: 20px; }
+.site-map-groups li { line-height: 1.65; margin-bottom: 12px; }
+@media (max-width: 700px) {
+  .site-map-page { padding: 40px 24px 60px; }
+  .site-map-groups { grid-template-columns: 1fr; gap: 28px; }
+}

@@ -324,3 +324,21 @@ Accessibility remains93mobile/94desktop; best practices and SEO100; agentic3/3ap
 The [deployment notification workflow](https://github.com/MuhammadFaizan-prog/clydara-website-2026/actions/runs/37694259587) succeeded and correctly reported no meaningful content changes, so it submitted no unchanged URLs. The previous guide/image release's three accepted URLs retain their receipt. Submission is not indexing.
 
 **Outstanding critical handoff:** EmailJS → Email Services → existing Gmail service → reconnect the same clydara1@gmail.com account, update/save the service, then verify one clearly labelled contact test in EmailJS history and the recipient inbox. Dashboard login alone does not restore an expired Gmail grant. The OAuth window did not open on the available controllable surfaces; the original service was preserved. No private key was committed or placed in browser code. Meta AI remains owner-skipped. Authentic traffic, qualified conversions, field CWV and provider-IP crawler access remain unproven and are documented as remaining work.
+
+## Failed checks revisited — 8 October
+
+| Platform | Fresh result / action | Verification limit |
+|---|---|---|
+| Qwant | Domain search still empty; official missing-site form submitted | Redirect captured; ticket/email receipt not confirmed |
+| Mojeek | Supported domain query still empty; diagnostic request accepted | Confirmation is support intake, not indexing |
+| Yahoo | Domain query still empty; page says Powered by Bing | Existing upstream submissions retained; no invented Yahoo endpoint |
+| Copilot | Wrong retail email persists; explicit-URL retrieval still fails | Completed product responses; empty later screenshot excluded |
+| Claude | Fresh incognito answer still substitutes Cledara | Completed answer and screenshot; no first-party citation |
+| Perplexity | Fresh incognito answer still relies on directory | Answer inspected; all 18 source-panel URLs not inspected |
+| Yep | Provider loading error persists | Result inventory unmeasured |
+| Phind | Provider deployment404 persists | No question executed |
+| Grok | New-chat navigation timed out | No new answer claimed; prior result retained |
+
+[Diagnostic receipts and limitations](seo/evidence/failed-coverage-diagnostics.json). The visibility baseline now preserves 39 observations; earlier failures are retained. The Clutch profile cited by failed answers links to the controlled legacy project clydara-web.vercel.app. Its website field should point to the owner-confirmed canonical domain; sign-in terms confirmation is pending. Do not adopt unsupported directory dates, rates, client claims or a footer address.
+
+Implementation: new public /sitemap navigation, footer link, Markdown/XML inclusion, direct About identity/contact introduction and consistent Organization email/logo/ContactPoint. Existing routes and animations preserved. Build, lint and23SEO checks passed; production verification follows the push. These are accessibility/entity improvements, not proof of new indexing, AI citation or traffic.

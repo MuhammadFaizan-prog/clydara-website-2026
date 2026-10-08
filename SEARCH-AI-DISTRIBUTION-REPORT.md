@@ -197,3 +197,19 @@ Meta AI is **owner-skipped and untested** after its login reached a recovery/sec
 ## First-party acquisition baseline — 8 October
 
 Authenticated GA4 acquisition and its linked GSC Queries report were read for September10–October7. GA4:6sessions (4Direct,2Organic Search),0key events. GSC query report:0clicks,2impressions,0%CTR,position93. These small, delayed and differently defined measurements do not establish external prospect growth. [Data, screenshots and limitations](seo/evidence/first-party-acquisition-baseline.json).
+
+## Failed checks revisited — 8 October
+
+| Platform | Fresh result / action | Verification limit |
+|---|---|---|
+| Qwant | Domain search still empty; official missing-site form submitted | Redirect captured; ticket/email receipt not confirmed |
+| Mojeek | Supported domain query still empty; diagnostic request accepted | Confirmation is support intake, not indexing |
+| Yahoo | Domain query still empty; page says Powered by Bing | Existing upstream submissions retained; no invented Yahoo endpoint |
+| Copilot | Wrong retail email persists; explicit-URL retrieval still fails | Completed product responses; empty later screenshot excluded |
+| Claude | Fresh incognito answer still substitutes Cledara | Completed answer and screenshot; no first-party citation |
+| Perplexity | Fresh incognito answer still relies on directory | Answer inspected; all 18 source-panel URLs not inspected |
+| Yep | Provider loading error persists | Result inventory unmeasured |
+| Phind | Provider deployment404 persists | No question executed |
+| Grok | New-chat navigation timed out | No new answer claimed; prior result retained |
+
+[Diagnostic receipts and limitations](seo/evidence/failed-coverage-diagnostics.json). The visibility baseline now preserves 39 observations; earlier failures are retained. The Clutch profile cited by failed answers links to the controlled legacy project clydara-web.vercel.app. Its website field should point to the owner-confirmed canonical domain; sign-in terms confirmation is pending. Do not adopt unsupported directory dates, rates, client claims or a footer address.
