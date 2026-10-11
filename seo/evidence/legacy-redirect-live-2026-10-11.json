@@ -1,0 +1,18 @@
+{
+  "checkedAtUtc": "2026-10-11T16:02:15Z",
+  "sourceRepository": "MuhammadFaizan-prog/Clydara-web",
+  "sourceCommit": "5374798",
+  "sourceBranch": "main",
+  "checks": [
+    { "url": "https://clydara-web.vercel.app/", "status": 301, "location": "https://www.clydralab.com/" },
+    { "url": "https://clydara-web.vercel.app/?utm_source=clutch.co", "status": 301, "location": "https://www.clydralab.com/?utm_source=clutch.co" },
+    { "url": "https://www.clydralab.com/", "status": 200 },
+    { "url": "https://clydara-web.vercel.app/services/ai", "status": 404, "baselineStatus": 404 },
+    { "url": "https://clydara-web.vercel.app/assets/index-C21f71L0.js", "status": 200 },
+    { "url": "https://clydara-web-157l.vercel.app/", "status": 404, "baselineStatus": 404 }
+  ],
+  "browser": "In-app browser navigation to the old homepage ended at https://www.clydralab.com/ and displayed the canonical homepage.",
+  "clutch": "Public Visit Website redirect still contained provider_website=clydara-web.vercel.app on 2026-10-11; earlier official support form accepted the correction request. Public field update is unverified.",
+  "validation": "Official Vercel JSON schema accepted the one-rule config; legacy Vite build passed. Legacy lint failed on three unchanged source/config files.",
+  "limits": "A redirect fixes visits from the old homepage link. It does not prove Clutch updated its listing, search indexing, rankings, leads, or email delivery."
+}

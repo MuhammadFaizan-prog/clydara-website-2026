@@ -1,0 +1,100 @@
+{
+  "at": "2026-10-11T15:58:43.300Z",
+  "schema": "https://openapi.vercel.sh/vercel.json",
+  "schemaValid": true,
+  "config": {
+    "$schema": "https://openapi.vercel.sh/vercel.json",
+    "redirects": [
+      {
+        "source": "/",
+        "has": [
+          {
+            "type": "host",
+            "value": "clydara-web.vercel.app"
+          }
+        ],
+        "destination": "https://www.clydralab.com/",
+        "statusCode": 301
+      }
+    ]
+  },
+  "checks": [
+    {
+      "host": "clydara-web.vercel.app",
+      "path": "/",
+      "expected": true,
+      "selected": true
+    },
+    {
+      "host": "clydara-web-157l.vercel.app",
+      "path": "/",
+      "expected": false,
+      "selected": false
+    },
+    {
+      "host": "clydara-web-git-main-example.vercel.app",
+      "path": "/",
+      "expected": false,
+      "selected": false
+    },
+    {
+      "host": "www.clydralab.com",
+      "path": "/",
+      "expected": false,
+      "selected": false
+    },
+    {
+      "host": "clydara-web.vercel.app",
+      "path": "/services/ai",
+      "expected": false,
+      "selected": false
+    }
+  ],
+  "baseline": [
+    {
+      "url": "https://clydara-web.vercel.app/",
+      "status": 200,
+      "location": null,
+      "title": "Clydara Solutions – AI, GenAI & Recruitment Services",
+      "assets": [
+        "/assets/index-C21f71L0.js",
+        "/assets/index-iWst_1is.css"
+      ]
+    },
+    {
+      "url": "https://clydara-web-157l.vercel.app/",
+      "status": 404,
+      "location": null,
+      "assets": []
+    },
+    {
+      "url": "https://clydara-web.vercel.app/services/ai",
+      "status": 404,
+      "location": null,
+      "assets": []
+    },
+    {
+      "url": "https://www.clydralab.com/",
+      "status": 200,
+      "location": null,
+      "title": "Clydara | AI, SaaS &amp; Custom Software Development Agency",
+      "assets": [
+        "/assets/index-BlFwzuGt.js",
+        "/assets/index-D9CRoPq-.css",
+        "/assets/HomePage-u0MzTojp.js",
+        "/assets/HomePage-DZbEWymO.css",
+        "/assets/index-BlFwzuGt.js",
+        "/assets/RevealHeading-O1pczr5T.js",
+        "/assets/Values-BxYiSnP9.js",
+        "/assets/Values-DvD0rcTt.css",
+        "/assets/FAQ-DXGDZA-x.js",
+        "/assets/FAQ-D9Iowv1c.css",
+        "/assets/Works-DKRVwvyD.js",
+        "/assets/Works-DrHz5-zg.css",
+        "/assets/Pricing-CAZIzH0G.js",
+        "/assets/Pricing-Ccagw_xt.css"
+      ]
+    }
+  ],
+  "note": "Static scope checks are not Vercel edge execution proof. Real host-qualified redirect and nonmatching host/path behavior must be verified after deployment."
+}
