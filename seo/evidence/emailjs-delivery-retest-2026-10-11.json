@@ -1,0 +1,26 @@
+{
+  "testedAtLocal": "2026-10-11 21:08:55 Asia/Karachi",
+  "testId": "CLY-20261011-01",
+  "liveForm": "https://www.clydralab.com/contact",
+  "service": "Existing Gmail service updated successfully after reconnecting clydara1@gmail.com",
+  "formResult": "Message Sent Successfully!",
+  "emailJsHistory": {
+    "filter": "CLY-20261011-01",
+    "matches": 1,
+    "createdAtLocal": "2026-10-11 21:08:55 Asia/Karachi",
+    "result": "OK",
+    "service": "Gmail",
+    "template": "Contact Us"
+  },
+  "recipientInbox": {
+    "account": "clydara1@gmail.com",
+    "folder": "Inbox",
+    "observedAtLocal": "2026-10-11 21:08 Asia/Karachi",
+    "subject": "Contact Us: Website project enquiry",
+    "testIdInBody": true,
+    "fieldsVerified": ["name", "email", "message", "subject", "submitted_at"],
+    "replyAddressCheck": "The message details displayed the test sender address clydara1@gmail.com. A separate reply workflow was not performed."
+  },
+  "scope": "One labeled live form submission after service reconnection. The service's own save action also showed a separate OK test entry at 21:07:36 without the Contact Us template.",
+  "limits": "One successful end-to-end test proves current delivery to the configured inbox; it does not guarantee future provider availability or delivery to every mailbox."
+}
