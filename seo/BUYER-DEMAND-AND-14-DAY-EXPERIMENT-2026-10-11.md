@@ -19,19 +19,19 @@ Research date: 11 October 2026. This is a small qualitative sample of public pro
 
 The repeated pattern is **workflow clarity before software scope**: buyers ask what data belongs in the system, which actions should be automated, which dashboard matters, and whether to configure an existing platform or build custom software. Several request past-work examples. The sample is biased toward indexed English-language marketplace posts and cannot establish search volume, win rate, or typical budgets.
 
-## Recommended draft offer
+## Draft offer — deferred until Clydara CRM is ready
 
-**CRM & Workflow Blueprint for service businesses.** A scoped discovery engagement that maps the existing lead-to-delivery workflow, identifies avoidable manual handoffs, and gives the buyer a build-vs-configure recommendation and phased implementation scope. This fits Clydara's existing public CRM, dashboard and automation services without claiming a client result or a tool certification. The [landing-page draft](CRM-WORKFLOW-BLUEPRINT-DRAFT.md) is internal review copy, not published.
+**CRM & Workflow Blueprint for service businesses.** This was drafted as possible positioning, but Clydara's CRM product is under construction. Keep the [landing-page draft](CRM-WORKFLOW-BLUEPRINT-DRAFT.md) parked; do not publish or promote it until the product is complete and the team decides whether to market the product, implementation services, or both.
 
 Before publishing or quoting, Clydara should verify its delivery capacity, decide what access it can safely accept, set its actual fee and timeline, and choose one demonstrable example. Do not promise a particular revenue increase, automation percentage, integration, or AI capability without a tested scope.
 
-## 14-day experiment
+## 14-day experiment — do not start before CRM launch readiness
 
-Objective: learn whether the offer generates **qualified conversations** with service businesses, rather than merely impressions.
+Objective after product readiness: learn whether the offer generates **qualified conversations** with service businesses, rather than merely impressions. This experiment has not started.
 
-Channels to test: (1) a focused website offer linked from relevant services/contact pages after approval; (2) ten carefully selected agency-partner or marketplace opportunities that permit an agency to respond. No mass outreach or applications are authorized by this document. Check each platform's rules and buyer fit before any contact.
+Channels to consider after launch: (1) a focused website offer linked from relevant services/contact pages after approval; (2) ten carefully selected agency-partner or marketplace opportunities that permit an agency to respond. No mass outreach or applications have been made. Check each platform's rules and buyer fit before any contact.
 
-Days 1–2: approve scope, fee/timeline, qualifying questions and one truthful work example; publish only after these are settled. Days 3–10: select relevant opportunities, record their fit and the exact problem; send personalized responses only if separately authorized. Days 11–14: review outcomes, identify objections, and either refine or retire the offer.
+Before Day 1: finish the CRM, prepare a truthful demo and confirm onboarding/support, product scope, fee and qualification criteria. Then approve an offer and work example. Days 1–2: approve scope, fee/timeline, qualifying questions and one truthful work example; publish only after these are settled. Days 3–10: select relevant opportunities, record their fit and the exact problem; send personalized responses only if separately authorized. Days 11–14: review outcomes, identify objections, and either refine or retire the offer.
 
 Success criteria set **before launch**: at least three qualified conversations from the tested channels, with qualification defined as a real business, a CRM/workflow problem, an identified decision-maker, and willingness to discuss scope. This is a learning threshold, not a forecast. Record visits, enquiries, qualified conversations, proposals and closed work separately. A blank [tracker](14-day-acquisition-tracker.csv) is provided; do not fill unknowns with zero.
 

@@ -1,6 +1,6 @@
 # Draft landing page: CRM & Workflow Blueprint
 
-**Status:** Internal draft for review. Not a live service page, priced offer, or delivery commitment.
+**Status:** Parked until the Clydara CRM product is complete and ready to show. Not a live service page, priced offer, or delivery commitment. Revisit this copy after launch planning; do not market the CRM as available while it is under construction.
 
 **Suggested URL if approved:** `/services/crm-workflow-blueprint`
 
@@ -44,4 +44,4 @@ It is less useful when the buyer already has a complete technical specification 
 
 **CTA:** [Discuss your CRM or workflow problem](/contact)
 
-**Publishing gate:** Confirm the exact process, price, delivery time, proof example, terminology and service capacity with Clydara before this copy becomes public. Do not claim certifications, ROI, client outcomes, or guaranteed timelines that cannot be verified.
+**Publishing gate:** First confirm the CRM product is complete, usable in a public demo, and ready to accept prospective users. Then decide whether this page should describe the product, implementation services, or both. Confirm the exact process, price, delivery time, proof example, terminology and support capacity before publishing. Do not claim certifications, ROI, client outcomes, or guaranteed timelines that cannot be verified.
