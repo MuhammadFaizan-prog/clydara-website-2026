@@ -33,6 +33,9 @@ export const pages: SeoPage[] = [
   { path: '/blog/startup-website-mistakes', title: 'Why Startup Websites Fail to Generate Leads | Clydara', name: 'Why Most Startup Websites Never Generate Leads', description: 'Improve positioning, proof, performance and lead measurement on startup websites. Includes a sourced performance measurement example from Clydara’s own site.', author: 'Rohan Baig', dateModified: '2026-10-08', image: 'https://framerusercontent.com/images/6q3AkgZ10FtoWjmSoY6KZKf8tn0.png?width=916&height=1140', intent: 'Problem-aware: website conversion' },
 ]
 
+// Section names as they appear in the site navigation.
+const sectionLabels: Record<string, string> = { blog: 'Blog', works: 'Works' }
+
 export function getPage(pathname: string): SeoPage | undefined {
   return pages.find(page => page.path === (pathname.replace(/\/+$/, '') || '/'))
 }
@@ -50,6 +53,20 @@ export function getSchema(page: SeoPage) {
     { '@type': 'WebSite', '@id': SITE_ORIGIN + '/#website', url: SITE_ORIGIN + '/', name: 'Clydara', inLanguage: 'en', publisher: { '@id': organization['@id'] } },
     { '@type': page.type || 'WebPage', '@id': url + '#webpage', url, name: page.name, description: page.description, inLanguage: 'en', isPartOf: { '@id': SITE_ORIGIN + '/#website' }, about: { '@id': organization['@id'] } },
   ]
+  // Guides and case studies sit one level below a section page; describe that path for search results.
+  const section = page.path.split('/').filter(Boolean)
+  if (section.length === 2 && sectionLabels[section[0]]) {
+    const breadcrumbId = url + '#breadcrumb'
+    graph[2].breadcrumb = { '@id': breadcrumbId }
+    graph.push({
+      '@type': 'BreadcrumbList', '@id': breadcrumbId,
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_ORIGIN + '/' },
+        { '@type': 'ListItem', position: 2, name: sectionLabels[section[0]], item: SITE_ORIGIN + '/' + section[0] },
+        { '@type': 'ListItem', position: 3, name: page.name, item: url },
+      ],
+    })
+  }
   if (page.author) graph.push({ '@type': 'BlogPosting', '@id': url + '#article', headline: page.name, description: page.description, image: page.image, dateModified: page.dateModified, author: { '@type': 'Person', name: page.author, url: SITE_ORIGIN + '/about' }, publisher: { '@id': organization['@id'] }, mainEntityOfPage: { '@id': url + '#webpage' }, inLanguage: 'en' })
   if (page.path === '/services') {
     for (const name of ['Web Development', 'SaaS & Business Solutions', 'AI Integration & Automation', 'Branding & Creative Design']) {
