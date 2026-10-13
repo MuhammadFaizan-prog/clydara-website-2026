@@ -127,7 +127,7 @@ export default function ServicesPage() {
           </h1>
 
           <p className="services-hero-sub">
-            Clydara designs websites, builds custom SaaS and business software, integrates AI workflows, and creates brand identities for startups and growing businesses.
+            Clydara, a web, SaaS and AI development studio in Lahore, Pakistan, designs websites, builds custom SaaS and business software, integrates AI workflows, and creates brand identities for startups and growing businesses.
           </p>
 
           <a href="#pricing" className="services-hero-cta">

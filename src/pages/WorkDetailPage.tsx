@@ -71,8 +71,9 @@ export default function WorkDetailPage() {
         </div>
 
         {/* Metadata Banner */}
-        <div
+        <dl
           style={{
+            margin: 0,
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',
             gap: '24px',
@@ -84,20 +85,20 @@ export default function WorkDetailPage() {
           }}
         >
           <div>
-            <span style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--color-text-muted)' }}>Year</span>
-            <p style={{ fontFamily: 'var(--font-heading)', fontSize: '22px', marginTop: '4px' }}>{project.year}</p>
+            <dt style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--color-text-muted)' }}>Year</dt>
+            <dd style={{ margin: 0, fontFamily: 'var(--font-heading)', fontSize: '22px', marginTop: '4px' }}>{project.year}</dd>
           </div>
           <div>
-            <span style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--color-text-muted)' }}>Role</span>
-            <p style={{ fontFamily: 'var(--font-heading)', fontSize: '22px', marginTop: '4px' }}>{project.role}</p>
+            <dt style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--color-text-muted)' }}>Role</dt>
+            <dd style={{ margin: 0, fontFamily: 'var(--font-heading)', fontSize: '22px', marginTop: '4px' }}>{project.role}</dd>
           </div>
           <div>
-            <span style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--color-text-muted)' }}>Services</span>
-            <p style={{ fontFamily: 'var(--font-body)', fontSize: '15px', color: 'var(--color-text-secondary)', marginTop: '4px' }}>
+            <dt style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--color-text-muted)' }}>Services</dt>
+            <dd style={{ margin: 0, fontFamily: 'var(--font-body)', fontSize: '15px', color: 'var(--color-text-secondary)', marginTop: '4px' }}>
               {project.services.join(', ')}
-            </p>
+            </dd>
           </div>
-        </div>
+        </dl>
 
         {/* Big Showcase Image */}
         <div

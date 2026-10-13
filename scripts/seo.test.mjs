@@ -307,3 +307,10 @@ test('FAQ questions are headings and the home page keeps a descending heading or
   const levels = [...home.matchAll(/<h([1-6])\b/g)].map(match => Number(match[1]))
   levels.forEach((level, index) => index && assert.ok(level - levels[index - 1] <= 1, `heading jumps from h${levels[index - 1]} to h${level}`))
 })
+
+test('Markdown copies keep breadcrumbs on one line and case-study facts as label: value pairs', async () => {
+  const guide = await readFile('dist/blog/saas-development-cost.md', 'utf8')
+  assert.match(guide, /^Breadcrumb: \[Home\]\(https:\/\/www\.clydralab\.com\/\) > \[Guides\]\(https:\/\/www\.clydralab\.com\/blog\) > How Much Does It Cost to Build a SaaS Platform\?$/m)
+  const study = await readFile('dist/works/archin.md', 'utf8')
+  for (const line of ['- Year: 2026', '- Role: Full Stack Development', '- Services: UI UX Design, Product Design, Branding, Full Stack Development']) assert.ok(study.includes(line), line)
+})

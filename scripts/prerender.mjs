@@ -15,7 +15,9 @@ const save = async (path, content) => {
 
 function markdown(html, page, origin) {
   let body = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1] || ''
-  body = body.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, '')
+  body = body.replace(/<nav class="seo-breadcrumbs[^"]*" aria-label="Breadcrumb">([\s\S]*?)<\/nav>/, (_, list) =>
+      '<p>Breadcrumb: ' + [...list.matchAll(/<li>([\s\S]*?)<\/li>/g)].map(item => item[1]).join(' &gt; ') + '</p>')
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, '')
     .replace(/<style\b[^>]*>[\s\S]*?<\/style>/g, '')
     .replace(/<img\b[^>]*>/g, '')
     .replace(/<a\b[^>]*href="([^"]*)"[^>]*>([\s\S]*?)<\/a>/g, (_, href, text) => {
