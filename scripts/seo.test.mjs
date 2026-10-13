@@ -64,6 +64,7 @@ test('agency contact identity is coherent in visible content and structured data
     assert.equal(organization.email, 'clydara1@gmail.com')
     assert.equal(organization.contactPoint.email, organization.email)
     assert.equal(organization.contactPoint.url, manifest.origin + '/contact')
+    assert.deepEqual(organization.sameAs, ['https://dev.to/clydaralab', 'https://www.behance.net/clydaralab', 'https://dribbble.com/clydara'])
   }
 })
 

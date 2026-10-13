@@ -44,6 +44,7 @@ export function getSchema(page: SeoPage) {
     name: 'Clydara', url: SITE_ORIGIN + '/', description: pages[0].description,
     logo: SITE_ORIGIN + '/clydara-seal.png', email: 'clydara1@gmail.com',
     contactPoint: { '@type': 'ContactPoint', contactType: 'project enquiries', email: 'clydara1@gmail.com', url: SITE_ORIGIN + '/contact' },
+    sameAs: ['https://dev.to/clydaralab', 'https://www.behance.net/clydaralab', 'https://dribbble.com/clydara'],
   }
   const graph: Record<string, unknown>[] = [organization,
     { '@type': 'WebSite', '@id': SITE_ORIGIN + '/#website', url: SITE_ORIGIN + '/', name: 'Clydara', inLanguage: 'en', publisher: { '@id': organization['@id'] } },
