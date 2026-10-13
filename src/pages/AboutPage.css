@@ -133,41 +133,6 @@
   transition: opacity 0.1s ease;
 }
 
-.about-tags-cloud {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-}
-
-.about-tags-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.about-cloud-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 24px;
-  border-radius: 50px;
-  background: rgba(12, 12, 12, 0.82);
-  color: #ffffff;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.24), 0px 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-.tag-icon {
-  font-size: 13px;
-  opacity: 0.9;
-}
-
 /* About Tapes Section */
 .about-tapes-section {
   position: relative;

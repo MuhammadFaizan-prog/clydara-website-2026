@@ -6,6 +6,9 @@ import { RevealChars } from '../components/common/RevealChars'
 import { RevealHeading } from '../components/common/RevealHeading'
 import Values from '../components/Values/Values'
 import FAQ from '../components/FAQ/FAQ'
+// The hero logo marquee and service tapes reuse LogoTicker styles; import them so a direct visit to /about is styled.
+import '../components/LogoTicker/LogoTicker.css'
+import '../styles/tag-cloud.css'
 import './AboutPage.css'
 import './SeoContent.css'
 

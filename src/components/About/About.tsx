@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import '../../styles/tag-cloud.css'
 import './About.css'
 
 gsap.registerPlugin(ScrollTrigger)

@@ -194,3 +194,25 @@ test('direct page loads include built route assets without every page bundle', a
   const contactHtml = await readFile('dist/contact.html', 'utf8')
   assert.ok(!contactHtml.includes(bundles['src/pages/BlogDetailPage.tsx'].file), 'Enquiries must not load the large guide-detail bundle')
 })
+
+test('direct page loads style every class they render (no styles that only arrive after client navigation)', async () => {
+  const { readdir } = await import('node:fs/promises')
+  const cssFiles = (await readdir('dist/assets')).filter(file => file.endsWith('.css'))
+  const classesIn = {}
+  for (const file of cssFiles) {
+    const css = (await readFile(`dist/assets/${file}`, 'utf8')).replace(/url\([^)]*\)/g, '')
+    classesIn[file] = new Set([...css.matchAll(/\.(-?[_a-zA-Z][\w-]*)/g)].map(match => match[1]))
+  }
+  const styledSomewhere = new Set(Object.values(classesIn).flatMap(set => [...set]))
+  // Pure animation-delay helpers shared by hero pills are harmless if absent.
+  const allowed = new Set(['hero-pill-1', 'hero-pill-2', 'hero-pill-3'])
+  for (const page of manifest.pages) {
+    const html = await readFile(`dist/${page.path === '/' ? 'index' : page.path.slice(1)}.html`, 'utf8')
+    const linked = [...html.matchAll(/href="\/assets\/([^"]+\.css)"/g)].map(match => match[1])
+    const available = new Set(linked.flatMap(file => [...(classesIn[file] || [])]))
+    const body = html.split('<div id="root">')[1] || ''
+    const used = new Set([...body.matchAll(/class="([^"]+)"/g)].flatMap(match => match[1].split(/\s+/)))
+    const missing = [...used].filter(name => styledSomewhere.has(name) && !available.has(name) && !allowed.has(name))
+    assert.deepEqual(missing, [], `${page.path} renders classes whose styles are not loaded on a direct visit`)
+  }
+})
