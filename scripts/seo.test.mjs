@@ -51,6 +51,15 @@ test('sitemap lists every canonical page once and the discovery monitor derives 
   assert.ok(!/length === 1[0-9]\b/.test(monitor), 'Discovery monitor must not hard-code the page count')
 })
 
+test('SaaS cost guide publishes only sourced third-party figures, each with a visible reference', async () => {
+  const html = await readFile('dist/blog/saas-development-cost.html', 'utf8')
+  assert.ok(html.includes('not Clydara quotes'), 'Third-party ranges must be labelled as such')
+  for (const url of ['https://projectcostestimator.com/blog/saas-development-cost-2026', 'https://ssntpl.com/saas-mvp-cost-in-2026/', 'https://www.gilzor.com/insights/saas-development-cost', 'https://saasdevelopment.us/services/saas-mvp-development', 'https://stripe.com/billing/pricing', 'https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm']) {
+    assert.ok(html.includes(`href="${url}"`), `Missing visible source: ${url}`)
+  }
+  assert.ok(/datetime="2026-10-13"/i.test(html))
+})
+
 test('link-following crawlers can discover every canonical page from a public site map', async () => {
   assert.ok(known.has('/sitemap'), 'A public navigation page must exist')
   const html = await readFile('dist/sitemap.html', 'utf8')
