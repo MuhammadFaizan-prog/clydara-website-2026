@@ -1007,20 +1007,13 @@ export default function BlogDetailPage() {
   useEffect(() => {
     if (!post || !article || !pageRef.current) return
     const ctx = gsap.context(() => {
-      gsap.from('.guide-source-item', {
+      gsap.from('.guide-sources-list, .guide-next-steps', {
         opacity: 0,
-        y: 30,
-        stagger: 0.08,
-        duration: 0.6,
+        y: 8,
+        stagger: 0.12,
+        duration: 0.5,
         ease: 'power2.out',
-        scrollTrigger: { trigger: '.guide-sources-list', start: 'top 85%', once: true },
-      })
-      gsap.from('.guide-next-steps', {
-        opacity: 0,
-        y: 24,
-        duration: 0.65,
-        ease: 'power2.out',
-        scrollTrigger: { trigger: '.guide-next-steps', start: 'top 90%', once: true },
+        scrollTrigger: { trigger: '.guide-sources', start: 'top 85%', once: true },
       })
       gsap.from('.more-articles-section .blog-post-card', {
         opacity: 0,
@@ -1227,17 +1220,15 @@ export default function BlogDetailPage() {
             </div>
           )}
           <section className="seo-reading-block guide-sources" aria-label="Sources and next steps">
-            <p className="guide-section-eyebrow" aria-hidden="true">(Sources)</p>
             <h2 className="blog-article-h2 guide-sources-heading">Sources and further reading</h2>
-            <p className="blog-article-p guide-sources-intro">These references explain the technical practices and decision criteria discussed in this guide. They do not represent a project quote or a guarantee of results.</p>
+            <p className="guide-sources-intro">References behind this guide. Not a project quote or a guarantee of results.</p>
             <ol className="guide-sources-list">
               {(articleReferences[post.id] || []).map((reference) => (
                 <li key={reference.url} className="guide-source-item">
                   <a className="guide-source-link" href={reference.url} target="_blank" rel="noopener noreferrer">
                     {reference.title}
-                    <span className="guide-source-arrow" aria-hidden="true">
-                      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" focusable="false"><path d="M5 11 11 5M6 5h5v5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                    </span>
+                    <svg className="guide-source-icon" viewBox="0 0 16 16" width="11" height="11" fill="none" aria-hidden="true" focusable="false"><path d="M5 11 11 5M6 5h5v5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                    <span className="visually-hidden"> (opens in a new tab)</span>
                   </a>
                   {' '}<span className="guide-source-domain">{sourceDomain(reference.url)}</span>
                 </li>
