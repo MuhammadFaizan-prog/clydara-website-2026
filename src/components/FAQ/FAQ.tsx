@@ -84,17 +84,20 @@ export default function FAQ() {
                 key={idx}
                 className={`faq-accordion-item ${isOpen ? 'open' : ''}`}
               >
-                <button
-                  className="faq-question-btn"
-                  onClick={() => toggleFAQ(idx)}
-                  aria-expanded={isOpen}
-                >
-                  <span className="faq-question-text">{item.question}</span>
-                  <span className="faq-icon-wrap">
-                    <span className="faq-icon-line h-line" />
-                    <span className={`faq-icon-line v-line ${isOpen ? 'collapsed' : ''}`} />
-                  </span>
-                </button>
+                {/* WAI-ARIA accordion pattern: the toggle sits inside a heading, so questions are real headings for readers and crawlers. */}
+                <h3 className="faq-question-heading">
+                  <button
+                    className="faq-question-btn"
+                    onClick={() => toggleFAQ(idx)}
+                    aria-expanded={isOpen}
+                  >
+                    <span className="faq-question-text">{item.question}</span>
+                    <span className="faq-icon-wrap">
+                      <span className="faq-icon-line h-line" />
+                      <span className={`faq-icon-line v-line ${isOpen ? 'collapsed' : ''}`} />
+                    </span>
+                  </button>
+                </h3>
 
                 <div className={`faq-answer-drawer ${isOpen ? 'expanded' : ''}`}>
                   <p className="faq-answer-text">{item.answer}</p>

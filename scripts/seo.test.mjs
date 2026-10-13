@@ -89,7 +89,7 @@ test('agency contact identity is coherent in visible content and structured data
 })
 
 test('public pages stay brand-only: no personal names, personal profiles, LinkedIn links or personal bylines', async () => {
-  const banned = /linkedin\.com|Muhammad Faizan|Rohan Baig|Mr\. ?Faizan|founder-image|portfolio-zxs1|rohan-baig-dev/i
+  const banned = /linkedin\.com|Muhammad Faizan|MuhammadFaizan|Rohan Baig|Mr\. ?Faizan|founder-image|portfolio-zxs1|rohan-baig-dev/i
   for (const page of manifest.pages) {
     const base = page.path === '/' ? 'index' : page.path.slice(1)
     for (const file of [`dist/${base}.html`, `dist/${base}.md`]) {
@@ -291,4 +291,19 @@ test('commercial pages receive contextual links from home, guides, case studies 
   }
   const contact = linksIn(await readFile('dist/contact.html', 'utf8'))
   assert.ok(contact.includes('/services'), 'contact must point undecided visitors to /services')
+})
+
+test('the performance guide cites its measurement record on the brand domain', async () => {
+  const html = await readFile('dist/blog/startup-website-mistakes.html', 'utf8')
+  assert.ok(html.includes('href="https://www.clydralab.com/evidence/psi-high-priority.json"'))
+  const published = JSON.parse(await readFile('dist/evidence/psi-high-priority.json', 'utf8'))
+  const source = JSON.parse(await readFile('seo/evidence/psi-high-priority.json', 'utf8'))
+  assert.deepEqual(published, source)
+})
+
+test('FAQ questions are headings and the home page keeps a descending heading order', async () => {
+  const home = mainOf(await readFile('dist/index.html', 'utf8'))
+  assert.ok((home.match(/<h3 class="faq-question-heading">/g) || []).length >= 6)
+  const levels = [...home.matchAll(/<h([1-6])\b/g)].map(match => Number(match[1]))
+  levels.forEach((level, index) => index && assert.ok(level - levels[index - 1] <= 1, `heading jumps from h${levels[index - 1]} to h${level}`))
 })

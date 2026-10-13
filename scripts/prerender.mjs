@@ -126,6 +126,8 @@ try {
   const changedUrls = manifest.filter(page => previous.find(prior => prior.path === page.path)?.contentHash !== page.contentHash).map(page => page.canonical)
   const deletedUrls = previous.filter(page => !manifest.some(current => current.path === page.path)).map(page => page.canonical)
   await save('seo-manifest.json', JSON.stringify({ origin: SITE_ORIGIN, revision, baselineStatus, changedUrls, deletedUrls, pages: manifest }, null, 2) + '\n')
+  // Publish the measurement record the performance guide cites, so the citation stays on the brand's own domain.
+  await save('evidence/psi-high-priority.json', await readFile('seo/evidence/psi-high-priority.json', 'utf8'))
   const indexnow = JSON.parse(await readFile('seo/indexnow.json', 'utf8'))
   await save(indexnow.key + '.txt', indexnow.key)
   console.log(`Prerendered ${pages.length} canonical pages, Markdown copies, sitemap, robots.txt and a 404 page.`)

@@ -77,7 +77,7 @@ export default function Testimonials() {
         <div className="testimonials-carousel">
           <div className="testimonials-track">
             {[...cards, ...cards, ...cards].map((card, i) => (
-              <div key={i} className="testimonial-card">
+              <div key={i} className="testimonial-card" aria-hidden={i >= cards.length ? true : undefined}>
                 <div
                   className="testimonial-card-bg"
                   style={{ backgroundImage: `url(${card.image})` }}
@@ -86,7 +86,7 @@ export default function Testimonials() {
                 <div className="testimonial-card-content">
                   <span className="testimonial-card-num">{card.num}</span>
                   <p className="testimonial-card-desc">{card.desc}</p>
-                  <RevealHeading as="h4" className="testimonial-card-title" text={card.title} />
+                  <RevealHeading as={i < cards.length ? 'h3' : 'p'} className="testimonial-card-title" text={card.title} />
                 </div>
               </div>
             ))}

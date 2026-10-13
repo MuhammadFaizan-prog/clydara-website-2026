@@ -64,6 +64,14 @@
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
 }
 
+.faq-question-heading {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
 .faq-question-btn {
   width: 100%;
   display: flex;

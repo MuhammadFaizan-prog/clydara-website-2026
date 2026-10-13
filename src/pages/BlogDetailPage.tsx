@@ -653,7 +653,7 @@ const articleReferences: Record<string, { title: string; url: string }[]> = {
     { title: 'Clydara PageSpeed capture: before image and font changes', url: 'https://pagespeed.web.dev/analysis/https-www-clydralab-com/sfm7qhddi0' },
     { title: 'Clydara PageSpeed capture: after responsive images', url: 'https://pagespeed.web.dev/analysis/https-www-clydralab-com/02emg8kwkx' },
     { title: 'Clydara PageSpeed capture: after local font delivery', url: 'https://pagespeed.web.dev/analysis/https-www-clydralab-com/fko2pu8ucm' },
-    { title: 'Recorded revisions, exact measurements and limitations', url: 'https://github.com/MuhammadFaizan-prog/clydara-website-2026/blob/main/seo/evidence/psi-high-priority.json' },
+    { title: 'Recorded revisions, exact measurements and limitations', url: 'https://www.clydralab.com/evidence/psi-high-priority.json' },
     { title: 'Google: Lighthouse performance scoring and variability', url: 'https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/' },
   ],
 }

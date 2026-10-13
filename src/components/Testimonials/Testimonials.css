@@ -163,6 +163,8 @@
 .testimonial-card-title {
   font-family: var(--font-heading);
   font-size: 26px;
+  line-height: var(--h4-line);
+  font-weight: var(--h1-weight);
   color: #ffffff;
 }
 
