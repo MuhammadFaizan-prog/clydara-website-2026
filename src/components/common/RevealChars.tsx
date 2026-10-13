@@ -12,6 +12,7 @@ export function RevealChars({ text, className = "" }: { text: string; className?
           {wIdx < words.length - 1 && <span className="reveal-space">&nbsp;</span>}
         </span>
       ))}
+      {' '}
     </span>
   )
 }

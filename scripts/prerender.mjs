@@ -33,8 +33,10 @@ function markdown(html, page, origin) {
     })
     .replace(/<h([1-6])\b[^>]*>/g, (_, level) => '\n\n' + '#'.repeat(Number(level)) + ' ')
     .replace(/<\/h[1-6]>/g, '\n\n')
+    .replace(/<\/dt>/g, ': ')
+    .replace(/<dt\b[^>]*>/g, '\n- ')
     .replace(/<li\b[^>]*>/g, '\n- ')
-    .replace(/<\/(?:p|div|section|article|li)>|<br\s*\/?\s*>/g, '\n\n')
+    .replace(/<\/(?:p|div|section|article|li|dd)>|<br\s*\/?\s*>/g, '\n\n')
     .replace(/<[^>]*>/g, '')
   body = decode(body).replace(/[ \t]+/g, ' ').replace(/ *\n */g, '\n').replace(/\n{3,}/g, '\n\n').trim()
   return `# ${page.name}\n\n> ${page.description}\n\nCanonical: ${origin}${page.path}\n\n${body}\n`
@@ -89,7 +91,7 @@ try {
       `<link data-seo rel="canonical" href="${url}">`,
       `<link data-seo rel="describedby" href="${SITE_ORIGIN}/llms.txt" type="text/plain">`,
       `<link data-seo rel="alternate" href="${SITE_ORIGIN}${mdPath}" type="text/markdown">`,
-      `<link data-seo rel="alternate" href="${SITE_ORIGIN}/feed.xml" type="application/rss+xml" title="Clydara founder guides">`,
+      `<link data-seo rel="alternate" href="${SITE_ORIGIN}/feed.xml" type="application/rss+xml" title="Clydara software and SaaS guides">`,
       meta('og:title', page.title, true), meta('og:description', page.description, true),
       meta('og:url', url, true), meta('og:site_name', 'Clydara', true),
       meta('og:type', page.author ? 'article' : 'website', true), meta('og:image', image, true),
@@ -113,13 +115,13 @@ try {
   await save('404.html', notFound)
   await save('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map(page => `  <url><loc>${SITE_ORIGIN}${page.path}</loc>${page.dateModified ? `<lastmod>${page.dateModified}</lastmod>` : ''}</url>`).join('\n')}\n</urlset>\n`)
   await save('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${SITE_ORIGIN}/sitemap.xml\n`)
-  await save('feed.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Clydara founder guides</title><link>${SITE_ORIGIN}/blog</link><description>Practical software, SaaS and AI guides for founders.</description><language>en</language><atom:link href="${SITE_ORIGIN}/feed.xml" rel="self" type="application/rss+xml"/>${pages.filter(page => page.author).map(page => `<item><title>${escape(page.name)}</title><link>${SITE_ORIGIN}${page.path}</link><guid isPermaLink="true">${SITE_ORIGIN}${page.path}</guid><description>${escape(page.description)}</description></item>`).join('')}</channel></rss>\n`)
+  await save('feed.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Clydara software and SaaS guides</title><link>${SITE_ORIGIN}/blog</link><description>Practical software, SaaS and AI guides for founders.</description><language>en</language><atom:link href="${SITE_ORIGIN}/feed.xml" rel="self" type="application/rss+xml"/>${pages.filter(page => page.author).map(page => `<item><title>${escape(page.name)}</title><link>${SITE_ORIGIN}${page.path}</link><guid isPermaLink="true">${SITE_ORIGIN}${page.path}</guid><description>${escape(page.description)}</description></item>`).join('')}</channel></rss>\n`)
   const sections = [
     ['Company and services', pages.filter(page => ['/', '/services', '/about', '/contact', '/works', '/sitemap'].includes(page.path))],
-    ['Founder guides', pages.filter(page => page.author)],
+    ['Guides', pages.filter(page => page.author)],
     ['Policies', pages.filter(page => ['/privacy-policy', '/terms-and-condition'].includes(page.path))],
   ]
-  await save('llms.txt', `# Clydara\n\n> Clydara is a development and design agency providing websites, custom SaaS and business software, AI integration, and branding.\n\nThis file provides navigation to public company information. Contact Clydara for project-specific scope and pricing. Markdown copies mirror the visible pages; canonical HTML links appear in each copy.\n\n${sections.map(([heading, items]) => `## ${heading}\n\n${items.map(page => `- [${page.name}](${SITE_ORIGIN}${page.path === '/' ? '/index' : page.path}.md): ${page.description}`).join('\n')}`).join('\n\n')}\n`)
+  await save('llms.txt', `# Clydara\n\n> Clydara is a development and design agency providing websites, custom SaaS and business software, AI integration, and branding.\n\nKey facts: founded in 2025; based in Lahore, Pakistan; team of 5 to 10 people; project enquiries via ${SITE_ORIGIN}/contact or clydara1@gmail.com; canonical website ${SITE_ORIGIN}/.\n\nThis file provides navigation to public company information. Contact Clydara for project-specific scope and pricing. Markdown copies mirror the visible pages; canonical HTML links appear in each copy.\n\n${sections.map(([heading, items]) => `## ${heading}\n\n${items.map(page => `- [${page.name}](${SITE_ORIGIN}${page.path === '/' ? '/index' : page.path}.md): ${page.description}`).join('\n')}`).join('\n\n')}\n`)
   const revision = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim()
   const changedUrls = manifest.filter(page => previous.find(prior => prior.path === page.path)?.contentHash !== page.contentHash).map(page => page.canonical)
   const deletedUrls = previous.filter(page => !manifest.some(current => current.path === page.path)).map(page => page.canonical)
