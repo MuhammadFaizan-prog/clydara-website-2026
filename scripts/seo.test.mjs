@@ -7,9 +7,9 @@ const known = new Set(manifest.pages.map(page => page.path))
 const titles = new Set()
 const descriptions = new Set()
 
-test('RSS discovers the six existing guides using canonical permanent identifiers', async () => {
+test('RSS discovers all nine guides using canonical permanent identifiers', async () => {
   const rss = await readFile('dist/feed.xml', 'utf8')
-  assert.equal((rss.match(/<item>/g) || []).length, 6)
+  assert.equal((rss.match(/<item>/g) || []).length, 9)
   assert.ok(rss.includes('rel="self" type="application/rss+xml"'))
   assert.ok(!rss.includes('<pubDate>'), 'Do not invent publication dates')
   for (const page of manifest.pages.filter(page => page.path.startsWith('/blog/'))) {
@@ -38,6 +38,31 @@ test('the performance example preserves all three measured runs and supported up
   assert.ok(/datetime="2026-10-08"/i.test(html), 'Visible update date must agree with the graph')
   assert.ok(markdown.includes('| Mobile LCP | 3.637 s | 3.687 s | 3.492 s |'), 'The agent-readable version must retain metric-to-column relationships')
   assert.ok((await readFile('dist/sitemap.xml', 'utf8')).includes('<loc>https://www.clydralab.com/blog/startup-website-mistakes</loc><lastmod>2026-10-08</lastmod>'))
+})
+
+test('brand-bylined guides publish an Organization author, small local images, real dates and cross-links', async () => {
+  const guides = ['saas-infrastructure-cost', 'custom-saas-development-process', 'saas-vs-custom-software-architecture-firms']
+  const llms = await readFile('dist/llms.txt', 'utf8')
+  const sitemap = await readFile('dist/sitemap.xml', 'utf8')
+  for (const slug of guides) {
+    const html = await readFile(`dist/blog/${slug}.html`, 'utf8')
+    const graph = JSON.parse(html.match(/<script[^>]*type="application\/ld\+json"[^>]*>(.*?)<\/script>/s)[1])['@graph']
+    const article = graph.find(node => node['@type'] === 'BlogPosting')
+    assert.equal(article.author['@type'], 'Organization')
+    assert.equal(article.author.name, 'Clydara')
+    assert.equal(article.dateModified, '2026-10-14')
+    assert.ok(/Published <time datetime="2026-10-14">14 Oct 2026<\/time>/i.test(html), 'Visible publish date must agree with the graph')
+    assert.ok(sitemap.includes(`<loc>https://www.clydralab.com/blog/${slug}</loc><lastmod>2026-10-14</lastmod>`))
+    assert.ok(!/By <a[^>]*>(Muhammad Faizan|Rohan Baig)/.test(html), 'New guides use the brand byline')
+    assert.ok(html.includes('href="/services"'), 'Guides link to the services page')
+    for (const other of guides.filter(item => item !== slug)) assert.ok(html.includes(`href="/blog/${other}"`), `${slug} should link to ${other}`)
+    for (const image of [`/images/blog/${slug}-featured.webp`, `/images/blog/${slug}-card.webp`, '/images/blog/guide-pill-1.webp', '/images/blog/guide-pill-2.webp']) {
+      assert.ok((await stat('dist' + image)).size < 100_000, `${image} must stay under 100 KB`)
+    }
+    assert.ok(html.includes('class="guide-sources-list"'), 'Sources render as the numbered source list')
+    assert.ok(llms.includes(`/blog/${slug}.md`), 'llms.txt lists the Markdown copy')
+    assert.ok((await readFile(`dist/blog/${slug}.md`, 'utf8')).includes('## Frequently asked questions'))
+  }
 })
 
 test('link-following crawlers can discover every canonical page from a public site map', async () => {
