@@ -12,6 +12,9 @@ export function RevealChars({ text, className = "" }: { text: string; className?
           {wIdx < words.length - 1 && <span className="reveal-space">&nbsp;</span>}
         </span>
       ))}
+      {/* Word boundary for text extraction: rows render as separate flex items, so this
+          trailing space sits at a line end and is not painted. */}
+      {' '}
     </span>
   )
 }
