@@ -210,6 +210,10 @@
   object-fit: cover;
 }
 
+.services-row-left .services-tags-grid {
+  margin-top: 20px;
+}
+
 /* Responsive */
 @media (max-width: 1439px) and (min-width: 1024px) {
   .services-h1 {

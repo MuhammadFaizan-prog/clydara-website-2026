@@ -216,3 +216,25 @@ test('direct page loads style every class they render (no styles that only arriv
     assert.deepEqual(missing, [], `${page.path} renders classes whose styles are not loaded on a direct visit`)
   }
 })
+
+test('large content images reserve their space and ship responsive variants', async () => {
+  const check = (html, className, file) => {
+    const tags = [...html.matchAll(new RegExp(`<img\\b[^>]*class="${className}"[^>]*>`, 'g'))].map(match => match[0])
+    assert.ok(tags.length > 0, `${file}: expected ${className}`)
+    for (const tag of tags) {
+      assert.match(tag, /\bwidth="\d+"/, `${file}: ${className} needs width`)
+      assert.match(tag, /\bheight="\d+"/, `${file}: ${className} needs height`)
+      assert.match(tag, /srcSet="[^"]*scale-down-to=\d+ \d+w/i, `${file}: ${className} needs srcset variants`)
+    }
+    return tags
+  }
+  for (const page of manifest.pages.filter(page => page.path.startsWith('/blog/'))) {
+    const file = `dist${page.path}.html`
+    const html = await readFile(file, 'utf8')
+    const [hero] = check(html, 'blog-detail-featured-img', file)
+    assert.match(hero, /fetchpriority="high"/i, `${file}: the guide hero image is the likely LCP element`)
+    check(html, 'blog-post-img', file)
+  }
+  check(await readFile('dist/services.html', 'utf8'), 'services-row-image', 'services')
+  check(await readFile('dist/blog.html', 'utf8'), 'blog-post-img', 'blog')
+})

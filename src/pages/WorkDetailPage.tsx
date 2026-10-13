@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom'
 import { RevealHeading } from '../components/common/RevealHeading'
 import Pricing from '../components/Pricing/Pricing'
 import NotFoundPage from './NotFoundPage'
+import { framerImage } from '../components/common/framerImage'
 
 const worksProjects = [
   {
@@ -117,7 +118,7 @@ export default function WorkDetailPage() {
             marginBottom: '80px',
           }}
         >
-          <img src={project.cover} alt={project.title} style={{ width: '100%', height: 'auto', display: 'block' }} />
+          <img {...framerImage(project.cover, '(max-width: 1176px) 100vw, 1080px')} alt={project.title} decoding="async" style={{ width: '100%', height: 'auto', display: 'block' }} />
         </div>
       </div>
 

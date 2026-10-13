@@ -9,6 +9,7 @@ import NotFoundPage from './NotFoundPage'
 import './BlogDetailPage.css'
 import './BlogPage.css'
 import './SeoContent.css'
+import { framerImage } from '../components/common/framerImage'
 
 interface ArticleData {
   heroRow1: { prefix: string; pill: string; accent: string }
@@ -778,9 +779,11 @@ export default function BlogDetailPage() {
       {/* Featured Top Image */}
       <div className="blog-detail-featured-img-wrap">
         <img
-          src={article.featuredImg}
+          {...framerImage(article.featuredImg, '(max-width: 1200px) 100vw, 1152px')}
           alt={post.title}
           className="blog-detail-featured-img"
+          fetchPriority="high"
+          decoding="async"
         />
       </div>
 
@@ -818,9 +821,11 @@ export default function BlogDetailPage() {
                   {article.inlineImg && (
                     <div className="blog-detail-inline-img-wrap">
                       <img
-                        src={article.inlineImg}
+                        {...framerImage(article.inlineImg, '(max-width: 860px) 100vw, 760px')}
                         alt={sec.heading}
                         className="blog-detail-inline-img"
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
                   )}
@@ -893,10 +898,11 @@ export default function BlogDetailPage() {
             >
               <div className="blog-post-img-wrap">
                 <img
-                  src={rPost.image}
+                  {...framerImage(rPost.image, '(max-width: 809px) 100vw, 400px')}
                   alt={rPost.title}
                   className="blog-post-img"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
 

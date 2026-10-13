@@ -82,7 +82,7 @@ export default function WorksPage() {
               </span>
               <span className="hero-pill-anim-wrap reveal-item">
                 <span className="hero-pill-img hero-pill-2">
-                  <img src="https://framerusercontent.com/images/zSO6VAgT8vhYqZLGuzPnzyi2Gw4.jpg?width=2000&height=1200" alt="Growth highlight" />
+                  <img src="https://framerusercontent.com/images/zSO6VAgT8vhYqZLGuzPnzyi2Gw4.jpg?width=2000&height=1200&scale-down-to=256" alt="Growth highlight" />
                 </span>
               </span>
               <span className="works-h1 works-dark">

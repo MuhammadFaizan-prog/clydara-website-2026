@@ -7,6 +7,7 @@ import Pricing from '../components/Pricing/Pricing'
 import FAQ from '../components/FAQ/FAQ'
 import './ServicesPage.css'
 import './SeoContent.css'
+import { framerImage } from '../components/common/framerImage'
 
 const servicesData = [
   {
@@ -142,24 +143,26 @@ export default function ServicesPage() {
             <RevealHeading as="h2" className="services-giant-heading" text="What we do" />
           </div>
 
-          <div className="services-cards-grid">
+          <div className="services-rows-list">
             {servicesData.map((srv, idx) => (
-              <div key={idx} className="services-row-block">
+              <div key={idx} className="services-row-item">
                 <RevealHeading as="h3" className="services-row-title" text={srv.title} />
                 
                 <div className="services-row-body">
                   <div className="services-row-left">
-                    <div className="services-img-box">
+                    <div className="services-row-image-card">
                       <img
-                        src={srv.image}
+                        {...framerImage(srv.image, '(max-width: 1023px) 100vw, 540px')}
                         alt={srv.title}
-                        className="services-graphic-img"
+                        className="services-row-image"
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
                     
-                    <div className="services-item-tags">
+                    <div className="services-tags-grid">
                       {srv.tags.map((tag, i) => (
-                        <span key={i} className="service-pill-tag">
+                        <span key={i} className="services-pill-tag">
                           {tag}
                         </span>
                       ))}
@@ -167,7 +170,7 @@ export default function ServicesPage() {
                   </div>
 
                   <div className="services-row-right">
-                    <p className="services-item-desc">{srv.desc}</p>
+                    <p className="services-row-desc">{srv.desc}</p>
                     <div className="services-desc-line" />
                   </div>
                 </div>

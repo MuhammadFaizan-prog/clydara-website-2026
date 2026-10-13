@@ -4,6 +4,7 @@ import gsap from 'gsap'
 import { RevealChars } from '../components/common/RevealChars'
 import { RevealHeading } from '../components/common/RevealHeading'
 import './BlogPage.css'
+import { framerImage } from '../components/common/framerImage'
 
 export const blogPosts = [
   {
@@ -132,7 +133,7 @@ export default function BlogPage() {
               </span>
               <span className="hero-pill-anim-wrap reveal-item">
                 <span className="hero-pill-img hero-pill-1">
-                  <img src="https://framerusercontent.com/images/fXkEtDrUaMJaQ5o6xEuGLn1PBA.jpg?width=1024&height=1024" alt="Ideas highlight" />
+                  <img src="https://framerusercontent.com/images/fXkEtDrUaMJaQ5o6xEuGLn1PBA.jpg?width=1024&height=1024&scale-down-to=256" alt="Ideas highlight" />
                 </span>
               </span>
               <span className="blog-h1 blog-accent">
@@ -145,7 +146,7 @@ export default function BlogPage() {
               </span>
               <span className="hero-pill-anim-wrap reveal-item">
                 <span className="hero-pill-img hero-pill-2">
-                  <img src="https://framerusercontent.com/images/uKMtELWjwXKRRO31gDwrfD0ULZk.jpg?width=1400&height=933" alt="Future highlight" />
+                  <img src="https://framerusercontent.com/images/uKMtELWjwXKRRO31gDwrfD0ULZk.jpg?width=1400&height=933&scale-down-to=256" alt="Future highlight" />
                 </span>
               </span>
               <span className="blog-h1 blog-accent">
@@ -176,7 +177,7 @@ export default function BlogPage() {
             {blogPosts.map((post) => (
               <Link key={post.id} to={`/blog/${post.id}`} className="blog-post-card">
                 <div className="blog-post-img-wrap">
-                  <img src={post.image} alt={post.title} className="blog-post-img" loading="lazy" />
+                  <img {...framerImage(post.image, '(max-width: 809px) 100vw, 400px')} alt={post.title} className="blog-post-img" loading="lazy" decoding="async" />
                 </div>
 
                 <div className="blog-post-content">
