@@ -40,6 +40,17 @@ test('the performance example preserves all three measured runs and supported up
   assert.ok((await readFile('dist/sitemap.xml', 'utf8')).includes('<loc>https://www.clydralab.com/blog/startup-website-mistakes</loc><lastmod>2026-10-08</lastmod>'))
 })
 
+test('sitemap lists every canonical page once and the discovery monitor derives its expectations', async () => {
+  const sitemap = await readFile('dist/sitemap.xml', 'utf8')
+  const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1])
+  assert.equal(locs.length, manifest.pages.length)
+  assert.equal(new Set(locs).size, locs.length)
+  for (const page of manifest.pages) assert.ok(locs.includes(page.canonical), page.canonical)
+  for (const [, date] of sitemap.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)) assert.match(date, /^\d{4}-\d{2}-\d{2}$/)
+  const monitor = await readFile('scripts/discovery-check.mjs', 'utf8')
+  assert.ok(!/length === 1[0-9]\b/.test(monitor), 'Discovery monitor must not hard-code the page count')
+})
+
 test('link-following crawlers can discover every canonical page from a public site map', async () => {
   assert.ok(known.has('/sitemap'), 'A public navigation page must exist')
   const html = await readFile('dist/sitemap.html', 'utf8')
