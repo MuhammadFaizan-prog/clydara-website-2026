@@ -81,9 +81,9 @@ export default function Footer() {
               <div className="footer-links-col">
                 <span className="footer-col-title">Social</span>
                 <ul className="footer-col-list">
-                  <li><a href="https://x.com/" target="_blank" rel="noreferrer">Twitter(X)</a></li>
-                  <li><a href="https://linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a></li>
-                  <li><a href="https://dribbble.com/" target="_blank" rel="noreferrer">Dribble</a></li>
+                  <li><a href="https://dev.to/clydaralab" target="_blank" rel="noopener noreferrer">DEV</a></li>
+                  <li><a href="https://www.behance.net/clydaralab" target="_blank" rel="noopener noreferrer">Behance</a></li>
+                  <li><a href="https://dribbble.com/clydara" target="_blank" rel="noopener noreferrer">Dribbble</a></li>
                 </ul>
               </div>
 
