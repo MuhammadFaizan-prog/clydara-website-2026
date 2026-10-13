@@ -742,7 +742,7 @@ export default function BlogDetailPage() {
 
           <p className="blog-detail-sub">{article.subtitle}</p>
           <p className="seo-article-byline">
-            By <Link to="/about">{post.author}</Link> · Published {post.date}
+            A <Link to="/about">Clydara</Link> guide · Published {post.date}
             {modifiedDate && (
               <> · Updated <time dateTime={modifiedDate}>{modifiedLabel}</time></>
             )}

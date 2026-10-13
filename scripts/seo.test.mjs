@@ -68,6 +68,43 @@ test('agency contact identity is coherent in visible content and structured data
   }
 })
 
+test('public pages stay brand-only: no personal names, personal profiles, LinkedIn links or personal bylines', async () => {
+  const banned = /linkedin\.com|Muhammad Faizan|Rohan Baig|Mr\. ?Faizan|founder-image|portfolio-zxs1|rohan-baig-dev/i
+  for (const page of manifest.pages) {
+    const base = page.path === '/' ? 'index' : page.path.slice(1)
+    for (const file of [`dist/${base}.html`, `dist/${base}.md`]) {
+      const text = await readFile(file, 'utf8')
+      assert.ok(!banned.test(text), `${file} must not expose personal names or LinkedIn: ${text.match(banned)?.[0]}`)
+    }
+  }
+  for (const file of ['dist/llms.txt', 'dist/feed.xml']) assert.ok(!banned.test(await readFile(file, 'utf8')), file)
+})
+
+test('Organization entity carries only verified company facts and articles are attributed to it', async () => {
+  const html = await readFile('dist/about.html', 'utf8')
+  const graph = JSON.parse(html.match(/<script[^>]*type="application\/ld\+json"[^>]*>(.*?)<\/script>/s)[1])['@graph']
+  const organization = graph.find(node => node['@type'] === 'Organization')
+  assert.equal(organization.foundingDate, '2025')
+  assert.deepEqual(organization.numberOfEmployees, { '@type': 'QuantitativeValue', minValue: 5, maxValue: 10 })
+  assert.equal(organization.address.addressLocality, 'Lahore')
+  assert.equal(organization.address.addressCountry, 'PK')
+  assert.ok(!organization.address.streetAddress, 'Do not publish an unverified street address')
+  for (const fact of ['2025', 'Lahore, Pakistan', '5 to 10']) assert.ok(html.includes(fact), `Visible About content must state: ${fact}`)
+  for (const page of manifest.pages.filter(page => page.path.startsWith('/blog/'))) {
+    const article = await readFile(`dist/${page.path.slice(1)}.html`, 'utf8')
+    const nodes = JSON.parse(article.match(/<script[^>]*type="application\/ld\+json"[^>]*>(.*?)<\/script>/s)[1])['@graph']
+    assert.deepEqual(nodes.find(node => node['@type'] === 'BlogPosting').author, { '@id': manifest.origin + '/#organization' })
+  }
+  const llms = await readFile('dist/llms.txt', 'utf8')
+  assert.ok(llms.includes('founded in 2025') && llms.includes('Lahore, Pakistan'))
+})
+
+test('headings keep word boundaries between animated rows for text extraction', async () => {
+  const contact = await readFile('dist/contact.md', 'utf8')
+  assert.ok(!/BuiltSomething|BuildSomething/.test(contact), 'Animated heading rows must not run together')
+  assert.ok(/Let's Build/.test(contact), 'Contact headline typo must stay fixed')
+})
+
 for (const page of manifest.pages) {
   test(`${page.path}: initial content, unique metadata, schema, links and Markdown`, async () => {
     const html = await readFile(`dist/${page.path === '/' ? 'index' : page.path.slice(1)}.html`, 'utf8')
@@ -92,7 +129,8 @@ for (const page of manifest.pages) {
     assert.ok(nodes.some(node => node.url === page.canonical && String(node['@type']).endsWith('Page')))
     const article = nodes.find(node => node['@type'] === 'BlogPosting')
     if (article) {
-      assert.ok(html.includes(article.author.name), 'Article author must be visible')
+      assert.equal(article.author['@id'], manifest.origin + '/#organization', 'Guides are attributed to the Clydara organization, not a person')
+      assert.ok(/class="seo-article-byline"[^>]*>[^<]*<a[^>]*href="\/about"[^>]*>Clydara<\/a>/.test(html), 'The visible attribution must name Clydara')
       assert.ok(!article.datePublished, 'Do not invent a publication day')
       assert.ok(/Sources and further reading/.test(html), 'Technical guides must include references')
     }
