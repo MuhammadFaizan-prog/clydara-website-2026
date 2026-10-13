@@ -2,6 +2,8 @@ import { useParams, Link } from 'react-router-dom'
 import { RevealHeading } from '../components/common/RevealHeading'
 import Pricing from '../components/Pricing/Pricing'
 import NotFoundPage from './NotFoundPage'
+import { Breadcrumbs } from '../components/common/Breadcrumbs'
+import './SeoContent.css'
 import { framerImage } from '../components/common/framerImage'
 
 const worksProjects = [
@@ -45,19 +47,7 @@ export default function WorkDetailPage() {
   return (
     <main className="work-detail-page" style={{ padding: '130px 0 100px' }}>
       <div className="container" style={{ maxWidth: '1128px', margin: '0 auto', padding: '0 24px' }}>
-        <Link
-          to="/works"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            marginBottom: '32px',
-            fontFamily: 'var(--font-body)',
-            color: 'var(--color-text-secondary)',
-          }}
-        >
-          ← Back to Works
-        </Link>
+        <Breadcrumbs path={`/works/${project.id}`} />
 
         {/* Title */}
         <div style={{ marginBottom: '40px' }}>
@@ -120,6 +110,10 @@ export default function WorkDetailPage() {
         >
           <img {...framerImage(project.cover, '(max-width: 1176px) 100vw, 1080px')} alt={project.title} decoding="async" style={{ width: '100%', height: 'auto', display: 'block' }} />
         </div>
+        <section className="seo-services-guide seo-related-links" aria-labelledby="related-heading">
+          <h2 id="related-heading">Related services and guides</h2>
+          <p>{project.title} combined Clydara’s <Link to="/services#web-development">web development</Link> and <Link to="/services#branding-creative-design">branding and UI/UX design</Link> services. Planning a similar website? Read <Link to="/blog/startup-website-mistakes">why startup websites fail to generate leads</Link>, browse <Link to="/works">more projects</Link>, or <Link to="/contact">share your brief</Link>.</p>
+        </section>
       </div>
 
       <Pricing />

@@ -8,6 +8,7 @@ import FAQ from '../components/FAQ/FAQ'
 import './ServicesPage.css'
 import './SeoContent.css'
 import { framerImage } from '../components/common/framerImage'
+import { services } from '../seo/site'
 
 const servicesData = [
   {
@@ -145,7 +146,7 @@ export default function ServicesPage() {
 
           <div className="services-rows-list">
             {servicesData.map((srv, idx) => (
-              <div key={idx} className="services-row-item">
+              <div key={idx} className="services-row-item" id={services[idx]?.id}>
                 <RevealHeading as="h3" className="services-row-title" text={srv.title} />
                 
                 <div className="services-row-body">

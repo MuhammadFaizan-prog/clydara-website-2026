@@ -238,3 +238,57 @@ test('large content images reserve their space and ship responsive variants', as
   check(await readFile('dist/services.html', 'utf8'), 'services-row-image', 'services')
   check(await readFile('dist/blog.html', 'utf8'), 'blog-post-img', 'blog')
 })
+
+const graphOf = html => JSON.parse(html.match(/<script[^>]*type="application\/ld\+json"[^>]*>(.*?)<\/script>/s)[1])['@graph']
+const mainOf = html => html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1] || ''
+
+test('JSON-LD graphs use unique @ids and every reference resolves inside the page graph', async () => {
+  for (const page of manifest.pages) {
+    const graph = graphOf(await readFile(`dist/${page.path === '/' ? 'index' : page.path.slice(1)}.html`, 'utf8'))
+    const ids = graph.map(node => node['@id']).filter(Boolean)
+    assert.equal(new Set(ids).size, ids.length, `${page.path}: duplicate @id`)
+    const refs = []
+    const walk = value => {
+      if (Array.isArray(value)) return value.forEach(walk)
+      if (value && typeof value === 'object') {
+        if (Object.keys(value).length === 1 && value['@id']) refs.push(value['@id'])
+        Object.values(value).forEach(walk)
+      }
+    }
+    graph.forEach(node => Object.entries(node).forEach(([key, value]) => key !== '@id' && walk(value)))
+    for (const ref of refs) assert.ok(ids.includes(ref), `${page.path}: dangling reference ${ref}`)
+  }
+})
+
+test('guides and case studies show a breadcrumb trail that matches their BreadcrumbList', async () => {
+  for (const page of manifest.pages.filter(page => /^\/(blog|works)\/.+/.test(page.path))) {
+    const html = await readFile(`dist${page.path}.html`, 'utf8')
+    const nav = html.match(/<nav class="seo-breadcrumbs[^"]*" aria-label="Breadcrumb">([\s\S]*?)<\/nav>/)
+    assert.ok(nav, `${page.path}: visible breadcrumb missing`)
+    const visible = [...nav[1].matchAll(/<li>([\s\S]*?)<\/li>/g)].map(match => match[1].replace(/<[^>]*>/g, '').replace(/&amp;/g, '&').replace(/&#x27;|&#39;/g, "'").trim())
+    const graph = graphOf(html)
+    const list = graph.find(node => node['@type'] === 'BreadcrumbList')
+    assert.deepEqual(list.itemListElement.map(item => item.name), visible, `${page.path}: visible and structured breadcrumbs differ`)
+    assert.equal(list.itemListElement.at(-1).item, page.canonical)
+    assert.equal(graph.find(node => node['@id'] === page.canonical + '#webpage').breadcrumb['@id'], list['@id'])
+  }
+})
+
+test('commercial pages receive contextual links from home, guides, case studies and contact', async () => {
+  const servicesHtml = await readFile('dist/services.html', 'utf8')
+  const serviceIds = new Set([...servicesHtml.matchAll(/class="services-row-item" id="([^"]+)"/g)].map(match => match[1]))
+  assert.equal(serviceIds.size, 4, 'each service block needs a stable anchor')
+  for (const node of graphOf(servicesHtml).filter(node => node['@type'] === 'Service')) assert.ok(serviceIds.has(node['@id'].split('#')[1]), node['@id'])
+  const linksIn = html => [...mainOf(html).matchAll(/href="([^"]+)"/g)].map(match => match[1])
+  const home = linksIn(await readFile('dist/index.html', 'utf8'))
+  for (const target of ['/services', '/about', '/blog']) assert.ok(home.includes(target), `home must link ${target}`)
+  for (const page of manifest.pages.filter(page => /^\/(blog|works)\/.+/.test(page.path))) {
+    const links = linksIn(await readFile(`dist${page.path}.html`, 'utf8'))
+    const serviceLinks = links.filter(href => href.startsWith('/services'))
+    assert.ok(serviceLinks.length > 0, `${page.path} must link to /services`)
+    for (const href of serviceLinks.filter(href => href.includes('#'))) assert.ok(serviceIds.has(href.split('#')[1]), `${page.path}: broken anchor ${href}`)
+    assert.ok(links.includes('/contact'), `${page.path} must link to /contact`)
+  }
+  const contact = linksIn(await readFile('dist/contact.html', 'utf8'))
+  assert.ok(contact.includes('/services'), 'contact must point undecided visitors to /services')
+})

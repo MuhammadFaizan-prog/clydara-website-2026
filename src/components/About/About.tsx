@@ -3,6 +3,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import '../../styles/tag-cloud.css'
 import './About.css'
+import { Link } from 'react-router-dom'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -72,6 +73,10 @@ export default function About() {
             <span className="about-cloud-tag"><span className="tag-icon">🧭</span> Strategy</span>
           </div>
         </div>
+
+        <p className="about-more-link">
+          <Link to="/about">More about Clydara, a Lahore studio founded in 2025</Link>
+        </p>
       </div>
     </section>
   )

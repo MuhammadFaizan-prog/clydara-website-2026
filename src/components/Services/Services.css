@@ -172,6 +172,24 @@
   letter-spacing: 0.3px;
 }
 
+/* Text links from the home services block to the full services page and guides */
+.services-more-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  margin-top: 28px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-text-secondary);
+}
+
+.services-more-links a {
+  color: var(--color-text-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* Responsive */
 @media (max-width: 809px) {
   .services-subnav {

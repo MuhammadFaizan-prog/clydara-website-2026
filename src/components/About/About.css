@@ -102,6 +102,19 @@
   letter-spacing: -0.14px;
 }
 
+.about-more-link {
+  margin-top: 32px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+}
+
+.about-more-link a {
+  color: rgb(19, 19, 19);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* ---- Responsive ---- */
 @media (max-width: 809px) {
   .about-section {

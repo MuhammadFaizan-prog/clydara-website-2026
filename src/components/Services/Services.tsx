@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { RevealHeading } from '../common/RevealHeading'
 import './Services.css'
+import { Link } from 'react-router-dom'
 
 interface ServiceCategory {
   id: string
@@ -104,6 +105,12 @@ export default function Services() {
             </span>
           ))}
         </div>
+
+        <p className="services-more-links">
+          <Link to="/services">Explore all Clydara services</Link>
+          <span aria-hidden="true">·</span>
+          <Link to="/blog">Read our software and SaaS guides</Link>
+        </p>
       </div>
     </section>
   )

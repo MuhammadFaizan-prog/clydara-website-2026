@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, type ReactNode } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { RevealChars } from '../components/common/RevealChars'
@@ -10,6 +10,7 @@ import './BlogDetailPage.css'
 import './BlogPage.css'
 import './SeoContent.css'
 import { framerImage } from '../components/common/framerImage'
+import { Breadcrumbs } from '../components/common/Breadcrumbs'
 
 interface ArticleData {
   heroRow1: { prefix: string; pill: string; accent: string }
@@ -657,6 +658,16 @@ const articleReferences: Record<string, { title: string; url: string }[]> = {
   ],
 }
 
+// One contextual hand-off per guide, from the reader's decision to the matching service section.
+const nextSteps: Record<string, ReactNode> = {
+  'saas-development-cost': <>Budgeting a specific product? Clydara scopes and builds <Link to="/services#saas-business-solutions">custom SaaS platforms, dashboards and business software</Link>. <Link to="/contact">Send your feature list, users and integrations</Link> for a project-specific scope and price.</>,
+  'custom-software-vs-saas': <>If the comparison points to a custom build, see how Clydara approaches <Link to="/services#saas-business-solutions">custom SaaS, CRM and dashboard development</Link>, or review <Link to="/works">recent website and software projects</Link> before you <Link to="/contact">share your requirements</Link>.</>,
+  'ai-integration-for-startups': <>Have a workflow in mind for a pilot? Read about Clydara’s <Link to="/services#ai-integration-automation">AI integration and automation service</Link>, then <Link to="/contact">describe the task, the data involved and who reviews the output</Link>.</>,
+  'is-mern-still-worth-it-2026': <>Clydara builds React, Next.js and MERN applications as part of its <Link to="/services#web-development">web development service</Link> and <Link to="/services#saas-business-solutions">custom SaaS work</Link>. <Link to="/contact">Ask about the right stack for your product</Link>.</>,
+  'agency-vs-in-house-developers': <>If an agency or hybrid model fits your stage, <Link to="/about">see who Clydara is</Link> (a Lahore studio of 5 to 10 people, founded in 2025), <Link to="/services">which services it covers</Link> and <Link to="/works">selected projects</Link>.</>,
+  'startup-website-mistakes': <>Need a site that explains your offer and captures enquiries? See Clydara’s <Link to="/services#web-development">website design and development service</Link>, <Link to="/works">recent website projects</Link>, or <Link to="/contact">send your current URL and goals</Link>.</>,
+}
+
 const relatedArticleIds: Record<string, string[]> = {
   'is-mern-still-worth-it-2026': ['saas-development-cost', 'ai-integration-for-startups', 'custom-software-vs-saas'],
   'custom-software-vs-saas': ['saas-development-cost', 'agency-vs-in-house-developers', 'ai-integration-for-startups'],
@@ -740,6 +751,7 @@ export default function BlogDetailPage() {
       {/* Blog Detail Hero Card */}
       <section className="blog-detail-hero-card" ref={heroRef}>
         <div className="blog-detail-hero-container">
+          <Breadcrumbs path={`/blog/${post.id}`} className="seo-breadcrumbs--center" />
           <h1 className="blog-detail-headline-wrap" aria-label={post.title}>
             <span className="blog-detail-headline-row blog-detail-headline-row-1">
               <span className="blog-detail-h1 blog-dark">
@@ -855,6 +867,10 @@ export default function BlogDetailPage() {
                 <p key={cIdx} className="blog-article-p">{p}</p>
               ))}
             </div>
+          )}
+
+          {nextSteps[post.id] && (
+            <p className="blog-article-p seo-next-step">{nextSteps[post.id]}</p>
           )}
 
           {/* Production Checklist */}

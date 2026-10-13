@@ -5,6 +5,7 @@ import { RevealHeading } from '../components/common/RevealHeading'
 import FAQ from '../components/FAQ/FAQ'
 import './ContactPage.css'
 import { trackEnquiry } from '../seo/analytics'
+import { Link } from 'react-router-dom'
 
 const flowerIcon = 'https://framerusercontent.com/images/bPFUMYGmKDGU6pubiY2MFnjtBAk.svg'
 
@@ -150,6 +151,9 @@ export default function ContactPage() {
 
           <p className="contact-hero-sub">
             Have a project, idea, or challenge? We'd love to hear it. Let's collaborate and bring something meaningful to life.
+          </p>
+          <p className="contact-hero-links">
+            Not sure what to ask for? Compare <Link to="/services">Clydara’s services</Link> or read the <Link to="/blog/saas-development-cost">SaaS development cost guide</Link> first.
           </p>
         </div>
       </section>

@@ -37,6 +37,27 @@ export function getPage(pathname: string): SeoPage | undefined {
   return pages.find(page => page.path === (pathname.replace(/\/+$/, '') || '/'))
 }
 
+// Section hubs used for breadcrumb trails (visible nav and BreadcrumbList share this source).
+const sections: Record<string, { name: string; path: string }> = {
+  blog: { name: 'Guides', path: '/blog' },
+  works: { name: 'Our work', path: '/works' },
+}
+
+export function getBreadcrumbs(path: string): { name: string; path: string }[] {
+  const page = getPage(path)
+  const section = sections[path.split('/')[1]]
+  if (!page || !section || path === section.path) return []
+  return [{ name: 'Home', path: '/' }, section, { name: page.name, path: page.path }]
+}
+
+// One @id per service; /services anchors use the same fragment so visible sections and nodes agree.
+export const services = [
+  { id: 'web-development', name: 'Web Development', description: 'Websites, web applications and MERN stack solutions with responsive, SEO-ready front ends.' },
+  { id: 'saas-business-solutions', name: 'SaaS & Business Solutions', description: 'Custom SaaS platforms, CRM systems, admin dashboards, ERP and industry-specific business software.' },
+  { id: 'ai-integration-automation', name: 'AI Integration & Automation', description: 'AI-powered automation, intelligent workflows, API integrations and chatbots.' },
+  { id: 'branding-creative-design', name: 'Branding & Creative Design', description: 'Logo and brand identity, UI/UX design, vector artwork and digital marketing assets.' },
+]
+
 export function getSchema(page: SeoPage) {
   const url = SITE_ORIGIN + page.path
   const organization = {
@@ -54,11 +75,19 @@ export function getSchema(page: SeoPage) {
     { '@type': 'WebSite', '@id': SITE_ORIGIN + '/#website', url: SITE_ORIGIN + '/', name: 'Clydara', inLanguage: 'en', publisher: { '@id': organization['@id'] } },
     { '@type': page.type || 'WebPage', '@id': url + '#webpage', url, name: page.name, description: page.description, inLanguage: 'en', isPartOf: { '@id': SITE_ORIGIN + '/#website' }, about: { '@id': organization['@id'] } },
   ]
+  const webPage = graph[2]
+  if (page.type === 'AboutPage' || page.type === 'ContactPage') webPage.mainEntity = { '@id': organization['@id'] }
+  const crumbs = getBreadcrumbs(page.path)
+  if (crumbs.length) {
+    webPage.breadcrumb = { '@id': url + '#breadcrumb' }
+    graph.push({ '@type': 'BreadcrumbList', '@id': url + '#breadcrumb', itemListElement: crumbs.map((crumb, index) => ({ '@type': 'ListItem', position: index + 1, name: crumb.name, item: SITE_ORIGIN + crumb.path })) })
+  }
   if (page.author) graph.push({ '@type': 'BlogPosting', '@id': url + '#article', headline: page.name, description: page.description, image: page.image, dateModified: page.dateModified, author: { '@id': organization['@id'] }, publisher: { '@id': organization['@id'] }, mainEntityOfPage: { '@id': url + '#webpage' }, inLanguage: 'en' })
   if (page.path === '/services') {
-    for (const name of ['Web Development', 'SaaS & Business Solutions', 'AI Integration & Automation', 'Branding & Creative Design']) {
-      graph.push({ '@type': 'Service', name, provider: { '@id': organization['@id'] }, url })
+    for (const service of services) {
+      graph.push({ '@type': 'Service', '@id': `${url}#${service.id}`, name: service.name, serviceType: service.name, description: service.description, provider: { '@id': organization['@id'] }, url: `${url}#${service.id}` })
     }
+    webPage.mainEntity = services.map(service => ({ '@id': `${url}#${service.id}` }))
   }
   return { '@context': 'https://schema.org', '@graph': graph }
 }
