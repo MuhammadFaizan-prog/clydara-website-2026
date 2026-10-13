@@ -155,3 +155,17 @@ test('guides and case studies describe their place in the site with a valid Brea
   const home = JSON.parse((await readFile('dist/index.html', 'utf8')).match(/<script[^>]*type="application\/ld\+json"[^>]*>(.*?)<\/script>/s)[1])['@graph']
   assert.ok(!home.some(node => node['@type'] === 'BreadcrumbList'), 'Top-level pages need no breadcrumb')
 })
+
+test('Service nodes have stable ids and the same description the /services page shows', async () => {
+  const html = await readFile('dist/services.html', 'utf8')
+  const graph = JSON.parse(html.match(/<script[^>]*type="application\/ld\+json"[^>]*>(.*?)<\/script>/s)[1])['@graph']
+  const nodes = graph.filter(node => node['@type'] === 'Service')
+  assert.equal(nodes.length, 4)
+  const text = html.replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ')
+  for (const node of nodes) {
+    assert.match(node['@id'], /^https:\/\/www\.clydralab\.com\/services#[a-z-]+$/)
+    assert.ok(text.includes(node.name), `${node.name} must be visible`)
+    assert.ok(text.includes(node.description), `${node.name}: description must match the visible card`)
+  }
+  assert.equal(new Set(nodes.map(node => node['@id'])).size, 4)
+})

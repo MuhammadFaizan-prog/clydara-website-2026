@@ -36,6 +36,14 @@ export const pages: SeoPage[] = [
 // Section names as they appear in the site navigation.
 const sectionLabels: Record<string, string> = { blog: 'Blog', works: 'Works' }
 
+// The four service cards on /services, with the same wording the page shows.
+export const services = [
+  { slug: 'web-development', name: 'Web Development', description: 'We build high-performance, SEO-optimized websites, web applications, and MERN stack solutions with modern UI, responsive design, and engaging user experiences.' },
+  { slug: 'saas-business-solutions', name: 'SaaS & Business Solutions', description: 'Custom SaaS platforms, CRM systems, admin dashboards, ERP solutions, and industry-specific software for hotels, restaurants, pharmacies, healthcare, and enterprises.' },
+  { slug: 'ai-integration-automation', name: 'AI Integration & Automation', description: 'Enhance your business with AI-powered automation, intelligent workflows, API integrations, chatbots, and smart digital solutions that improve efficiency.' },
+  { slug: 'branding-creative-design', name: 'Branding & Creative Design', description: 'Create a memorable brand with logo design, brand identity, UI/UX design, vector artwork, social media creatives, and complete digital marketing assets.' },
+]
+
 export function getPage(pathname: string): SeoPage | undefined {
   return pages.find(page => page.path === (pathname.replace(/\/+$/, '') || '/'))
 }
@@ -69,8 +77,8 @@ export function getSchema(page: SeoPage) {
   }
   if (page.author) graph.push({ '@type': 'BlogPosting', '@id': url + '#article', headline: page.name, description: page.description, image: page.image, dateModified: page.dateModified, author: { '@type': 'Person', name: page.author, url: SITE_ORIGIN + '/about' }, publisher: { '@id': organization['@id'] }, mainEntityOfPage: { '@id': url + '#webpage' }, inLanguage: 'en' })
   if (page.path === '/services') {
-    for (const name of ['Web Development', 'SaaS & Business Solutions', 'AI Integration & Automation', 'Branding & Creative Design']) {
-      graph.push({ '@type': 'Service', name, provider: { '@id': organization['@id'] }, url })
+    for (const service of services) {
+      graph.push({ '@type': 'Service', '@id': url + '#' + service.slug, name: service.name, description: service.description, provider: { '@id': organization['@id'] }, url })
     }
   }
   return { '@context': 'https://schema.org', '@graph': graph }
