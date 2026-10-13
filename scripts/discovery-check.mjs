@@ -15,8 +15,8 @@ for (const agent of agents) {
       const blocked = /noindex|none/i.test(robots) || (html && /name="robots" content="[^"]*(?:noindex|none)/i.test(body))
       const contentOk = html ? main === 1 && canonical === origin + path
         : path === '/robots.txt' ? body.includes('User-agent: *\nAllow: /') && body.includes(origin + '/sitemap.xml')
-        : path === '/sitemap.xml' ? body.includes('<urlset') && (body.match(/<loc>/g) || []).length === 17
-        : path === '/feed.xml' ? body.includes('<rss version="2.0"') && (body.match(/<item>/g) || []).length === 6
+        : path === '/sitemap.xml' ? body.includes('<urlset') && (body.match(/<loc>/g) || []).length === 21
+        : path === '/feed.xml' ? body.includes('<rss version="2.0"') && (body.match(/<item>/g) || []).length === 9
         : path === '/llms.txt' ? body.startsWith('# Clydara')
         : body.includes('Canonical: ' + origin + '/services')
       return { path, status: response.status, type: response.headers.get('content-type'), bytes: Buffer.byteLength(body), canonical, main: html ? main : undefined, xRobotsTag: robots, pass: response.status === 200 && !blocked && contentOk }

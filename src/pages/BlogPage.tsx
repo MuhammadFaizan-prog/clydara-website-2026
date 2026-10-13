@@ -60,6 +60,33 @@ export const blogPosts = [
     date: 'May 2026',
     author: 'Rohan Baig',
   },
+  {
+    id: "saas-infrastructure-cost",
+    title: "SaaS Infrastructure Cost in 2026: Monthly Bills by Stage",
+    excerpt: "Real 2026 vendor prices for hosting, database, auth, email and monitoring, stage by stage",
+    readTime: '8 Min Read',
+    image: '/images/blog/saas-infrastructure-cost-card.webp',
+    date: '14 Oct 2026',
+    author: 'Clydara',
+  },
+  {
+    id: "custom-saas-development-process",
+    title: "Custom SaaS Development: How a Build Actually Runs",
+    excerpt: "Discovery to iteration: what happens at each stage and what you should receive",
+    readTime: '7 Min Read',
+    image: '/images/blog/custom-saas-development-process-card.webp',
+    date: '14 Oct 2026',
+    author: 'Clydara',
+  },
+  {
+    id: "saas-vs-custom-software-architecture-firms",
+    title: "SaaS vs Custom Software for Architecture Firms",
+    excerpt: "When studio tools are enough, and when a custom portal or workflow tool pays off",
+    readTime: '7 Min Read',
+    image: '/images/blog/saas-vs-custom-software-architecture-firms-card.webp',
+    date: '14 Oct 2026',
+    author: 'Clydara',
+  },
 ]
 
 export default function BlogPage() {

@@ -1,6 +1,7 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, type ReactElement } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { RevealChars } from '../components/common/RevealChars'
 import { RevealHeading } from '../components/common/RevealHeading'
 import { blogPosts } from './BlogPage'
@@ -9,6 +10,8 @@ import NotFoundPage from './NotFoundPage'
 import './BlogDetailPage.css'
 import './BlogPage.css'
 import './SeoContent.css'
+
+gsap.registerPlugin(ScrollTrigger)
 
 interface ArticleData {
   heroRow1: { prefix: string; pill: string; accent: string }
@@ -20,7 +23,7 @@ interface ArticleData {
   sections: {
     heading: string
     paragraphs: string[]
-    comparison?: { caption: string; columns: string[]; rows: string[][] }
+    comparison?: { label?: string; caption: string; columns: string[]; rows: string[][] }
     showInlineMetaAndImg?: boolean
   }[]
   faqs: { q: string; a: string }[]
@@ -28,6 +31,29 @@ interface ArticleData {
   conclusionParagraphs?: string[]
   checklistHeading?: string
   checklistParagraphs?: string[]
+}
+
+// Renders [label](/internal-path) inside guide copy as a client-side link; everything else stays plain text.
+function renderInline(text: string) {
+  const parts: (string | ReactElement)[] = []
+  const pattern = /\[([^\]]+)\]\((\/[^)\s]*)\)/g
+  let last = 0
+  for (const match of text.matchAll(pattern)) {
+    if (match.index > last) parts.push(text.slice(last, match.index))
+    parts.push(<Link key={match.index} to={match[2]}>{match[1]}</Link>)
+    last = match.index + match[0].length
+  }
+  if (last < text.length) parts.push(text.slice(last))
+  return parts
+}
+
+// Short vendor or publisher label for a source link, e.g. "vercel.com".
+function sourceDomain(url: string) {
+  try {
+    return new URL(url).hostname.replace(/^www\./, '')
+  } catch {
+    return ''
+  }
 }
 
 const articlesData: Record<string, ArticleData> = {
@@ -596,6 +622,306 @@ const articlesData: Record<string, ArticleData> = {
       'In week four, launch the highest-confidence changes and establish a review rhythm. Compare qualified conversion rates by source and page. Read form submissions, not just totals. Choose the next hypothesis from observed friction. Sustainable lead generation comes from repeated learning across positioning, content, UX, SEO, and performance\u2014not from a one-time visual redesign.',
     ],
   },
+  "saas-infrastructure-cost": {
+    heroRow1: { prefix: "SaaS", pill: '/images/blog/guide-pill-1.webp', accent: "Infrastructure" },
+    heroRow2: { pill: '/images/blog/guide-pill-2.webp', suffix: "Cost in 2026" },
+    subtitle:
+      "A SaaS built on managed services costs close to nothing as a prototype, around $110 to $140 a month once paying customers arrive, and somewhere between $370 and $1,050 a month at growth. The jumps come from seats, user counts and backups, not traffic. Every price here comes from the vendor's own pricing page, checked on 13 October 2026.",
+    featuredImg: '/images/blog/saas-infrastructure-cost-featured.webp',
+    inlineImg: '/images/blog/saas-infrastructure-cost-card.webp',
+    tags: ["SaaS, Infrastructure, Pricing"],
+    sections: [
+      {
+        heading: "The short answer, and why most estimates online are wrong",
+        paragraphs: [
+          "Founders often want to know what a SaaS costs to run before they know what it costs to build. Fair question. The honest answer is that for most early products the monthly infrastructure bill is small, and the build cost dwarfs it. We cover that side in our [SaaS development cost guide](/blog/saas-development-cost). This post is about the bill that arrives every month after launch.",
+          "Most articles on this topic quote ranges like \"$100 to $250 pre-launch\" with no vendor, no date and no assumptions. That isn't useful when you are choosing a stack. So we priced one common setup: Vercel for hosting, Supabase for the Postgres database, file storage and optionally auth, Clerk as the alternative auth provider, Resend or Postmark for email, and Sentry for error monitoring. You could swap any of these for AWS, Render, Auth0 or SendGrid. The shape of the bill stays the same.",
+          "All prices are in US dollars, exclude tax, use monthly billing unless the vendor only shows an annual figure, and assume one production project with no overages. Pricing pages change often, so treat the dates as part of the numbers.",
+        ],
+        showInlineMetaAndImg: true,
+      },
+      {
+        heading: "Monthly cost by stage",
+        paragraphs: [
+          "Prototype means you and a handful of testers. First customers means a small paying user base and two developers with access. Growth means tens of thousands of active users, four developers, a bigger database and real backups. The growth column assumes 80,000 monthly active users, which is where the auth decision starts to matter a lot.",
+        ],
+        comparison: {
+          label: "SaaS infrastructure cost by stage",
+          caption: "Monthly SaaS infrastructure cost by stage, USD, vendor list prices checked 13 October 2026",
+          columns: ["Line item", "Prototype", "First customers", "Growth"],
+          rows: [
+            ["Hosting (Vercel)", "$0 Hobby, personal non-commercial use only", "$40: Pro with 2 developer seats", "$80: Pro with 4 seats, plus usage beyond the $20 monthly credit"],
+            ["Database and storage (Supabase)", "$0 Free: 500 MB database, paused after a week of inactivity, no backups", "$25 Pro: 8 GB disk, 100 GB file storage, daily backups", "$175: Pro, Medium compute ($50 after the $10 credit), point-in-time recovery ($100)"],
+            ["Authentication", "$0 Supabase Auth or Clerk Hobby", "$0 Supabase Auth, or $25 Clerk Pro", "$0 Supabase Auth up to 100,000 MAU, or about $625 Clerk Pro at 80,000 retained users"],
+            ["Transactional email", "$0 Resend Free, 100 emails a day", "$20 Resend Pro (50,000 emails) or $15 Postmark Basic (10,000)", "$90 Resend Scale, 100,000 emails"],
+            ["Error monitoring (Sentry)", "$0 Developer, one user", "$26 Team, billed annually", "$26 Team to $80 Business, billed annually"],
+            ["Monthly total", "$0", "About $111 to $136", "About $371 to $1,050"],
+          ],
+        },
+      },
+      {
+        heading: "What each line actually charges for",
+        paragraphs: [
+          "Hosting. Vercel Pro is $20 a month and includes $20 of usage credit, and each additional developer seat is another $20. Viewer seats are free. The catch on the free tier is in Vercel's own FAQ: Hobby is for personal, non-commercial use. Once you charge customers, budget for Pro.",
+          "Database. Supabase Free gives you 500 MB and two active projects, but free projects pause after a week without activity and have no automatic backups. That is fine for a demo and risky for anything a customer touches. Pro starts at $25, includes $10 of compute credit (enough for the Micro instance), 8 GB of disk and daily backups kept for seven days. Bigger instances cost $15, $60 or $110 a month before the credit. Point-in-time recovery starts at $100 a month, and once real customer data lives in the database we think it is worth it.",
+          "Authentication. This is the line founders underestimate. Supabase includes 50,000 monthly active users on Free and 100,000 on Pro, then charges $0.00325 per user. Clerk's free Hobby plan covers 50,000 monthly retained users per app; Pro is $25 a month ($20 billed annually) with 50,000 included, then $0.02 per retained user up to 100,000. At 80,000 retained users that is $25 plus $600. Clerk only counts users who come back 24 hours after signing up, which helps if you get a lot of drive-by signups. Auth0 is free up to 25,000 monthly active users, and its Essentials and Professional plans start at $35 and $240 a month for 500 users, rising with the user count.",
+          "Email. Resend's free plan allows 3,000 emails a month but only 100 a day, which a single bulk invite can blow through. Pro is $20 for 50,000 emails, Scale is $90 for 100,000, and extra emails cost $0.90 per thousand. Postmark's free tier is only 100 emails a month; Basic starts at $15 for 10,000.",
+          "Storage. Supabase Pro includes 100 GB of file storage, then $0.0213 per GB. Amazon S3 Standard in us-east-1 is $0.023 per GB-month for the first 50 TB, and you pay separately for requests and data transfer out. Cloudflare R2 is $0.015 per GB-month with no egress charges and 10 GB free. For most early products, storage is a rounding error. It only matters if users upload video or large drawings.",
+          "Monitoring. Sentry's free Developer plan is limited to one user. Team is $26 a month billed annually with 50,000 errors included and unlimited users. Business is $80. You can also add an uptime monitor here; Sentry includes one on every plan.",
+        ],
+      },
+      {
+        heading: "Where the bill jumps without warning",
+        paragraphs: [
+          "Seats grow faster than traffic. Two extra developers on Vercel Pro add $40 a month whether or not a single new customer signs up. Check which tools charge per seat before you invite your whole team, contractors included.",
+          "Auth pricing units differ. MAU, MRU and \"external active users\" are counted differently, and the price per user varies by an order of magnitude between providers. If your product is free to use with a paid upgrade, model auth cost at your target user count before you write the login screen, not after.",
+          "Backups are not on by default where you think they are. On Supabase Free there are none, and point-in-time recovery is a paid add-on even on Pro. A restore you have never tested is a hope, not a backup.",
+          "Payment fees usually beat infrastructure. Stripe's standard US card rate is 2.9% plus 30 cents per successful charge, with 1.5% more for international cards. On a $29 monthly plan that is about $1.14 per customer per month, before currency conversion. At a few hundred customers, Stripe is likely your largest variable cost, not your servers.",
+          "AI features are a separate budget. Model API calls are billed per token and can outgrow everything else on this page quickly. Our [AI integration guide](/blog/ai-integration-for-startups) covers how to cap that spend.",
+        ],
+      },
+      {
+        heading: "How we'd keep a young SaaS bill under control",
+        paragraphs: [
+          "Turn on the spend controls that already exist. Vercel gives new teams a default $200 on-demand budget with alerts and can pause projects at a hard limit. Supabase Pro ships with a spend cap enabled. Leave both on until you understand your usage pattern.",
+          "Keep one region and one production project until a customer contract forces otherwise. Preview environments and branch databases are useful, and they are billed too.",
+          "Pick auth with your business model in mind. For a B2B product with a few hundred paying seats, Clerk's polish can be worth the per-user price. For a free consumer app aiming at 100,000 users, bundled Supabase Auth changes the economics completely.",
+          "Review the invoices monthly for the first six months. Fifteen minutes is enough to catch a forgotten add-on or a seat for someone who left. If you are still choosing between building on a stack like this and buying an existing tool, our [custom software vs SaaS guide](/blog/custom-software-vs-saas) walks through that decision.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How much does it cost to host a SaaS in 2026?",
+        a: "On the stack priced here, about $0 for a prototype, roughly $110 to $140 a month with first paying customers, and $370 to $1,050 a month at around 80,000 active users. Your numbers depend on seats, user counts and backup needs.",
+      },
+      {
+        q: "Can I run a commercial SaaS on free tiers?",
+        a: "Partly. Vercel Hobby is for non-commercial use, and Supabase Free pauses idle projects and has no backups, so most teams move to paid plans once customers depend on the product.",
+      },
+      {
+        q: "What is usually the biggest infrastructure cost?",
+        a: "Early on, the database plan and developer seats. At scale, per-user auth pricing and payment processing fees often overtake hosting.",
+      },
+      {
+        q: "Is AWS cheaper than Vercel and Supabase?",
+        a: "Raw resources can be cheaper, but you pay for it in setup and operations time. For a small team, managed platforms usually cost less in total until usage is large and predictable.",
+      },
+      {
+        q: "Are these Clydara prices?",
+        a: "No. Every figure here is a vendor's public list price, not a Clydara fee. Vendors bill whoever owns the accounts, and we recommend that the founder owns them from day one.",
+      },
+    ],
+    conclusionHeading: "The bottom line",
+    conclusionParagraphs: [
+      "Running a SaaS is cheap until a few specific lines move: seats, auth users, backups and payments. Price those four at the user count you are aiming for, not the one you have today, and the rest of the bill will rarely surprise you.",
+      "If you want a second opinion on a stack or an architecture before you commit, look at our [SaaS and web development services](/services) or read how we approach a [custom SaaS build](/blog/custom-saas-development-process).",
+    ],
+  },
+  "custom-saas-development-process": {
+    heroRow1: { prefix: "Custom SaaS", pill: '/images/blog/guide-pill-1.webp', accent: "Development:" },
+    heroRow2: { pill: '/images/blog/guide-pill-2.webp', suffix: "How a Build Runs" },
+    subtitle:
+      "A custom SaaS build moves through discovery, scoping, design, an MVP build, QA and launch, and then keeps going as iteration. Each stage exists to make one expensive mistake cheaper to catch. This is how those stages run in practice, what you should have in your hands at the end of each, and where founders tend to lose weeks.",
+    featuredImg: '/images/blog/custom-saas-development-process-featured.webp',
+    inlineImg: '/images/blog/custom-saas-development-process-card.webp',
+    tags: ["Custom SaaS, Product Development, Process"],
+    sections: [
+      {
+        heading: "The shape of a build",
+        paragraphs: [
+          "Most process diagrams show six neat boxes with week counts under each. Real builds overlap. Design starts before scoping is finished, QA runs inside every sprint, and the first customer conversation after launch rewrites half the backlog. The boxes are still useful, because each one ends with a decision that gets more expensive if you postpone it.",
+          "Our default stack for SaaS products and dashboards is React on the front end and Node.js on the server, with MongoDB when the data is naturally document-shaped and Postgres, often through Supabase, when the data is relational and needs strict permissions. Stack choice matters less than people think at this stage. Our [MERN guide](/blog/is-mern-still-worth-it-2026) covers when that stack fits and when it doesn't.",
+          "The table below is the short version. The rest of the post explains each row.",
+        ],
+        showInlineMetaAndImg: true,
+      },
+      {
+        heading: "Stage by stage at a glance",
+        paragraphs: [],
+        comparison: {
+          label: "Custom SaaS build stages",
+          caption: "What happens at each stage of a custom SaaS build, and what the founder should receive",
+          columns: ["Stage", "What happens", "What you should receive", "Your part"],
+          rows: [
+            ["Discovery", "Interviews, workflow mapping, risky assumptions listed", "A written problem statement and a go or stop recommendation", "Access to real users and honest answers"],
+            ["Scoping", "The first release is cut to one core workflow", "Prioritised backlog with acceptance criteria", "Saying no to features you like"],
+            ["Design", "Clickable prototype, every state of every key screen", "Prototype link and a small component library", "Testing it with two or three users"],
+            ["MVP build", "Working software in thin vertical slices", "A staging URL that updates as features land, repo access", "Reviewing demos within days, not weeks"],
+            ["QA", "Permission, security, accessibility and device testing", "Test plan, fixed issues, known-issues list", "Acceptance testing with your own data"],
+            ["Launch", "Soft launch to a small group, monitoring switched on", "Production URL, runbook, restore tested", "Onboarding the first customers yourself"],
+            ["Iteration", "Fixes and features driven by usage", "A regular release rhythm and a short changelog", "Deciding what matters next"],
+          ],
+        },
+      },
+      {
+        heading: "Discovery: decide whether to build at all",
+        paragraphs: [
+          "Discovery is research, not development. The UK Government's Service Manual puts it bluntly: you should not start building your service in discovery, and around four to eight weeks is typical for a government service. A focused startup product often needs less, but the principle holds. You are trying to understand who the users are, what they are doing today, and which constraints you cannot change.",
+          "A good discovery ends with a written problem statement in plain language and a list of the assumptions most likely to kill the product. It can also end with a recommendation not to build, or to buy an existing tool instead. The same manual notes that stopping after discovery is not a failure. We agree. A week spent learning that a $30-a-month tool solves the problem is the cheapest week of the project. If you are on that fence, read our [custom software vs SaaS guide](/blog/custom-software-vs-saas) first.",
+        ],
+      },
+      {
+        heading: "Scoping: one workflow, written down",
+        paragraphs: [
+          "Scoping turns discovery into a first release small enough to ship. In practice that means picking the one workflow a paying customer would miss if it disappeared, and parking everything else. Each item in the backlog gets acceptance criteria a non-developer can check: \"an admin can invite a teammate and assign the viewer role\", not \"user management done\".",
+          "This is also when to settle the decisions that are painful to change later. Will each customer's data live in shared tables with a tenant ID, or in separate databases? What roles exist, and what can each one see? Who owns the repository, the cloud accounts, the domain and the payment account? Our answer to the last one is always the founder. If a studio holds your accounts, you don't fully own your product.",
+        ],
+      },
+      {
+        heading: "Design: every state, not just the happy path",
+        paragraphs: [
+          "Design for a SaaS product is mostly about states. What does the dashboard look like with no data yet? What does a user without permission see? What happens when a payment fails or an upload is too large? A prototype that only shows the happy path pushes all of those questions into development, where answering them costs more.",
+          "Keep the visual system small: a handful of components used consistently beats a large design kit nobody follows. Put the clickable prototype in front of two or three real users before any code is written. If they can't find the main action without help, that's a design problem, and it's cheap to fix now.",
+        ],
+      },
+      {
+        heading: "MVP build: thin slices and a staging link",
+        paragraphs: [
+          "Build in vertical slices: one feature working end to end, from database to screen, before the next one starts. It means you can click through something real early, and integrations like payments and email get tested in week two instead of the week before launch, when there's no slack left to fix them.",
+          "Ask for a staging URL from the first sprint and repository access from day one. Short, frequent demos beat long status reports. A common delay in software projects is not code. It's feedback waiting for a decision, so block regular time in your calendar to review what was built.",
+        ],
+      },
+      {
+        heading: "QA: permissions first",
+        paragraphs: [
+          "Testing should run through the whole build, but a dedicated pass before launch catches what sprint testing misses. Start with permissions, because a data leak between customers is the bug that ends trust. On Supabase, the documentation is explicit that a table in an exposed schema without row level security can be read and written by any role with a grant on it, and it recommends a policy for each operation with tests for both allowed and denied access.",
+          "Beyond that: check the OWASP Top 10 risks against your app, test keyboard navigation and contrast against WCAG 2.2, and try the core workflow on a cheap Android phone over a slow connection. Load your own messy data in, not tidy sample rows. You should receive a list of known issues alongside the fixed ones. A QA report with zero open issues usually means nobody looked hard.",
+        ],
+      },
+      {
+        heading: "Launch and iteration",
+        paragraphs: [
+          "Launch to a small group first. Five friendly customers who will tell you what broke are worth more than a big announcement. Before anyone outside the team logs in, monitoring should be switched on, backups should be confirmed and a restore should have been tried once. A one-page runbook covering how to deploy, roll back and who gets alerted is enough at this size.",
+          "Then the real work starts. Budget for iteration from the beginning, because the first month of usage always changes priorities. If you are planning the money side, our [SaaS development cost guide](/blog/saas-development-cost) and our breakdown of [monthly SaaS infrastructure costs](/blog/saas-infrastructure-cost) cover the build budget and the running bill.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How long does custom SaaS development take?",
+        a: "It depends on scope and on how quickly decisions get made. As a general reference, the UK Government Service Manual calls four to eight weeks typical for discovery alone on a government service. Treat any fixed week count given before discovery with caution.",
+      },
+      {
+        q: "Can we skip discovery and go straight to building?",
+        a: "You can if the problem, users and workflow are already well understood and written down. Otherwise the questions discovery answers come up during the build anyway, when changes cost more.",
+      },
+      {
+        q: "Who should own the code and accounts?",
+        a: "You should. Put the repository, cloud hosting, domain, database and payment accounts in your company's name from the start, and give the development team access rather than the reverse.",
+      },
+      {
+        q: "Fixed price or time and materials?",
+        a: "Fixed price works when the scope is genuinely settled. For a new product, a paid discovery followed by phased estimates usually gives a more honest number.",
+      },
+      {
+        q: "What should I prepare before contacting a studio?",
+        a: "Who will use the product, the problem it solves, the systems it must connect to, the features you consider essential, and any timeline or budget limits. That is enough for a useful first conversation.",
+      },
+    ],
+    conclusionHeading: "What to take from this",
+    conclusionParagraphs: [
+      "A custom SaaS build is a sequence of decisions, each made cheaper by the stage before it. Insist on written outputs at every step, keep ownership of your accounts, and protect time for feedback. Those three habits do more for a project than any choice of framework.",
+      "If you have a product in mind, our [SaaS and custom software services](/services) page explains what we build, and the contact form asks for exactly the details listed in the FAQ above.",
+    ],
+  },
+  "saas-vs-custom-software-architecture-firms": {
+    heroRow1: { prefix: "SaaS vs Custom", pill: '/images/blog/guide-pill-1.webp', accent: "Software for" },
+    heroRow2: { pill: '/images/blog/guide-pill-2.webp', suffix: "Architecture Firms" },
+    subtitle:
+      "Most architecture and design studios should buy their core software: a practice management tool for fees, time and invoices, and a BIM platform for model collaboration. Custom software earns its cost in a narrower place: the client-facing layer, and the workflows your bought tools leave stuck in spreadsheets and email threads. Here is how to tell which side of that line your studio is on.",
+    featuredImg: '/images/blog/saas-vs-custom-software-architecture-firms-featured.webp',
+    inlineImg: '/images/blog/saas-vs-custom-software-architecture-firms-card.webp',
+    tags: ["Architecture, Custom Software, SaaS"],
+    sections: [
+      {
+        heading: "Three jobs, not one",
+        paragraphs: [
+          "When a principal says \"we need better software\", they usually mean one of three different jobs, and lumping them together is how studios end up either overspending or under-tooled.",
+          "The first job is running the practice: fees split by phase, timesheets, staffing, invoices and the numbers that tell you whether a project is making money. The second is design collaboration: shared models, drawing sets, markups and coordination with consultants. The third is the client experience: how a client sees progress, approves a design option, picks finishes, signs off a stage and finds the right document six months later.",
+          "Mature products exist for the first two jobs, built by companies with far more engineers than any studio will ever hire. The third job is where generic tools fit worst, because every studio's client process is a little different and it is part of what clients are paying for.",
+        ],
+        showInlineMetaAndImg: true,
+      },
+      {
+        heading: "What off-the-shelf tools cost",
+        paragraphs: [
+          "These are published prices, checked on 13 October 2026. Several A&E vendors only quote on request, which makes comparison harder than it should be.",
+        ],
+        comparison: {
+          label: "Architecture firm software prices",
+          caption: "Off-the-shelf tools an architecture studio might use, with published prices (USD, checked 13 October 2026)",
+          columns: ["Tool", "Job it does", "Published price"],
+          rows: [
+            ["Monograph", "Practice management: phase budgets, time, invoicing, QuickBooks Online sync", "$45 to $490 a month depending on firm size"],
+            ["Factor", "A&E project management and billing", "$30 per user a month on an annual plan, 5+ users"],
+            ["BQE CORE", "Practice management and accounting modules", "Quote only, based on modules and users"],
+            ["Autodesk BIM Collaborate Pro", "Cloud co-authoring and model coordination for Revit", "$925 per user a year, or $115 a month"],
+            ["Asana", "General project and task management", "$10.99 per user a month (Starter, annual)"],
+            ["ClickUp", "General project and task management", "$7 per user a month (Unlimited, annual)"],
+          ],
+        },
+      },
+      {
+        heading: "When SaaS is enough",
+        paragraphs: [
+          "For a 12-person studio, Factor at $30 a seat comes to $360 a month. Add BIM Collaborate Pro for four Revit users and that is another $3,700 a year. Those are real numbers, but they are small next to one senior salary, and the products come with support, updates and security work you would otherwise pay for yourself.",
+          "Stay with off-the-shelf tools if your projects follow a similar shape, your clients are comfortable with email updates and PDF issue sheets, and the main complaint is that people don't fill in their timesheets. That last one matters. If the problem is habit, custom software will not fix it. It will just give people a new place not to log their hours.",
+          "A generic tool like Asana or ClickUp can also be enough for task tracking, but neither understands fees by phase. If you are tracking design fees against stages, an architecture-specific tool usually saves more admin time than it costs.",
+        ],
+      },
+      {
+        heading: "When a custom portal or tool pays off",
+        paragraphs: [
+          "The signals are usually practical and easy to spot. The same project information is retyped into three places every week. Clients ask \"where are we?\" often enough that someone spends hours writing status emails. Design options and finish selections go back and forth as PDF attachments, and nobody is sure which version was approved. A developer client or a repeat commercial client wants a branded place to see all their projects. Or you sell a repeatable service, such as interior fit-outs, with a defined set of options that a guided online flow could handle.",
+          "In those cases a small custom tool can carry real weight: a client portal with logins, a clear record of every approval with who approved it and when, selections tied to the drawing revision they belong to, and a project timeline your team updates in one place instead of in emails. None of that requires replacing the tools you already pay for.",
+          "Picture a 20-person interiors practice running eight fit-outs at once. Each client gets a finishes schedule as a spreadsheet, comments come back by email, and a junior designer spends Friday afternoons merging them into the next revision. The practice tool tracks the fees perfectly well. It just doesn't see any of this. That gap, not the fee tracking, is the thing worth building for.",
+          "To be clear about our own position: Clydara builds custom portals, dashboards and CRM-style business tools, but we don't have a published architecture-firm case study. The examples in this post are typical studio situations, not client stories.",
+        ],
+      },
+      {
+        heading: "Build thin, on top of what you already pay for",
+        paragraphs: [
+          "The mistake to avoid is rebuilding practice management or document control from scratch. Keep your practice tool as the record for fees and time, and your BIM platform as the record for models. Build only the layer that is missing, and connect it through whatever exports or APIs your tools provide. Check that before anyone writes a line of code, because it decides how much of the portal can update itself.",
+          "Running costs for a small portal like this are modest. A React front end with a managed Postgres database, authentication and transactional email sits in the first-customers column of our [SaaS infrastructure cost breakdown](/blog/saas-infrastructure-cost), around $110 to $140 a month on list prices. The build is the larger cost, and our [custom SaaS development process](/blog/custom-saas-development-process) explains how to keep the first version small. Whatever you build, keep the code, hosting and domain in the studio's name.",
+        ],
+      },
+      {
+        heading: "A quick test before you spend anything",
+        paragraphs: [
+          "For two weeks, have the team note every time they copy information from one system to another or write a status update by hand. Multiply the hours by an internal cost rate and you have a rough monthly figure for the problem. If that number is smaller than the running cost plus a sensible share of the build cost, stay with your current tools and tidy up the process instead.",
+          "Then try the cheapest workaround for a month: a shared approvals folder with a naming rule, or a form that logs sign-offs. If the workaround holds, you have saved real money. If it collapses under real projects, you now know exactly what the custom tool needs to do, which is the best brief a developer can get. Our broader [custom software vs SaaS guide](/blog/custom-software-vs-saas) has a worksheet for the full cost comparison.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Do architecture firms need custom software?",
+        a: "Most don't for core operations. Practice management and BIM collaboration are well served by existing products. Custom software makes sense for client-facing portals and studio-specific workflows that those tools don't cover.",
+      },
+      {
+        q: "Can a small studio just use Asana or ClickUp?",
+        a: "For tasks, yes. For fees tracked by phase, timesheets against budgets and invoicing, an architecture-specific tool such as Monograph or Factor fits better.",
+      },
+      {
+        q: "Should we build our own BIM collaboration tool?",
+        a: "No. Model co-authoring and coordination are deep technical products. Buy them, and if needed build a thin layer that shows clients the parts they care about.",
+      },
+      {
+        q: "What does a custom client portal usually include?",
+        a: "Client logins, project status, a record of approvals and selections with dates, links to the current drawing set, and notifications when something needs the client's decision.",
+      },
+      {
+        q: "Has Clydara built software for architecture firms?",
+        a: "Custom portals, dashboards and business tools are part of what we build, but we don't have a published architecture-firm case study. The scenarios in this guide are illustrations.",
+      },
+    ],
+    conclusionHeading: "Where we land",
+    conclusionParagraphs: [
+      "Buy the tools that run the practice and the tools that handle the models. Consider custom software only for the part of your process clients actually see, or for the copying and chasing your bought tools leave behind, and only after a cheap workaround has failed.",
+      "If you reach that point, our [custom software and SaaS services](/services) page explains what we build and what to include in a brief.",
+    ],
+  },
 }
 
 const articleReferences: Record<string, { title: string; url: string }[]> = {
@@ -629,6 +955,33 @@ const articleReferences: Record<string, { title: string; url: string }[]> = {
     { title: 'Recorded revisions, exact measurements and limitations', url: 'https://github.com/MuhammadFaizan-prog/clydara-website-2026/blob/main/seo/evidence/psi-high-priority.json' },
     { title: 'Google: Lighthouse performance scoring and variability', url: 'https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/' },
   ],
+  "saas-infrastructure-cost": [
+    { title: "Vercel pricing (checked 13 Oct 2026)", url: "https://vercel.com/pricing" },
+    { title: "Supabase pricing (checked 13 Oct 2026)", url: "https://supabase.com/pricing" },
+    { title: "Clerk pricing (checked 13 Oct 2026)", url: "https://clerk.com/pricing" },
+    { title: "Auth0 pricing (checked 13 Oct 2026)", url: "https://auth0.com/pricing" },
+    { title: "Resend pricing (checked 13 Oct 2026)", url: "https://resend.com/pricing" },
+    { title: "Postmark pricing (checked 13 Oct 2026)", url: "https://postmarkapp.com/pricing" },
+    { title: "Sentry pricing (checked 13 Oct 2026)", url: "https://sentry.io/pricing/" },
+    { title: "Amazon S3 pricing", url: "https://aws.amazon.com/s3/pricing/" },
+    { title: "Cloudflare R2 pricing", url: "https://developers.cloudflare.com/r2/pricing/" },
+    { title: "Stripe pricing (checked 13 Oct 2026)", url: "https://stripe.com/pricing" },
+  ],
+  "custom-saas-development-process": [
+    { title: "GOV.UK Service Manual: how the discovery phase works", url: "https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works" },
+    { title: "GOV.UK Service Manual: how the alpha phase works", url: "https://www.gov.uk/service-manual/agile-delivery/how-the-alpha-phase-works" },
+    { title: "Supabase: row level security", url: "https://supabase.com/docs/guides/database/postgres/row-level-security" },
+    { title: "OWASP Top 10", url: "https://owasp.org/www-project-top-ten/" },
+    { title: "W3C: Web Content Accessibility Guidelines (WCAG) 2.2", url: "https://www.w3.org/TR/WCAG22/" },
+  ],
+  "saas-vs-custom-software-architecture-firms": [
+    { title: "Monograph pricing (checked 13 Oct 2026)", url: "https://www.monograph.com/pricing" },
+    { title: "Factor pricing (checked 13 Oct 2026)", url: "https://factorapp.com/pricing" },
+    { title: "BQE CORE pricing (quote-based)", url: "https://www.bqe.com/pricing" },
+    { title: "Autodesk BIM Collaborate Pro pricing (checked 13 Oct 2026)", url: "https://www.autodesk.com/products/bim-collaborate/overview" },
+    { title: "Asana pricing (checked 13 Oct 2026)", url: "https://asana.com/pricing" },
+    { title: "ClickUp pricing (checked 13 Oct 2026)", url: "https://clickup.com/pricing" },
+  ],
 }
 
 const relatedArticleIds: Record<string, string[]> = {
@@ -638,13 +991,48 @@ const relatedArticleIds: Record<string, string[]> = {
   'agency-vs-in-house-developers': ['custom-software-vs-saas', 'saas-development-cost', 'is-mern-still-worth-it-2026'],
   'saas-development-cost': ['custom-software-vs-saas', 'agency-vs-in-house-developers', 'ai-integration-for-startups'],
   'startup-website-mistakes': ['agency-vs-in-house-developers', 'custom-software-vs-saas', 'is-mern-still-worth-it-2026'],
+  "saas-infrastructure-cost": ["saas-development-cost", "custom-saas-development-process", "saas-vs-custom-software-architecture-firms"],
+  "custom-saas-development-process": ["saas-infrastructure-cost", "saas-vs-custom-software-architecture-firms", "saas-development-cost"],
+  "saas-vs-custom-software-architecture-firms": ["saas-infrastructure-cost", "custom-saas-development-process", "custom-software-vs-saas"],
 }
 
 export default function BlogDetailPage() {
   const { id } = useParams()
   const heroRef = useRef<HTMLElement>(null)
+  const pageRef = useRef<HTMLElement>(null)
   const post = blogPosts.find((p) => p.id === id)
   const article = post ? articlesData[post.id] : undefined
+
+  // Scroll reveals for the sources list and related guides, matching the FAQ and blog grid entrances
+  useEffect(() => {
+    if (!post || !article || !pageRef.current) return
+    const ctx = gsap.context(() => {
+      gsap.from('.guide-source-item', {
+        opacity: 0,
+        y: 30,
+        stagger: 0.08,
+        duration: 0.6,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: '.guide-sources-list', start: 'top 85%', once: true },
+      })
+      gsap.from('.guide-next-steps', {
+        opacity: 0,
+        y: 24,
+        duration: 0.65,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: '.guide-next-steps', start: 'top 90%', once: true },
+      })
+      gsap.from('.more-articles-section .blog-post-card', {
+        opacity: 0,
+        y: 24,
+        stagger: 0.1,
+        duration: 0.75,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: '.more-articles-section .blog-posts-grid', start: 'top 85%', once: true },
+      })
+    }, pageRef)
+    return () => ctx.revert()
+  }, [id, post, article])
 
   // Scroll to top when post changes + trigger animation
   useEffect(() => {
@@ -704,13 +1092,15 @@ export default function BlogDetailPage() {
   const modifiedLabel = modifiedDate
     ? new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${modifiedDate}T12:00:00Z`))
     : ''
+  // A guide first published on its dateModified day shows one dated "Published" label instead of a duplicate "Updated" one.
+  const publishedSameDay = Boolean(modifiedDate) && post.date === new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${modifiedDate}T12:00:00Z`))
 
   const relatedPosts = (relatedArticleIds[post.id] || [])
     .map((relatedId) => blogPosts.find((p) => p.id === relatedId))
     .filter((relatedPost): relatedPost is typeof blogPosts[number] => Boolean(relatedPost))
 
   return (
-    <main className="blog-detail-page">
+    <main className="blog-detail-page" ref={pageRef}>
       {/* Blog Detail Hero Card */}
       <section className="blog-detail-hero-card" ref={heroRef}>
         <div className="blog-detail-hero-container">
@@ -742,8 +1132,8 @@ export default function BlogDetailPage() {
 
           <p className="blog-detail-sub">{article.subtitle}</p>
           <p className="seo-article-byline">
-            By <Link to="/about">{post.author}</Link> · Published {post.date}
-            {modifiedDate && (
+            By <Link to="/about">{post.author}</Link> · Published {publishedSameDay ? <time dateTime={modifiedDate}>{post.date}</time> : post.date}
+            {modifiedDate && !publishedSameDay && (
               <> · Updated <time dateTime={modifiedDate}>{modifiedLabel}</time></>
             )}
           </p>
@@ -767,11 +1157,11 @@ export default function BlogDetailPage() {
               <RevealHeading as="h2" className="blog-article-h2" text={sec.heading} />
 
               {sec.paragraphs.map((p, pIdx) => (
-                <p key={pIdx} className="blog-article-p">{p}</p>
+                <p key={pIdx} className="blog-article-p">{renderInline(p)}</p>
               ))}
 
               {sec.comparison && (
-                <div className="seo-measurement-table-wrap" role="region" aria-label="Homepage performance comparison" tabIndex={0}>
+                <div className="seo-measurement-table-wrap" role="region" aria-label={sec.comparison.label || 'Homepage performance comparison'} tabIndex={0}>
                   <table className="seo-measurement-table">
                     <caption>{sec.comparison.caption}</caption>
                     <thead><tr>{sec.comparison.columns.map(column => <th scope="col" key={column}>{column}</th>)}</tr></thead>
@@ -811,7 +1201,7 @@ export default function BlogDetailPage() {
               {article.faqs.map((faq, fIdx) => (
                 <div key={fIdx} className="blog-faq-item">
                   <h3 className="blog-faq-question">{faq.q}</h3>
-                  <p className="blog-faq-answer">{faq.a}</p>
+                  <p className="blog-faq-answer">{renderInline(faq.a)}</p>
                 </div>
               ))}
             </div>
@@ -822,7 +1212,7 @@ export default function BlogDetailPage() {
             <div style={{ marginTop: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <RevealHeading as="h2" className="blog-article-h2" text={article.conclusionHeading} />
               {article.conclusionParagraphs?.map((p, cIdx) => (
-                <p key={cIdx} className="blog-article-p">{p}</p>
+                <p key={cIdx} className="blog-article-p">{renderInline(p)}</p>
               ))}
             </div>
           )}
@@ -832,19 +1222,28 @@ export default function BlogDetailPage() {
             <div style={{ marginTop: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <RevealHeading as="h2" className="blog-article-h2" text={article.checklistHeading} />
               {article.checklistParagraphs?.map((p, kIdx) => (
-                <p key={kIdx} className="blog-article-p">{p}</p>
+                <p key={kIdx} className="blog-article-p">{renderInline(p)}</p>
               ))}
             </div>
           )}
-          <section className="seo-reading-block" aria-label="Sources and next steps">
-            <h2 className="blog-article-h2">Sources and further reading</h2>
-            <p className="blog-article-p">These references explain the technical practices and decision criteria discussed in this guide. They do not represent a project quote or a guarantee of results.</p>
-            <ul>
+          <section className="seo-reading-block guide-sources" aria-label="Sources and next steps">
+            <p className="guide-section-eyebrow" aria-hidden="true">(Sources)</p>
+            <h2 className="blog-article-h2 guide-sources-heading">Sources and further reading</h2>
+            <p className="blog-article-p guide-sources-intro">These references explain the technical practices and decision criteria discussed in this guide. They do not represent a project quote or a guarantee of results.</p>
+            <ol className="guide-sources-list">
               {(articleReferences[post.id] || []).map((reference) => (
-                <li key={reference.url}><a href={reference.url} target="_blank" rel="noopener noreferrer">{reference.title}</a></li>
+                <li key={reference.url} className="guide-source-item">
+                  <a className="guide-source-link" href={reference.url} target="_blank" rel="noopener noreferrer">
+                    {reference.title}
+                    <span className="guide-source-arrow" aria-hidden="true">
+                      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" focusable="false"><path d="M5 11 11 5M6 5h5v5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                    </span>
+                  </a>
+                  {' '}<span className="guide-source-domain">{sourceDomain(reference.url)}</span>
+                </li>
               ))}
-            </ul>
-            <p className="blog-article-p">
+            </ol>
+            <p className="blog-article-p guide-next-steps">
               Explore our <Link to="/services">web development, SaaS and AI integration services</Link>,
               learn about the <Link to="/about">Clydara team</Link>, or <Link to="/contact">send a project enquiry</Link> with your goals, current systems and constraints.
             </p>
@@ -873,6 +1272,9 @@ export default function BlogDetailPage() {
                   className="blog-post-img"
                   loading="lazy"
                 />
+                <span className="guide-card-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" width="16" height="16" fill="none" focusable="false"><path d="M5 11 11 5M6 5h5v5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                </span>
               </div>
 
               <div className="blog-post-content">
