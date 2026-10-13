@@ -122,7 +122,7 @@ export default function ContactPage() {
           <h1 className="contact-headline-wrap" aria-label="Contact Clydara about your project">
             <span className="contact-headline-row contact-headline-row-1">
               <span className="contact-h1 contact-gray">
-                <RevealChars text="Let's Build" />
+                <RevealChars text="Let's Built" />
               </span>
               <span className="hero-pill-anim-wrap reveal-item">
                 <span className="hero-pill-img hero-pill-1">

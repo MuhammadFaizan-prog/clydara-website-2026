@@ -139,7 +139,7 @@ export default function Hero() {
                 <img
                   key={i}
                   src={src}
-                  alt=""
+                  alt="founder-image"
                   className="hero-avatar-img"
                   width={32}
                   height={32}

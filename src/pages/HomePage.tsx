@@ -3,6 +3,7 @@ import LogoTicker from '../components/LogoTicker/LogoTicker'
 import About from '../components/About/About'
 import Works from '../components/Works/Works'
 import Services from '../components/Services/Services'
+import Founders from '../components/Founders/Founders'
 import Values from '../components/Values/Values'
 import Pricing from '../components/Pricing/Pricing'
 import Testimonials from '../components/Testimonials/Testimonials'
@@ -16,6 +17,7 @@ export default function HomePage() {
       <About />
       <Works />
       <Services />
+      <Founders />
       <Values />
       <Pricing />
       <Testimonials />

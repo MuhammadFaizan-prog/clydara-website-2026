@@ -4,10 +4,10 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { RevealChars } from '../components/common/RevealChars'
 import { RevealHeading } from '../components/common/RevealHeading'
+import Founders from '../components/Founders/Founders'
 import Values from '../components/Values/Values'
 import FAQ from '../components/FAQ/FAQ'
 import './AboutPage.css'
-import './SeoContent.css'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -191,22 +191,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Company facts: brand-level, verifiable details only */}
-      <section className="seo-services-guide seo-facts-section" aria-labelledby="clydara-facts-heading">
-        <div className="seo-facts-container">
-          <h2 id="clydara-facts-heading">Clydara at a glance</h2>
-          <p>Clydara is a web, SaaS and AI development studio based in Lahore, Pakistan. It was founded in 2025 and has a team of 5 to 10 people who plan, design, build and support websites, custom business software and AI-assisted workflows.</p>
-          <dl className="seo-facts-list">
-            <div><dt>Founded</dt><dd>2025</dd></div>
-            <div><dt>Location</dt><dd>Lahore, Pakistan</dd></div>
-            <div><dt>Team size</dt><dd>5 to 10 people</dd></div>
-            <div><dt>Services</dt><dd><Link to="/services">Web development, custom SaaS and business software, AI integration and automation, branding and UI/UX design</Link></dd></div>
-            <div><dt>Project enquiries</dt><dd><a href="mailto:clydara1@gmail.com">clydara1@gmail.com</a> or the <Link to="/contact">contact form</Link></dd></div>
-            <div><dt>Official website</dt><dd><a href="https://www.clydralab.com/">www.clydralab.com</a></dd></div>
-          </dl>
-          <p>See <Link to="/works">selected projects</Link> for examples of delivered work, or read our <Link to="/blog">software and SaaS decision guides</Link> before you scope a project.</p>
-        </div>
-      </section>
+      {/* Founders Section */}
+      <Founders />
 
       {/* Angled Crossing Tapes */}
       <section className="about-tapes-section">

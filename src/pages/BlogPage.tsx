@@ -13,7 +13,7 @@ export const blogPosts = [
     readTime: '10 Min Read',
     image: 'https://framerusercontent.com/images/AWhJGkoO1R4OjT86q2SUa6hQtyg.png?width=916&height=1140',
     date: 'Jan 2026',
-    author: 'Clydara',
+    author: 'Muhammad Faizan',
   },
   {
     id: 'is-mern-still-worth-it-2026',
@@ -22,7 +22,7 @@ export const blogPosts = [
     readTime: '11 Min Read',
     image: 'https://framerusercontent.com/images/chp7C8iulZpS7COcG0vizKTBw1k.png?width=916&height=1140',
     date: 'Feb 2026',
-    author: 'Clydara',
+    author: 'Rohan Baig',
   },
   {
     id: 'ai-integration-for-startups',
@@ -31,7 +31,7 @@ export const blogPosts = [
     readTime: '12 Min Read',
     image: 'https://framerusercontent.com/images/2g1ervfFGOFw7M9o9qPv7ognLs.png?width=916&height=1140',
     date: 'Feb 2026',
-    author: 'Clydara',
+    author: 'Muhammad Faizan',
   },
   {
     id: 'agency-vs-in-house-developers',
@@ -40,7 +40,7 @@ export const blogPosts = [
     readTime: '10 Min Read',
     image: 'https://framerusercontent.com/images/agh1fOKB68bmz5i7jTuchksYqs.png?width=916&height=1140',
     date: 'Mar 2026',
-    author: 'Clydara',
+    author: 'Rohan Baig',
   },
   {
     id: 'saas-development-cost',
@@ -49,7 +49,7 @@ export const blogPosts = [
     readTime: '12 Min Read',
     image: 'https://framerusercontent.com/images/xaT5BrnsTobFUhkTLPEae7z2gc4.png?width=916&height=1140',
     date: 'Apr 2026',
-    author: 'Clydara',
+    author: 'Muhammad Faizan',
   },
   {
     id: 'startup-website-mistakes',
@@ -58,7 +58,7 @@ export const blogPosts = [
     readTime: '11 Min Read',
     image: 'https://framerusercontent.com/images/6q3AkgZ10FtoWjmSoY6KZKf8tn0.png?width=916&height=1140',
     date: 'May 2026',
-    author: 'Clydara',
+    author: 'Rohan Baig',
   },
 ]
 

@@ -93,7 +93,7 @@ export default function Pricing() {
                 <li><span className="check-icon">✓</span><span>Fully Functional Modern Website</span></li>
                 <li><span className="check-icon">✓</span><span>Animated &amp; Interactive 3D Web Experiences</span></li>
                 <li><span className="check-icon">✓</span><span>SEO Optimized Website Development</span></li>
-                <li><span className="check-icon">✓</span><span>also design with Figma, framer, wordpress</span></li>
+                <li><span className="check-icon">✓</span><span>also deisgn with Figma, framer, wordpress</span></li>
               </ul>
 
               <Link to="/contact" className="pricing-btn pricing-btn-dark">
