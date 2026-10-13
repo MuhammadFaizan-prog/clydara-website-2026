@@ -314,3 +314,11 @@ test('Markdown copies keep breadcrumbs on one line and case-study facts as label
   const study = await readFile('dist/works/archin.md', 'utf8')
   for (const line of ['- Year: 2026', '- Role: Full Stack Development', '- Services: UI UX Design, Product Design, Branding, Full Stack Development']) assert.ok(study.includes(line), line)
 })
+
+test('guide hero pills are small local rasters, not multi-megabyte embedded-PNG SVGs', async () => {
+  for (const page of manifest.pages.filter(page => page.path.startsWith('/blog/'))) {
+    const html = await readFile(`dist${page.path}.html`, 'utf8')
+    assert.ok(!/klHvhiVb59QcJITpOaWJWmAWkGY|Wwgo4LfrIbO7lSRxvwnjSVzwROM/.test(html), `${page.path} still loads an 18.8 MB / 0.7 MB pill SVG`)
+  }
+  for (const name of ['guide-pill-a', 'guide-pill-b']) assert.ok((await stat(`public/images/${name}.webp`)).size < 20_000, name)
+})

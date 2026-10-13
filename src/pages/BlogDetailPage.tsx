@@ -36,11 +36,11 @@ const articlesData: Record<string, ArticleData> = {
   'is-mern-still-worth-it-2026': {
     heroRow1: {
       prefix: 'Is MERN',
-      pill: 'https://framerusercontent.com/images/klHvhiVb59QcJITpOaWJWmAWkGY.svg?width=81&height=64',
+      pill: '/images/guide-pill-a.webp',
       accent: 'Still Worth It',
     },
     heroRow2: {
-      pill: 'https://framerusercontent.com/images/Wwgo4LfrIbO7lSRxvwnjSVzwROM.svg?width=81&height=64',
+      pill: '/images/guide-pill-b.webp',
       suffix: 'in 2026?',
     },
     subtitle:
@@ -127,11 +127,11 @@ const articlesData: Record<string, ArticleData> = {
   'custom-software-vs-saas': {
     heroRow1: {
       prefix: 'Custom Software',
-      pill: 'https://framerusercontent.com/images/klHvhiVb59QcJITpOaWJWmAWkGY.svg?width=81&height=64',
+      pill: '/images/guide-pill-a.webp',
       accent: 'vs SaaS:',
     },
     heroRow2: {
-      pill: 'https://framerusercontent.com/images/Wwgo4LfrIbO7lSRxvwnjSVzwROM.svg?width=81&height=64',
+      pill: '/images/guide-pill-b.webp',
       suffix: 'Which Is Right?',
     },
     subtitle:
@@ -210,11 +210,11 @@ const articlesData: Record<string, ArticleData> = {
   'ai-integration-for-startups': {
     heroRow1: {
       prefix: 'AI Integration',
-      pill: 'https://framerusercontent.com/images/klHvhiVb59QcJITpOaWJWmAWkGY.svg?width=81&height=64',
+      pill: '/images/guide-pill-a.webp',
       accent: 'for Startups:',
     },
     heroRow2: {
-      pill: 'https://framerusercontent.com/images/Wwgo4LfrIbO7lSRxvwnjSVzwROM.svg?width=81&height=64',
+      pill: '/images/guide-pill-b.webp',
       suffix: 'Where to Begin',
     },
     subtitle:
@@ -302,11 +302,11 @@ const articlesData: Record<string, ArticleData> = {
   'agency-vs-in-house-developers': {
     heroRow1: {
       prefix: 'Agency vs',
-      pill: 'https://framerusercontent.com/images/klHvhiVb59QcJITpOaWJWmAWkGY.svg?width=81&height=64',
+      pill: '/images/guide-pill-a.webp',
       accent: 'In-House',
     },
     heroRow2: {
-      pill: 'https://framerusercontent.com/images/Wwgo4LfrIbO7lSRxvwnjSVzwROM.svg?width=81&height=64',
+      pill: '/images/guide-pill-b.webp',
       suffix: 'Developers',
     },
     subtitle:
@@ -395,11 +395,11 @@ const articlesData: Record<string, ArticleData> = {
   'saas-development-cost': {
     heroRow1: {
       prefix: 'How Much',
-      pill: 'https://framerusercontent.com/images/klHvhiVb59QcJITpOaWJWmAWkGY.svg?width=81&height=64',
+      pill: '/images/guide-pill-a.webp',
       accent: 'Does SaaS',
     },
     heroRow2: {
-      pill: 'https://framerusercontent.com/images/Wwgo4LfrIbO7lSRxvwnjSVzwROM.svg?width=81&height=64',
+      pill: '/images/guide-pill-b.webp',
       suffix: 'Development Cost?',
     },
     subtitle:
@@ -508,11 +508,11 @@ const articlesData: Record<string, ArticleData> = {
   'startup-website-mistakes': {
     heroRow1: {
       prefix: 'Why Startup',
-      pill: 'https://framerusercontent.com/images/klHvhiVb59QcJITpOaWJWmAWkGY.svg?width=81&height=64',
+      pill: '/images/guide-pill-a.webp',
       accent: "Websites Don't",
     },
     heroRow2: {
-      pill: 'https://framerusercontent.com/images/Wwgo4LfrIbO7lSRxvwnjSVzwROM.svg?width=81&height=64',
+      pill: '/images/guide-pill-b.webp',
       suffix: 'Generate Leads',
     },
     subtitle:
