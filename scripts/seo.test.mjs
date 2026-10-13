@@ -136,3 +136,36 @@ test('direct page loads include built route assets without every page bundle', a
   const contactHtml = await readFile('dist/contact.html', 'utf8')
   assert.ok(!contactHtml.includes(bundles['src/pages/BlogDetailPage.tsx'].file), 'Enquiries must not load the large guide-detail bundle')
 })
+
+test('guides and case studies describe their place in the site with a valid BreadcrumbList', async () => {
+  const detail = manifest.pages.filter(page => /^\/(blog|works)\/[^/]+$/.test(page.path))
+  assert.ok(detail.length >= 9)
+  for (const page of detail) {
+    const html = await readFile(`dist${page.path}.html`, 'utf8')
+    const graph = JSON.parse(html.match(/<script[^>]*type="application\/ld\+json"[^>]*>(.*?)<\/script>/s)[1])['@graph']
+    const crumbs = graph.find(node => node['@type'] === 'BreadcrumbList')
+    assert.ok(crumbs, `${page.path}: BreadcrumbList`)
+    const items = crumbs.itemListElement
+    assert.deepEqual(items.map(item => item.position), [1, 2, 3])
+    for (const item of items) assert.ok(known.has(item.item.replace(manifest.origin, '') || '/'), `${page.path}: breadcrumb ${item.item} must be a canonical page`)
+    assert.equal(items[2].item, page.canonical)
+    const webpage = graph.find(node => node['@id'] === page.canonical + '#webpage')
+    assert.equal(webpage.breadcrumb['@id'], crumbs['@id'])
+  }
+  const home = JSON.parse((await readFile('dist/index.html', 'utf8')).match(/<script[^>]*type="application\/ld\+json"[^>]*>(.*?)<\/script>/s)[1])['@graph']
+  assert.ok(!home.some(node => node['@type'] === 'BreadcrumbList'), 'Top-level pages need no breadcrumb')
+})
+
+test('Service nodes have stable ids and the same description the /services page shows', async () => {
+  const html = await readFile('dist/services.html', 'utf8')
+  const graph = JSON.parse(html.match(/<script[^>]*type="application\/ld\+json"[^>]*>(.*?)<\/script>/s)[1])['@graph']
+  const nodes = graph.filter(node => node['@type'] === 'Service')
+  assert.equal(nodes.length, 4)
+  const text = html.replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ')
+  for (const node of nodes) {
+    assert.match(node['@id'], /^https:\/\/www\.clydralab\.com\/services#[a-z-]+$/)
+    assert.ok(text.includes(node.name), `${node.name} must be visible`)
+    assert.ok(text.includes(node.description), `${node.name}: description must match the visible card`)
+  }
+  assert.equal(new Set(nodes.map(node => node['@id'])).size, 4)
+})
