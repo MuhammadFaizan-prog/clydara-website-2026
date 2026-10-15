@@ -944,41 +944,10 @@ const articlesData: Record<string, ArticleData> = {
         paragraphs: [
           "The Next.js team published an out-of-band security update on 14 October 2026, with patched releases 16.4.1 (Active LTS) and 15.5.28 (Maintenance LTS) [1]. Two of the fixes had been postponed from the September release because they depended on upstream libraries [1]. Both versions appeared on npm that day [8].",
           "Everything in this section is taken from the official advisories. Severity scores are the CVSS v4 numbers the advisories publish.",
+          "GHSA-673q-mjm6-r5xr (critical, 9.5): unauthenticated remote code execution in App Router apps using Cache Components, when a use cache function returns multiple typed arrays. It affects Next.js 16.0.0 to 16.4.0 and is fixed in 16.4.1 [2].",
+          "GHSA-2464-fhr4-w9xw, CVE-2026-96889 (critical, 9.5): unauthenticated remote code execution through the Image Optimization API with SVG files, via an upstream image library, on glibc-based Linux. It affects Next.js 10.0.0 to 15.5.27 and 16.x up to 16.4.0, and is fixed in 15.5.28 and 16.4.1 [3].",
+          "GHSA-p3m5-59mp-jv5r (high, 8.2): a denial of service where crafted requests to App Router apps with at least one Server Action can pin the CPU and block other requests in the same process. It affects Next.js 13.0.0 to 15.5.27 and 16.0.0 to 16.4.0, and is fixed in 15.5.28 and 16.4.1 [4].",
         ],
-        comparison: {
-          label: "October 2026 Next.js and React advisories",
-          caption: "The three Next.js advisories of 14 October 2026, as published (CVSS v4 scores from each advisory)",
-          columns: [
-            "Advisory",
-            "What it affects",
-            "Affected Next.js versions",
-            "Fixed in",
-            "Severity",
-          ],
-          rows: [
-            [
-              "GHSA-673q-mjm6-r5xr",
-              "Unauthenticated RCE in App Router apps using Cache Components, when a use cache function returns multiple typed arrays [2]",
-              "16.0.0 to 16.4.0",
-              "16.4.1",
-              "Critical, 9.5",
-            ],
-            [
-              "GHSA-2464-fhr4-w9xw (CVE-2026-96889)",
-              "Unauthenticated RCE through the Image Optimization API with SVG files, via an upstream image library, on glibc-based Linux [3]",
-              "10.0.0 to 15.5.27, and 16.x to 16.4.0",
-              "15.5.28, 16.4.1",
-              "Critical, 9.5",
-            ],
-            [
-              "GHSA-p3m5-59mp-jv5r",
-              "Denial of service: crafted requests to App Router apps with at least one Server Action can pin the CPU and block other requests in the same process [4]",
-              "13.0.0 to 15.5.27, and 16.0.0 to 16.4.0",
-              "15.5.28, 16.4.1",
-              "High, 8.2",
-            ],
-          ],
-        },
         showInlineMetaAndImg: true,
       },
       {
