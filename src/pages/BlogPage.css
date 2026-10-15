@@ -204,6 +204,23 @@
   box-shadow: inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.24);
 }
 
+/* Inline headline pills: base size so /blog renders correctly when loaded directly (Hero.css is not loaded on this route) */
+:where(.blog-page) .hero-pill-img {
+  display: inline-flex;
+  width: 81px;
+  height: 64px;
+  border-radius: 100px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+:where(.blog-page) .hero-pill-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 /* Responsive */
 @media (max-width: 1439px) and (min-width: 1024px) {
   .blog-h1 {
