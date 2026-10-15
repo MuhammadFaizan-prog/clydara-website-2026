@@ -922,6 +922,101 @@ const articlesData: Record<string, ArticleData> = {
       "If you reach that point, our [custom software and SaaS services](/services) page explains what we build and what to include in a brief.",
     ],
   },
+  "nextjs-react-security-update-october-2026": {
+    heroRow1: {
+      prefix: "Next.js and React",
+      pill: "/images/blog/guide-pill-1.webp",
+      accent: "Security Update:",
+    },
+    heroRow2: {
+      pill: "/images/blog/guide-pill-2.webp",
+      suffix: "Who Needs to Patch",
+    },
+    subtitle: "On 14 October 2026 the Next.js and React teams shipped fixes for two critical remote code execution bugs and one high-severity denial of service. Not every app is exposed to all three, but the safe answer for almost everyone on Next.js 15 or 16 is the same: upgrade today. Here is what was fixed, how to tell which parts apply to you, and what most of the coverage leaves out.",
+    featuredImg: '/images/blog/nextjs-react-security-update-october-2026-featured.webp',
+    inlineImg: '/images/blog/nextjs-react-security-update-october-2026-card.webp',
+    tags: [
+      "Security, Next.js, React",
+    ],
+    sections: [
+      {
+        heading: "What was fixed on 14 October",
+        paragraphs: [
+          "The Next.js team published an out-of-band security update on 14 October 2026, with patched releases 16.4.1 (Active LTS) and 15.5.28 (Maintenance LTS) [1]. Two of the fixes had been postponed from the September release because they depended on upstream libraries [1]. Both versions appeared on npm that day [8].",
+          "Everything in this section is taken from the official advisories. Severity scores are the CVSS v4 numbers the advisories publish.",
+          "GHSA-673q-mjm6-r5xr (critical, 9.5): unauthenticated remote code execution in App Router apps using Cache Components, when a use cache function returns multiple typed arrays. It affects Next.js 16.0.0 to 16.4.0 and is fixed in 16.4.1 [2].",
+          "GHSA-2464-fhr4-w9xw, CVE-2026-96889 (critical, 9.5): unauthenticated remote code execution through the Image Optimization API with SVG files, via an upstream image library, on glibc-based Linux. It affects Next.js 10.0.0 to 15.5.27 and 16.x up to 16.4.0, and is fixed in 15.5.28 and 16.4.1 [3].",
+          "GHSA-p3m5-59mp-jv5r (high, 8.2): a denial of service where crafted requests to App Router apps with at least one Server Action can pin the CPU and block other requests in the same process. It affects Next.js 13.0.0 to 15.5.27 and 16.0.0 to 16.4.0, and is fixed in 15.5.28 and 16.4.1 [4].",
+        ],
+        showInlineMetaAndImg: true,
+      },
+      {
+        heading: "A five-minute check for your app",
+        paragraphs: [
+          "Run npm ls next sharp in the project (or the pnpm or Yarn equivalent) and note the versions your lockfile actually resolves, not the range written in package.json. If next is below 15.5.28 on the 15 line, or below 16.4.1 on the 16 line, you are on an affected version for at least one advisory.",
+          "Then answer four questions. Do you use the App Router? Do you have any Server Actions, meaning any function marked use server? Have you enabled Cache Components and written use cache functions? Do you serve images through next/image with the built-in optimizer on your own Linux server or container, or generate images with next/og?",
+          "A Pages Router app with no Server Actions is not affected by the denial of service [4]. An app on Next.js 15 cannot hit the use cache bug, because that advisory only lists 16.x [2]. But the image bug reaches back to version 10 [3], and the Next.js team says to upgrade even if your app has no use cache functions like the ones described [2]. So the checklist tells you how urgent this is, not whether to patch.",
+        ],
+      },
+      {
+        heading: "Your host changes the risk, not the fix",
+        paragraphs: [
+          "The image advisory is scoped to Next.js running on glibc-based Linux [3]. That covers most Debian and Ubuntu based Docker images, which is how many teams self-host Next.js. Images built on Alpine use musl instead of glibc, so they fall outside the advisory's stated scope. We would still not treat that as a reason to wait, because the patched release is a small version bump and your next base-image change could quietly move you back into scope.",
+          "Managed platforms change where the code runs. Netlify, for example, says its own image CDN serves next/image there, so that route is not exercised on its platform, but the same flaw is reachable through next/og ImageResponse, which runs in your function [7]. Netlify also notes that the denial of service mostly turns into extra function cost on autoscaling infrastructure rather than downtime [7]. Read your own host's notice for the details, and upgrade anyway: every platform's advice ends in the same version numbers.",
+        ],
+      },
+      {
+        heading: "Three things the headlines skip",
+        paragraphs: [
+          "Old preview deployments are still running the old code. Patching main and redeploying production does nothing for the branch and pull request previews you shipped last month. Netlify explicitly warns that public deploy previews may stay vulnerable until they are deleted [7]. If your previews are public, delete the stale ones or put them behind authentication.",
+          "The image library is a transitive dependency. The workaround in the advisory is to make sure Next.js uses sharp 0.35.5 or later, and the Next.js team says upgrading to the patched versions makes package managers pull a fixed sharp automatically [3]. After upgrading, run npm ls sharp again and confirm the resolved version, especially in monorepos or projects with overrides and pinned resolutions, where an old copy can survive.",
+          "Plain React apps without a server are not part of this. The React side of the fixes covers the react-server-dom-webpack, react-server-dom-parcel and react-server-dom-turbopack packages, with fixes back-ported to 19.0.9, 19.1.10, 19.2.9 and 19.3.1 [5]. React's advisory states that if your React code does not use a server, or you don't use a framework or bundler that supports React Server Components, you are not affected [5]. A client-rendered or statically prerendered Vite app is in that group. Our own site, for instance, is React 19 with Vite and build-time prerendering and has no server components, so we checked and nothing changed for us.",
+        ],
+      },
+      {
+        heading: "Next.js 15 is about to leave maintenance",
+        paragraphs: [
+          "The Next.js support policy lists 15.x as Maintenance LTS, released on 21 October 2024, and says each major version stays in Maintenance LTS for two years after its initial release [6]. Read together, that puts the end of 15.x maintenance on 21 October 2026, six days after this update. That date is our reading of the published policy rather than a separate announcement.",
+          "Prediction, not fact: 15.5.28 may be one of the last routine security releases for the 15 line. The policy does say the team will, in rare circumstances, patch versions outside LTS depending on severity [6], so a future critical bug might still get a 15.x fix. Planning on that would be a gamble. If you are on 15, take 15.5.28 now and schedule the move to 16 for the coming weeks, not next quarter.",
+        ],
+      },
+      {
+        heading: "How to patch without breaking production",
+        paragraphs: [
+          "Upgrade with npm install next@16.4.1 on the 16 line or npm install next@15.5.28 on the 15 line, as the Next.js post shows [1]. If you manage the React Server Components packages directly, move them to the patched React versions listed above [5]. Commit the lockfile, let CI run, and deploy.",
+          "Then verify, because a green build only proves it compiled. Confirm the deployed build reports the new next version, check that image routes and any Server Actions still work, and remove or protect stale previews. If you run several Next.js apps, check each one: the work is small per app but easy to skip on the internal dashboard nobody has touched since spring.",
+          "If your stack choice is still open, our guide on [whether MERN is still worth it in 2026](/blog/is-mern-still-worth-it-2026) covers how much server-side machinery a product really needs, which is also how much you will need to patch.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Which Next.js versions fix the October 2026 vulnerabilities?",
+        a: "Next.js 16.4.1 and 15.5.28, both released on 14 October 2026. Earlier 16.x and 15.x releases are affected by at least one of the three advisories.",
+      },
+      {
+        q: "Is my app affected if I only use the Pages Router?",
+        a: "Not by the Server Actions denial of service or the use cache bug. The image optimization RCE is not tied to the router, so upgrade either way.",
+      },
+      {
+        q: "Is there a workaround if I can't upgrade today?",
+        a: "Only for the image bug: make sure Next.js resolves sharp 0.35.5 or later. The advisories list no workaround for the use cache RCE or the denial of service beyond upgrading.",
+      },
+      {
+        q: "Are React apps built with Vite affected?",
+        a: "Not if they don't use a server or React Server Components. React's advisory limits the issue to the react-server-dom packages used by frameworks and bundlers that support server components.",
+      },
+      {
+        q: "When does Next.js 15 support end?",
+        a: "Under the published support policy, 15.x stays in Maintenance LTS for two years from its 21 October 2024 release, which points to 21 October 2026.",
+      },
+    ],
+    conclusionHeading: "The short version",
+    conclusionParagraphs: [
+      "Upgrade to 16.4.1 or 15.5.28, confirm the resolved sharp version, redeploy, and clean up old previews. Use the checklist to decide whether this is a tonight job or a this-week job, not whether to do it. And if you are still on 15, start planning the move to 16 now.",
+      "If you would like a second pair of hands on an upgrade like this, our [web and SaaS development services](/services) page explains what we take on.",
+    ],
+  },
 }
 
 const articleReferences: Record<string, { title: string; url: string }[]> = {
@@ -982,6 +1077,16 @@ const articleReferences: Record<string, { title: string; url: string }[]> = {
     { title: "Asana pricing (checked 13 Oct 2026)", url: "https://asana.com/pricing" },
     { title: "ClickUp pricing (checked 13 Oct 2026)", url: "https://clickup.com/pricing" },
   ],
+  "nextjs-react-security-update-october-2026": [
+    { title: "Next.js: Security update for upstream vulnerabilities (14 Oct 2026)", url: "https://nextjs.org/blog/nextjs-security-update-october-14-2026" },
+    { title: "GHSA-673q-mjm6-r5xr: RCE in use cache functions returning typed arrays", url: "https://github.com/vercel/next.js/security/advisories/GHSA-673q-mjm6-r5xr" },
+    { title: "GHSA-2464-fhr4-w9xw / CVE-2026-96889: RCE in Image Optimization with SVG", url: "https://github.com/vercel/next.js/security/advisories/GHSA-2464-fhr4-w9xw" },
+    { title: "GHSA-p3m5-59mp-jv5r: denial of service with Server Actions", url: "https://github.com/vercel/next.js/security/advisories/GHSA-p3m5-59mp-jv5r" },
+    { title: "React GHSA-h3gv-c5rc-p453: denial of service in Server Functions", url: "https://github.com/react/react/security/advisories/GHSA-h3gv-c5rc-p453" },
+    { title: "Next.js support policy (checked 15 Oct 2026)", url: "https://nextjs.org/support-policy" },
+    { title: "Netlify: Next.js and React vulnerabilities, platform impact (14 Oct 2026)", url: "https://www.netlify.com/changelog/2026-10-14-nextjs-react-security-vulnerabilities/" },
+    { title: "npm: next release history", url: "https://www.npmjs.com/package/next?activeTab=versions" },
+  ],
 }
 
 const relatedArticleIds: Record<string, string[]> = {
@@ -994,6 +1099,7 @@ const relatedArticleIds: Record<string, string[]> = {
   "saas-infrastructure-cost": ["saas-development-cost", "custom-saas-development-process", "saas-vs-custom-software-architecture-firms"],
   "custom-saas-development-process": ["saas-infrastructure-cost", "saas-vs-custom-software-architecture-firms", "saas-development-cost"],
   "saas-vs-custom-software-architecture-firms": ["saas-infrastructure-cost", "custom-saas-development-process", "custom-software-vs-saas"],
+  "nextjs-react-security-update-october-2026": ["is-mern-still-worth-it-2026", "saas-infrastructure-cost", "custom-saas-development-process"],
 }
 
 export default function BlogDetailPage() {

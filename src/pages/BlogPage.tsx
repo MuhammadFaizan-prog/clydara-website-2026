@@ -87,6 +87,15 @@ export const blogPosts = [
     date: '14 Oct 2026',
     author: 'Clydara',
   },
+  {
+    id: "nextjs-react-security-update-october-2026",
+    title: "Next.js and React Security Update, October 2026: Who Needs to Patch",
+    excerpt: "Two critical RCEs and a DoS, fixed on 14 Oct 2026: a five-minute check for your app",
+    readTime: '8 Min Read',
+    image: '/images/blog/nextjs-react-security-update-october-2026-card.webp',
+    date: '15 Oct 2026',
+    author: 'Clydara',
+  },
 ]
 
 export default function BlogPage() {
