@@ -1017,6 +1017,103 @@ const articlesData: Record<string, ArticleData> = {
       "If you would like a second pair of hands on an upgrade like this, our [web and SaaS development services](/services) page explains what we take on.",
     ],
   },
+  "pwnescape-linux-kernel-vm-escape": {
+    "heroRow1": {
+      "prefix": "PwnEscape Kernel Flaw:",
+      "pill": "/images/blog/guide-pill-1.webp",
+      "accent": "Who Must"
+    },
+    "heroRow2": {
+      "pill": "/images/blog/guide-pill-2.webp",
+      "suffix": "Act on It"
+    },
+    "subtitle": "On 14 and 15 October 2026 a Linux kernel flaw nicknamed PwnEscape went public. Code running inside a virtual machine could make the host leak its own memory, and the leak was shown on Vercel's production sandboxes. Most teams have nothing to deploy, but a few do, and the story says a lot about how isolation really works. Here is what is confirmed, what was only shown in a lab, and who needs to act.",
+    "featuredImg": "/images/blog/pwnescape-linux-kernel-vm-escape-featured.webp",
+    "inlineImg": "/images/blog/pwnescape-linux-kernel-vm-escape-card.webp",
+    "tags": [
+      "Security, Linux, Cloud"
+    ],
+    "sections": [
+      {
+        "heading": "What happened, in dates",
+        "paragraphs": [
+          "Vercel ran a public sandbox challenge in August 2026 with up to $1 million on offer for anyone who could break out of Vercel Sandbox. In a post on 14 October it said it had received 1,285 reports in two weeks, paid $242,000, and that the most severe finding was a zero-day in the upstream Linux kernel's networking stack [1].",
+          "The researcher, Paulos Yibelo of pwn.ai, published his own write-up on 15 October. It gives a timeline: first report to Vercel on 20 August, private report to the kernel security contact on 4 September, the fix accepted into the networking tree on 8 October, and merged into Linus Torvalds' mainline tree on 14 October [2]. The CVE record was published on 15 October as CVE-2026-99999 [4], and the same day Greg Kroah-Hartman released seven stable kernels containing the fix [5].",
+          "The CVE record rates it 9.3 out of 10, Critical, with a local attack vector, which means the attacker already has to be running code on the machine, here inside a guest VM [4][6]. It is not in CISA's known-exploited list and The Hacker News reports no sign of real-world use [6]. Those are the facts. The rest of this article separates what was demonstrated from what was only claimed."
+        ],
+        "showInlineMetaAndImg": true
+      },
+      {
+        "heading": "How a checksum hint became a host-memory leak",
+        "paragraphs": [
+          "This is the part most coverage skips, and it is the useful part. When Linux sends a packet it does not always compute the checksum straight away. It can mark the packet as CHECKSUM_PARTIAL, a note that says the checksum is still to be written, plus two numbers saying where to start and where to write. The researcher's description is that these values are not just labels: they authorise a later write into the packet's memory [2].",
+          "In a virtual machine, the guest supplies that metadata. The host's networking code validates the packet's IPv4 header, routes it, and possibly fragments it. Later, when the checksum is finally completed, the stored write position can point back into the IPv4 header itself. The header the kernel already checked is rewritten after the check, and the code after that trusts the new values [2]. The researcher turned that into a leak of about 32 bytes of host memory per packet the guest sent, which could repeat for as long as the guest kept sending [1][2].",
+          "Our reading, not a quote: it is a check-then-change bug. Nothing was parsed wrongly. Two parts of the kernel were allowed to trust different versions of the same packet. The fix adds one shared check that the checksum start does not fall inside the IPv4 header, applied before the checksum is completed at five places in the code [2][3]. Its author calls it a defence-in-depth measure and says a more complete validation where packets first enter the kernel still needs work [3][4].",
+          "One more detail worth knowing: the bug is not in KVM or in any hypervisor. It is in the host's own networking stack, which is why the researcher says the name 'KVM escape' describes the boundary that was crossed, not the file that contained the bug [2]."
+        ]
+      },
+      {
+        "heading": "What was shown, and what was not",
+        "paragraphs": [
+          "Shown against production: the memory leak. Vercel says it was demonstrated against Vercel production sandboxes [1]. Vercel also says no report showed anyone accessing customer data, and The Hacker News repeats that no customer files, secrets or application data were shown to be read [1][6].",
+          "Shown only in the researcher's own lab: crashing the host with two packets, which would take down every sandbox on that host, and running commands with full administrator rights on the host. Vercel says both were demonstrated on the researcher's own KVM and Firecracker machines set up to match Vercel Sandbox [1]. The researcher stresses this is not a claim of root access in any vendor's production environment [6].",
+          "Claimed by the researcher, not independently confirmed in what we read: that the full escape works in 'many other' hypervisor environments [2]. The write-up also notes that reviewers discussed paths using TUN or AF_PACKET sockets without a VM [2]. We found no demonstration of those, so treat them as open questions rather than known exposure.",
+          "Not proven, and easy to get wrong: that this is an internet-facing flaw. The record's attack vector is local [4], and The Hacker News says an outsider cannot exploit it by sending packets across the open internet [6]."
+        ]
+      },
+      {
+        "heading": "Who has to act",
+        "paragraphs": [
+          "If you run your own virtualisation hosts, KVM or Firecracker machines, self-hosted CI runners that use VMs, or a sandbox for customer code or AI agents: this is yours. Update the host kernel to a fixed release or your vendor's build and reboot into it. The Hacker News notes that updating only a guest's kernel does not fix the host, and that no separate workaround is given [6].",
+          "The first fixed stable releases listed in the CVE record are 5.10.272, 5.15.223, 6.1.190, 6.6.159, 6.12.113, 6.18.57 and 7.2.11 [4][5]. Distributions often backport a fix without changing the version number, so check your vendor's advisory and confirm the fix is in the kernel actually running, not only the number that uname prints [6].",
+          "If you build on a managed platform, cloud VMs, serverless or a hosted sandbox, the provider owns the host kernel. There is nothing for you to deploy. What you can do is read your provider's security notice. Vercel says it worked with AWS and other partners to prioritise a fix and keep its customers safe [1]. We could not verify what other providers have said, so check yours directly.",
+          "If you only run ordinary web servers and apps with no untrusted guests, the practical risk is low, because the attacker needs code running in the right place first [4][6]. It is still a critical kernel fix in a routine stable release, so it belongs in your normal patch cycle."
+        ]
+      },
+      {
+        "heading": "What it means if you build multi-tenant software",
+        "paragraphs": [
+          "The more transferable lessons came from Vercel's own review, which included four engineer-weeks of source review by Trail of Bits. They gave three recommendations that Vercel says it implemented [1]. First, find and remove all trust in the guest: values returned by software running inside the sandbox are tenant input, so anything that crosses the boundary should be derived server-side or signed with a key the guest cannot reach. Second, one policy and one decider: Vercel's network policy was parsed independently by several subsystems that did not always agree, so it now uses one routine per data type and one component per decision. Third, assume the next zero-day, which means limiting the damage with up-to-date host kernels, no nested virtualisation and Firecracker's jailer.",
+          "Vercel's example of the first lesson is instructive. A snapshot's storage location was reported by software inside the guest and the host believed it. A researcher who owned two accounts used that to swap the contents of two snapshots between them. Vercel notes the attack needed a random 96-bit identifier it never exposes, and says the fix binds every snapshot object to the project that created it [1].",
+          "For a SaaS team the translation is ours, not Vercel's: any value that comes back from tenant-controlled code, a browser, a plugin or an AI agent's tool call is untrusted input, including identifiers and storage paths. Bind objects to the tenant on the server and do not rely on an ID staying secret. If your product runs customer code or agent actions, keep long-lived secrets out of the environment where that code runs and scope each credential narrowly."
+        ]
+      },
+      {
+        "heading": "What to expect next (prediction)",
+        "paragraphs": [
+          "Prediction, not fact: expect more disclosures at the boundary between guests and the host kernel. The reasons are in the sources. The researcher says his team found the bug in three days with an AI-assisted research system for under $700 in API tokens, a figure we could not verify independently [2][6]. Vercel says the volume of reports was only possible because researchers now hunt at AI speed [1].",
+          "If that holds, the gap between a bug existing and someone finding it gets shorter, and patch cadence matters more than it used to. For anyone running their own hosts, that argues for kernel updates that are routine and rehearsed rather than a quarterly project."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "What is PwnEscape?",
+        "a": "The nickname for CVE-2026-99999, a Linux kernel networking flaw. Crafted checksum metadata from inside a guest VM can make the host kernel rewrite a packet's IPv4 header after checking it, which the researcher turned into a host-memory leak."
+      },
+      {
+        "q": "Which kernel versions fix it?",
+        "a": "The first fixed stable releases in the CVE record are 5.10.272, 5.15.223, 6.1.190, 6.6.159, 6.12.113, 6.18.57 and 7.2.11. Distributions may backport the fix without changing the version number, so check your vendor's advisory."
+      },
+      {
+        "q": "Can someone exploit it over the internet?",
+        "a": "Not directly, according to the CVE record's local attack vector and The Hacker News. The attacker needs to be running code inside a guest VM first."
+      },
+      {
+        "q": "Do I need to do anything if I host on Vercel, AWS or another managed platform?",
+        "a": "No deployment on your side: the provider patches the host kernel. Read your provider's security notice to confirm their status."
+      },
+      {
+        "q": "Was customer data exposed?",
+        "a": "Vercel says no report in its challenge showed anyone accessing customer data in Vercel Sandbox. The memory leak itself was demonstrated against its production sandboxes."
+      }
+    ],
+    "conclusionHeading": "The short version",
+    "conclusionParagraphs": [
+      "If you run your own VM hosts or sandboxes, patch the host kernel and reboot. If you use a managed platform, read your provider's notice and carry on. Either way, take the design lesson: nothing that comes back from tenant-controlled code should be trusted, and isolation depends on the whole host stack, not only the hypervisor.",
+      "If your product runs customer code or agent actions and you want a second pair of eyes on how it is built, our [custom SaaS development process](/blog/custom-saas-development-process) guide and [services](/services) page explain how we scope that kind of work."
+    ]
+  },
 }
 
 const articleReferences: Record<string, { title: string; url: string }[]> = {
@@ -1087,6 +1184,15 @@ const articleReferences: Record<string, { title: string; url: string }[]> = {
     { title: "Netlify: Next.js and React vulnerabilities, platform impact (14 Oct 2026)", url: "https://www.netlify.com/changelog/2026-10-14-nextjs-react-security-vulnerabilities/" },
     { title: "npm: next release history", url: "https://www.npmjs.com/package/next?activeTab=versions" },
   ],
+  "pwnescape-linux-kernel-vm-escape": [
+    { title: "Vercel: Findings from the $1M Vercel Sandbox challenge (14 Oct 2026)", url: "https://vercel.com/blog/findings-from-the-1-million-dollar-vercel-sandbox-challenge" },
+    { title: "pwn.ai: PwnEscape, Guest-to-Host KVM Escape (CVE-2026-99999)", url: "https://pwn.ai/blog/pwnescape" },
+    { title: "Linux kernel commit 6785011f8b16: ipv4: validate checksum_start before completing checksum", url: "https://github.com/torvalds/linux/commit/6785011f8b16abf40b1e9d8b2e332232b3e68822" },
+    { title: "CVE-2026-99999 record, mirrored by OpenCVE (checked 16 Oct 2026)", url: "https://app.opencve.io/cve/CVE-2026-99999" },
+    { title: "LWN: Seven stable kernels for Thursday with fix for critical vulnerability (15 Oct 2026)", url: "https://lwn.net/Articles/1100611/" },
+    { title: "The Hacker News: Critical PwnEscape Linux Kernel Vulnerability (15 Oct 2026)", url: "https://thehackernews.com/2026/10/critical-pwnescape-linux-kernel.html" },
+    { title: "oss-security: PwnEscape thread (15 Oct 2026)", url: "https://seclists.org/oss-sec/2026/q4/168" },
+  ],
 }
 
 const relatedArticleIds: Record<string, string[]> = {
@@ -1100,6 +1206,7 @@ const relatedArticleIds: Record<string, string[]> = {
   "custom-saas-development-process": ["saas-infrastructure-cost", "saas-vs-custom-software-architecture-firms", "saas-development-cost"],
   "saas-vs-custom-software-architecture-firms": ["saas-infrastructure-cost", "custom-saas-development-process", "custom-software-vs-saas"],
   "nextjs-react-security-update-october-2026": ["is-mern-still-worth-it-2026", "saas-infrastructure-cost", "custom-saas-development-process"],
+  "pwnescape-linux-kernel-vm-escape": ["custom-saas-development-process", "saas-infrastructure-cost", "nextjs-react-security-update-october-2026"],
 }
 
 export default function BlogDetailPage() {
