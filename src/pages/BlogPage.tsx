@@ -96,6 +96,15 @@ export const blogPosts = [
     date: '15 Oct 2026',
     author: 'Clydara',
   },
+  {
+    id: "pwnescape-linux-kernel-vm-escape",
+    title: "PwnEscape: The Linux Kernel Flaw That Leaked Host Memory From a Sandbox",
+    excerpt: "A guest VM could read host memory on Vercel's live sandboxes: what CVE-2026-99999 is and who has to act",
+    readTime: '8 Min Read',
+    image: '/images/blog/pwnescape-linux-kernel-vm-escape-card.webp',
+    date: '16 Oct 2026',
+    author: 'Clydara',
+  },
 ]
 
 export default function BlogPage() {
