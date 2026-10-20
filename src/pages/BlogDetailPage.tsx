@@ -1114,6 +1114,110 @@ const articlesData: Record<string, ArticleData> = {
       "If your product runs customer code or agent actions and you want a second pair of eyes on how it is built, our [custom SaaS development process](/blog/custom-saas-development-process) guide and [services](/services) page explain how we scope that kind of work."
     ]
   },
+  "vercel-deployment-retention-october-23": {
+    "heroRow1": {
+      "prefix": "Vercel Deployment Retention:",
+      "pill": "/images/blog/guide-pill-1.webp",
+      "accent": "What Changes"
+    },
+    "heroRow2": {
+      "pill": "/images/blog/guide-pill-2.webp",
+      "suffix": "on 23 October"
+    },
+    "subtitle": "Vercel is moving existing Pro teams to a 30-day deployment retention window and starting to bill for stored deployments. Deletions begin on 23 October 2026 unless you opt out first. Here is what that means in plain terms, what Vercel says it will always keep, and the short check worth doing before the date.",
+    "featuredImg": "/images/blog/vercel-deployment-retention-october-23-featured.webp",
+    "inlineImg": "/images/blog/vercel-deployment-retention-october-23-card.webp",
+    "tags": [
+      "Vercel, Hosting, SaaS costs"
+    ],
+    "sections": [
+      {
+        "heading": "The short answer: what happens on 23 October",
+        "paragraphs": [
+          "Vercel deployment retention for existing Pro teams changes to 30 days. Per Vercel's 9 October changelog, deployments older than 30 days will be deleted starting 23 October 2026 unless you opt out in your retention settings before then. Settings already at 30 days or shorter are unchanged, and deleted deployments cannot be used for rollback [1].",
+          "The same notice says Deployment Storage and Functions Storage billing will begin for all Pro teams at $0.10 per GB-month. Vercel does not give one start date: it says to check the email sent to your team for when billing starts for you [1]. New Pro teams already default to a 30-day retention period [2].",
+          "That is the confirmed part. What the headline does not tell you is how much of your history is actually exposed, which depends on a list of exceptions in Vercel's docs."
+        ],
+        "showInlineMetaAndImg": true
+      },
+      {
+        "heading": "What Vercel keeps even after 30 days",
+        "paragraphs": [
+          "Vercel's retention documentation lists exceptions. A deployment is kept while any of them is true. On Pro and Enterprise these include the last 10 deployments created in a project, the last 20 production deployments in a Ready state, and the last 20 non-production deployments in a Ready state [3].",
+          "On every plan, a deployment with a production alias is kept, a deployment that is the target of a custom-environment branch alias is kept, a non-production deployment with any custom alias is kept, and the latest preview deployment of a Git branch that is still active is kept. A branch counts as active until it is deleted or its pull request is merged or closed [3].",
+          "Our reading, not Vercel's wording: your live production site and your most recent rollback targets are covered by these exceptions. What is exposed is the long tail, such as an old preview you want to reopen to reproduce a bug, a release from four months ago you need to inspect for an audit, or a rollback target older than your last 20 production builds. If a project ships rarely, 30 days may delete very little. If it ships many times a day, the 20-deployment exceptions can be used up within days, and that is where the new window starts to bite."
+        ]
+      },
+      {
+        "heading": "Deleted does not always mean gone: recovery and timing",
+        "paragraphs": [
+          "Vercel's docs describe a recovery period. When a deployment passes its retention limit it enters a recovery period, visitors to it see a 410 status code, and you can restore it for 30 days for successfully built deployments, from project Settings under Security, in the Recently Deleted section. After that its resources are permanently removed [3].",
+          "Timing is not instant either. The docs say a background job typically marks an expired deployment for deletion within 48 hours, and a deployment that was protected by an exception when first checked can be re-evaluated later, which can take up to 30 days [3].",
+          "There is a conflict to be aware of. The changelog says deleted deployments cannot be used for rollback [1], while the docs describe a restore step for the 30-day recovery period [3]. Both can be true: a deleted deployment cannot be rolled back to directly, but within the recovery period it may be restorable first. The docs page we read was marked last updated 16 September 2026, before the October announcement, so check the current page and your dashboard rather than assuming the recovery window applies to your team."
+        ]
+      },
+      {
+        "heading": "What does Vercel deployment storage cost?",
+        "paragraphs": [
+          "Vercel prices Deployment Storage and Functions Storage at $0.10 per GB-month each [1]. Vercel's docs say each successful deployment can add both: Deployment Storage for build outputs and static assets, and Functions Storage for function bundles stored in each region where they are deployed [4].",
+          "The docs name three drivers of usage: how many deployments are retained, how large each deployment's output is, and how long they are kept [4]. Here is a worked example using only those inputs, and the figures are illustrative arithmetic, not Vercel data. A project that keeps 300 deployments at 150 MB each holds about 45 GB. At $0.10 per GB-month that is about $4.50 a month for that project's deployment storage, before Functions Storage and before any allowance in your plan, which we did not verify.",
+          "Two things follow. First, for most small teams the dollar figure is modest, so the real decision is about history and recovery, not cost. Second, large outputs multiply fast: a project that ships big static assets or heavy function bundles with every build costs far more per retained deployment, and trimming output size helps as much as shortening retention [4][5]."
+        ]
+      },
+      {
+        "heading": "Check your Vercel deployment retention in ten minutes",
+        "paragraphs": [
+          "1. Open your team's Usage page and look at Deployment Storage and Functions Storage per project, which Vercel says it shows there [1]. Note which projects hold the most.",
+          "2. Open each important project's settings, then Security, then Deployment Retention Policy, and read the current periods for Canceled, Errored, Pre-Production and Production deployments [3]. You can also run the CLI command shown in Vercel's docs, vercel list with a policy option, to view them [3].",
+          "3. Decide per project, not per team. A project policy replaces the team default for that project only, so a client site that ships monthly can keep a long window while a busy app uses a short one [3].",
+          "4. If you need history, for audits, a contract, or because you roll back to older builds, set a longer period before 23 October. That is the opt-out Vercel refers to [1]. Longer periods keep more output, which raises storage [4].",
+          "5. If you do not, reduce storage at the source: remove unnecessary build files, move large assets to Vercel Blob, and shrink function bundles, as Vercel's own optimisation guide suggests [1][5].",
+          "6. Keep your own release record. Do not rely on a hosting platform as your only archive of what you shipped. A tagged commit in Git, a build log or a release note is enough to rebuild a past version, and it does not expire with a retention setting."
+        ]
+      },
+      {
+        "heading": "Free Hobby plan: a related change",
+        "paragraphs": [
+          "A separate change affects Hobby teams. The New Stack reports that on the free plan, older unprotected deployments are now deleted immediately when a team exceeds the 10 GB Deployment Storage limit, and each Hobby project keeps its three most recent production deployments and three most recent deployments of any type [6].",
+          "The same report quotes Vercel's head of pricing saying the current production deployment is never deleted and that aliased and active-branch deployments stay protected [6]. If you run a small project or a prototype on Hobby, that is the page to read."
+        ]
+      },
+      {
+        "heading": "What to expect next (prediction)",
+        "paragraphs": [
+          "Prediction, not fact: expect other platforms to put a price on retained build history. Vercel's own stated reason is that coding agents have increased how often teams deploy and how much history is stored [2], and its pricing head says the platform now handles more than 10 million deployments a day, over six times a year ago [6].",
+          "If that trend continues, the sensible habit is to treat deployment history as a cost you set deliberately, with a retention period chosen per project, rather than an unlimited default."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "What happens to my Vercel deployments on 23 October 2026?",
+        "a": "For existing Pro teams, deployments older than 30 days start being deleted unless you opted out in your retention settings first. Exceptions such as production-aliased deployments and the most recent deployments are kept."
+      },
+      {
+        "q": "How much does Vercel deployment storage cost?",
+        "a": "Vercel says Deployment Storage and Functions Storage each cost $0.10 per GB-month for Pro teams. Your team's billing start date is in the email Vercel sent."
+      },
+      {
+        "q": "Can I restore a Vercel deployment that was deleted?",
+        "a": "Vercel's docs describe a 30-day recovery period for successfully built deployments, using Recently Deleted under project Security settings. The 9 October changelog says deleted deployments cannot be used for rollback, so verify in your dashboard."
+      },
+      {
+        "q": "How do I keep older deployments on Vercel?",
+        "a": "Set a longer deployment retention period in your team or project settings before 23 October. Longer periods keep more output, which increases storage usage."
+      },
+      {
+        "q": "Will Vercel delete my live production site?",
+        "a": "No. Vercel says a deployment with a production alias is kept, and its pricing head says the current production deployment is never deleted."
+      }
+    ],
+    "conclusionHeading": "The short version",
+    "conclusionParagraphs": [
+      "Before 23 October, open your retention settings, decide per project how much history you need, and either lengthen the period or accept the 30-day default. Your live production deployment and recent rollback targets are protected by documented exceptions, but old previews and old releases are not.",
+      "If hosting and infrastructure costs are part of planning a product, our [SaaS infrastructure cost](/blog/saas-infrastructure-cost) guide covers the wider picture, and the [services](/services) page explains how we scope SaaS builds."
+    ]
+  },
 }
 
 const articleReferences: Record<string, { title: string; url: string }[]> = {
@@ -1193,6 +1297,14 @@ const articleReferences: Record<string, { title: string; url: string }[]> = {
     { title: "The Hacker News: Critical PwnEscape Linux Kernel Vulnerability (15 Oct 2026)", url: "https://thehackernews.com/2026/10/critical-pwnescape-linux-kernel.html" },
     { title: "oss-security: PwnEscape thread (15 Oct 2026)", url: "https://seclists.org/oss-sec/2026/q4/168" },
   ],
+  "vercel-deployment-retention-october-23": [
+    { title: "Vercel changelog: Deployment Storage billing begins for existing Pro teams (9 Oct 2026)", url: "https://vercel.com/changelog/deployment-storage-pricing-expands-to-existing-teams" },
+    { title: "Vercel changelog: New Pro teams now default to 30-day deployment retention (9 Oct 2026)", url: "https://vercel.com/changelog/new-pro-teams-now-default-to-30-day-deployment-retention" },
+    { title: "Vercel docs: Deployment Retention (page last updated 16 Sep 2026)", url: "https://vercel.com/docs/deployment-retention" },
+    { title: "Vercel docs: Deployment Storage", url: "https://vercel.com/docs/deployment-storage" },
+    { title: "Vercel docs: Optimize Deployment Storage", url: "https://vercel.com/docs/deployment-storage/optimize" },
+    { title: "The New Stack: Why Vercel tightened its free-tier rules", url: "https://thenewstack.io/vercel-hobby-deployment-retention/" },
+  ],
 }
 
 const relatedArticleIds: Record<string, string[]> = {
@@ -1207,6 +1319,7 @@ const relatedArticleIds: Record<string, string[]> = {
   "saas-vs-custom-software-architecture-firms": ["saas-infrastructure-cost", "custom-saas-development-process", "custom-software-vs-saas"],
   "nextjs-react-security-update-october-2026": ["is-mern-still-worth-it-2026", "saas-infrastructure-cost", "custom-saas-development-process"],
   "pwnescape-linux-kernel-vm-escape": ["custom-saas-development-process", "saas-infrastructure-cost", "nextjs-react-security-update-october-2026"],
+  "vercel-deployment-retention-october-23": ["saas-infrastructure-cost", "custom-saas-development-process", "saas-development-cost"],
 }
 
 export default function BlogDetailPage() {
