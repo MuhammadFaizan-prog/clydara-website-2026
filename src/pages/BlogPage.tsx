@@ -105,6 +105,15 @@ export const blogPosts = [
     date: '16 Oct 2026',
     author: 'Clydara',
   },
+  {
+    id: "vercel-deployment-retention-october-23",
+    title: "Vercel Deployment Retention: What Changes for Pro Teams on 23 October",
+    excerpt: "Old deployments are deleted from 23 October unless you opt out: what Vercel will and won't remove, and a 10-minute check",
+    readTime: '7 Min Read',
+    image: '/images/blog/vercel-deployment-retention-october-23-card.webp',
+    date: '20 Oct 2026',
+    author: 'Clydara',
+  },
 ]
 
 export default function BlogPage() {
