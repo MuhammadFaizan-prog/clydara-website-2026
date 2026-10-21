@@ -114,6 +114,15 @@ export const blogPosts = [
     date: '20 Oct 2026',
     author: 'Clydara',
   },
+  {
+    id: "github-actions-lockfile",
+    title: "GitHub Actions Lockfile: What It Is and How to Use It",
+    excerpt: "GitHub's new actions.lock file pins every action to an exact commit: what it protects against, what it does not, and how to adopt it",
+    readTime: '6 Min Read',
+    image: '/images/blog/github-actions-lockfile-card.webp',
+    date: '21 Oct 2026',
+    author: 'Clydara',
+  },
 ]
 
 export default function BlogPage() {

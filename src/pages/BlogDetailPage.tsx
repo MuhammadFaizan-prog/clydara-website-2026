@@ -1218,6 +1218,95 @@ const articlesData: Record<string, ArticleData> = {
       "If hosting and infrastructure costs are part of planning a product, our [SaaS infrastructure cost](/blog/saas-infrastructure-cost) guide covers the wider picture, and the [services](/services) page explains how we scope SaaS builds."
     ]
   },
+  "github-actions-lockfile": {
+    "heroRow1": {
+      "prefix": "GitHub Actions Lockfile:",
+      "pill": "/images/blog/guide-pill-1.webp",
+      "accent": "What It Is"
+    },
+    "heroRow2": {
+      "pill": "/images/blog/guide-pill-2.webp",
+      "suffix": "and How to Use It"
+    },
+    "subtitle": "On 14 October 2026 GitHub put workflow dependency lockfiles into public preview. A GitHub Actions lockfile records the exact commit behind every action your workflows use, so a tag that moves later cannot change what runs in your CI. Here is how it works, what it does not protect, and a safe way to start.",
+    "featuredImg": "/images/blog/github-actions-lockfile-featured.webp",
+    "inlineImg": "/images/blog/github-actions-lockfile-card.webp",
+    "tags": [
+      "GitHub Actions, CI/CD, Supply chain security"
+    ],
+    "sections": [
+      {
+        "heading": "What is a GitHub Actions lockfile?",
+        "paragraphs": [
+          "A GitHub Actions lockfile is a file, .github/workflows/actions.lock, that records the exact commit for each action and reusable workflow your workflows depend on, including their transitive dependencies. Your workflow can keep a readable reference such as a version tag, but the runner executes the commit recorded in the lockfile [1][2].",
+          "The problem it targets is simple. Tags and branches can move after you reviewed a workflow, so a later run can execute different code. If an action is compromised, a moved tag can change what your pipeline runs without any change to your repository [1].",
+          "GitHub announced the public preview on 14 October 2026. The changelog was edited the same day to say it is available on GitHub Enterprise Cloud (including data residency), Team and Free plans [1]. The preview is subject to change, and GitHub Enterprise Server is not supported [2]."
+        ],
+        "showInlineMetaAndImg": true
+      },
+      {
+        "heading": "How workflow dependency locking works",
+        "paragraphs": [
+          "You install the gh actions-lock extension for the GitHub CLI. Running gh actions-lock scans the workflows in .github/workflows, pins each resolvable action to a commit SHA, and writes the lockfile for you to review and commit [1][2].",
+          "Adoption is per workflow. Once a workflow is onboarded, every dependency must have a lockfile entry, and GitHub Actions runs the recorded commit even if the tag or branch has since moved [1].",
+          "The tool also checks pins rather than trusting them. According to its README, each locked pin is re-checked at job start: the repository was not renamed or transferred, the pinned commit still exists, and it is still in the history of the tag or branch recorded. A failed check blocks the run. This is aimed at impostor-commit attacks, where a commit from a fork is made to look like upstream code [2].",
+          "One limit to know about: workflows that use local-path actions (uses: ./something) cannot be onboarded yet, and GitHub calls this a short-term gap. The tool converts same-repository references to a $/ form on fix runs, so check its README for the current behaviour [2]."
+        ]
+      },
+      {
+        "heading": "What a lockfile does not protect you from",
+        "paragraphs": [
+          "GitHub is explicit that locking does not decide whether a dependency is safe. It fixes which commit runs, so you need to review a dependency before you lock it [1].",
+          "Our reading, not GitHub's wording: a lockfile turns a silent change into a visible one. If a maintainer's tag is hijacked tomorrow, your runs keep using the commit you reviewed. But if the commit you locked was already malicious, locking preserves it. That is why GitHub's guidance says a lockfile is only a security control if someone reads the diff, and suggests adding actions.lock to CODEOWNERS and requiring a code-owner review [3].",
+          "Related note: on 20 October GitHub also put a package firewall into public preview for GitHub Enterprise Cloud. It sits between runners or coding agents and the npm registry and can apply cooldown periods and advisory checks. It covers npm packages only today, and it is a separate control from lockfiles [4]."
+        ]
+      },
+      {
+        "heading": "How to adopt it safely (a practical order)",
+        "paragraphs": [
+          "1. Install the extension with gh extension install github/gh-actions-lock, run gh actions-lock in a non-critical repository, and read the generated diff before committing [2].",
+          "2. Add a pull-request check that runs gh actions-lock --verify, which exits with an error if the lockfile is stale. GitHub's docs describe this as a good required check. For a faster local check, gh actions-lock --verify-local --no-fix works offline in a pre-commit hook, but it only confirms every dependency has an entry, not that the pins are trustworthy [2][3].",
+          "3. Keep Dependabot managing your actions. When it bumps an action in an onboarded workflow, it regenerates the matching lockfile entry in the same pull request. It will not onboard a workflow that has no entries yet [1][3].",
+          "4. Add .github/workflows/actions.lock to CODEOWNERS and require code-owner approval, so a changed SHA is reviewed by the people responsible for build security [3].",
+          "5. Only then consider the Require lockfile policy, which blocks runs of targeted workflows that are not onboarded. GitHub's docs say to pilot it first: scope it to repositories already onboarded and start in Evaluate mode, which is available on GitHub Enterprise. Do not use Active mode until you can keep lockfiles current [3]."
+        ]
+      },
+      {
+        "heading": "Is it worth it for a small SaaS team?",
+        "paragraphs": [
+          "Prediction, not fact: for a small team the cost is low and the failure mode is annoying rather than dangerous. You run one command, review one extra file in pull requests, and a stale lockfile is flagged by a check. The benefit is that your deploy pipeline, which usually holds cloud and hosting credentials, stops depending on tags that other people control.",
+          "If you ship customer-facing software, treat CI as part of the product's attack surface. Pinning actions, scoping tokens, and reviewing workflow changes are cheap controls compared with the cost of leaked deployment keys. Because the feature is a public preview, expect flags and behaviour to change, and try it first on a repository where a broken build is acceptable."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "What is a GitHub Actions lockfile?",
+        "a": "It is the file .github/workflows/actions.lock. It records the exact commit for each action and reusable workflow a workflow depends on, including transitive dependencies, so runs use those commits even if a tag or branch moves."
+      },
+      {
+        "q": "Who can use GitHub Actions workflow lockfiles?",
+        "a": "GitHub says the public preview covers GitHub Enterprise Cloud, Enterprise Cloud with data residency, Team and Free plans. GitHub Enterprise Server is not supported, and the feature may change."
+      },
+      {
+        "q": "How do I create the lockfile?",
+        "a": "Install the GitHub CLI extension with gh extension install github/gh-actions-lock, then run gh actions-lock in your repository, review the generated changes and commit them."
+      },
+      {
+        "q": "Does locking make an action safe?",
+        "a": "No. GitHub states that locking does not determine whether a dependency is safe. Review an action before you lock it, and review lockfile changes in pull requests."
+      },
+      {
+        "q": "How do I keep the lockfile up to date?",
+        "a": "Use Dependabot for action updates, which regenerates the lockfile entry in the same pull request, and add a CI step running gh actions-lock --verify to catch stale files."
+      }
+    ],
+    "conclusionHeading": "The short version",
+    "conclusionParagraphs": [
+      "A GitHub Actions lockfile pins what your CI runs to commits you reviewed. It does not judge those commits, so pair it with review of the lockfile diff. Start with one repository, add the verify check, and widen from there.",
+      "If your pipeline deploys a product you depend on, our [SaaS infrastructure cost](/blog/saas-infrastructure-cost) guide covers the wider running costs, and the [services](/services) page explains how we scope SaaS builds."
+    ]
+  },
 }
 
 const articleReferences: Record<string, { title: string; url: string }[]> = {
@@ -1305,6 +1394,12 @@ const articleReferences: Record<string, { title: string; url: string }[]> = {
     { title: "Vercel docs: Optimize Deployment Storage", url: "https://vercel.com/docs/deployment-storage/optimize" },
     { title: "The New Stack: Why Vercel tightened its free-tier rules", url: "https://thenewstack.io/vercel-hobby-deployment-retention/" },
   ],
+  "github-actions-lockfile": [
+    { title: "GitHub changelog: GitHub Actions workflow lockfiles in public preview (14 Oct 2026)", url: "https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview" },
+    { title: "github/gh-actions-lock: README (GitHub, accessed 21 Oct 2026)", url: "https://github.com/github/gh-actions-lock" },
+    { title: "GitHub Docs: Enforcing lockfiles for action dependencies", url: "https://docs.github.com/en/actions/how-tos/administer/enforce-workflow-lockfiles" },
+    { title: "GitHub changelog: GitHub package firewall in public preview (20 Oct 2026)", url: "https://github.blog/changelog/2026-10-20-github-package-firewall-in-public-preview/" },
+  ],
 }
 
 const relatedArticleIds: Record<string, string[]> = {
@@ -1320,6 +1415,7 @@ const relatedArticleIds: Record<string, string[]> = {
   "nextjs-react-security-update-october-2026": ["is-mern-still-worth-it-2026", "saas-infrastructure-cost", "custom-saas-development-process"],
   "pwnescape-linux-kernel-vm-escape": ["custom-saas-development-process", "saas-infrastructure-cost", "nextjs-react-security-update-october-2026"],
   "vercel-deployment-retention-october-23": ["saas-infrastructure-cost", "custom-saas-development-process", "saas-development-cost"],
+  "github-actions-lockfile": ["saas-infrastructure-cost", "nextjs-react-security-update-october-2026", "custom-saas-development-process"],
 }
 
 export default function BlogDetailPage() {
