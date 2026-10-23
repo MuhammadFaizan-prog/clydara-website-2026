@@ -7,9 +7,9 @@ const known = new Set(manifest.pages.map(page => page.path))
 const titles = new Set()
 const descriptions = new Set()
 
-test('RSS discovers all thirteen guides using canonical permanent identifiers', async () => {
+test('RSS discovers all fourteen guides using canonical permanent identifiers', async () => {
   const rss = await readFile('dist/feed.xml', 'utf8')
-  assert.equal((rss.match(/<item>/g) || []).length, 13)
+  assert.equal((rss.match(/<item>/g) || []).length, 14)
   assert.ok(rss.includes('rel="self" type="application/rss+xml"'))
   assert.ok(!rss.includes('<pubDate>'), 'Do not invent publication dates')
   for (const page of manifest.pages.filter(page => page.path.startsWith('/blog/'))) {
