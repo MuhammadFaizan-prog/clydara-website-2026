@@ -123,6 +123,15 @@ export const blogPosts = [
     date: '21 Oct 2026',
     author: 'Clydara',
   },
+  {
+    id: "go-x509-no-valid-chains-built",
+    title: "x509: No Valid Chains Built After Go 1.27.3: What to Do",
+    excerpt: "Go's 20 October emergency release blocks eight intermediate CA keys. Here is why a rebuilt Go service can now fail TLS, and how to diagnose it",
+    readTime: '6 Min Read',
+    image: '/images/blog/go-x509-no-valid-chains-built-card.webp',
+    date: '23 Oct 2026',
+    author: 'Clydara',
+  },
 ]
 
 export default function BlogPage() {
