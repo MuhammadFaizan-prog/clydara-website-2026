@@ -1307,6 +1307,94 @@ const articlesData: Record<string, ArticleData> = {
       "If your pipeline deploys a product you depend on, our [SaaS infrastructure cost](/blog/saas-infrastructure-cost) guide covers the wider running costs, and the [services](/services) page explains how we scope SaaS builds."
     ]
   },
+  "go-x509-no-valid-chains-built": {
+    "heroRow1": {
+      "prefix": "x509: No Valid Chains",
+      "pill": "/images/blog/guide-pill-1.webp",
+      "accent": "Built After"
+    },
+    "heroRow2": {
+      "pill": "/images/blog/guide-pill-2.webp",
+      "suffix": "Go 1.27.3: What to Do"
+    },
+    "subtitle": "On 20 October 2026 the Go team shipped Go 1.27.3 and Go 1.26.10, which make Go's certificate verifier reject chains through eight intermediate CA keys. A Go program built on these releases can now fail with x509: no valid chains built when a server's certificate chains through one of them. Here is what changed, how to confirm it, and what to do.",
+    "featuredImg": "/images/blog/go-x509-no-valid-chains-built-featured.webp",
+    "inlineImg": "/images/blog/go-x509-no-valid-chains-built-card.webp",
+    "tags": [
+      "Go, TLS certificates, Security updates"
+    ],
+    "sections": [
+      {
+        "heading": "Why does Go say x509: no valid chains built after the 1.27.3 update?",
+        "paragraphs": [
+          "Go 1.27.3 and 1.26.10, released on 20 October 2026, filter out any certificate chain that contains one of a small set of blocked intermediate certificate authority keys. If a server's chain passes through one, a program built with these releases fails the connection with x509: no valid chains built [1][2].",
+          "The Go team described it as blocking trust in intermediates because of \"specific security concerns around their operation\". It is tracked as CVE-2026-111943 and Go issue 82345, handled on the URGENT track [1].",
+          "Only programs rebuilt on the new releases are affected. A binary you built earlier keeps its old behaviour until you recompile it [2]."
+        ],
+        "showInlineMetaAndImg": true
+      },
+      {
+        "heading": "What exactly did Go block?",
+        "paragraphs": [
+          "The Go change lists SHA-256 hashes of eight public keys and does not name the certificate authority. The Hacker News reports that a commenter on the Go issue matched them to eMudhra emSign intermediates: six TLS intermediates under emSign Root TLS CA - G3 and two code-signing intermediates. The Hacker News said it had not independently checked those hashes [2].",
+          "Because the filter hashes each public key rather than the certificate, a cross-signed copy of a blocked key is caught too. It runs in Go's own verifier and in the macOS and Windows paths that hand verification to the operating system [2].",
+          "Fact versus open question: the Go team has not said what prompted the change, and eMudhra had published no public statement when The Hacker News checked on 20 October [2]."
+        ]
+      },
+      {
+        "heading": "How do I check whether my service is affected?",
+        "paragraphs": [
+          "1. Rebuild a staging copy with Go 1.27.3 or 1.26.10 and run your normal outbound TLS paths: payment, email, webhooks, internal services, and any partner API.",
+          "2. Search logs for x509: no valid chains built after the rebuild. The error means no acceptable chain could be built, so also check the server side.",
+          "3. Inspect the failing host's chain with openssl s_client -connect host:443 -showcerts, and note the issuer of each intermediate. If it names an emSign TLS intermediate, that is the likely cause. Treat this as a lead to confirm, not proof, since the Go team has not published the mapping.",
+          "4. Check whether your own private PKI or a vendor trusts one of the eight keys. The report says the filter appears to apply even when a program supplies its own trusted roots, though the Go team has not said whether that is intended [2]."
+        ]
+      },
+      {
+        "heading": "What are my options if a dependency's chain is blocked?",
+        "paragraphs": [
+          "The sources describe no setting to disable the filter, and no temporary workaround [2]. Go 1.25 and older are out of support and get no fix, so the only route is a supported release from the Go download page [2][3].",
+          "The realistic fix is on the certificate side: the operator of the failing server needs a certificate issued under a different intermediate. If that server is a vendor's, ask them. If you run it, reissue with another CA.",
+          "Some teams reverted a toolchain bump after seeing failures. Docker's secrets-engine repository has commits titled revert Go to 1.26.10, visible on the Go issue [1]. Reverting only postpones the problem and keeps the older behaviour, so use it as a short-term measure while certificates are replaced."
+        ]
+      },
+      {
+        "heading": "Should small SaaS teams rush this upgrade?",
+        "paragraphs": [
+          "Prediction, not fact: for most teams the safer order is to upgrade promptly and test outbound connections first, because the Go team said it \"highly recommend[s]\" upgrading immediately [1]. A failed TLS call in staging is cheaper than one in production.",
+          "Our reading, not Go's wording: the interesting lesson is that a toolchain patch can change which internet services your code trusts. Go's verifier does no revocation checking [4], so shipping the block in a release is how it removes trust. That puts \"pin your Go version and rebuild on a schedule\" next to dependency updates in the release checklist.",
+          "Another point from the reports: whether Chrome, Apple or Microsoft took similar action is not established [2]. Do not assume browsers and Go agree on the same list."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "What does x509: no valid chains built mean in Go?",
+        "a": "It means Go's certificate verifier could not build a chain it accepts from the server's certificate to a trusted root. After 20 October 2026 one cause is a chain through a blocked intermediate in Go 1.27.3 or 1.26.10."
+      },
+      {
+        "q": "Which Go versions contain the block?",
+        "a": "Go 1.27.3 and Go 1.26.10, released 20 October 2026, with the change also merged into the main branch for Go 1.28. Go 1.25 and older are out of support and received no fix."
+      },
+      {
+        "q": "Can I turn the CA block off in Go?",
+        "a": "The reporting says the change has no setting to disable it and lists no temporary workaround. The remedy is a certificate issued under a different intermediate."
+      },
+      {
+        "q": "Which certificate authority is affected?",
+        "a": "Go has not named it. The Hacker News reports a commenter matched the eight key hashes to eMudhra emSign intermediates, which The Hacker News had not independently verified."
+      },
+      {
+        "q": "Do I need to rebuild my Go programs?",
+        "a": "Existing binaries keep their old behaviour until rebuilt. Rebuild on a supported release to get the fix, then test outbound TLS connections before deploying."
+      }
+    ],
+    "conclusionHeading": "The short version",
+    "conclusionParagraphs": [
+      "Go 1.27.3 and 1.26.10 block eight intermediate CA keys, so a rebuilt program can fail with x509: no valid chains built if a server's chain uses one. Upgrade, test outbound connections in staging, and ask affected operators to reissue certificates.",
+      "For the wider picture of keeping a product's dependencies current, see our guide to the [Next.js and React security update](/blog/nextjs-react-security-update-october-2026), and our [services](/services) page for how we scope SaaS builds."
+    ]
+  },
 }
 
 const articleReferences: Record<string, { title: string; url: string }[]> = {
@@ -1400,6 +1488,12 @@ const articleReferences: Record<string, { title: string; url: string }[]> = {
     { title: "GitHub Docs: Enforcing lockfiles for action dependencies", url: "https://docs.github.com/en/actions/how-tos/administer/enforce-workflow-lockfiles" },
     { title: "GitHub changelog: GitHub package firewall in public preview (20 Oct 2026)", url: "https://github.blog/changelog/2026-10-20-github-package-firewall-in-public-preview/" },
   ],
+  "go-x509-no-valid-chains-built": [
+    { title: "golang/go issue 82345: crypto/x509 mitigation for security concerns with a specific CA (opened 19 Oct 2026)", url: "https://github.com/golang/go/issues/82345" },
+    { title: "The Hacker News: Go Issues Emergency Update Blocking Eight CA Keys (20 Oct 2026)", url: "https://thehackernews.com/2026/10/go-issues-emergency-update-blocking.html" },
+    { title: "Go downloads", url: "https://go.dev/dl/" },
+    { title: "Go package documentation: crypto/x509", url: "https://pkg.go.dev/crypto/x509" },
+  ],
 }
 
 const relatedArticleIds: Record<string, string[]> = {
@@ -1416,6 +1510,7 @@ const relatedArticleIds: Record<string, string[]> = {
   "pwnescape-linux-kernel-vm-escape": ["custom-saas-development-process", "saas-infrastructure-cost", "nextjs-react-security-update-october-2026"],
   "vercel-deployment-retention-october-23": ["saas-infrastructure-cost", "custom-saas-development-process", "saas-development-cost"],
   "github-actions-lockfile": ["saas-infrastructure-cost", "nextjs-react-security-update-october-2026", "custom-saas-development-process"],
+  "go-x509-no-valid-chains-built": ["nextjs-react-security-update-october-2026", "github-actions-lockfile", "saas-infrastructure-cost"],
 }
 
 export default function BlogDetailPage() {
