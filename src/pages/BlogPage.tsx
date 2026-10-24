@@ -132,6 +132,15 @@ export const blogPosts = [
     date: '23 Oct 2026',
     author: 'Clydara',
   },
+  {
+    id: "nodejs-brotli-vulnerability-fix",
+    title: "Node.js Brotli Vulnerability (CVE-2026-111497): Fix Guide",
+    excerpt: "Node.js patched a Brotli decoder flaw on 21 October 2026 that could allow remote code execution. Here is who is exposed and how to check",
+    readTime: '6 Min Read',
+    image: '/images/blog/nodejs-brotli-vulnerability-fix-card.webp',
+    date: '24 Oct 2026',
+    author: 'Clydara',
+  },
 ]
 
 export default function BlogPage() {
