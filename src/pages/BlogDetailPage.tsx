@@ -1395,6 +1395,92 @@ const articlesData: Record<string, ArticleData> = {
       "For the wider picture of keeping a product's dependencies current, see our guide to the [Next.js and React security update](/blog/nextjs-react-security-update-october-2026), and our [services](/services) page for how we scope SaaS builds."
     ]
   },
+  "nodejs-brotli-vulnerability-fix": {
+    "heroRow1": {
+      "prefix": "Node.js Brotli",
+      "pill": "/images/blog/guide-pill-1.webp",
+      "accent": "Vulnerability"
+    },
+    "heroRow2": {
+      "pill": "/images/blog/guide-pill-2.webp",
+      "suffix": "Fix Guide"
+    },
+    "subtitle": "On 21 October 2026 Node.js shipped 22.23.4, 24.22.1 and 26.12.1 to fix a Brotli decoder flaw (CVE-2026-111497) that the project says can allow remote code execution. Upgrading is the only fix. Here is who is actually exposed, how to check your version, and what the same release changes for TLS.",
+    "featuredImg": "/images/blog/nodejs-brotli-vulnerability-fix-featured.webp",
+    "inlineImg": "/images/blog/nodejs-brotli-vulnerability-fix-card.webp",
+    "tags": [
+      "Node.js, Security updates, Backend"
+    ],
+    "sections": [
+      {
+        "heading": "What is the Node.js Brotli vulnerability (CVE-2026-111497)?",
+        "paragraphs": [
+          "CVE-2026-111497 is an out-of-bounds write in the Brotli decoder bundled with Node.js. Malformed compressed input can corrupt process memory, which the Node.js project says can lead to a crash, memory disclosure or remote code execution. It is rated high and fixed in 22.23.4, 24.22.1 and 26.12.1 [1].",
+          "The cause is narrow: an invalid block switch was reported as a request for more input instead of a format error, so the streaming decoder kept appending bytes to an eight-byte internal buffer [1]."
+        ],
+        "showInlineMetaAndImg": true
+      },
+      {
+        "heading": "Is my app exposed to the Brotli flaw?",
+        "paragraphs": [
+          "You are exposed where your code decompresses Brotli data an attacker controls. That includes node:zlib calls on request bodies, and fetch() on a response from another server sent with Brotli compression [1][2].",
+          "Fact: the advisory affects the 22.x, 24.x and 26.x lines. Node.js 20.x and earlier are end of life and get no fix [1][2].",
+          "Fact: a public proof-of-concept on 22 October reached code execution only against a deliberately weakened test build. On a standard build its author reported a crash and limited memory read, and no exploitation in the wild had been reported as of 22 October [2]."
+        ]
+      },
+      {
+        "heading": "How do I check my Node.js version and upgrade?",
+        "paragraphs": [
+          "1. Run node --version on every server, CI image and container. Compare it with the fixed releases: 22.23.4, 24.22.1 or 26.12.1.",
+          "2. Look beyond servers. Container images and single-file binaries that bundle Node.js will not show up in a package inventory [2].",
+          "3. Upgrade within your line, rebuild images, and redeploy. Node.js 20.x and earlier should move to a supported line [1][2].",
+          "4. Search your code for zlib.brotliDecompress, createBrotliDecompress and fetch calls to third-party hosts to see which paths touch Brotli data."
+        ]
+      },
+      {
+        "heading": "What if I cannot upgrade Node.js today?",
+        "paragraphs": [
+          "The advisory offers no workaround inside Node.js, so there is no setting that turns the bug off [2]. Limiting untrusted Brotli traffic on affected paths helps where practical, but only the update removes the flaw [3].",
+          "Vercel said it added firewall rules on 21 October that block the attack in inbound requests. Those rules do not cover Brotli responses your app fetches from other servers, and do not replace upgrading [2]."
+        ]
+      },
+      {
+        "heading": "What else changed in the October 2026 Node.js security release?",
+        "paragraphs": [
+          "The same release fixes nine other issues, including three more rated high: a DNS resolve bug that truncates names at a NUL byte (CVE-2026-105482) and two TLS hostname-check bypasses for IPv4 hosts written in unusual forms (CVE-2026-105483, CVE-2026-106069) [1].",
+          "It also updates c-ares, OpenSSL, SQLite and undici, and, as The Hacker News reports, blocks eight eMudhra intermediate CA keys, the same block Go shipped on 20 October [2].",
+          "Our reading, not the project's: the TLS fixes matter more for services that connect to IP literals than for typical hostname-based SaaS traffic. Treat that as a prediction and check your own code paths."
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Which Node.js versions fix CVE-2026-111497?",
+        "a": "Node.js 22.23.4, 24.22.1 and 26.12.1, released on 21 October 2026. Node.js 20.x and earlier are end of life and receive no fix."
+      },
+      {
+        "q": "Is the Node.js Brotli vulnerability being exploited?",
+        "a": "As of 22 October 2026 no exploitation in the wild had been reported. A public proof-of-concept reached code execution only on a deliberately weakened build, according to The Hacker News."
+      },
+      {
+        "q": "Does fetch() in Node.js use the vulnerable Brotli decoder?",
+        "a": "Yes, per The Hacker News: Node.js runs the bundled decoder when code calls fetch() on a response sent with Brotli compression, as well as through node:zlib."
+      },
+      {
+        "q": "Is there a workaround for the Node.js Brotli flaw?",
+        "a": "No. The advisory lists none inside Node.js. Upgrading is the fix; limiting untrusted Brotli traffic or a firewall rule only reduces exposure."
+      },
+      {
+        "q": "Do I need to upgrade Node.js if I only use it for builds?",
+        "a": "Lower urgency, since the flaw needs attacker-controlled Brotli input. Still upgrade CI images when convenient, because the release also fixes other high-severity issues."
+      }
+    ],
+    "conclusionHeading": "The short version",
+    "conclusionParagraphs": [
+      "Upgrade to Node.js 22.23.4, 24.22.1 or 26.12.1, rebuild any image that bundles Node, and prioritise services that decompress Brotli from untrusted sources. No workaround exists.",
+      "For the wider picture of patching a product's dependencies, see our guide to the [Next.js and React security update](/blog/nextjs-react-security-update-october-2026), and our [services](/services) page for how we scope SaaS builds."
+    ]
+  },
 }
 
 const articleReferences: Record<string, { title: string; url: string }[]> = {
@@ -1494,6 +1580,11 @@ const articleReferences: Record<string, { title: string; url: string }[]> = {
     { title: "Go downloads", url: "https://go.dev/dl/" },
     { title: "Go package documentation: crypto/x509", url: "https://pkg.go.dev/crypto/x509" },
   ],
+  "nodejs-brotli-vulnerability-fix": [
+    { title: "Node.js: Wednesday, October 21, 2026 Security Releases", url: "https://nodejs.org/en/blog/vulnerability/october-2026-security-releases" },
+    { title: "The Hacker News: Node.js Brotli Decoder Bug Could Allow Remote Code Execution (22 Oct 2026)", url: "https://thehackernews.com/2026/10/nodejs-brotli-decoder-bug-could-allow.html" },
+    { title: "The Hacker News: Researchers Demonstrate Node2Shell RCE Exploit (23 Oct 2026)", url: "https://thehackernews.com/2026/10/researchers-demonstrate-node2shell-rce.html" },
+  ],
 }
 
 const relatedArticleIds: Record<string, string[]> = {
@@ -1511,6 +1602,7 @@ const relatedArticleIds: Record<string, string[]> = {
   "vercel-deployment-retention-october-23": ["saas-infrastructure-cost", "custom-saas-development-process", "saas-development-cost"],
   "github-actions-lockfile": ["saas-infrastructure-cost", "nextjs-react-security-update-october-2026", "custom-saas-development-process"],
   "go-x509-no-valid-chains-built": ["nextjs-react-security-update-october-2026", "github-actions-lockfile", "saas-infrastructure-cost"],
+  "nodejs-brotli-vulnerability-fix": ["nextjs-react-security-update-october-2026", "github-actions-lockfile", "go-x509-no-valid-chains-built"],
 }
 
 export default function BlogDetailPage() {
